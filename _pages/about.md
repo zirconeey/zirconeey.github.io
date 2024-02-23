@@ -38,14 +38,16 @@ Welcome to Zirconeey's Homepage!
 
 # 📒 Useful Course Notes
 
-* [Advanced Econometrics](https://disk.pku.edu.cn/link/AADEB585D469104658AA1A2372A80BF982)
-* [Advanced Econometrics](https://disk.pku.edu.cn/link/AADEB585D469104658AA1A2372A80BF982)
-* [Advanced Econometrics](https://disk.pku.edu.cn/link/AADEB585D469104658AA1A2372A80BF982)
-* [Advanced Econometrics](https://disk.pku.edu.cn/link/AADEB585D469104658AA1A2372A80BF982)
-* [Advanced Econometrics](https://disk.pku.edu.cn/link/AADEB585D469104658AA1A2372A80BF982)
-* [Advanced Econometrics](https://disk.pku.edu.cn/link/AADEB585D469104658AA1A2372A80BF982)
-* [Advanced Econometrics](https://disk.pku.edu.cn/link/AADEB585D469104658AA1A2372A80BF982)
-* [Advanced Econometrics](https://disk.pku.edu.cn/link/AADEB585D469104658AA1A2372A80BF982)
+* [高级微观经济学 Advanced Microeconomics]()
+* [高级计量经济学 Advanced Econometrics](https://disk.pku.edu.cn/link/AA0241615B28E94CA9AA94B99C4339613F)
+* [中级计量经济学 Intermediate Econometrics](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
+* [公共经济学 Public Economics](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
+* 货币经济学 Monetary Economics
+  * [听课笔记 Lecture Notes](https://disk.pku.edu.cn/link/AA8F8C4E6870194FD889AFCDB0CE177425)
+  * [作业整理 Homework](https://disk.pku.edu.cn/link/AA54DE0D4EE0124896B8F14BAE23052134)
+* [运筹学 Operations Research](https://disk.pku.edu.cn/link/AA1C7D810B1D794807BDCBE5E98E002201)
+* 马克思主义基本原理概论 Introduction to Marxist Theory
+  * [备考资料 ]()
 
 # 锆铌
 
