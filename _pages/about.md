@@ -48,6 +48,8 @@ Welcome to Zirconeey's Homepage!
 * [运筹学 Operations Research](https://disk.pku.edu.cn/link/AA1C7D810B1D794807BDCBE5E98E002201)
 * 马克思主义基本原理概论 Introduction to Marxist Theory
   * [备考资料 ]()
+* 人类生存发展与核科学
+  * 往年题整理[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
 
 # 🖊️ Articles
 
