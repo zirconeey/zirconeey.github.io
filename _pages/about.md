@@ -22,7 +22,7 @@ Welcome to Zirconeey's Homepage!
 # 📖 Education
 - *2021.09 Till Now*, Guanghua School of Management, Peking University.
   - Major: Financial Economics.
-  - GPA: 3.841/4.000 (15%) 👉 See Transcript[🔗]()
+  - GPA: 3.841/4.000 (15%) 👉 See Transcript[🔗](https://disk.pku.edu.cn/link/AAF93C9C1CFDDC4F4098FF427943166804)
 - *2024.01-2024.05*, Ross School of Business, University of Michigan.
 
 
