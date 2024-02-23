@@ -35,6 +35,7 @@ Welcome to Zirconeey's Homepage!
 * Third Class Scholarship of Peking University. 2022, Peking University.
 * Third Class Freshman Scholarship of Peking University. 2021, Peking University.
 
+<span class='anchor' id='notes'></span>
 
 # 📒 Notes
 
@@ -53,6 +54,8 @@ Welcome to Zirconeey's Homepage!
 * 人类生存发展与核科学
   * 往年题整理🔗[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
   * 2023年春期末考题回忆版🔗[🔗](https://disk.pku.edu.cn/link/AA38F33C9D01FE49DE82EE063BA1851275)
+
+<span class='anchor' id='articles'></span>
 
 # 🖊️ Articles
 
