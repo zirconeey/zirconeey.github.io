@@ -41,7 +41,7 @@ Welcome to Zirconeey's Homepage!
 
 * 高级微观经济学 Advanced Microeconomics[🔗](https://disk.pku.edu.cn/link/AA8C0A2F7852E44560A7C55ADD564457B8)
 * 高级计量经济学 Advanced Econometrics[🔗](https://disk.pku.edu.cn/link/AA0241615B28E94CA9AA94B99C4339613F)
-* 中级计量经济学 Intermediate Econometrics🔗[🔗](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
+* 中级计量经济学 Intermediate Econometrics[🔗](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
 * 公共经济学 Public Economics[🔗](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
 * 货币经济学 Monetary Economics
   * 听课笔记 Lecture Notes[🔗](https://disk.pku.edu.cn/link/AA8F8C4E6870194FD889AFCDB0CE177425)
@@ -52,8 +52,8 @@ Welcome to Zirconeey's Homepage!
 * 马克思主义基本原理概论 Introduction to Marxist Theory
   * 背诵资料[🔗]()
 * 人类生存发展与核科学
-  * 往年题整理🔗[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
-  * 2023年春期末考题回忆版🔗[🔗](https://disk.pku.edu.cn/link/AA38F33C9D01FE49DE82EE063BA1851275)
+  * 往年题整理[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
+  * 2023年春期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AA38F33C9D01FE49DE82EE063BA1851275)
 
 <span class='anchor' id='articles'></span>
 
