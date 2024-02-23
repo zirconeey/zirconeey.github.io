@@ -6,8 +6,8 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Rui Zhou"
-description              : "Zirconeey"
+title                    : "锆铌"
+description              : "锆，元素周期表第40号元素，化学符号为Zr，字面意思为“金色之光”。"
 repository               : "zirconeey/zirconeey.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -21,13 +21,13 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Rui Zhou"
+  name             : "锆铌"
   avatar           : "images/android-chrome-512x512.png"
-  bio              : "Peking University"
-  location         : "Beijing, China"
+  bio              : "北京大学"
+  location         : "Ann Arbor, Michigan, USA"
   employer         :
   pubmed           : 
-  googlescholar    : "https://scholar.google.com/citations?user=1Us2WCIAAAAJ&hl"
+  googlescholar    : # "https://scholar.google.com/citations?user=1Us2WCIAAAAJ&hl"
   email            : "zircon@stu.pku.edu.cn"
   researchgate     : 
   uri              :
@@ -37,7 +37,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : zirconeey
+  github           : # zirconeey
   google_plus      :
   keybase          :
   instagram        :
