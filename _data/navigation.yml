@@ -4,8 +4,8 @@ main:
     url: "/#about-me"
 
   - title: "Notes"
-    url: "/#-notes"
+    url: "/#notes"
   
   - title: "Articles"
-    url: "/#-articles"
+    url: "/#articles"
 
