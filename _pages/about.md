@@ -47,9 +47,10 @@ Welcome to Zirconeey's Homepage!
   * [作业整理 Homework](https://disk.pku.edu.cn/link/AA54DE0D4EE0124896B8F14BAE23052134)
 * [运筹学 Operations Research](https://disk.pku.edu.cn/link/AA1C7D810B1D794807BDCBE5E98E002201)
 * 马克思主义基本原理概论 Introduction to Marxist Theory
-  * [备考资料 ]()
+  * [背诵资料]()
 * 人类生存发展与核科学
   * 往年题整理[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
+  * 2023年春期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AA38F33C9D01FE49DE82EE063BA1851275)
 
 # 🖊️ Articles
 
