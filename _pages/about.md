@@ -40,6 +40,7 @@ redirect_from:
 * 中级微观经济学 Intermediate Microeconomics[🔗](https://disk.pku.edu.cn/link/AAF8F26F093AD14CC598B946B0BAC378F3)
 * 高级计量经济学 Advanced Econometrics[🔗](https://disk.pku.edu.cn/link/AA0241615B28E94CA9AA94B99C4339613F)
 * 中级计量经济学 Intermediate Econometrics[🔗](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
+* 中级宏观经济学 Intermediate Macroeconomics[🔗](https://disk.pku.edu.cn/link/AAAB2FB640DD4F4DBD8D390EAF28318F89)
 * 公共经济学 Public Economics[🔗](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
 * 货币经济学 Monetary Economics
   * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA8F8C4E6870194FD889AFCDB0CE177425)
@@ -47,6 +48,25 @@ redirect_from:
 * 策略与博弈 Game Theory
   * 期中笔记[🔗](https://disk.pku.edu.cn/link/AA1C29DED4AEB14D42AF8E851BB94F10A3)
 * 运筹学 Operations Research[🔗](https://disk.pku.edu.cn/link/AA1C7D810B1D794807BDCBE5E98E002201)
+* 会计学 Accounting[🔗](https://disk.pku.edu.cn/link/AACC141F3700444FDD83089307BA4F734F)
+* 数学科学的Python基础
+  * Python基础[🔗](https://disk.pku.edu.cn/link/AA40B1BCA502B94B1CB5848718E7D6FCD6)
+  * 面向对象[🔗](https://disk.pku.edu.cn/link/AA5965A81447794D6CBCC0317940A722A4)
+  * 数据处理[🔗](https://disk.pku.edu.cn/link/AA2E297413795B4215A5AB5AE179EBC492)
+  * 回归分析[🔗](https://disk.pku.edu.cn/link/AA46E6E88BE12F4F408EEF5B3EAC2D534A)
+* 公司财务管理 Corporate Finance
+  * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA6E0F78F943D44D0D8FDEEA6A38DBBC89)
+  * 期末Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA29EAB6E95A36417DA6F65F3866056753)
+* 组织与管理 Organization and Management
+  * Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA6C7456E1E8AB4F84B71BB87C1A1EEDB7)
+* 心理统计I
+  * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA09C492E218DA4B878874E09E549DD497)
+  * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AAC71D8D9BDF9541069752717334C155F5)
+  * 期末Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA84451C2F291949B1ABCFD450A983818A)
+  * 作业总结[🔗](https://disk.pku.edu.cn/link/AA140B2B1EBA7F4B428C2EF5975FBADAD6)
+  * 代码总结[🔗](https://disk.pku.edu.cn/link/AA7B31DB46719D4BC886A6240E4C473DE7)
+* 心理统计II
+  * 代码/私货[🔗](https://disk.pku.edu.cn/link/AAF8376C538DDA46519996304AB7E0D60F)
 * 马克思主义基本原理概论
   * 背诵资料[🔗](https://disk.pku.edu.cn/link/AA14899C2B04A345CDA44C9BA5D736FC86)
   * 往年题重点[🔗](https://disk.pku.edu.cn/link/AA6C40F041FD5B43E2B06D2385BD5C77CF)
@@ -54,7 +74,7 @@ redirect_from:
 * 人类生存发展与核科学
   * 往年题整理[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
   * 2023年春期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AA38F33C9D01FE49DE82EE063BA1851275)
-* 会计学 Accounting[🔗](https://disk.pku.edu.cn/link/AACC141F3700444FDD83089307BA4F734F)
+* 
 
 <span class='anchor' id='articles'></span>
 
