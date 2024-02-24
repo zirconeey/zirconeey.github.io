@@ -161,6 +161,7 @@ redirect_from:
 
 
 
+[inattention.pdf](https://github.com/zirconeey/zirconeey.github.io/files/14392847/inattention.pdf)
 
 
 
