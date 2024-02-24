@@ -85,6 +85,8 @@ redirect_from:
 
 欢迎你关注我的个人公众号“锆铌”！这儿是部分精选文章～
 
+:+1:
+
 * 如果文字可以捕捉时光
   * 【20岁】自洽的安定，何以寻？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490916&idx=1&sn=2bd87f2dd2e8b255b19fc8169df6e967&chksm=c3166b67f461e271dd0162bef9f5fd4278669cc9fc74eefd09e26f14ad552f64f38eadd8a3d4#rd)
   * 【19岁】没有“标准答案”之后[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487146&idx=1&sn=8a2219ad6387c4ae2dd59ba7073914a8&chksm=c31678a9f461f1bfc268af52c1c1211186e714b1fe55a22186e9ff2606a1b4f85603b3e721bc#rd)
@@ -119,10 +121,4 @@ redirect_from:
   * 毛泽东思想与中国特色社会主义理论体系概论[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489446&idx=1&sn=390bc5019fca61b6ceec7297f7a344ca&chksm=c31661a5f461e8b30e6d5d1114a2b406b322a9746bb803890f3f814c0fb43b3e6e7c9bdb9f9d#rd)，授课教师：马克思主义学院 封世蓝 王久高 李洋，学期：2023年春
   * 计量经济学因果识别方法详解[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489189&idx=1&sn=67049712f9b997ee539f27619c79417d&chksm=c31660a6f461e9b00a6dc97cf554bcdba8f2b1da10e4477c476be55451e355b09b901c4d0832#rd)，授课教师：现代农学院 黄开兴，学期：2023年暑校
 
-![扫码_搜索联合传播样式-白色版](https://github.com/zirconeey/zirconeey.github.io/assets/152846661/71570238-2442-4a6d-adf6-a25c28a2349f)
-
-[inattention.pdf](https://github.com/zirconeey/zirconeey.github.io/files/14392847/inattention.pdf)
-
-
-
-
+![扫码_搜索联合传播样式-白色版](https://github.com/zirconeey/zirconeey.github.io/assets/152846661/71570238-2442-4a6d-adf6-a25c28a2349f){:height="50%" width="50%"}
