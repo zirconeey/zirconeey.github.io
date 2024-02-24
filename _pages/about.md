@@ -61,13 +61,13 @@ redirect_from:
   * Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA6C7456E1E8AB4F84B71BB87C1A1EEDB7)
 * 概率统计 Probabilisty Statistics
   * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA42C773897789489C968AAA1FCAB422D7)
-* 心理统计I
+* 心理统计I Psychological Statistics I
   * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA09C492E218DA4B878874E09E549DD497)
   * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AAC71D8D9BDF9541069752717334C155F5)
   * 期末Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA84451C2F291949B1ABCFD450A983818A)
   * 作业总结[🔗](https://disk.pku.edu.cn/link/AA140B2B1EBA7F4B428C2EF5975FBADAD6)
   * 代码总结[🔗](https://disk.pku.edu.cn/link/AA7B31DB46719D4BC886A6240E4C473DE7)
-* 心理统计II
+* 心理统计II Psychological Statistics II
   * 代码/私货[🔗](https://disk.pku.edu.cn/link/AAF8376C538DDA46519996304AB7E0D60F)
 * 马克思主义基本原理概论
   * 背诵资料[🔗](https://disk.pku.edu.cn/link/AA14899C2B04A345CDA44C9BA5D736FC86)
@@ -76,6 +76,8 @@ redirect_from:
 * 人类生存发展与核科学
   * 往年题整理[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
   * 2023年春期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AA38F33C9D01FE49DE82EE063BA1851275)
+
+注：Notes均为原创独创内容；不在公开平台发布直接涉及版权©️的内容，不独自发布与他人合作的笔记。
 
 <span class='anchor' id='articles'></span>
 
