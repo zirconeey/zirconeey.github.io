@@ -98,7 +98,7 @@ redirect_from:
   * 随拿随用的markdown/LaTeX数学快捷键[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490279&idx=1&sn=fc5983e217ade7ea655743c498cfa7bc&chksm=c3166ce4f461e5f2970733c7fbadd1c47271259e70195f4031c91e3e8c079656016021796427#rd)
   * 听说你还在手敲统计结果到表格？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489216&idx=1&sn=a83b41bb1b757991a86db8aedb3e3f40&chksm=c31660c3f461e9d5601632951a445bea1cd0e46544d1e30bf60da58a3098f833f1c65401c8f0#rd)
   * 这是全网最细的教你在iPhone/iPad配置VPN的教程了[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489764&idx=1&sn=4f204e628e260026500f9af639d3e836&chksm=c3166ee7f461e7f1e053b4d0b5ee1d1195026a6ef9107605971582e404329e9114c74bc238ad#rd)
-  * 你有很多邮箱？但听说你还不会整合？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489645&idx=1&sn=8a378c4b8e8ad7676c2c6ed03aef1f16&chksm=c3166e6ef461e778800075daf4af08865d0df087163c2b9e3782624202142bf79b2ab9645019#rd)
+  * 听说你还不会整合你的一众邮箱？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489645&idx=1&sn=8a378c4b8e8ad7676c2c6ed03aef1f16&chksm=c3166e6ef461e778800075daf4af08865d0df087163c2b9e3782624202142bf79b2ab9645019#rd)
 * 课程测评用心帖
   * 宏观经济学[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487453&idx=1&sn=8a3e34f01f6c7819574ce8631a668e1b&chksm=c31679def461f0c82448864802db9560ee6e9c30741a4c1d4e33cf28a9b43e56ecd4c5d2b6a0#rd)，授课教师：光华管理学院 颜色，学期：2022年秋
   * 行为经济学[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487467&idx=1&sn=d1e7b3f76a10087c61c65426894d747d&chksm=c31679e8f461f0fe4551298ecfdda10dbaaca04f52437d7cfc298b6e3b7809cac90535d69117#rd)，授课教师：光华管理学院 孟涓涓，学期：2022年秋
@@ -116,50 +116,10 @@ redirect_from:
   * 太极拳[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489181&idx=1&sn=9b06635b262071f02c1b394a0007b1c6&chksm=c316609ef461e9886163bfb943b2bcdee26af3e6f5ed938b6bbaecbd1b5c3f0015903c337bd4#rd)，授课教师：体育教研部 吴昊，学期：2023年暑校
   * 英语创意表达-TED演讲视听说[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487253&idx=1&sn=e05e22fd9b72bbaef9b3592d81203089&chksm=c3167916f461f00086a690264fc8850f9c2dac01f1283cc35a03061c5bbd2ad709c736e68bdb#rd)，授课教师：外语学院 李莉春，学期：2022年秋
   * 学术英语听说[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247488929&idx=1&sn=42864557354b112004747ff12fb5e91b&chksm=c31663a2f461eab45a86f3db0d8049e0e7246a567f4a9a10572ce6e70f449551d0853037f6ff#rd)，授课教师：外语学院 刘红中，学期：2023年春
-  * 毛泽东思想与中国特色社会主义理论体系概论[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489446&idx=1&sn=390bc5019fca61b6ceec7297f7a344ca&chksm=c31661a5f461e8b30e6d5d1114a2b406b322a9746bb803890f3f814c0fb43b3e6e7c9bdb9f9d#rd)，授课教师：马克思主义学院 封世蓝，王久高，李洋，学期：2023年春
+  * 毛泽东思想与中国特色社会主义理论体系概论[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489446&idx=1&sn=390bc5019fca61b6ceec7297f7a344ca&chksm=c31661a5f461e8b30e6d5d1114a2b406b322a9746bb803890f3f814c0fb43b3e6e7c9bdb9f9d#rd)，授课教师：马克思主义学院 封世蓝 王久高 李洋，学期：2023年春
   * 计量经济学因果识别方法详解[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489189&idx=1&sn=67049712f9b997ee539f27619c79417d&chksm=c31660a6f461e9b00a6dc97cf554bcdba8f2b1da10e4477c476be55451e355b09b901c4d0832#rd)，授课教师：现代农学院 黄开兴，学期：2023年暑校
 
 ![扫码_搜索联合传播样式-白色版](https://github.com/zirconeey/zirconeey.github.io/assets/152846661/71570238-2442-4a6d-adf6-a25c28a2349f)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 [inattention.pdf](https://github.com/zirconeey/zirconeey.github.io/files/14392847/inattention.pdf)
 
