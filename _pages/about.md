@@ -59,6 +59,8 @@ redirect_from:
   * 期末Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA29EAB6E95A36417DA6F65F3866056753)
 * 组织与管理 Organization and Management
   * Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA6C7456E1E8AB4F84B71BB87C1A1EEDB7)
+* 概率统计 Probabilisty Statistics
+  * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA42C773897789489C968AAA1FCAB422D7)
 * 心理统计I
   * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA09C492E218DA4B878874E09E549DD497)
   * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AAC71D8D9BDF9541069752717334C155F5)
@@ -74,7 +76,6 @@ redirect_from:
 * 人类生存发展与核科学
   * 往年题整理[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
   * 2023年春期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AA38F33C9D01FE49DE82EE063BA1851275)
-* 
 
 <span class='anchor' id='articles'></span>
 
