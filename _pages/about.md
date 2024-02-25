@@ -39,8 +39,8 @@ redirect_from:
 * 高级微观经济学 Advanced Microeconomics[🔗](https://disk.pku.edu.cn/link/AA8C0A2F7852E44560A7C55ADD564457B8)
 * 中级微观经济学 Intermediate Microeconomics[🔗](https://disk.pku.edu.cn/link/AAF8F26F093AD14CC598B946B0BAC378F3)
 * 高级计量经济学 Advanced Econometrics[🔗](https://disk.pku.edu.cn/link/AA0241615B28E94CA9AA94B99C4339613F)
-* 中级计量经济学 Intermediate Econometrics[🔗](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
-* 中级宏观经济学 Intermediate Macroeconomics[🔗](https://disk.pku.edu.cn/link/AAAB2FB640DD4F4DBD8D390EAF28318F89)
+* 🔥中级计量经济学 Intermediate Econometrics[🔗](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
+* 🔥中级宏观经济学 Intermediate Macroeconomics[🔗](https://disk.pku.edu.cn/link/AAAB2FB640DD4F4DBD8D390EAF28318F89)
 * 公共经济学 Public Economics[🔗](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
 * 货币经济学 Monetary Economics
   * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA8F8C4E6870194FD889AFCDB0CE177425)
@@ -69,7 +69,7 @@ redirect_from:
   * 代码总结[🔗](https://disk.pku.edu.cn/link/AA7B31DB46719D4BC886A6240E4C473DE7)
 * 心理统计II Psychological Statistics II
   * 代码/私货[🔗](https://disk.pku.edu.cn/link/AAF8376C538DDA46519996304AB7E0D60F)
-* 马克思主义基本原理概论
+* 🔥马克思主义基本原理概论
   * 背诵资料[🔗](https://disk.pku.edu.cn/link/AA14899C2B04A345CDA44C9BA5D736FC86)
   * 往年题重点[🔗](https://disk.pku.edu.cn/link/AA6C40F041FD5B43E2B06D2385BD5C77CF)
   * 2023年秋期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AAB6D1DA85815A4CCD922331325EEEEEA2)
@@ -96,11 +96,11 @@ redirect_from:
   * 致2021届的我[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247484903&idx=1&sn=81bc0d7ec061b3054d9a2a4a2e16d308&chksm=c31673e4f461faf2b5c1483fd2ceff725bc64c98b10afcdaebca27d559c722882f55389df204#rd)
   * 致2018级的我[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247484903&idx=1&sn=81bc0d7ec061b3054d9a2a4a2e16d308&chksm=c31673e4f461faf2b5c1483fd2ceff725bc64c98b10afcdaebca27d559c722882f55389df204#rd)
 * 摸爬滚打经验帖
-  * PKU VPN失踪了！[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491143&idx=1&sn=d09cc521286619d72bf4474fb9d9b5d2&chksm=c3166844f461e1520e872e9f72e5130ff420722f24fb7380d9b001fafdbd639bc99205b7f393#rd)
+  * 🔥PKU VPN失踪了！[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491143&idx=1&sn=d09cc521286619d72bf4474fb9d9b5d2&chksm=c3166844f461e1520e872e9f72e5130ff420722f24fb7380d9b001fafdbd639bc99205b7f393#rd)
+  * 🔥这是全网最细的教你在iPhone/iPad配置VPN的教程了[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489764&idx=1&sn=4f204e628e260026500f9af639d3e836&chksm=c3166ee7f461e7f1e053b4d0b5ee1d1195026a6ef9107605971582e404329e9114c74bc238ad#rd)
+  * 🔥听说你还不会整合你的一众邮箱？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489645&idx=1&sn=8a378c4b8e8ad7676c2c6ed03aef1f16&chksm=c3166e6ef461e778800075daf4af08865d0df087163c2b9e3782624202142bf79b2ab9645019#rd)
   * 随拿随用的markdown/LaTeX数学快捷键[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490279&idx=1&sn=fc5983e217ade7ea655743c498cfa7bc&chksm=c3166ce4f461e5f2970733c7fbadd1c47271259e70195f4031c91e3e8c079656016021796427#rd)
   * 听说你还在手敲统计结果到表格？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489216&idx=1&sn=a83b41bb1b757991a86db8aedb3e3f40&chksm=c31660c3f461e9d5601632951a445bea1cd0e46544d1e30bf60da58a3098f833f1c65401c8f0#rd)
-  * 这是全网最细的教你在iPhone/iPad配置VPN的教程了[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489764&idx=1&sn=4f204e628e260026500f9af639d3e836&chksm=c3166ee7f461e7f1e053b4d0b5ee1d1195026a6ef9107605971582e404329e9114c74bc238ad#rd)
-  * 听说你还不会整合你的一众邮箱？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489645&idx=1&sn=8a378c4b8e8ad7676c2c6ed03aef1f16&chksm=c3166e6ef461e778800075daf4af08865d0df087163c2b9e3782624202142bf79b2ab9645019#rd)
 * 课程测评用心帖
   * 宏观经济学[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487453&idx=1&sn=8a3e34f01f6c7819574ce8631a668e1b&chksm=c31679def461f0c82448864802db9560ee6e9c30741a4c1d4e33cf28a9b43e56ecd4c5d2b6a0#rd)，授课教师：光华管理学院 颜色，学期：2022年秋
   * 行为经济学[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487467&idx=1&sn=d1e7b3f76a10087c61c65426894d747d&chksm=c31679e8f461f0fe4551298ecfdda10dbaaca04f52437d7cfc298b6e3b7809cac90535d69117#rd)，授课教师：光华管理学院 孟涓涓，学期：2022年秋
