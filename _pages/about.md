@@ -29,7 +29,7 @@ redirect_from:
 
 # 📖 Education
 - *2021.09 至今*, 北京大学光华管理学院
-  - 专业：金融经济学
+  - 专业：金融学（金融经济方向）
   - 双学位：心理学
 - *2024.01 - 2024.05*, University of Michigan, Ross School of Business
 
