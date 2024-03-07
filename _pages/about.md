@@ -51,11 +51,11 @@ redirect_from:
 
 </div>
 </div>
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">2024.03.05</div><img src='https://github.com/zirconeey/zirconeey.github.io/assets/152846661/fdd78605-96e1-4fad-9160-12e650019565' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">2023.12.19</div><img src='https://github.com/zirconeey/zirconeey.github.io/assets/152846661/fdd78605-96e1-4fad-9160-12e650019565' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 自洽的安定，何以寻？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490916&idx=1&sn=2bd87f2dd2e8b255b19fc8169df6e967&chksm=c3166b67f461e271dd0162bef9f5fd4278669cc9fc74eefd09e26f14ad552f64f38eadd8a3d4#rd)
 
-</div>
+
 </div>
 
 # 📒 Notes
