@@ -35,6 +35,15 @@ redirect_from:
 
 <span class='anchor' id='notes'></span>
 
+# 💡 Updates
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='assets/152846661/6396ca6f-3c37-4fca-bce2-7754460ccb28' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+  
+![image](https://github.com/zirconeey/zirconeey.github.io/assets/152846661/6396ca6f-3c37-4fca-bce2-7754460ccb28)
+
+* 🔥一文省你16小时——速通北京大学“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491553&idx=1&sn=750a1d84e9e97209ccd8ccfe8592db08&chksm=c31669e2f461e0f46d4633755296ebd619da043e9373a8684ed29b53f3b4de27c52cdc0e8804#rd)
+
 # 📒 Notes
 
 * 🔥高级微观经济学 Advanced Microeconomics[🔗](https://disk.pku.edu.cn/link/AA8C0A2F7852E44560A7C55ADD564457B8)
@@ -85,8 +94,6 @@ redirect_from:
 # 🖊️ Articles
 
 欢迎你关注我的个人公众号“锆铌”！这儿是部分精选文章～
-
-:+1:
 
 * 如果文字可以捕捉时光
   * 【20岁】自洽的安定，何以寻？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490916&idx=1&sn=2bd87f2dd2e8b255b19fc8169df6e967&chksm=c3166b67f461e271dd0162bef9f5fd4278669cc9fc74eefd09e26f14ad552f64f38eadd8a3d4#rd)
