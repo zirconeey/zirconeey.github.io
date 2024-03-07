@@ -37,12 +37,10 @@ redirect_from:
 
 # 💡 Updates
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='assets/152846661/6396ca6f-3c37-4fca-bce2-7754460ccb28' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/20240306.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
-  
-![image](https://github.com/zirconeey/zirconeey.github.io/assets/152846661/6396ca6f-3c37-4fca-bce2-7754460ccb28)
 
-* 🔥一文省你16小时——速通北京大学“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491553&idx=1&sn=750a1d84e9e97209ccd8ccfe8592db08&chksm=c31669e2f461e0f46d4633755296ebd619da043e9373a8684ed29b53f3b4de27c52cdc0e8804#rd)
+一文省你16小时——速通北京大学“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491553&idx=1&sn=750a1d84e9e97209ccd8ccfe8592db08&chksm=c31669e2f461e0f46d4633755296ebd619da043e9373a8684ed29b53f3b4de27c52cdc0e8804#rd)
 
 # 📒 Notes
 
