@@ -42,7 +42,7 @@ redirect_from:
 
 一文省你16小时——速通北京大学“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491553&idx=1&sn=750a1d84e9e97209ccd8ccfe8592db08&chksm=c31669e2f461e0f46d4633755296ebd619da043e9373a8684ed29b53f3b4de27c52cdc0e8804#rd)
 </div>
-
+</div>
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">2024.03.05</div><img src='https://github.com/zirconeey/zirconeey.github.io/assets/152846661/8704902c-5581-40d2-b5d4-5b5a9e89ec4a' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
@@ -50,13 +50,13 @@ redirect_from:
 全网最详细的DIY纽约华盛顿四日游[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491540&idx=1&sn=ad2b07f3ecc6f11601b66ce199c13266&chksm=c31669d7f461e0c109510e0f60708f56b46cb143f92c57f51f36f3341a11320b41dab5603259#rd)
 
 </div>
-
+</div>
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">2024.03.05</div><img src='https://github.com/zirconeey/zirconeey.github.io/assets/152846661/fdd78605-96e1-4fad-9160-12e650019565' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 自洽的安定，何以寻？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490916&idx=1&sn=2bd87f2dd2e8b255b19fc8169df6e967&chksm=c3166b67f461e271dd0162bef9f5fd4278669cc9fc74eefd09e26f14ad552f64f38eadd8a3d4#rd)
 
 </div>
-
+</div>
 
 # 📒 Notes
 
