@@ -37,6 +37,14 @@ redirect_from:
 
 # 💡 Updates
 
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">2024.03.14</div><img src='images/20240314.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box-text' markdown="1">
+
+公共经济学 Public Economics[🔗](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
+</div>
+</div>
+
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">2024.03.06</div><img src='images/20240306.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
@@ -69,7 +77,7 @@ redirect_from:
 * 🔥高级计量经济学 Advanced Econometrics[🔗](https://disk.pku.edu.cn/link/AA0241615B28E94CA9AA94B99C4339613F)
 * 🔥中级计量经济学 Intermediate Econometrics[🔗](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
 * 🔥中级宏观经济学 Intermediate Macroeconomics[🔗](https://disk.pku.edu.cn/link/AAAB2FB640DD4F4DBD8D390EAF28318F89)
-* 公共经济学 Public Economics[🔗](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
+* 🔥公共经济学 Public Economics[🔗](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
 * 货币经济学 Monetary Economics
   * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA8F8C4E6870194FD889AFCDB0CE177425)
   * 作业整理[🔗](https://disk.pku.edu.cn/link/AA54DE0D4EE0124896B8F14BAE23052134)
