@@ -28,10 +28,10 @@ redirect_from:
 希望对你有帮助🌈！
 
 # 📖 Education
-- *2021.09 至今*, 北京大学光华管理学院
+- *2021.09 - 2025.07*, 北京大学光华管理学院
   - 专业：金融学（金融经济方向）
   - 双学位：心理学
-- *2024.01 - 2024.05*, University of Michigan, Ross School of Business
+- *2024.01 - 2024.05*, Ross School of Business, University of Michigan
 
 <span class='anchor' id='notes'></span>
 
@@ -48,17 +48,11 @@ redirect_from:
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">2024.03.06</div><img src='images/20240306.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
-一文省你16小时——速通北京大学“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491553&idx=1&sn=750a1d84e9e97209ccd8ccfe8592db08&chksm=c31669e2f461e0f46d4633755296ebd619da043e9373a8684ed29b53f3b4de27c52cdc0e8804#rd)
+* 一文省你16小时——速通北京大学“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491553&idx=1&sn=750a1d84e9e97209ccd8ccfe8592db08&chksm=c31669e2f461e0f46d4633755296ebd619da043e9373a8684ed29b53f3b4de27c52cdc0e8804#rd)
+* 省你16小时的最后一块拼图——用Mac速通北京大学线上“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491760&idx=1&sn=6b12969281ba3116802febf1aafb8e15&chksm=c31596b3f4621fa52fbe782c5bd51d3e7b047a87902a3ef1da173f229507bdd3a1b2c21184b8#rd)
 </div>
 </div>
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">2024.03.05</div><img src='https://github.com/zirconeey/zirconeey.github.io/assets/152846661/8704902c-5581-40d2-b5d4-5b5a9e89ec4a' alt="sym" width="100%"></div></div>
-<div class='paper-box-text' markdown="1">
-
-全网最详细的DIY纽约华盛顿四日游[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491540&idx=1&sn=ad2b07f3ecc6f11601b66ce199c13266&chksm=c31669d7f461e0c109510e0f60708f56b46cb143f92c57f51f36f3341a11320b41dab5603259#rd)
-
-</div>
-</div>
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">2023.12.19</div><img src='https://github.com/zirconeey/zirconeey.github.io/assets/152846661/fdd78605-96e1-4fad-9160-12e650019565' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 自洽的安定，何以寻？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490916&idx=1&sn=2bd87f2dd2e8b255b19fc8169df6e967&chksm=c3166b67f461e271dd0162bef9f5fd4278669cc9fc74eefd09e26f14ad552f64f38eadd8a3d4#rd)
@@ -67,6 +61,7 @@ redirect_from:
 </div>
   * 🔥PKU VPN失踪了！[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491143&idx=1&sn=d09cc521286619d72bf4474fb9d9b5d2&chksm=c3166844f461e1520e872e9f72e5130ff420722f24fb7380d9b001fafdbd639bc99205b7f393#rd)
   * 🔥一文省你16小时——速通北京大学“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491553&idx=1&sn=750a1d84e9e97209ccd8ccfe8592db08&chksm=c31669e2f461e0f46d4633755296ebd619da043e9373a8684ed29b53f3b4de27c52cdc0e8804#rd)
+  * 🔥省你16小时的最后一块拼图——用Mac速通北京大学线上“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491760&idx=1&sn=6b12969281ba3116802febf1aafb8e15&chksm=c31596b3f4621fa52fbe782c5bd51d3e7b047a87902a3ef1da173f229507bdd3a1b2c21184b8#rd)
   * 🔥这是全网最细的教你在iPhone/iPad配置VPN的教程了[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489764&idx=1&sn=4f204e628e260026500f9af639d3e836&chksm=c3166ee7f461e7f1e053b4d0b5ee1d1195026a6ef9107605971582e404329e9114c74bc238ad#rd)
   * 🔥听说你还不会整合你的一众邮箱？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489645&idx=1&sn=8a378c4b8e8ad7676c2c6ed03aef1f16&chksm=c3166e6ef461e778800075daf4af08865d0df087163c2b9e3782624202142bf79b2ab9645019#rd)
   
@@ -132,6 +127,7 @@ redirect_from:
 * 摸爬滚打经验帖
   * 🔥PKU VPN失踪了！[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491143&idx=1&sn=d09cc521286619d72bf4474fb9d9b5d2&chksm=c3166844f461e1520e872e9f72e5130ff420722f24fb7380d9b001fafdbd639bc99205b7f393#rd)
   * 🔥一文省你16小时——速通北京大学“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491553&idx=1&sn=750a1d84e9e97209ccd8ccfe8592db08&chksm=c31669e2f461e0f46d4633755296ebd619da043e9373a8684ed29b53f3b4de27c52cdc0e8804#rd)
+  * 🔥省你16小时的最后一块拼图——用Mac速通北京大学线上“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491760&idx=1&sn=6b12969281ba3116802febf1aafb8e15&chksm=c31596b3f4621fa52fbe782c5bd51d3e7b047a87902a3ef1da173f229507bdd3a1b2c21184b8#rd)
   * 🔥这是全网最细的教你在iPhone/iPad配置VPN的教程了[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489764&idx=1&sn=4f204e628e260026500f9af639d3e836&chksm=c3166ee7f461e7f1e053b4d0b5ee1d1195026a6ef9107605971582e404329e9114c74bc238ad#rd)
   * 🔥听说你还不会整合你的一众邮箱？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489645&idx=1&sn=8a378c4b8e8ad7676c2c6ed03aef1f16&chksm=c3166e6ef461e778800075daf4af08865d0df087163c2b9e3782624202142bf79b2ab9645019#rd)
   * 随拿随用的markdown/LaTeX数学快捷键[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490279&idx=1&sn=fc5983e217ade7ea655743c498cfa7bc&chksm=c3166ce4f461e5f2970733c7fbadd1c47271259e70195f4031c91e3e8c079656016021796427#rd)
