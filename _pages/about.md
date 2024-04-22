@@ -23,7 +23,25 @@ redirect_from:
   - Major: Financial Economics
   - Dual Degree: Psychology
   - GPA: 3.841/4.000 (11.4%) 👉 See Transcript[🔗](https://disk.pku.edu.cn/link/AAF93C9C1CFDDC4F4098FF427943166804)
+    * Graduate-Level Courses: Advanced Microeconomics (96), Advanced Econometrics (97), Real Analysis (96)
+    * Core Courses: Advanced Math (98), Intermediate Microeconomics (99), Intermediate Econometrics (96), Behavioral Economics (95), Game Theory (95)
+    * TA Experience: Behavioral Economics (Fall 2023, Professor: Juanjuan Meng)
 - *2024.01-2024.05*, Ross School of Business, University of Michigan, Ann Arbor, USA.
+
+<span class='anchor' id='research'></span>
+
+# 🧪 Research Experiences
+
+
+* _Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_, First Author, 31st Challenger Cup of Peking University, Special Prize.
+
+  Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
+* _Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_, First Author, 32nd Challenger Cup of Peking University.
+
+  Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
+* _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by Juanjuan Meng.
+
+  Handled data analysis and participated in the design of nudge.
 
 <span class='anchor' id='awards'></span>
 
