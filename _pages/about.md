@@ -22,7 +22,7 @@ redirect_from:
 - *2021.09 Till Now*, Guanghua School of Management, Peking University, Beijing, China.
   - Major: Financial Economics
   - Dual Degree: Psychology
-  - GPA: 3.841/4.000 (11.4%) 👉 See Transcript[🔗](https://disk.pku.edu.cn/link/AAF93C9C1CFDDC4F4098FF427943166804)
+  - GPA: 3.841/4.000 (11.4%) 👉 See Transcript[🔗](../linked_files/Transcript (2024.2).pdf)
     * Graduate-Level Courses: Advanced Microeconomics (96), Advanced Econometrics (97), Real Analysis (96)
     * Core Courses: Advanced Math (98), Intermediate Microeconomics (99), Intermediate Econometrics (96), Behavioral Economics (95), Game Theory (95)
     * TA Experience: Behavioral Economics (Fall 2023, Professor: Juanjuan Meng)
