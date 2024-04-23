@@ -22,11 +22,12 @@ redirect_from:
 
 # Background
 
-* Resume (Updated in April 2024). [🔗](../linked_files/Resume EN.pdf)
+* [Resume](../linked_files/Resume EN.pdf) (Updated in April 2024).
 * Email: zircon@stu.pku.edu.cn
 * Programming Languages: _R, Python, Stata_
   * Most skilled at R, familiar with Python and Stata.
-* English: _TOEFL 105_, Reading 29, Listening 26, Speaking 25, Writing 27. [🔗](../linked_files/TOEFL_.pdf)
+* English: [_TOEFL 105_](../linked_files/TOEFL_.pdf), Reading 29, Listening 26, Speaking 25, Writing 27.
+* [Weixin Official Account](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491485&idx=1&sn=c4fda51b662c9130550966d2eb22787e&chksm=c316699ef461e0887070e8ffcf1063606982dde436ac0c45437d1a35dd4552d443991dd4d635#rd): I have published hundreds of original articles on my personal Weixin Official Account and gained thousands of followers. The articles mainly include lecture notes, practical skills, and personal reflections.
 
 
 # 📖 Education
@@ -34,10 +35,10 @@ redirect_from:
 - *2021.09 Till Now*, [Guanghua School of Management](https://en.gsm.pku.edu.cn/), [Peking University](https://english.pku.edu.cn/), Beijing, China.
   - Major: Financial Economics
   - Dual Degree: Psychology
-  - GPA: 3.841/4.000 (11.4%) 👉 See Transcript[🔗](../linked_files/Transcript (2024.2).pdf)
+  - GPA: 3.841/4.000 (11.4%). Here is my [**transcript**](../linked_files/Transcript (2024.2).pdf).
     * Graduate-Level Courses: Advanced Microeconomics (96), Advanced Econometrics (97), Real Analysis (96)
     * Core Courses: Advanced Math (98), Intermediate Microeconomics (99), Intermediate Econometrics (96), Behavioral Economics (95), Game Theory (95)
-    * TA Experience: Behavioral Economics (Fall 2023, Professor: [Juanjuan Meng]())
+    * TA Experience: Behavioral Economics (Fall 2023, Professor: [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/))
 - *2024.01-2024.05*, [Ross School of Business](https://michiganross.umich.edu/), [University of Michigan](https://umich.edu/), Ann Arbor, USA.
 
 <span class='anchor' id='research'></span>
@@ -50,7 +51,7 @@ redirect_from:
 * [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/“功劳”还是“苦劳”？——团队间竞争对团队成员互评的影响.pdf), First Co-Author, 32nd Challenger Cup of Peking University.
 
   Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
-* _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by Juanjuan Meng.
+* _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/).
 
   Handled data analysis and participated in the design of nudge.
 
@@ -71,17 +72,12 @@ redirect_from:
 
 # 📒 Notes
 
-I have been actively engaged in courses that are crucial to my economics foundation. The followings are some of my lecture notes.
+I have been actively engaged in courses that are crucial to my economics foundation. The followings are my selected lecture notes.
 
-* Advanced Microeconomics[🔗](../linked_files/Advanced Microeconomics.pdf)
-* Intermediate Microeconomics[🔗](../linked_files/Transcript (2024.2).pdf)
-* Advanced Econometrics[🔗](../linked_files/Advanced Econometrics.pdf)
-* Intermediate Econometrics[🔗](../linked_files/Econometrics.pdf)
-* Public Economics[🔗](../linked_files/Transcript (2024.2).pdf)
-* Monetary Economics
-  * Lecture Notes[🔗](../linked_files/Transcript (2024.2).pdf)
-  * Homework Summary[🔗](../linked_files/Transcript (2024.2).pdf)
-* Game Theory
-  * Midterm Notes[🔗](../linked_files/Transcript (2024.2).pdf)
-* Operations Research[🔗](../linked_files/Transcript (2024.2).pdf)
+* [Advanced Microeconomics](../linked_files/Advanced Microeconomics.pdf)
+* [Intermediate Microeconomics](../linked_files/Transcript (2024.2).pdf)
+* [Advanced Econometrics](../linked_files/Advanced Econometrics.pdf)
+* [Intermediate Econometrics](../linked_files/Econometrics.pdf)
+* [Public Economics](../linked_files/Transcript (2024.2).pdf)
+* [Monetary Economics](../linked_files/Transcript (2024.2).pdf)
 
