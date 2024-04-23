@@ -49,7 +49,7 @@ redirect_from:
 * Completed: 
   * [_Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students_](../linked_files/等级赋分制对高考考生内卷程度的影响.pdf), First Co-Author, Guided by [Xi Weng](https://en.gsm.pku.edu.cn/faculty/wengxi125/), 31st Challenger Cup of Peking University, Special Prize.
   Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
-  * [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation.pdf), First Co-Author, Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/), 32nd Challenger Cup of Peking University.
+  * [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/“功劳”还是“苦劳”？——团队间竞争对团队成员互评的影响.pdf), First Co-Author, Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/), 32nd Challenger Cup of Peking University.
 
   Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
 * In progress:
