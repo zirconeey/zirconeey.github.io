@@ -34,10 +34,10 @@ Here is my resume. [🔗](../linked_files/Resume EN.pdf)
 
 # 🧪 Research Experiences
 
-* _Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_, First Co-Author, 31st Challenger Cup of Peking University, Special Prize.
+* _Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_, First Co-Author, 31st Challenger Cup of Peking University, Special Prize. [🔗](../linked_files/等级赋分制对高考考生内卷程度的影响.pdf)
 
   Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
-* _Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_, First Co-Author, 32nd Challenger Cup of Peking University.
+* _Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_, First Co-Author, 32nd Challenger Cup of Peking University. [🔗](../linked_files/“功劳”还是“苦劳”？——团队间竞争对团队成员互评的影响.pdf)
 
   Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
 * _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by Juanjuan Meng.
@@ -51,7 +51,7 @@ Here is my resume. [🔗](../linked_files/Resume EN.pdf)
 
 * Programming Languages: _R, Python, Stata_
   * Most skilled at R, familiar with Python and Stata.
-* English: _TOEFL 105_, Reading 29, Listening 26, Speaking 25, Writing 27
+* English: _TOEFL 105_, Reading 29, Listening 26, Speaking 25, Writing 27. [🔗](../linked_files/TOEFL_.pdf)
 
 <span class='anchor' id='awards'></span>
 
