@@ -23,7 +23,7 @@ redirect_from:
 # Background
 
 * [Resume](../linked_files/Rui Zhou.pdf) (Updated in April 2024).
-* Email: zircon@stu.pku.edu.cn
+* Email: <a href="mailto:zircon@stu.pku.edu.cn">zircon@stu.pku.edu.cn@gmail.com</a>
 * Programming Languages: _R, Python, Stata_
   * Most skilled at R, familiar with Python and Stata.
 * English: [_TOEFL 105_](../linked_files/TOEFL_230715.pdf), Reading 29, Listening 26, Speaking 25, Writing 27.
