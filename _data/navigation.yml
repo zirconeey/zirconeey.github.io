@@ -6,12 +6,13 @@ main:
   - title: "Education"
     url: "/#education"
     
+  - title: "Research Experiences"
+    url: "/#researchexp"
+    
   - title: "Awards"
     url: "/#awards"
     
   - title: "Lecture Notes"
     url: "/#lecturenotes"
-  
-  - title: "Research Experiences"
-    url: "/#researchexp"
+
 
