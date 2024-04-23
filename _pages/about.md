@@ -47,8 +47,7 @@ redirect_from:
 # 🧪 Research Experiences
 
 * Completed: 
-  * [_Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students_]((../linked_files/Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students.pdf)
-), First Co-Author, Guided by [Xi Weng](https://en.gsm.pku.edu.cn/faculty/wengxi125/), 31st Challenger Cup of Peking University, Special Prize.
+  * [_Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students_](../linked_files/Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students.pdf), First Co-Author, Guided by [Xi Weng](https://en.gsm.pku.edu.cn/faculty/wengxi125/), 31st Challenger Cup of Peking University, Special Prize.
   Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
   * [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation.pdf), First Co-Author, Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/), 32nd Challenger Cup of Peking University.
 
