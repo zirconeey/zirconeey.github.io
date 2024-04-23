@@ -50,17 +50,18 @@ redirect_from:
 
 * Completed: 
   * [_Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students_](../linked_files/等级赋分制对高考考生内卷程度的影响.pdf), First Co-Author, Guided by [Xi Weng](https://en.gsm.pku.edu.cn/faculty/wengxi125/), 31st Challenger Cup of Peking University, Special Prize.
-  Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
+  
+  I Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
   * [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/“功劳”还是“苦劳”？——团队间竞争对团队成员互评的影响.pdf), First Co-Author, Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/), 32nd Challenger Cup of Peking University.
 
-  Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
+  I Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
 * In progress:
   * _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/).
 
-    Handled data analysis and participated in the design of nudge.
+    I Handled data analysis and participated in the design of nudge.
   * _Why Ordinally Inefficiency of RSD?_, First Co-Author with [Esteban Peralta](https://sites.lsa.umich.edu/eperalta/) and [Fernando Tohmé](https://gcas.ie/why-gcas/research/research-fellows/fernando-tohme.
 
-
+    I came up with the idea and am now cooperatively pushing forward the research with two professers in this field.
 
 <span class='anchor' id='awards'></span>
 
