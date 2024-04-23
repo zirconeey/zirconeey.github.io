@@ -55,7 +55,7 @@ redirect_from:
 * In progress:
   * _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/).
 
-  Handled data analysis and participated in the design of nudge.
+    Handled data analysis and participated in the design of nudge.
   * _Why Ordinally Inefficiency of RSD?_, First Co-Author with [Esteban Peralta](https://sites.lsa.umich.edu/eperalta/) and [Fernando Tohmé](https://gcas.ie/why-gcas/research/research-fellows/fernando-tohme.
 
 
