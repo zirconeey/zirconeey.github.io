@@ -20,9 +20,9 @@ redirect_from:
 
 <span class='anchor' id='toolkit'></span>
 
-# Background
+# 🧑‍🎓 Background
 
-* [Resume](../linked_files/Rui Zhou.pdf) (Updated in April 2024).
+* [Resume](../linked_files/Resume EN.pdf) (Updated in April 2024).
 * Email: <a href="mailto:zircon@stu.pku.edu.cn">zircon@stu.pku.edu.cn</a>
 * **GPA: 3.841/4.000 (11.4%)**. Here is my [**transcript**](../linked_files/Transcript (2024.2).pdf).
 * Programming Languages: _R, Python, Stata_
@@ -31,7 +31,7 @@ redirect_from:
 * [Weixin Official Account](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491485&idx=1&sn=c4fda51b662c9130550966d2eb22787e&chksm=c316699ef461e0887070e8ffcf1063606982dde436ac0c45437d1a35dd4552d443991dd4d635#rd): I have published hundreds of original articles on my personal Weixin Official Account and gained thousands of followers. The articles mainly include lecture notes, practical skills, and personal reflections.
 
 
-# 📖 Education
+# ✅ Education
 
 - *2021.09 Till Now*, [**Guanghua School of Management**](https://en.gsm.pku.edu.cn/), [**Peking University**](https://english.pku.edu.cn/), Beijing, China.
   - Major: **Financial Economics**
@@ -47,7 +47,7 @@ redirect_from:
 # 🧪 Research Experiences
 
 * Completed: 
-  * [_Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students_](../linked_files/Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students.pdf), First Co-Author, Guided by [Xi Weng](https://en.gsm.pku.edu.cn/faculty/wengxi125/), 31st Challenger Cup of Peking University, Special Prize.
+  * [_Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students_](../linked_files/等级赋分制对高考考生内卷程度的影响.pdf), First Co-Author, Guided by [Xi Weng](https://en.gsm.pku.edu.cn/faculty/wengxi125/), 31st Challenger Cup of Peking University, Special Prize.
   Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
   * [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation.pdf), First Co-Author, Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/), 32nd Challenger Cup of Peking University.
 
