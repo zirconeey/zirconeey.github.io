@@ -1,11 +1,17 @@
 # main links links
 main:
-  - title: "About Me"
-    url: "/#about-me"
-
-  - title: "Notes"
-    url: "/#notes"
+  - title: "Background"
+    url: "/#background"
   
-  - title: "Articles"
-    url: "/#articles"
+  - title: "Education"
+    url: "/#education"
+    
+  - title: "Awards"
+    url: "/#awards"
+    
+  - title: "Lecture Notes"
+    url: "/#lecturenotes"
+  
+  - title: "Research Experiences"
+    url: "/#researchexp"
 
