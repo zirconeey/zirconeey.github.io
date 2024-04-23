@@ -42,13 +42,16 @@ redirect_from:
 
   Handled data analysis and participated in the design of nudge.
 
-<span class='anchor' id='awards'></span>
+
+<span class='anchor' id='toolkit'></span>
 
 # Research Toolkits
 
 * Programming Languages: _R, Python, Stata_
   * Most skilled at R, familiar with Python and Stata.
 * English: _TOEFL 105_, Reading 29, Listening 26, Speaking 25, Writing 27
+
+<span class='anchor' id='awards'></span>
 
 # 🎖 Awards
 
