@@ -25,8 +25,7 @@ redirect_from:
 * [Resume](../linked_files/Resume EN.pdf) (Updated in April 2024).
 * Email: <a href="mailto:zircon@stu.pku.edu.cn">zircon@stu.pku.edu.cn</a>
 * **GPA: 3.841/4.000 (11.4%)**. Here is my [**transcript**](../linked_files/Transcript (2024.2).pdf).
-* Programming Languages: _R, Python, Stata_
-  * Most skilled at R, familiar with Python and Stata.
+* Programming Languages: _R, Python, Stata_. Most skilled at R, familiar with Python and Stata.
 * English: [_TOEFL 105_](../linked_files/TOEFL_230715.pdf), Reading 29, Listening 26, Speaking 25, Writing 27.
 * [Weixin Official Account](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491485&idx=1&sn=c4fda51b662c9130550966d2eb22787e&chksm=c316699ef461e0887070e8ffcf1063606982dde436ac0c45437d1a35dd4552d443991dd4d635#rd): I have published hundreds of original articles on my personal Weixin Official Account and gained thousands of followers. The articles mainly include lecture notes, practical skills, and personal reflections.
 
