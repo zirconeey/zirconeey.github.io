@@ -18,7 +18,7 @@ redirect_from:
 <span class='anchor' id='about-me'></span>
 
 
-<span class='anchor' id='toolkit'></span>
+<span class='anchor' id='background'></span>
 
 # 🧑‍🎓 Background
 
@@ -30,6 +30,7 @@ redirect_from:
 * English: [_TOEFL 105_](../linked_files/TOEFL_230715.pdf), Reading 29, Listening 26, Speaking 25, Writing 27.
 * [Weixin Official Account](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491485&idx=1&sn=c4fda51b662c9130550966d2eb22787e&chksm=c316699ef461e0887070e8ffcf1063606982dde436ac0c45437d1a35dd4552d443991dd4d635#rd): I have published hundreds of original articles on my personal Weixin Official Account and gained thousands of followers. The articles mainly include lecture notes, practical skills, and personal reflections.
 
+<span class='anchor' id='education'></span>
 
 # ✅ Education
 
@@ -43,7 +44,7 @@ redirect_from:
       <!-- Advanced Microeconomics (Fall 2024, Instructor: [Eric Shi](https://econ.pku.edu.cn/english/faculty/fulltimefaculty/sdfasd/357924.htm)) -->
 - *2024.01-2024.05*, [**Ross School of Business**](https://michiganross.umich.edu/), [**University of Michigan**](https://umich.edu/), Ann Arbor, USA.
 
-<span class='anchor' id='research'></span>
+<span class='anchor' id='research experiences'></span>
 
 # 🧪 Research Experiences
 
@@ -72,9 +73,9 @@ redirect_from:
 * _Third Class Scholarship of Peking University_. 2022, Peking University.
 * _Third Class Freshman Scholarship of Peking University_. 2021, Peking University.
 
-<span class='anchor' id='notes'></span>
+<span class='anchor' id='lecture notes'></span>
 
-# 📒 Notes
+# 📒 Lecture Notes
 
 I have been actively engaged in courses that are crucial to my economics foundation. The followings are my selected lecture notes.
 
