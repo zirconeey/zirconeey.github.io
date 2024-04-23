@@ -68,7 +68,7 @@ redirect_from:
 # 🎖 Awards
 
 * _Merit Student_. 2023, Peking University.
-* _Shanxi Xinghuacun Funjiu Distillery Co.,Ltd. Scholarship_. 2023, Shanxi Xinghuacun Funjiu Distillery Co.,Ltd.
+* _Shanxi Xinghuacun Fenjiu Distillery Co.,Ltd. Scholarship_. 2023, Shanxi Xinghuacun Fenjiu Distillery Co.,Ltd.
 * _Special Prize of 31st "Challenger Cup" of Peking University (with 5 Other Teammates)_. 2023, Peking University Communist Youth League, Peking University "Challenger Cup" Project Office.
 * _Merit Student_. 2022, Peking University.
 * _Third Class Scholarship of Peking University_. 2022, Peking University.
