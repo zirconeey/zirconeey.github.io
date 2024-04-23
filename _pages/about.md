@@ -44,7 +44,7 @@ redirect_from:
       <!-- Advanced Microeconomics (Fall 2024, Instructor: [Eric Shi](https://econ.pku.edu.cn/english/faculty/fulltimefaculty/sdfasd/357924.htm)) -->
 - *2024.01-2024.05*, [**Ross School of Business**](https://michiganross.umich.edu/), [**University of Michigan**](https://umich.edu/), Ann Arbor, USA.
 
-<span class='anchor' id='research experiences'></span>
+<span class='anchor' id='researchexp'></span>
 
 # 🧪 Research Experiences
 
@@ -73,7 +73,7 @@ redirect_from:
 * _Third Class Scholarship of Peking University_. 2022, Peking University.
 * _Third Class Freshman Scholarship of Peking University_. 2021, Peking University.
 
-<span class='anchor' id='lecture notes'></span>
+<span class='anchor' id='lecturenotes'></span>
 
 # 📒 Lecture Notes
 
