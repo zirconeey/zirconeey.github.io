@@ -17,6 +17,8 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
+Here is my resume. [🔗](../linked_files/Resume EN.pdf)
+
 # 📖 Education
 
 - *2021.09 Till Now*, Guanghua School of Management, Peking University, Beijing, China.
@@ -68,15 +70,15 @@ redirect_from:
 
 I have been actively engaged in courses that are crucial to my economics foundation. The followings are some of my lecture notes.
 
-* Advanced Microeconomics[🔗](https://disk.pku.edu.cn/link/AA8C0A2F7852E44560A7C55ADD564457B8)
-* Intermediate Microeconomics[🔗](https://disk.pku.edu.cn/link/AAF8F26F093AD14CC598B946B0BAC378F3)
-* Advanced Econometrics[🔗](https://disk.pku.edu.cn/link/AA0241615B28E94CA9AA94B99C4339613F)
-* Intermediate Econometrics[🔗](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
-* Public Economics[🔗](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
+* Advanced Microeconomics[🔗](../linked_files/Advanced Microeconomics.pdf)
+* Intermediate Microeconomics[🔗](../linked_files/Transcript (2024.2).pdf)
+* Advanced Econometrics[🔗](../linked_files/Advanced Econometrics.pdf)
+* Intermediate Econometrics[🔗](../linked_files/Econometrics.pdf)
+* Public Economics[🔗](../linked_files/Transcript (2024.2).pdf)
 * Monetary Economics
-  * Lecture Notes[🔗](https://disk.pku.edu.cn/link/AA8F8C4E6870194FD889AFCDB0CE177425)
-  * Homework Summary[🔗](https://disk.pku.edu.cn/link/AA54DE0D4EE0124896B8F14BAE23052134)
+  * Lecture Notes[🔗](../linked_files/Transcript (2024.2).pdf)
+  * Homework Summary[🔗](../linked_files/Transcript (2024.2).pdf)
 * Game Theory
-  * Midterm Notes[🔗](https://disk.pku.edu.cn/link/AA1C29DED4AEB14D42AF8E851BB94F10A3)
-* Operations Research[🔗](https://disk.pku.edu.cn/link/AA1C7D810B1D794807BDCBE5E98E002201)
+  * Midterm Notes[🔗](../linked_files/Transcript (2024.2).pdf)
+* Operations Research[🔗](../linked_files/Transcript (2024.2).pdf)
 
