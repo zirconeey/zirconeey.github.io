@@ -45,15 +45,18 @@ redirect_from:
 
 # 🧪 Research Experiences
 
-* [_Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_]((../linked_files/Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students.pdf)
-), First Co-Author, 31st Challenger Cup of Peking University, Special Prize.
+* Completed: 
+  * [_Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students_]((../linked_files/Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students.pdf)
+), First Co-Author, Guided by [Xi Weng](https://en.gsm.pku.edu.cn/faculty/wengxi125/), 31st Challenger Cup of Peking University, Special Prize.
   Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
-* [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation.pdf), First Co-Author, 32nd Challenger Cup of Peking University.
+  * [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation.pdf), First Co-Author, Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/), 32nd Challenger Cup of Peking University.
 
   Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
-* _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/).
+* In progress:
+  * _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/).
 
   Handled data analysis and participated in the design of nudge.
+  * _Why Ordinally Inefficiency of RSD?_, First Co-Author with [Esteban Peralta](https://sites.lsa.umich.edu/eperalta/) and [Fernando Tohmé](https://gcas.ie/why-gcas/research/research-fellows/fernando-tohme.
 
 
 
