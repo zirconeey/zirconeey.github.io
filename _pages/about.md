@@ -17,27 +17,37 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Here is my resume. [🔗](../linked_files/Resume EN.pdf)
+
+<span class='anchor' id='toolkit'></span>
+
+# Background
+
+* Resume (Updated in April 2024). [🔗](../linked_files/Resume EN.pdf)
+* Email: zircon@stu.pku.edu.cn
+* Programming Languages: _R, Python, Stata_
+  * Most skilled at R, familiar with Python and Stata.
+* English: _TOEFL 105_, Reading 29, Listening 26, Speaking 25, Writing 27. [🔗](../linked_files/TOEFL_.pdf)
+
 
 # 📖 Education
 
-- *2021.09 Till Now*, Guanghua School of Management, Peking University, Beijing, China.
+- *2021.09 Till Now*, [Guanghua School of Management](https://en.gsm.pku.edu.cn/), [Peking University](https://english.pku.edu.cn/), Beijing, China.
   - Major: Financial Economics
   - Dual Degree: Psychology
   - GPA: 3.841/4.000 (11.4%) 👉 See Transcript[🔗](../linked_files/Transcript (2024.2).pdf)
     * Graduate-Level Courses: Advanced Microeconomics (96), Advanced Econometrics (97), Real Analysis (96)
     * Core Courses: Advanced Math (98), Intermediate Microeconomics (99), Intermediate Econometrics (96), Behavioral Economics (95), Game Theory (95)
-    * TA Experience: Behavioral Economics (Fall 2023, Professor: Juanjuan Meng)
-- *2024.01-2024.05*, Ross School of Business, University of Michigan, Ann Arbor, USA.
+    * TA Experience: Behavioral Economics (Fall 2023, Professor: [Juanjuan Meng]())
+- *2024.01-2024.05*, [Ross School of Business](https://michiganross.umich.edu/), [University of Michigan](https://umich.edu/), Ann Arbor, USA.
 
 <span class='anchor' id='research'></span>
 
 # 🧪 Research Experiences
 
-* _Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_, First Co-Author, 31st Challenger Cup of Peking University, Special Prize. [🔗](../linked_files/等级赋分制对高考考生内卷程度的影响.pdf)
-
+* [_Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_]((../linked_files/等级赋分制对高考考生内卷程度的影响.pdf)
+), First Co-Author, 31st Challenger Cup of Peking University, Special Prize.
   Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
-* _Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_, First Co-Author, 32nd Challenger Cup of Peking University. [🔗](../linked_files/“功劳”还是“苦劳”？——团队间竞争对团队成员互评的影响.pdf)
+* [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/“功劳”还是“苦劳”？——团队间竞争对团队成员互评的影响.pdf), First Co-Author, 32nd Challenger Cup of Peking University.
 
   Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
 * _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by Juanjuan Meng.
@@ -45,13 +55,6 @@ Here is my resume. [🔗](../linked_files/Resume EN.pdf)
   Handled data analysis and participated in the design of nudge.
 
 
-<span class='anchor' id='toolkit'></span>
-
-# Research Toolkits
-
-* Programming Languages: _R, Python, Stata_
-  * Most skilled at R, familiar with Python and Stata.
-* English: _TOEFL 105_, Reading 29, Listening 26, Speaking 25, Writing 27. [🔗](../linked_files/TOEFL_.pdf)
 
 <span class='anchor' id='awards'></span>
 
