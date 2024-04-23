@@ -39,7 +39,8 @@ redirect_from:
   - GPA: **3.841/4.000 (11.4%)**. Here is my [**transcript**](../linked_files/Transcript (2024.2).pdf).
     * Graduate-Level Courses: Advanced Microeconomics (96), Advanced Econometrics (97), Real Analysis (96)
     * Core Courses: Advanced Math (98), Intermediate Microeconomics (99), Intermediate Econometrics (96), Behavioral Economics (95), Game Theory (95)
-    * TA Experience: Behavioral Economics (Fall 2023, Professor: [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/)), Advanced Microeconomics (Fall 2024, Professor: [Eric Shi](https://econ.pku.edu.cn/english/faculty/fulltimefaculty/sdfasd/357924.htm))
+    * TA Experience: Behavioral Economics (Fall 2023, Instructor: [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/))
+      <!-- Advanced Microeconomics (Fall 2024, Instructor: [Eric Shi](https://econ.pku.edu.cn/english/faculty/fulltimefaculty/sdfasd/357924.htm)) -->
 - *2024.01-2024.05*, [**Ross School of Business**](https://michiganross.umich.edu/), [**University of Michigan**](https://umich.edu/), Ann Arbor, USA.
 
 <span class='anchor' id='research'></span>
