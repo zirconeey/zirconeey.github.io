@@ -22,11 +22,11 @@ redirect_from:
 
 # Background
 
-* [Resume](../linked_files/Resume EN.pdf) (Updated in April 2024).
+* [Resume](../linked_files/Rui Zhou.pdf) (Updated in April 2024).
 * Email: zircon@stu.pku.edu.cn
 * Programming Languages: _R, Python, Stata_
   * Most skilled at R, familiar with Python and Stata.
-* English: [_TOEFL 105_](../linked_files/TOEFL_.pdf), Reading 29, Listening 26, Speaking 25, Writing 27.
+* English: [_TOEFL 105_](../linked_files/TOEFL_230715.pdf), Reading 29, Listening 26, Speaking 25, Writing 27.
 * [Weixin Official Account](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491485&idx=1&sn=c4fda51b662c9130550966d2eb22787e&chksm=c316699ef461e0887070e8ffcf1063606982dde436ac0c45437d1a35dd4552d443991dd4d635#rd): I have published hundreds of original articles on my personal Weixin Official Account and gained thousands of followers. The articles mainly include lecture notes, practical skills, and personal reflections.
 
 
@@ -45,10 +45,10 @@ redirect_from:
 
 # 🧪 Research Experiences
 
-* [_Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_]((../linked_files/等级赋分制对高考考生内卷程度的影响.pdf)
+* [_Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_]((../linked_files/Effects of Rank-Based Categorized Scoring in National College Entrance Examination (Gaokao) on Involution of Highschool Students.pdf)
 ), First Co-Author, 31st Challenger Cup of Peking University, Special Prize.
   Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
-* [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/“功劳”还是“苦劳”？——团队间竞争对团队成员互评的影响.pdf), First Co-Author, 32nd Challenger Cup of Peking University.
+* [_Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_](../linked_files/Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation.pdf), First Co-Author, 32nd Challenger Cup of Peking University.
 
   Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
 * _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/).
@@ -75,9 +75,8 @@ redirect_from:
 I have been actively engaged in courses that are crucial to my economics foundation. The followings are my selected lecture notes.
 
 * [Advanced Microeconomics](../linked_files/Advanced Microeconomics.pdf)
-* [Intermediate Microeconomics](../linked_files/Transcript (2024.2).pdf)
 * [Advanced Econometrics](../linked_files/Advanced Econometrics.pdf)
-* [Intermediate Econometrics](../linked_files/Econometrics.pdf)
-* [Public Economics](../linked_files/Transcript (2024.2).pdf)
-* [Monetary Economics](../linked_files/Transcript (2024.2).pdf)
+* [Intermediate Econometrics](../linked_files/Intermediate Econometrics.pdf)
+* [Public Economics](../linked_files/Public Economics.pdf)
+* [Monetary Economics](../linked_files/Monetary Economics.pdf)
 
