@@ -32,11 +32,10 @@ redirect_from:
 
 # 🧪 Research Experiences
 
-
-* _Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_, First Author, 31st Challenger Cup of Peking University, Special Prize.
+* _Effects of Ranked-Based Scoring in College Entrance Examination on Involution of Highschool Students_, First Co-Author, 31st Challenger Cup of Peking University, Special Prize.
 
   Cooperated with 5 other teammates and took main responsibility for data analysis and paper writing.
-* _Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_, First Author, 32nd Challenger Cup of Peking University.
+* _Performance or Effort? The Effect of Inter-Team Competition on Intra-Team Peer Evaluation_, First Co-Author, 32nd Challenger Cup of Peking University.
 
   Cooperated with 2 other teammates and participated in experimental design, data analysis, and paper writing.
 * _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by Juanjuan Meng.
@@ -45,18 +44,26 @@ redirect_from:
 
 <span class='anchor' id='awards'></span>
 
+# Research Toolkits
+
+* Programming Languages: _R, Python, Stata_
+  * Most skilled at R, familiar with Python and Stata.
+* English: _TOEFL 105_, Reading 29, Listening 26, Speaking 25, Writing 27
+
 # 🎖 Awards
 
-* Merit Student. 2023, Peking University.
-* Shanxi Xinghuacun Funjiu Distillery Co.,Ltd. Scholarship. 2023, Shanxi Xinghuacun Funjiu Distillery Co.,Ltd.
-* Special Prize of 31st "Challenger Cup" of Peking University (with 5 Other Teammates). 2023, Peking University Communist Youth League, Peking University "Challenger Cup" Project Office.
-* Merit Student. 2022, Peking University.
-* Third Class Scholarship of Peking University. 2022, Peking University.
-* Third Class Freshman Scholarship of Peking University. 2021, Peking University.
+* _Merit Student_. 2023, Peking University.
+* _Shanxi Xinghuacun Funjiu Distillery Co.,Ltd. Scholarship_. 2023, Shanxi Xinghuacun Funjiu Distillery Co.,Ltd.
+* _Special Prize of 31st "Challenger Cup" of Peking University (with 5 Other Teammates)_. 2023, Peking University Communist Youth League, Peking University "Challenger Cup" Project Office.
+* _Merit Student_. 2022, Peking University.
+* _Third Class Scholarship of Peking University_. 2022, Peking University.
+* _Third Class Freshman Scholarship of Peking University_. 2021, Peking University.
 
 <span class='anchor' id='notes'></span>
 
 # 📒 Notes
+
+I have been actively engaged in courses that are crucial to my economics foundation. The followings are some of my lecture notes.
 
 * Advanced Microeconomics[🔗](https://disk.pku.edu.cn/link/AA8C0A2F7852E44560A7C55ADD564457B8)
 * Intermediate Microeconomics[🔗](https://disk.pku.edu.cn/link/AAF8F26F093AD14CC598B946B0BAC378F3)
