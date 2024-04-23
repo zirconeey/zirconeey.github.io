@@ -22,11 +22,11 @@ redirect_from:
 
 # ✅ Background
 
-* [Resume](../linked_files/Resume EN.pdf) (Updated in April 2024).
+* [**Resume**](../linked_files/Resume EN.pdf) (Updated in April 2024).
 * Email: <a href="mailto:zircon@stu.pku.edu.cn">zircon@stu.pku.edu.cn</a>
 * **GPA: 3.841/4.000 (11.4%)**. Here is my [**transcript**](../linked_files/Transcript (2024.2).pdf).
-* Programming Languages: _R, Python, Stata_. Most skilled at R, familiar with Python and Stata.
-* English: [_TOEFL 105_](../linked_files/TOEFL_230715.pdf), Reading 29, Listening 26, Speaking 25, Writing 27.
+* Programming Languages: **R, Python, Stata**. Most skilled at R, familiar with Python and Stata.
+* English: [**TOEFL 105**](../linked_files/TOEFL_230715.pdf), Reading 29, Listening 26, Speaking 25, Writing 27.
 * [Weixin Official Account](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491485&idx=1&sn=c4fda51b662c9130550966d2eb22787e&chksm=c316699ef461e0887070e8ffcf1063606982dde436ac0c45437d1a35dd4552d443991dd4d635#rd): I have published hundreds of original articles on my personal Weixin Official Account and gained thousands of followers. The articles mainly include lecture notes, practical skills, and personal reflections.
 
 <span class='anchor' id='education'></span>
@@ -35,7 +35,7 @@ redirect_from:
 
 - *2021.09 Till Now*, [**Guanghua School of Management**](https://en.gsm.pku.edu.cn/), [**Peking University**](https://english.pku.edu.cn/), Beijing, China.
   - Major: **Financial Economics**
-  - Dual Degree: Psychology
+  - Dual Degree: **Psychology**
   - GPA: **3.841/4.000 (11.4%)**. Here is my [**transcript**](../linked_files/Transcript (2024.2).pdf).
     * Graduate-Level Courses: Advanced Microeconomics (96), Advanced Econometrics (97), Real Analysis (96)
     * Core Courses: Advanced Math (98), Intermediate Microeconomics (99), Intermediate Econometrics (96), Behavioral Economics (95), Game Theory (95)
@@ -58,7 +58,7 @@ redirect_from:
   * _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/).
 
     I Handled data analysis and participated in the design of nudge.
-  * _Why Ordinally Inefficiency of RSD?_, First Co-Author with [Esteban Peralta](https://sites.lsa.umich.edu/eperalta/) and [Fernando Tohmé](https://gcas.ie/why-gcas/research/research-fellows/fernando-tohme.
+  * _Why Ordinally Inefficiency of RSD?_, First Co-Author with [Esteban Peralta](https://sites.lsa.umich.edu/eperalta/) and [Fernando Tohmé](https://gcas.ie/why-gcas/research/research-fellows/fernando-tohme).
 
     I came up with the idea and am now cooperatively pushing forward the research with two professers in this field.
 
