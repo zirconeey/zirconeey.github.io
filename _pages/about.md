@@ -16,14 +16,14 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 
-Rui Zhou is an econ major student especially keen on behavioral economics and matching design. He has solid understanding of economics and performed well in his selected courses, including graduate-level ones. He is interested in both empirical and theoretical research, and has gained active experiences through dilligent practice and participation.
+Rui Zhou is an Economics major student especially keen on behavioral economics and matching design. He has solid understanding of economics and performed well in his selected courses, including graduate-level ones. He is interested in both empirical and theoretical research, and has gained active experiences through dilligent practice and participation.
 
 
 <span class='anchor' id='background'></span>
 
 # ✅ Background
 
-* [**Resume**](../linked_files/Resume EN.pdf) (Updated in April 2024).
+* [**Résumé**](../linked_files/Resume EN.pdf) (Updated in April 2024).
 * Email: <a href="mailto:zircon@stu.pku.edu.cn">zircon@stu.pku.edu.cn</a>
 * **GPA: 3.841/4.000 (11.4%)**. Here is my [**transcript**](../linked_files/Transcript (2024.2).pdf).
 * Programming Languages: **R, Python, Stata**. Most skilled at R, familiar with Python and Stata.
