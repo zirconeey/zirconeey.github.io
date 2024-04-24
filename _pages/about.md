@@ -16,7 +16,7 @@ redirect_from:
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
 
-Rui Zhou is an Economics major student especially keen on behavioral economics and matching design. He has solid understanding of economics and performed well in his selected courses, including graduate-level ones. He is interested in both empirical and theoretical research, and has gained active experiences through dilligent practice and participation.
+Rui Zhou is an Economics major student who show strong interest in behavioral economics and matching design. He has solid understanding of economics and performed well in his selected courses, including graduate-level ones. He is interested in both empirical and theoretical research, and has gained active experiences through dilligent practice and participation.
 
 
 <span class='anchor' id='background'></span>
