@@ -58,7 +58,7 @@ Rui Zhou is an Economics major student who shows strong interest in behavioral e
 * In progress:
   * _Changes and Interventions: Property Fee Payment Behaviors_, Research Assistant, DBA Program Guided by [Juanjuan Meng](https://en.gsm.pku.edu.cn/faculty/jumeng/).
 
-    I Handled data analysis and participated in the design of nudge.
+    I handled data analysis and participated in the design of nudge.
   * _Why Ordinally Inefficiency of RSD?_, First Co-Author with [Esteban Peralta](https://sites.lsa.umich.edu/eperalta/) and [Fernando Tohmé](https://gcas.ie/why-gcas/research/research-fellows/fernando-tohme).
 
     I came up with the idea and am now cooperatively pushing forward the research with two professers in this field.
