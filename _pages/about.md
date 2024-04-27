@@ -36,7 +36,7 @@ Rui Zhou is an Economics major student who shows strong interest in behavioral e
 
 - *2021.09 Till Now*, [**Guanghua School of Management**](https://en.gsm.pku.edu.cn/), [**Peking University**](https://english.pku.edu.cn/), Beijing, China.
   - Major: **Financial Economics**
-  - Dual Degree: **Psychology**
+  - Dual Degree: **Psychology** (in [School of Psychological and Cognitive Sciences](http://psy.pku.edu.cn/), Peking University, Beijing, China)
   - GPA: **3.841/4.000 (11.4%)**. Here is my [**transcript**](../linked_files/Transcript (2024.2).pdf).
     * Graduate-Level Courses: Advanced Microeconomics (96), Advanced Econometrics (97), Real Analysis (96)
     * Core Courses: Advanced Math (98), Intermediate Microeconomics (99), Intermediate Econometrics (96), Behavioral Economics (95), Game Theory (95)
