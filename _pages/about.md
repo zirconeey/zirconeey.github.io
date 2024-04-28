@@ -15,11 +15,11 @@ redirect_from:
 {% endif %}
 {% assign url = gsDataBaseUrl | append: "google-scholar-stats/gs_data_shieldsio.json" %}
 
-<span class='anchor' id='about-me'></span>
+<span class='anchor' id='aboutme'></span>
 
-欢迎你来到锆铌的主页🎊！这儿是Zircon的小树洞，会不定期地定期分享用眼睛记录的/用汗水记录的/用跌倒记录的/用心灵记录的点滴🌇～这个主页不仅仅是对公众号“锆铌”的同步，它还更能高效地列出对你最有帮助的内容——而这正是公众号所做不到的！当然，之后我必然还是在公众号上更新我的分享，同时我会在这个主页上同步并不断优化。两边都点个星星🌟，就不会走丢了噢～
+欢迎你来到“锆铌”的主页🎊！这儿是Zircon的小树洞，会不定期地定期分享用眼睛记录的/用汗水记录的/用跌倒记录的/用心灵记录的点滴🌇～这个主页不仅仅是对公众号“锆铌”的同步，它还更能高效地列出对你最有帮助的内容——而这正是公众号所做不到的！当然，之后我必然还是在公众号上更新我的分享，同时我会在这个主页上同步并不断优化。两边都点个星星🌟，就不会走丢了噢～
 
-微信公众号“锆铌”创立于2021年12月19日，Zircon的18岁生日。无数人都问过我“锆铌”的含义，其实你上元素周期表[🔗](https://img.chemsoc.org.cn/web/2019/01/元素周期表中文版20190123最新(1).pdf)搜索一下就知道了
+微信公众号“锆铌”创立于2021年12月19日，Zircon的18岁生日。无数人都问过我“锆铌”的含义，其实你上元素周期表[🔗](https://img.chemsoc.org.cn/web/2019/01/元素周期表中文版20190123最新(1).pdf)了解一下40和41号元素就明白了👻。
 
 
 
@@ -28,12 +28,16 @@ redirect_from:
 希望对你有帮助🌈！
 
 # 📖 关于Zircon
-- *2021.09 至今*，本科生，北京大学[🔗](pku.edu.cn)光华管理学院[🔗](gsm.pku.edu.cn)
-  - 专业：金融学（金融经济方向）
-  - 双学位：心理学
-- *2024.01 - 2024.05*, 交换生，密歇根大学安娜堡分校[🔗](https://umich.edu/)罗斯商学院[🔗](https://michiganross.umich.edu/) (Ross School of Business, University of Michigan, Ann Arbor, USA)
 
-<span class='anchor' id='notes'></span>
+* MBTI: ENFP-T[🔗](https://www.16personalities.com/profiles/129a0e3ddccbc)
+* 兴趣：跑步🏃（业余但每天五公里）、唱歌🎤（业余但超爱林俊杰💜）、归纳整理（平凡但确实是一项能力）
+* 在上的学
+  - *2021.09 至今*，本科生，北京大学[🔗](https://www.pku.edu.cn/)光华管理学院[🔗](https://gsm.pku.edu.cn/)
+    - 专业：金融学（金融经济方向）
+    - 双学位：心理学（心理与认知科学学院[🔗](http://psy.pku.edu.cn/)）
+  - *2024.01 - 2024.05*, 交换生，密歇根大学安娜堡分校[🔗](https://umich.edu/)罗斯商学院[🔗](https://michiganross.umich.edu/) (Ross School of Business, University of Michigan, Ann Arbor, USA)
+
+<span class='anchor' id='updates'></span>
 
 # 💡 近期更新
 
@@ -64,7 +68,9 @@ redirect_from:
   * 🔥省你16小时的最后一块拼图——用Mac速通北京大学线上“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491760&idx=1&sn=6b12969281ba3116802febf1aafb8e15&chksm=c31596b3f4621fa52fbe782c5bd51d3e7b047a87902a3ef1da173f229507bdd3a1b2c21184b8#rd)
   * 🔥这是全网最细的教你在iPhone/iPad配置VPN的教程了[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489764&idx=1&sn=4f204e628e260026500f9af639d3e836&chksm=c3166ee7f461e7f1e053b4d0b5ee1d1195026a6ef9107605971582e404329e9114c74bc238ad#rd)
   * 🔥听说你还不会整合你的一众邮箱？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489645&idx=1&sn=8a378c4b8e8ad7676c2c6ed03aef1f16&chksm=c3166e6ef461e778800075daf4af08865d0df087163c2b9e3782624202142bf79b2ab9645019#rd)
-  
+
+<span class='anchor' id='lecturenotes'></span>
+
 # 📒 课程笔记
 
 * 经济学核心课
@@ -115,7 +121,7 @@ redirect_from:
 
 注：Notes均为原创独创内容；不在公开平台发布直接涉及版权©️的内容，不独自发布与他人合作的笔记。
 
-<span class='anchor' id='articles'></span>
+<span class='anchor' id='diaries'></span>
 
 # 🖊️ 拾光杂记
 
@@ -127,6 +133,7 @@ redirect_from:
   * 致2021届的我[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247484903&idx=1&sn=81bc0d7ec061b3054d9a2a4a2e16d308&chksm=c31673e4f461faf2b5c1483fd2ceff725bc64c98b10afcdaebca27d559c722882f55389df204#rd)
   * 致2018级的我[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247484903&idx=1&sn=81bc0d7ec061b3054d9a2a4a2e16d308&chksm=c31673e4f461faf2b5c1483fd2ceff725bc64c98b10afcdaebca27d559c722882f55389df204#rd)
 
+<span class='anchor' id='techniques'></span>
 
 # ⏰ 省你时间
   * 🔥PKU VPN失踪了！[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491143&idx=1&sn=d09cc521286619d72bf4474fb9d9b5d2&chksm=c3166844f461e1520e872e9f72e5130ff420722f24fb7380d9b001fafdbd639bc99205b7f393#rd)
@@ -138,6 +145,7 @@ redirect_from:
   * 听说你还在手敲统计结果到表格？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489216&idx=1&sn=a83b41bb1b757991a86db8aedb3e3f40&chksm=c31660c3f461e9d5601632951a445bea1cd0e46544d1e30bf60da58a3098f833f1c65401c8f0#rd)
   * 全网最详细的DIY纽约华盛顿四日游[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491540&idx=1&sn=ad2b07f3ecc6f11601b66ce199c13266&chksm=c31669d7f461e0c109510e0f60708f56b46cb143f92c57f51f36f3341a11320b41dab5603259#rd)
 
+<span class='anchor' id='ratemycourses'></span>
 
 # 💯 课程测评
   * 宏观经济学[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487453&idx=1&sn=8a3e34f01f6c7819574ce8631a668e1b&chksm=c31679def461f0c82448864802db9560ee6e9c30741a4c1d4e33cf28a9b43e56ecd4c5d2b6a0#rd)，授课教师：光华管理学院 颜色，学期：2022年秋
