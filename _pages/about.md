@@ -36,7 +36,9 @@ redirect_from:
     - 专业：金融学（金融经济方向）
     - 双学位：心理学（心理与认知科学学院[🔗](http://psy.pku.edu.cn/)）
   - *2024.01 - 2024.05*, 交换生，密歇根大学安娜堡分校[🔗](https://umich.edu/)罗斯商学院[🔗](https://michiganross.umich.edu/) (Ross School of Business, University of Michigan, Ann Arbor, USA)
+* 邮箱：<a href="mailto:zirconeey@gmail.com">zirconeey@gmail.com</a>
 
+  
 <span class='anchor' id='updates'></span>
 
 # 💡 近期更新
