@@ -17,25 +17,25 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-欢迎你来到锆铌的主页🎊！
+欢迎你来到锆铌的主页🎊！这儿是Zircon的小树洞，会不定期地定期分享用眼睛记录的/用汗水记录的/用跌倒记录的/用心灵记录的点滴🌇～这个主页不仅仅是对公众号“锆铌”的同步，它还更能高效地列出对你最有帮助的内容——而这正是公众号所做不到的！当然，之后我必然还是在公众号上更新我的分享，同时我会在这个主页上同步并不断优化。两边都点个星星🌟，就不会走丢了噢～
 
-这儿是Zircon的小树洞，会不定期地定期分享用眼睛记录的/用汗水记录的/用跌倒记录的/用心灵记录的点滴🌇～
+微信公众号“锆铌”创立于2021年12月19日，Zircon的18岁生日。无数人都问过我“锆铌”的含义，其实你上元素周期表[🔗](https://img.chemsoc.org.cn/web/2019/01/元素周期表中文版20190123最新(1).pdf)搜索一下就知道了
 
-这个主页不仅仅是对公众号锆铌的同步，它更能高效地列出对你最有帮助的内容，而这正是公众号所做不到的！当然，之后我必然还是在公众号上更新我的分享，同时我会在这个主页上同步并不断优化。两边都点个星星🌟，就不会走丢了噢～
+
 
 注：北大网盘2024年初系统更新，之前设置所有的分享链接都失效了，2024年之前上百篇公众号文章的“**阅读原文**”链接也都自动被动失效了，本网站汇总的内容都进行了更新，点击条目后的“🔗“就可以跳转北大网盘最新链接后预览或下载啦🥳。只要北大网盘不变心，主页就永远不过期💗。当然，新瓶子装的还是同样的酒，先前文章的正文仍可以直接食用！如果你关于网站有任何建议，或前来催更同步笔记，抑或捉到文章中的bug，都欢迎你点击主页的邮箱📧戳戳Zircon！
 
 希望对你有帮助🌈！
 
-# 📖 Education
-- *2021.09 - 2025.07*, 北京大学光华管理学院
+# 📖 关于Zircon
+- *2021.09 至今*，本科生，北京大学[🔗](pku.edu.cn)光华管理学院[🔗](gsm.pku.edu.cn)
   - 专业：金融学（金融经济方向）
   - 双学位：心理学
-- *2024.01 - 2024.05*, Ross School of Business, University of Michigan
+- *2024.01 - 2024.05*, 交换生，密歇根大学安娜堡分校[🔗](https://umich.edu/)罗斯商学院[🔗](https://michiganross.umich.edu/) (Ross School of Business, University of Michigan, Ann Arbor, USA)
 
 <span class='anchor' id='notes'></span>
 
-# 💡 Updates
+# 💡 近期更新
 
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">2024.03.14</div><img src='images/20240314.jpg' alt="sym" width="100%"></div></div>
@@ -65,58 +65,60 @@ redirect_from:
   * 🔥这是全网最细的教你在iPhone/iPad配置VPN的教程了[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489764&idx=1&sn=4f204e628e260026500f9af639d3e836&chksm=c3166ee7f461e7f1e053b4d0b5ee1d1195026a6ef9107605971582e404329e9114c74bc238ad#rd)
   * 🔥听说你还不会整合你的一众邮箱？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489645&idx=1&sn=8a378c4b8e8ad7676c2c6ed03aef1f16&chksm=c3166e6ef461e778800075daf4af08865d0df087163c2b9e3782624202142bf79b2ab9645019#rd)
   
-# 📒 Notes
+# 📒 课程笔记
 
-* 🔥高级微观经济学 Advanced Microeconomics[🔗](https://disk.pku.edu.cn/link/AA8C0A2F7852E44560A7C55ADD564457B8)
-* 中级微观经济学 Intermediate Microeconomics[🔗](https://disk.pku.edu.cn/link/AAF8F26F093AD14CC598B946B0BAC378F3)
-* 🔥高级计量经济学 Advanced Econometrics[🔗](https://disk.pku.edu.cn/link/AA0241615B28E94CA9AA94B99C4339613F)
-* 🔥中级计量经济学 Intermediate Econometrics[🔗](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
-* 🔥中级宏观经济学 Intermediate Macroeconomics[🔗](https://disk.pku.edu.cn/link/AAAB2FB640DD4F4DBD8D390EAF28318F89)
-* 🔥公共经济学 Public Economics[🔗](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
-* 货币经济学 Monetary Economics
-  * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA8F8C4E6870194FD889AFCDB0CE177425)
-  * 作业整理[🔗](https://disk.pku.edu.cn/link/AA54DE0D4EE0124896B8F14BAE23052134)
-* 策略与博弈 Game Theory
-  * 期中笔记[🔗](https://disk.pku.edu.cn/link/AA1C29DED4AEB14D42AF8E851BB94F10A3)
-* 运筹学 Operations Research[🔗](https://disk.pku.edu.cn/link/AA1C7D810B1D794807BDCBE5E98E002201)
-* 会计学 Accounting[🔗](https://disk.pku.edu.cn/link/AACC141F3700444FDD83089307BA4F734F)
-* 数学科学的Python基础
-  * Python基础[🔗](https://disk.pku.edu.cn/link/AA40B1BCA502B94B1CB5848718E7D6FCD6)
-  * 面向对象[🔗](https://disk.pku.edu.cn/link/AA5965A81447794D6CBCC0317940A722A4)
-  * 数据处理[🔗](https://disk.pku.edu.cn/link/AA2E297413795B4215A5AB5AE179EBC492)
-  * 回归分析[🔗](https://disk.pku.edu.cn/link/AA46E6E88BE12F4F408EEF5B3EAC2D534A)
-* 公司财务管理 Corporate Finance
-  * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA6E0F78F943D44D0D8FDEEA6A38DBBC89)
-  * 期末Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA29EAB6E95A36417DA6F65F3866056753)
-* 组织与管理 Organization and Management
-  * Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA6C7456E1E8AB4F84B71BB87C1A1EEDB7)
-* 概率统计 Probabilisty Statistics
-  * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA42C773897789489C968AAA1FCAB422D7)
-* 心理统计I Psychological Statistics I
-  * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA09C492E218DA4B878874E09E549DD497)
-  * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AAC71D8D9BDF9541069752717334C155F5)
-  * 期末Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA84451C2F291949B1ABCFD450A983818A)
-  * 作业总结[🔗](https://disk.pku.edu.cn/link/AA140B2B1EBA7F4B428C2EF5975FBADAD6)
-  * 代码总结[🔗](https://disk.pku.edu.cn/link/AA7B31DB46719D4BC886A6240E4C473DE7)
-* 心理统计II Psychological Statistics II
-  * 代码/私货[🔗](https://disk.pku.edu.cn/link/AAF8376C538DDA46519996304AB7E0D60F)
-* 🔥马克思主义基本原理概论
-  * 背诵资料[🔗](https://disk.pku.edu.cn/link/AA14899C2B04A345CDA44C9BA5D736FC86)
-  * 往年题重点[🔗](https://disk.pku.edu.cn/link/AA6C40F041FD5B43E2B06D2385BD5C77CF)
-  * 2023年秋期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AAB6D1DA85815A4CCD922331325EEEEEA2)
-* 人类生存发展与核科学
-  * 往年题整理[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
-  * 2023年春期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AA38F33C9D01FE49DE82EE063BA1851275)
+* 经济学核心课
+  * 中级微观经济学 Intermediate Microeconomics[🔗](https://disk.pku.edu.cn/link/AAF8F26F093AD14CC598B946B0BAC378F3)
+  * 🔥中级计量经济学 Intermediate Econometrics[🔗](https://disk.pku.edu.cn/link/AA6C971B128E064390B566D2E6A3F8AE8B)
+  * 🔥中级宏观经济学 Intermediate Macroeconomics[🔗](https://disk.pku.edu.cn/link/AAAB2FB640DD4F4DBD8D390EAF28318F89)
+  * 🔥公共经济学 Public Economics[🔗](https://disk.pku.edu.cn/link/AAFE676871EC824219AC8C689819D480DC)
+  * 货币经济学 Monetary Economics
+    * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA8F8C4E6870194FD889AFCDB0CE177425)
+    * 作业整理[🔗](https://disk.pku.edu.cn/link/AA54DE0D4EE0124896B8F14BAE23052134)
+  * 策略与博弈 Game Theory
+    * 期中笔记[🔗](https://disk.pku.edu.cn/link/AA1C29DED4AEB14D42AF8E851BB94F10A3)
+* 经济学进阶课
+  * 🔥高级微观经济学 Advanced Microeconomics[🔗](https://disk.pku.edu.cn/link/AA8C0A2F7852E44560A7C55ADD564457B8)
+  * 🔥高级计量经济学 Advanced Econometrics[🔗](https://disk.pku.edu.cn/link/AA0241615B28E94CA9AA94B99C4339613F)
+* 经济学基础课
+  * 运筹学 Operations Research[🔗](https://disk.pku.edu.cn/link/AA1C7D810B1D794807BDCBE5E98E002201)
+  * 会计学 Accounting[🔗](https://disk.pku.edu.cn/link/AACC141F3700444FDD83089307BA4F734F)
+  * 公司财务管理 Corporate Finance
+    * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA6E0F78F943D44D0D8FDEEA6A38DBBC89)
+    * 期末Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA29EAB6E95A36417DA6F65F3866056753)
+  * 组织与管理 Organization and Management
+    * Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA6C7456E1E8AB4F84B71BB87C1A1EEDB7)
+* 数理统计基础课
+  * 数学科学的Python基础
+    * Python基础[🔗](https://disk.pku.edu.cn/link/AA40B1BCA502B94B1CB5848718E7D6FCD6)
+    * 面向对象[🔗](https://disk.pku.edu.cn/link/AA5965A81447794D6CBCC0317940A722A4)
+    * 数据处理[🔗](https://disk.pku.edu.cn/link/AA2E297413795B4215A5AB5AE179EBC492)
+    * 回归分析[🔗](https://disk.pku.edu.cn/link/AA46E6E88BE12F4F408EEF5B3EAC2D534A)
+  * 概率统计 Probabilisty Statistics
+    * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA42C773897789489C968AAA1FCAB422D7)
+  * 心理统计I Psychological Statistics I
+    * 听课笔记[🔗](https://disk.pku.edu.cn/link/AA09C492E218DA4B878874E09E549DD497)
+    * 期中Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AAC71D8D9BDF9541069752717334C155F5)
+    * 期末Cheating Sheet[🔗](https://disk.pku.edu.cn/link/AA84451C2F291949B1ABCFD450A983818A)
+    * 作业总结[🔗](https://disk.pku.edu.cn/link/AA140B2B1EBA7F4B428C2EF5975FBADAD6)
+    * 代码总结[🔗](https://disk.pku.edu.cn/link/AA7B31DB46719D4BC886A6240E4C473DE7)
+  * 心理统计II Psychological Statistics II
+    * 代码/私货[🔗](https://disk.pku.edu.cn/link/AAF8376C538DDA46519996304AB7E0D60F)
+* 政治课
+  * 🔥马克思主义基本原理概论
+    * 背诵资料[🔗](https://disk.pku.edu.cn/link/AA14899C2B04A345CDA44C9BA5D736FC86)
+    * 往年题重点[🔗](https://disk.pku.edu.cn/link/AA6C40F041FD5B43E2B06D2385BD5C77CF)
+    * 2023年秋期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AAB6D1DA85815A4CCD922331325EEEEEA2)
+  * 人类生存发展与核科学
+    * 往年题整理[🔗](https://disk.pku.edu.cn/link/AA169A36526CB549BC87D67106D66A4610)
+    * 2023年春期末考题回忆版[🔗](https://disk.pku.edu.cn/link/AA38F33C9D01FE49DE82EE063BA1851275)
 
 注：Notes均为原创独创内容；不在公开平台发布直接涉及版权©️的内容，不独自发布与他人合作的笔记。
 
 <span class='anchor' id='articles'></span>
 
-# 🖊️ Articles
+# 🖊️ 拾光杂记
 
-欢迎你关注我的个人公众号“锆铌”！这儿是部分精选文章～
-
-* 如果文字可以捕捉时光
   * 【20岁】自洽的安定，何以寻？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490916&idx=1&sn=2bd87f2dd2e8b255b19fc8169df6e967&chksm=c3166b67f461e271dd0162bef9f5fd4278669cc9fc74eefd09e26f14ad552f64f38eadd8a3d4#rd)
   * 【19岁】没有“标准答案”之后[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487146&idx=1&sn=8a2219ad6387c4ae2dd59ba7073914a8&chksm=c31678a9f461f1bfc268af52c1c1211186e714b1fe55a22186e9ff2606a1b4f85603b3e721bc#rd)
   * 【18岁】永远热爱，永远年轻[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247483669&idx=1&sn=14cf423dc0b57d431b640a09eaa1cc27&chksm=c3167716f461fe004257338ae949b55cab0a34980945dc1a7578d0dd100e57034c756af0da9f#rd)
@@ -124,7 +126,9 @@ redirect_from:
   * 【北大学子备考锦囊】周睿：携稳重的自信，赴厚重的旅行[🔗](https://mp.weixin.qq.com/s/ncGS9mRIWQPnFgiW_VohPA)
   * 致2021届的我[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247484903&idx=1&sn=81bc0d7ec061b3054d9a2a4a2e16d308&chksm=c31673e4f461faf2b5c1483fd2ceff725bc64c98b10afcdaebca27d559c722882f55389df204#rd)
   * 致2018级的我[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247484903&idx=1&sn=81bc0d7ec061b3054d9a2a4a2e16d308&chksm=c31673e4f461faf2b5c1483fd2ceff725bc64c98b10afcdaebca27d559c722882f55389df204#rd)
-* 摸爬滚打经验帖
+
+
+# ⏰ 省你时间
   * 🔥PKU VPN失踪了！[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491143&idx=1&sn=d09cc521286619d72bf4474fb9d9b5d2&chksm=c3166844f461e1520e872e9f72e5130ff420722f24fb7380d9b001fafdbd639bc99205b7f393#rd)
   * 🔥一文省你16小时——速通北京大学“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491553&idx=1&sn=750a1d84e9e97209ccd8ccfe8592db08&chksm=c31669e2f461e0f46d4633755296ebd619da043e9373a8684ed29b53f3b4de27c52cdc0e8804#rd)
   * 🔥省你16小时的最后一块拼图——用Mac速通北京大学线上“新时代劳动理论”课程[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491760&idx=1&sn=6b12969281ba3116802febf1aafb8e15&chksm=c31596b3f4621fa52fbe782c5bd51d3e7b047a87902a3ef1da173f229507bdd3a1b2c21184b8#rd)
@@ -133,7 +137,9 @@ redirect_from:
   * 随拿随用的markdown/LaTeX数学快捷键[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247490279&idx=1&sn=fc5983e217ade7ea655743c498cfa7bc&chksm=c3166ce4f461e5f2970733c7fbadd1c47271259e70195f4031c91e3e8c079656016021796427#rd)
   * 听说你还在手敲统计结果到表格？[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247489216&idx=1&sn=a83b41bb1b757991a86db8aedb3e3f40&chksm=c31660c3f461e9d5601632951a445bea1cd0e46544d1e30bf60da58a3098f833f1c65401c8f0#rd)
   * 全网最详细的DIY纽约华盛顿四日游[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247491540&idx=1&sn=ad2b07f3ecc6f11601b66ce199c13266&chksm=c31669d7f461e0c109510e0f60708f56b46cb143f92c57f51f36f3341a11320b41dab5603259#rd)
-* 课程测评用心帖
+
+
+# 💯 课程测评
   * 宏观经济学[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487453&idx=1&sn=8a3e34f01f6c7819574ce8631a668e1b&chksm=c31679def461f0c82448864802db9560ee6e9c30741a4c1d4e33cf28a9b43e56ecd4c5d2b6a0#rd)，授课教师：光华管理学院 颜色，学期：2022年秋
   * 行为经济学[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487467&idx=1&sn=d1e7b3f76a10087c61c65426894d747d&chksm=c31679e8f461f0fe4551298ecfdda10dbaaca04f52437d7cfc298b6e3b7809cac90535d69117#rd)，授课教师：光华管理学院 孟涓涓，学期：2022年秋
   * 公司财务管理[🔗](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487476&idx=1&sn=7841b72e63bc5c7939ea13db1c96532f&chksm=c31679f7f461f0e1bce3ae9cbf850d9921ba92cb7c4014917389fa67503d2d3c1ae0a5ce5b85#rd)，授课教师：光华管理学院 徐江旻 李怡宗 徐信忠，学期：2022年秋
