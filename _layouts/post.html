@@ -5,9 +5,9 @@ layout: default
   <header style="margin-bottom: 2rem;">
     <h1>{{ page.title }}</h1>
     <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">发布于 {{ page.date | date: "%Y年%m月%d日" }}</time>
-      {% if page.categories %}
-        · 归档在: {{ page.categories | join: ", " }}
+      <time datetime="{{ page.date | date_to_xmlschema }}">发布于 {{ page.date | date: "%Y年%-m月%-d日" }}</time>
+      {% if page.categories.size > 0 %}
+        · {{ page.categories | join: ", " }}
       {% endif %}
     </div>
   </header>
@@ -16,7 +16,19 @@ layout: default
     {{ content }}
   </div>
   
-  <div style="margin-top: 4rem; text-align: center;">
-    <a href="{{ site.baseurl }}/" style="font-size: 0.9rem;">← 返回存档主页</a>
+  <div class="post-nav">
+    <div>
+      {% if page.previous.url %}
+        <a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
+      {% endif %}
+    </div>
+    <div>
+      <a href="{{ site.baseurl }}/">返回首页</a>
+    </div>
+    <div>
+      {% if page.next.url %}
+        <a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
+      {% endif %}
+    </div>
   </div>
 </article>

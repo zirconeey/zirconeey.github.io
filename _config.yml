@@ -1,4 +1,4 @@
-# _config.yml
+# Site settings
 title: 周睿的中文博客 | Rui Zhou
 description: 个人随笔与课程笔记存档
 url: "https://zirconeey.github.io"
@@ -8,14 +8,19 @@ author:
   name: 周睿 (Rui Zhou)
   email: ruizhou@psu.edu
 
-# Jekyll 配置
+# Build settings
 markdown: kramdown
-theme: minima # 即使不用它的样式，保留以防万一
-permalink: /:categories/:year/:month/:day/:title/
+permalink: /posts/:year-:month-:day-:title/
 
-# 忽略的文件
+# Plugins (GitHub Pages supported)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from build
 exclude:
+  - README.md
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor/bundle/
+  - vendor/
+  - .gitignore
