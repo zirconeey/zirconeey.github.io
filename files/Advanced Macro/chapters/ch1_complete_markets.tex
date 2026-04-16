@@ -1,0 +1,625 @@
+\chapter{Complete Markets under Uncertainty}
+
+\rmk{
+    Typically, we refer to ``uncertainty'' as the presence of multiple possible states of the world that can occur in the future, which gives them different endowments in different states. ``Complete markets'' means that there are enough financial assets for agents to fully insure against all possible states of the world. In a complete market, agents can trade state-contingent claims that pay off in specific states, allowing them to perfectly smooth consumption across different states and time periods. In contrast, in an incomplete market, agents cannot fully insure against all possible states of the world, leading to a lack of smoothness in consumption.
+
+    We have covered most of the material in this chapter in the last semester, but we will revisit it here to get a better understanding of incomplete markets that will be introduced in the following chapters. Specifically, we will answer the question: \textbf{In an endowment economy with uncertainty and heterogeneous agents, how does incomplete market affect the equilibrium compared to the complete market case?}}
+~\\
+
+Assume:
+
+\begin{itemize}
+    \item Stochastic event: for $t\ge 0$, $s_t\in S$. 
+    \item History of events: $s^t = \brace{s_0,s_1,\cdots,s_t}$, which is public information.
+    \item Probability of $s^t$:
+    \begin{itemize}
+        \item $\pi(s^t)$: unconditional probability.
+        \item $\pi(s^{\tau}|s^t)$: conditional probability of $s^{\tau}$ given history $s^t$ for $\tau > t$.
+    \end{itemize}
+    \item $I$ agents: $i = 1,\cdots, I$.
+    \item Stochastic endowments: $y^i(s^t)$, which is non-storable.
+    \item Consumption allocations: $c^i(s^t)$ such that $c^i(s^t)\ge 0$, $\forall i$, $\forall s^t$.
+    \item Preferences:
+    \[
+    u(c^i) = \sum_{t}\sum_{s^t}\beta^t\pi(s^t)u(c^i(s^t)),
+    \]
+    where $u$ is assumed to be concave, strictly increasing, differentiable, and satisfy Inada condition: $\lim_{c\to 0}u'(c) = \infty$.
+\end{itemize}
+
+\defn{Feasible Allocation}{
+    An allocation $\brace{c^i(s^t)}_{i,t,s^t}$ is feasible if
+    \[
+    \sum_i c^i(s^t)\le \sum_i y^i(s^t),\quad \forall t,\quad \forall s^t.
+    \]
+}
+
+\defn{Pareto Optimal}{
+    A feasible allocation is Pareto optimal if any other feasible allocation that makes one agent strictly better off must make at least one agent strictly worse off.
+}
+
+\section{Find Pareto Optimal Allocations: Social Planner}
+
+The social planner's problem is given by
+\[
+\begin{aligned}
+    & \max_{\brace{c^i(s^t)}_{i,t,s^t}}\sum_i \lambda^i \pr{\sum_t\sum_{s^t}\beta^t\pi(s^t)u(c^i(s^t))}\\
+    \text{s.t. }& \sum_{i}c^i(s^t)\le \sum_i y^i(s^t),\quad \forall t,\quad \forall s^t
+\end{aligned}
+\]
+
+The Lagrange is given by
+\[
+\begin{aligned}
+    \mathcal{L} & = \sum_t\sum_{s^t}\beta^t\pi(s^t)\pr{\sum_i \lambda^i u(c^i(s^t))}+\sum_t\sum_{s^t}\theta(s^t)\pr{\sum_i y^i(s^t) - \sum_i c^i(s^t)}
+\end{aligned}
+\]
+where $\theta(s^t)$ is the Lagrange multiplier for the resource constraint at state $s^t$.  
+
+The first-order condition for $c^i(s^t)$ is given by
+\[
+\frac{\partial \mathcal{L}}{\partial c^i(s^t)} = \lambda^i \beta^t \pi(s^t) u'(c^i(s^t)) - \theta(s^t) = 0 \quad \implies \quad \theta(s^t) = \lambda^i \beta^t \pi(s^t) u'(c^i(s^t)).
+\]
+This implies that for any two agents $i$ and $j$, we have
+\[
+\frac{u'(c^i(s^t))}{u'(c^j(s^t))} = \frac{\lambda^j}{\lambda^i}, \quad \forall t, \quad \forall s^t.
+\]
+This is the condition for Pareto optimality.
+
+Specifically, 
+\[
+\frac{u'(c^i(s^t))}{u'(c^1(s^t))} = \frac{\lambda^1}{\lambda^i}, \quad \forall t, \quad \forall s^t.
+\]
+
+And this gives
+\[
+c^i(s^t) = (u')^{-1}\pr{\frac{\lambda^1}{\lambda^i}u'(c^1(s^t))}, \quad \forall t, \quad \forall s^t.
+\]
+
+Feasibility constraint requires that
+\[
+\sum_i c^i(s^t) = \sum_i y^i(s^t), \quad \forall t, \quad \forall s^t.
+\]
+
+Hence we have
+\[
+\sum_i (u')^{-1}\pr{\frac{\lambda^1}{\lambda^i}u'(c^1(s^t))} = \sum_i y^i(s^t), \quad \forall t, \quad \forall s^t.
+\]
+
+This equation pins down $c^1(s^t)$, and thus $c^i(s^t)$ for all $i$ using $c^i(s^t) = (u')^{-1}\pr{\frac{\lambda^1}{\lambda^i}u'(c^1(s^t))}$.
+
+\rmkb[]{
+    \begin{itemize}
+        \item $c^1(s^t)$ (and thus $c^i(s^t)$ for all $i$) depends on the Pareto weights $\brace{\lambda^i}_{i=1}^I$ and the total endowments $\sum_i y^i(s^t)$, but not on the distribution of endowments across agents.
+        \item $c^i(s^t)$ does not depend on the actual realization of income (endowment).
+        \item If $\lambda^i = \lambda^j$ for all $i,j$, then $c^i(s^t) = c^j(s^t)$ for all $i,j$, and thus $c^i(s^t) = \frac{1}{I}\sum_i y^i(s^t)$, which is the full insurance allocation where all agents have equal share of total endowment in each state.
+    \end{itemize}
+}
+
+\section{Arrow-Debreu Trading (Time 0 Trading)}
+
+Suppose that all trades occur at time 0, when agents are going to exchange claims contingent on history $s^t$ at price $q(s^t|s_0)$ (price of consumption at $s^t$ in terms of consumption at $s_0$). Later we will simply write $q(s^t)$ if there is no ambiguity.
+
+\defn{Competitive Equilibrium}{
+    A competitive equilibrium consists of
+    \begin{itemize}
+        \item a set of prices $q(s^t)$, and 
+        \item a set of consumption allocations $\brace{c^i(s^t)}_{i,t,s^t}$ 
+    \end{itemize}
+    such that
+    \begin{itemize}
+        \item \textbf{Agent's Utility Max}: 
+        
+        Given prices $q(s^t)$, the consumption allocation $\brace{c^i(s^t)}_{t,s^t}$ solves the following problem for each agent $i$:
+        \[
+        \begin{aligned}
+            \max_{\brace{c^i(s^t)}_{t,s^t}} & \sum_t\sum_{s^t}\beta^t\pi(s^t)u(c^i(s^t))\\
+            \text{s.t. } & \sum_t\sum_{s^t} q(s^t)c^i(s^t) \le \sum_t\sum_{s^t} q(s^t)y^i(s^t), \quad \forall i
+        \end{aligned}
+        \]
+        \item \textbf{Market Clearing}: 
+        \[
+        \sum_i c^i(s^t) = \sum_i y^i(s^t), \quad \forall t, \quad \forall s^t.
+        \]
+    \end{itemize}
+}
+
+\rmkb[]{
+    Note that in the agent's problem, she faces the ``lifetime'' budget constraint: 
+\[
+\sum_t\sum_{s^t} q(s^t)c^i(s^t) \le \sum_t\sum_{s^t} q(s^t)y^i(s^t), \quad \forall i.
+\]
+
+In this problem, this is the \textbf{one and only} budget constraint that the agent faces. Take note that this is different from the budget constraints in the sequential problem we will see in the next section, where the agent faces a sequence of period-by-period budget constraints. 
+}
+
+For the agent's problem, the Lagrange is given by
+\[
+\begin{aligned}
+    \mathcal{L} & = \sum_t\sum_{s^t}\beta^t\pi(s^t)u(c^i(s^t)) + \mu^i\pr{\sum_t\sum_{s^t} q(s^t)y^i(s^t) - \sum_t\sum_{s^t} q(s^t)c^i(s^t)}\\
+    & = \sum_t\sum_{s^t}\beta^t\pi(s^t)u(c^i(s^t)) + \mu^i \sum_t\sum_{s^t}q(s^t)\pr{y^i(s^t) - c^i(s^t)},
+\end{aligned}
+\]
+where $\mu^i$ is the Lagrange multiplier for the budget constraint. 
+
+The first-order condition for $c^i(s^t)$ is given by
+\[
+\frac{\partial \mathcal{L}}{\partial c^i(s^t)} = \beta^t \pi(s^t) u'(c^i(s^t)) - \mu^i q(s^t) = 0 \quad \implies \quad \mu^i q(s^t) = \beta^t \pi(s^t) u'(c^i(s^t)).
+\]
+This implies that for any two agents $i$ and $j$, we have
+\[
+\frac{u'(c^i(s^t))}{u'(c^j(s^t))}  = \frac{\mu^i}{\mu^j}, \quad \forall t, \quad \forall s^t.
+\]
+
+Specifically,
+\[
+\frac{u'(c^i(s^t))}{u'(c^1(s^t))}  = \frac{\mu^i}{\mu^1}, \quad \forall t, \quad \forall s^t.
+\]
+
+This gives
+\[
+c^i(s^t) = (u')^{-1}\pr{\frac{\mu^i}{\mu^1} u'(c^1(s^t))}, \quad \forall t, \quad \forall s^t.
+\] 
+
+From the market clearing condition, we have
+\[
+\sum_i c^i(s^t) = \sum_i (u')^{-1}\pr{\frac{\mu^i}{\mu^1} u'(c^1(s^t))} = \sum_i y^i(s^t), \quad \forall t, \quad \forall s^t.
+\]
+
+This allows us to solve for $c^1(s^t)$, and thus $c^i(s^t)$ for all $i$ using $c^i(s^t) = (u')^{-1}\pr{\frac{\mu^i}{\mu^1} u'(c^1(s^t))}$.
+
+
+\clmp{}{
+    A competitive equilibrium allocation is Pareto optimal when
+    \[
+    \begin{aligned}
+        \mu^i & = 1/\lambda^i, \quad \forall i,\\
+        q(s^t) & = \theta(s^t), \quad \forall t, \quad \forall s^t.
+    \end{aligned}
+    \]
+}{
+    Recall that in the social planner's problem, the first-order condition for $c^i(s^t)$ is given by
+\[
+\lambda^i \beta^t \pi(s^t) u'(c^i(s^t)) - \theta^t(s^t) = 0 \quad \implies \quad \theta^t(s^t) = \lambda^i \beta^t \pi(s^t) u'(c^i(s^t)).
+\]  
+And this gives 
+\[
+\frac{u'(c^i(s^t))}{u'(c^j(s^t))} = \frac{\lambda^j}{\lambda^i}, \quad \forall t, \quad \forall s^t.
+\]
+
+While in the competitive equilibrium, the first-order condition for $c^i(s^t)$ is given by
+\[
+\beta^t \pi(s^t) u'(c^i(s^t)) - \mu^i q(s^t) = 0 \quad \implies \quad \mu^i q(s^t) = \beta^t \pi(s^t) u'(c^i(s^t)).
+\]  
+And this gives 
+\[
+\frac{u'(c^i(s^t))}{u'(c^j(s^t))}  = \frac{\mu^i}{\mu^j}, \quad \forall t, \quad \forall s^t.
+\]
+
+Hence, if $\mu^i = 1/\lambda^i$ for all $i$, and $q(s^t) = \theta(s^t)$ for all $t$ and $s^t$, then the competitive equilibrium allocation is Pareto optimal since their first-order conditions are then identical.
+}
+
+\thm{First Welfare Theorem}{
+    A competitive equilibrium allocation is Pareto optimal.
+}
+
+\thm{Second Welfare Theorem}{
+    Any Pareto optimal allocation can be supported by a competitive equilibrium (with transfers of initial endowments).
+}
+
+\state{Algorithm (Solve for Competitive Equilibrium)}{
+    \begin{enumerate}
+        \item Fix $\mu^1$. Guess the rest of the $\mu^i$'s.
+        \item Using \textit{FOC} and \textit{feasibility constraint}:
+        \[
+        \sum_i (u')^{-1}\pr{\frac{\mu^i}{\mu^1} u'(c^1(s^t))} = \sum_i y^i(s^t), \quad \forall t, \quad \forall s^t,
+        \]
+
+        From this solve for $c^1(s^t)$, and thus $c^i(s^t)$ for all $i$.
+        \item Using budget constraint:
+        \[
+        \sum_t\sum_{s^t}q(s^t)\pr{c^i(s^t) - y^i(s^t)} = 0, \quad \forall i,
+        \]
+        where $q(s^t) = \beta^t \pi(s^t) u'(c^i(s^t)) / \mu^i$ from the FOC. (You may plug in any $i$.)
+
+        Let 
+        \[
+        \sum_t\sum_{s^t}q(s^t)\pr{c^i(s^t) - y^i(s^t)} = \ve_i.
+        \]
+
+        If the error term $\ve_i>0$, increase $\mu^i$; if $\ve_i<0$, decrease $\mu^i$. Iterate until $\ve_i$ is close enough to 0 for all $i$. \footnote{
+            When $\ve_i>0$, intuitively it means that the net present value of consumption is greater than the net present value of endowment, which means that the agent is consuming more than what they can afford. So we need to lower $c^i$. Since $\frac{u'(c^i(s^t))}{u'(c^1(s^t))}  = \frac{\mu^i}{\mu^1}$, we need to increase $\mu^i$ since $\mu^i \uparrow \ \implies u'(c^i(s^t)) \uparrow \ \implies c^i(s^t) \downarrow$.
+
+            The economic intuition is that $\mu^i$ represents the shadow price of wealth (the Lagrange multiplier on the intertemporal budget constraint) for agent $i$. When the agent overspends, the penalty for violating the budget must increase. Raising $\mu^i$ makes wealth more precious, forcing the agent to value each unit of wealth more highly. This drives up their marginal utility of consumption and forces them to cut back on actual consumption in every state until their lifetime budget is balanced.
+        }
+        \item Update guesses for $\mu^i$'s and repeat steps 2 and 3 until $\ve_i$ is close enough to 0 for all $i$.
+    \end{enumerate}
+}
+
+\ex[]{
+    Suppose there are two agents. There is no aggregate risk in the endowment: $y^1(s^t) + y^2(s^t) = 1$ for all $t$ and $s^t$. We suppose the two agents have identical preferences $u$. Solve for the competitive equilibrium.
+
+    \sol{
+        FOC gives
+        \[
+        \frac{u'(c^1(s^t))}{u'(c^2(s^t))} = \frac{\mu^1}{\mu^2}, \quad \forall t, \quad \forall s^t.
+        \]
+        By the market clearing condition, we have
+        \[
+        c^1(s^t) + c^2(s^t) = c^1(s^t) +  (u')^{-1}\pr{\frac{\mu^1}{\mu^2} u'(c^1(s^t))}  = 1 \ ( = y^1(s^t) + y^2(s^t)), \quad \forall t, \quad \forall s^t.
+        \]
+        This implies that $c^1(s^t)$ is constant across $s^t$: $c^1(s^t) = c^1$ for all $s^t$. Similarly, $c^2(s^t)$ is also constant across $s^t$: $c^2(s^t) = c^2$ for all $s^t$.
+
+        FOC also helps pin down the price $q(s^t)$:
+        \[
+        q(s^t) = \beta^t \pi(s^t) u'(c^1) / \mu^1.
+        \]  
+
+        Plugging it back into the budget constraint, we have
+        \[
+        \begin{aligned}
+            & \sum_t\sum_{s^t}q(s^t)\pr{c^i - y^i(s^t)} =0\\
+            \implies & \sum_t\sum_{s^t} \frac{\beta^t \pi(s^t) u'(c^i)}{\mu^i} \pr{c^i - y^i(s^t)} = 0\\
+            \implies &  \sum_t\sum_{s^t}\beta^t\pi(s^t)(c^i-y^i(s^t)) = 0\\
+             \implies & c^i\sum_t\sum_{s^t}\beta^t\pi(s^t) = \sum_t\sum_{s^t}\beta^t\pi(s^t) y^i(s^t)\\
+            \implies & c^i \cdot \frac{1}{1-\beta} = \sum_t\sum_{s^t}\beta^t\pi(s^t) y^i(s^t)\\
+             \implies & c^i = (1-\beta)\sum_t\sum_{s^t}\beta^t\pi(s^t) y^i(s^t).
+        \end{aligned}
+        \]
+        Note that $\sum_t\sum_{s^t}\beta^t\pi(s^t) y^i(s^t)$ is the net present value of endowments for agent $i$. So in the equilibrium, agents can be fully insured against the idiosyncratic risk.
+    }
+    \rmkb[]{
+        \begin{itemize}
+            \item \textbf{Idiosyncratic vs. Aggregate Risk:} The result that consumption is perfectly constant ($c^i(s^t) = c^i$) (or, perfectly smooth consumption) relies crucially on the assumption of \textit{no aggregate risk} ($y^1(s^t) + y^2(s^t) = 1$). But if the total aggregate endowment were to fluctuate across states (i.e., $Y(s^t) = y^1(s^t) + y^2(s^t)$ varies), individual consumptions $c^i(s^t)$ would necessarily fluctuate as well. Agents cannot insure away aggregate shocks; they can only share them. Consequently, individual consumption would positively comove with the aggregate endowment.
+            \item \textbf{Are identical utility functions necessary?} Interestingly, no. Suppose Agent 1 and Agent 2 have completely different utility functions (e.g., $u_1(c) = \ln(c)$ and $u_2(c) = 2\sqrt{c}$). As long as both are risk-averse (strictly concave utility functions), the first-order condition dictates:
+        \[
+        \frac{u_1'(c^1(s^t))}{u_2'(c^2(s^t))} = \frac{\mu^1}{\mu^2} \quad \text{(constant for all } t, s^t \text{)}
+        \]
+        Combining this with the market clearing condition $c^1(s^t) + c^2(s^t) = Y$ (where $Y$ is constant without aggregate risk). Since both marginal utilities $u_1'$ and $u_2'$ are strictly monotonically decreasing, the only mathematical solution to maintain this constant ratio alongside a constant sum is for $c^1$ and $c^2$ to remain absolutely constant across all states.
+        \end{itemize}
+    }
+}
+
+\section{Sequential Trading}
+
+In contrast to a Arrow-Debreu trading where all trades occur at time 0, sequential trading assumes that markets open at every date $t$ and node $s^t$. 
+
+At each node $s^t$, agents trade a complete set of \textit{one-period-ahead Arrow securities}. Let $a^i(s_{t+1}|s^t)$ denote the quantity of claims owned by agent $i$ at $s^t$ that pays one unit of consumption good tomorrow if and only if state $s_{t+1}$ is realized.\footnote{
+    In macroeconomic literature, $a^i(s_{t+1}|s^t)$ and $a^i(s_{t+1}, s^t)$ are used interchangeably to denote the exact same state-contingent claim. The notation $a^i(s_{t+1}|s^t)$ intuitively emphasizes the conditional nature, perfectly mirroring the pricing kernel $Q(s_{t+1}|s^t)$. Conversely, $a^i(s_{t+1}, s^t)$ emphasizes the transition between nodes on the event tree. Furthermore, because a future history is formally defined as $s^{t+1} = (s^t, s_{t+1})$, both expressions are frequently condensed simply to $a^i(s^{t+1})$ for brevity.
+} $a^i(s^t)>0$ denotes assets and $a^i(s^t)<0$ denotes debts. The price of this claim at node $s^t$ is denoted as $Q(s_{t+1}|s^t)$ (often referred to as the \textit{pricing kernel}).
+
+Consequently, the agent faces a sequential budget constraint at every node $s^t$:
+\[
+c^i(s^t) + \sum_{s_{t+1}|s^t} Q(s_{t+1}|s^t) a^i(s_{t+1}|s^t) \le y^i(s^t) + a^i(s^t), \quad \forall t, \forall s^t.
+\]
+where $a^i(s^t)$ is the wealth carried over from the previous period.
+
+To prevent agents from rolling over debt forever (Ponzi schemes) in an infinite-horizon economy\footnote{
+    Intuitively, if the market does not impose limits, an agent could borrow a large sum today to consume. Tomorrow, instead of using their own income to repay the debt, they simply borrow an even larger amount to pay off the previous principal and interest. In an infinite-horizon economy, since there is no "final date," they could theoretically repeat this process indefinitely without ever actually sacrificing their own consumption to settle the balance. The \textit{natural debt limit} is introduced specifically to rule out this financial fantasy, enforcing the strict rule that any debt incurred must ultimately be backed by the agent's actual future real endowments.
+}, we must impose a limit on how much they can borrow.
+
+The \textit{natural debt limit} imposes the loosest possible borrowing constraint such that the agent can repay their debt with certainty (in all possible future states).
+
+\defn{Natural Debt Limit}{
+    The \textit{natural debt limit}, namely the maximum allowable debt for agent $i$ at node $s^t$, denoted by $A^i(s^t)$, is exactly the present discounted value of the agent's entire future endowment stream, evaluated using the sequential state prices:
+    \[
+    A^i(s^t) = \sum_{\tau = t}^{\infty} \sum_{s^{\tau}|s^t} Q(s^{\tau}|s^t) y^i(s^{\tau})
+    \]
+    Thus, in order to rule out Ponzi schemes, we require that the agent's debt at node $s^t$ cannot exceed this natural debt limit:
+    \[
+    -a^i(s_{t+1}|s^t) \le A^i(s_{t+1}), \quad \forall s_{t+1}.
+    \]
+}
+
+\rmkb[]{
+    An ``intuitive" worry might be, \textit{``What if a streak of bad endowment realizations makes repayment impossible?"}. This is actually treating the natural debt limit $A^i(s^t)$ as a fixed, risk-free debt obligation (non-contingent debt). This intuition fails in complete markets because agents trade \textit{state-contingent claims (Arrow securities)}, not fixed debt.
+    
+    Mathematically, $A^i(s^t)$ is not corresponding to an ``expected" future income. It is simply the present market value of liquidating the agent's entire future endowment stream across all possible states at today's state prices $Q(s^{\tau}|s^t)$. So when borrowing up to $A^i(s^t)$, the agent is not promising to repay a fixed amount regardless of tomorrow's state. Instead, they are sacrificing their consumption and selling all of their state-specific endowments.
+}
+
+\defn{Competitive Equilibrium}{
+    A competitive equilibrium consists of
+    \begin{itemize}
+        \item a set of pricing kernels $Q(s_{t+1}|s^t)$, 
+        \item a set of consumption allocations $\brace{c^i(s^t)}$,  
+        \item a set of asset holdings $\brace{a^i(s^t)}$, and 
+        \item given the natural debt limit $\brace{A^i(s^t)}$
+    \end{itemize}
+    such that
+    \begin{itemize}
+        \item \textbf{Agent's Utility Max}:
+        
+        Given prices $Q(s_{t+1}|s^t)$ and the natural debt limit $\brace{A^i(s^t)}$, the consumption allocation $\brace{c^i(s^t)}_{t,s^t}$ and asset holdings $\brace{a^i(s^t)}_{t,s^t}$ solve the following problem for each agent $i$:
+        \[
+        \begin{aligned}
+            \max_{\brace{c^i(s^t)}_{t,s^t}} & \sum_t\sum_{s^t}\beta^t\pi(s^t)u(c^i(s^t))\\
+            \text{s.t. } & c^i(s^t) + \sum_{s_{t+1}|s^t} Q(s_{t+1}|s^t) a^i(s_{t+1}|s^t) \le y^i(s^t) + a^i(s^t), \quad \forall t, \quad \forall s^t\\
+            & a^i(s_{t+1}|s^t) \ge -A^i(s^{t+1}), \quad \forall s_{t+1}|s^t, \quad \forall t, \quad \forall s^t
+        \end{aligned}
+        \]
+        \item Market Clearing:
+        \begin{itemize}
+            \item Goods Market: $\sum_i c^i(s^t) = \sum_i y^i(s^t)$ for all $t$ and $s^t$.
+            \item Asset Market: $\sum_i a^i(s_{t+1}|s^t) = 0$ for all $t$ and $s^t$.
+        \end{itemize}
+    \end{itemize}
+}
+
+The Lagrangian for the agent's problem is given by
+\[
+\begin{aligned}
+    \mathcal{L} =  & \sum_t\sum_{s^t}\beta^t\pi(s^t)u(c^i(s^t)) \\
+    & + \sum_t\sum_{s^t} \lambda^i(s^t) \pr{y^i(s^t) + a^i(s^t) - c^i(s^t) - \sum_{s_{t+1}|s^t} Q(s_{t+1}|s^t) a^i(s_{t+1}|s^t)}\\
+    & + \sum_t\sum_{s^t} \sum_{s_{t+1}|s^t} \nu^i(s_{t+1}|s^t) \pr{a^i(s_{t+1}|s^t) + A^i(s^{t+1})},
+\end{aligned}
+\]
+where $\lambda^i(s^t)$ is the Lagrange multiplier for the sequential budget constraint at history $s^t$, and $\nu^i(s_{t+1}|s^t)$ is the Lagrange multiplier for the natural debt limit constraint at history $s^t$.
+
+The FOC's are
+\begin{itemize}
+    \item for $c^i(s^t)$:
+    \[
+    \frac{\partial \mathcal{L}}{\partial c^i(s^t)} = \beta^t \pi(s^t) u'(c^i(s^t)) - \lambda^i(s^t) = 0 \quad \implies \quad \lambda^i(s^t) = \beta^t \pi(s^t) u'(c^i(s^t)).
+    \]
+    \item for $a^i(s_{t+1}|s^t)$:
+    \[
+    \begin{aligned}
+        & \frac{\partial \mathcal{L}}{\partial a^i(s_{t+1}|s^t)} = -\lambda^i(s^t) Q(s_{t+1}|s^t) + \lambda^i(s^{t+1}) + \nu^i(s_{t+1}|s^t) = 0\\
+        \implies & \quad \lambda^i(s^t) Q(s_{t+1}|s^t) = \lambda^i(s^{t+1}) + \nu^i(s_{t+1}|s^t).
+    \end{aligned}
+    \]
+\end{itemize}
+
+Note that if the natural debt limit constraint is not binding, then $\nu^i(s_{t+1}|s^t) = 0$ and $a'>-A$. If the natural debt limit constraint is binding, then $\nu^i(s_{t+1}|s^t) > 0$ and $a' = -A$. However if $a' = -A$ for some period, then you cannot consume from this period forward. By the Inada condition, $\lim_{c\to 0}u'(c) = \infty$, $c = 0$ onwards is suboptimal. Hence, the natural debt limit constraint will never be binding in equilibrium, which implies that $\nu^i(s_{t+1}|s^t) = 0$ and $a'>-A$ for all $t$ and $s^t$.
+
+Having this result, we can rewrite the FOC as 
+\[
+Q(s_{t+1}|s^t) = \frac{\lambda^i(s^{t+1})}{\lambda^i(s^t)}.
+\]
+
+And from the FOC for $c^i(s^t)$, we have had $\lambda^i(s^t) = \beta^t \pi(s^t) u'(c^i(s^t))$. Hence, we can rewrite the pricing kernel as
+\[
+\begin{aligned}
+    Q(s_{t+1}|s^t) & = \frac{\beta^{t+1}}{\beta^t}\frac{\pi(s^{t+1})}{\pi(s^t)}\frac{u'(c^i(s^{t+1}))}{u'(c^i(s^t))}  \\
+    & =  \beta \pi(s^{t+1}|s^t)\frac{u'(c^i(s^{t+1}))}{u'(c^i(s^t))}.
+\end{aligned}
+\]
+Consequently,
+\[
+Q(s_{t+1}|s^t) = \beta \pi(s^{t+1}|s^t)\frac{u'(c^i(s^{t+1}))}{u'(c^i(s^t))}.
+\]
+
+In order to establish the equivalence between the sequential trading equilibrium and the time 0 trading equilibrium, we need to compare their FOC's. In the time 0 trading equilibrium, the FOC for $c^i(s^t)$ is given by
+\[
+\beta^t \pi(s^t) u'(c^i(s^t)) = \mu^i q(s^t).
+\]
+And this gives
+\[
+\beta \pi(s^{t+1}|s^t)\frac{u'(c^i(s^{t+1}))}{u'(c^i(s^t))} =  \frac{q(s^{t+1})}{q(s^t)} := q(s_{t+1}|s^t),
+\]
+
+In order to make their FOC's coincide so that the two equilibria are equivalent, we need to set $Q(s_{t+1}|s^t) = q(s_{t+1}|s^t)$ for all $t$ and $s^t$.\footnote{
+    It is crucial to distinguish these two terms, as they originate from fundamentally different market structures. 
+    $Q(s_{t+1}|s^t)$ is the \textit{actual spot price} traded at node $s^t$ in the sequential trading economy; it is the physical amount of $s^t$-goods an agent pays today for a one-period-ahead state-contingent claim. 
+    In contrast, $q(s_{t+1}|s^t) := q(s^{t+1})/q(s^t)$ is an relative price derived \textit{algebraically} from the Date-0 Arrow-Debreu economy, where no actual trading occurs at date $t$. 
+    Setting $Q = q$ guarantees that the sequential spot markets perfectly replicate the relative valuations embedded in the Date-0 prices, which is the core mathematical mechanism behind the equivalence.
+} This implies that the pricing kernel in the sequential trading equilibrium is the same as the price of state-contingent claims in the time 0 trading equilibrium.
+
+An additional requirement is that initial wealth assets must be zero in the sequential trading equilibrium, which means that $a^i(s_0) = 0$ for all $i$. This is because in the time 0 trading equilibrium, all trades occur at time 0, and thus there are no initial assets or debts. If there are initial assets or debts in the sequential trading equilibrium, then the two equilibria cannot be equivalent since the initial conditions are different.
+
+With the above two requirements, we can establish the equivalence between the sequential trading equilibrium and the time 0 trading equilibrium.
+
+\rmkb[Asset Pricing]{
+
+Assume $\brace{d(s^t)}_t$ is a stream of claims of consumption. The price of the consumption stream at time 0 is given by
+\[
+p(s_0) = \sum_t\sum_{s^t} q(s^t|s_0) d(s^t).
+\]
+
+After a realization of history $s^{\tau}$, the price of the consumption stream is given by
+\[
+p(s^{\tau}) = \sum_{t\ge \tau}\sum_{s^t} q(s^t|s^{\tau}) d(s^t),
+\]
+where $q(s^t|s^{\tau}) = \frac{q(s^t|s_0)}{q(s^{\tau}|s_0)}$, and by the previous section, we have 
+\[
+q(s^t|s^{\tau}) = \frac{q(s^t|s_0)}{q(s^{\tau}|s_0)} = \beta^{t-\tau} \pi(s^t|s^{\tau}) \frac{u'(c^i(s^t))}{u'(c^i(s^{\tau}))}.
+\]
+
+Of the same logic, the price of a one-period return is given by
+\[
+p(s^t) = \sum_{s_{t+1}|s^t} q(s_{t+1}|s^t) d(s_{t+1}) = \sum_{s_{t+1}|s^t} \beta \pi(s_{t+1}|s^t) \frac{u'(c^i(s_{t+1}))}{u'(c^i(s^t))} d(s_{t+1}).
+\]
+
+Define the \textit{gross return of the asset} as
+\[
+R_{t+1} = \frac{d(s_{t+1})}{p(s^t)}.
+\]
+
+Define the \textit{stochastic discount factor} as\footnote{
+    The stochastic discount factor represents the agent's subjective valuation of one unit of consumption tomorrow in state $s_{t+1}$ relative to one unit today. It is essentially the Intertemporal Marginal Rate of Substitution (IMRS).
+    
+    Suppose a bad economic shock occurs tomorrow. Consumption $c_{t+1}$ will be low, meaning marginal utility $u'(c_{t+1})$ will be extremely high (due to diminishing marginal utility). Thus, the SDF $m_{t+1}$ takes a very large value in bad states. This implies that an asset paying off well during bad times is heavily weighted by the SDF, commanding a higher price today. This is the fundamental source of risk premiums in modern asset pricing.
+}
+\[m_{t+1} = \beta \frac{u'(c^i(s_{t+1}))}{u'(c^i(s^t))}.\]
+
+Then we can rewrite the price of the one-period return as
+\[
+1 = \sum_{s_{t+1}|s^t} \pi(s_{t+1}|s^t) m_{t+1} R_{t+1} = \mathbb E_t[m_{t+1} R_{t+1}|s^t].
+\]
+}
+
+\section{Recursive Competitive Equilibrium}
+
+In the sequential trading setup, agents choose sequences of consumption and asset holdings across a constantly expanding event tree of histories $s^t$. As $t \to \infty$, tracking the entire history makes the problem infinitely dimensional.  The goal of a \textit{recursive competitive equilibrium} is to collapse this infinite-dimensional sequence problem into a time-invariant functional equation (the Bellman equation). To do this, we must ensure that the past only influences the future through a finite set of current ``state variables" (e.g., current wealth $a$ and current state $s$). This requires strict stationarity restrictions on the fundamental economic environment.
+
+To guarantee that the problem can be written recursively, we impose the following assumptions:
+
+\asm{Markovian and Time-Invariant Fundamentals}{
+    
+    \begin{itemize}
+        \item \textbf{Markovian Transitions:} Endowments are governed by a first-order Markov process. The probability of tomorrow's state depends \textit{only} on today's state, making the history prior to $t$ irrelevant for forecasting the future:
+        \[
+        \Pr{s_{t+1} = s'|s_t = s} = \pi(s'|s), \quad \forall s, \quad \forall s'.
+        \]
+        \item \textbf{Time-Invariant Endowments:}\footnote{
+            This means the current physical state $s$ is a \textit{sufficient statistic} for the endowment. You only need to know the current state, instead of the whole history $s^t$ or the time $t$, to determine current income.
+        } Household endowments depend only on the current state $s$, not on the date $t$ or the path taken to get there:
+        \[
+        y^i(s^t) = y^i(s_t), \quad \forall i, \quad \forall t.
+        \]
+    \end{itemize}
+}
+
+Because the fundamental environment (endowments and transition probabilities) is now memoryless and stationary, the equilibrium consumption allocations, asset holdings, and prices will also depend only on the current state. Thus, we can safely drop all $t$ subscripts from the sequential budget constraint. The constraint simplifies to:
+\[
+c(s)+\sum_{s'}Q(s'|s) a(s') \le y(s) + a(s), \quad \forall s.
+\]
+
+We can now formally write the household's dynamic programming problem. The state variables are individual wealth $a$ and the current exogenous state $s$. The Bellman equation is given by:
+\[
+\begin{aligned}
+    & V^i(a,s) = \max_{c(s),\hat a(s')} \brace{u^i(c(s)) + \beta \sum_{s'}\pi(s'|s) V^i(\hat a(s'),s')}\\
+    \text{s.t. } & c(s) + \sum_{s'} Q(s'|s) \hat a(s') \le y(s) + a, \quad \forall s\\
+    & \hat a(s')\ge - A^i(s'), \quad \forall s'\\
+    & c(s)\ge 0, \quad \forall s.
+\end{aligned}
+\]
+where $V^i(a,s)$ is the value function of the household, representing the maximum expected discounted utility that the household with current assets $a$ and current state $s$ can achieve.
+
+From the Bellman equation, we can derive the policy functions for consumption and asset holdings, denoted by $c = h^i(a,s)$ and $\hat a(s') = g^i(a,s,s')$, respectively. 
+
+\defn{Recursive Competitive Equilibrium}{
+    A recursive competitive equilibrium consists of
+    \begin{itemize}
+        \item pricing kernels: $Q(s'|s)$,
+        \item policy functions: $\brace{h^i(a,s),g^i(a,s,s')}_i$,
+        \item value functions: $\brace{V^i(a,s)}_i$,
+        \item initial distribution of wealth: $\brace{a^i_0}_i$, and
+        \item given the natural debt limits $\brace{A^i(s)}_i$
+    \end{itemize}
+    such that
+    \begin{itemize}
+        \item Given the pricing kernel $Q(s'|s)$, the natural debt limits $A^i(s)$ and the initial distribution of wealth $a^i_0$, the policy functions $h^i(a,s)$ and $g^i(a,s,s')$ solve the household's Bellman equation.
+        \item Market Clearing:
+        \begin{itemize}
+            \item Goods Market: $\sum_i h^i(a^i,s) = \sum_i y^i(s)$ for all $s$.
+            \item Asset Market: $\sum_i g^i(a^i,s,s') = 0$ for all $s$ and $s'$.
+        \end{itemize}
+        \item State-by-state borrowing constraint:
+        \[
+        A^i(s) = y^i(s) + \sum_{s'} Q(s'|s) A^i(s'), \quad \forall i, \quad \forall s.
+        \]
+    \end{itemize}
+}
+
+\rmkb[The Necessity of the Recursive Debt Limit Constraint]{
+\begin{itemize}
+    \item In the sequential problem, the natural debt limit is defined as an infinite sum of discounted future endowments. In a recursive framework, we drop the time dimension and cannot explicitly sum to infinity. This equation is the exact \textit{recursive formulation} of that infinite sum. It acts as a functional equation that endogenously solves for the unknown function $A^i(s)$.
+    \item The debt limit $A^i(s)$ is not an exogenous parameter; it strictly depends on the endogenous equilibrium pricing kernel $Q(s'|s)$. If we omit this condition, the household's constraint $\hat a(s') \ge -A^i(s')$ is left undefined, and the model cannot uniquely rule out Ponzi schemes.
+\end{itemize}
+}
+
+The FOC for the Bellman equation is given by
+\begin{itemize}
+    \item for $c$:
+    \[
+    u'(c) = \lambda(s),
+    \]
+    where $\lambda(s)$ is the Lagrange multiplier for the budget constraint at state $s$.
+    \item for $\hat a(s')$:
+    \[
+    \beta \pi(s'|s) V_a(\hat a,s') - \lambda(s) Q(s'|s) + \nu(s,s') = 0,
+    \]
+where $\nu(s,s')$ is the Lagrange multiplier for the natural debt limit constraint at state $s'$.
+\end{itemize}
+
+Note that $\nu>0$ if the borrowing constraint is binding. Then at any future state $s'$, the agent can only have zero consumption, $c(s') = 0$. By the Inada condition, $c(s') = 0$ is suboptimal. Hence, the natural debt limit constraint will never be binding in equilibrium, which implies that $\nu(s,s') = 0$ for all $s$ and $s'$.
+
+The envelope condition for the Bellman equation is given by
+\[
+V_a(a,s) = u'(c).
+\]
+
+Combining the conditions above, we have
+\[
+\beta \pi(s'|s)u'(c(s')) - u'(c(s))Q(s'|s) = 0  \implies  Q(s'|s) = \beta \pi(s'|s)\frac{u'(c(s'))}{u'(c(s))},
+\]
+which is the same as the pricing kernel in the sequential trading equilibrium.\footnote{
+Recall that in the sequential trading, $Q(s_{t+1}|s^t) =  \beta \pi(s_{t+1}|s^t) \frac{u'(c^i(s^{t+1}))}{u'(c^i(s^t))}$. Applying our assumptions, the conditional probability collapses to $\pi(s_{t+1}|s_t)$, and the consumption allocations collapse to $c^i(s_{t+1})$ and $c^i(s_t)$. Thus, the price perfectly simplifies to a time-invariant function mapping today's state $s$ to tomorrow's state $s'$: $Q(s'|s) =  \beta \pi(s'|s) \frac{u'(c^i(s'))}{u'(c^i(s))}, \forall s, \forall s'$.
+} This implies that the recursive competitive equilibrium and the sequential trading equilibrium are equivalent under our assumptions.
+
+\section{Recursive Social Planner's Problem}
+
+\rmk{
+    Why do we need the \textbf{Recursive Social Planner's Problem} and the concept of \textbf{promised utility ($v$)} as a state variable, especially when the Sequential Planner already easily solves for the optimal allocation? 
+
+    This transition represents a fundamental paradigm shift in how we approach dynamic optimization. In the previous social planner's problem, the planner stands at time 0, assigns a fixed Pareto weight, and dictates an infinite sequence of allocations for all future contingencies. The ``contract" is written once and never revisited. 
+
+    The recursive planner, however, shifts the perspective from \textit{``static allocation over infinite time"} to \textit{``dynamic utility delivery."} By using promised utility $v$ as the state variable, the planner collapses the entire infinite future into a single sufficient statistic: the "utility debt" currently owed to the agent. The planner's problem is no longer about choosing an entire physical consumption path. Instead, it is a sequential constrained optimization problem: \textbf{how to deliver this promised utility $v$ as efficiently as possible.}
+
+    Each period, the planner wakes up, looks at the ledger ($v$), and faces a one-step tradeoff: how to split this obligation into today's physical consumption ($c_s$) and tomorrow's renewed promise ($w_s$). This approach fundamentally changes the mathematical object we are operating on: we are no longer choosing sequences of goods, but recursively trading off utility across time. While in this frictionless baseline the planner optimally keeps the promise constant ($w_s = v$, perfectly mirroring a fixed Pareto weight), this ``ledger'' perspective gives us a much deeper understanding of the mechanics of time and commitment in macroeconomics.
+}
+
+Assume:
+\begin{itemize}
+    \item Two agents with constant aggregate endowment:
+    \[
+    y_t^1 = s_t, \quad y_t^2 = 1-s_t, \quad \forall t.
+    \]
+    \item The endowment process is i.i.d.:
+    \[
+    \pi(s^t) = \pi(s_0)\pi(s_1)\cdots \pi(s_t) = \prod_{\tau=0}^t \pi(s_{\tau}), \quad \forall t.
+    \]
+    \item $s_t$ has a discrete distribution: $s_t\in \br{\bar s_1,\cdots ,\bar s_S}$.
+\end{itemize}
+
+We assume \textit{ex-ante} timing, meaning the decision at time $t$ is made before the realization of $s_t$. The social planner delivers a promised utility stream $v$ for Agent 1 at time $t$ such that
+\[
+\sum_s\pi(s)\pr{u(c_s)+\beta w_s} = v,
+\]
+where $c_s$ is the consumption at state $s$ and $w_s$ is the continuation value for Agent 1 at state $s$, i.e., if the current state is $s$, then the social planner will deliver a promised utility stream $w_s$ for Agent 1 from the next period onward.
+
+Before formally setting up the recursive problem, we must define the planner's value function, $P(v)$. Let $P(v)$ represent the \textit{Pareto frontier}: the maximum expected discounted utility the social planner can deliver to Agent 2, given that Agent 1 is guaranteed a promised utility of at least $v$.  Since the aggregate endowment is constant at 1, if Agent 1 consumes $c_s$, Agent 2 must consume the residual $1-c_s$. The planner's objective is to maximize Agent 2's utility subject to fulfilling the utility promise $v$ to Agent 1. So the recursive Pareto problem is given by
+\[
+\begin{aligned}
+    & P(v) = \max_{\brace{c_s,w_s}_s} \sum_s\pi(s)\pr{u(1-c_s)+\beta P(w_s)}\\
+    \text{s.t. } & \sum_s\pi(s)\pr{u(c_s)+\beta w_s} \ge v.
+\end{aligned}
+\]
+
+The Lagrange for the problem is given by
+\[
+\mathcal{L} = \sum_s\pi(s)\pr{u(1-c_s)+\beta P(w_s)} + \theta \pr{\sum_s\pi(s)\pr{u(c_s)+\beta w_s} - v},
+\]
+where $\theta$ is the Lagrange multiplier for the promised utility constraint.
+
+The FOC's are given by
+\begin{itemize}
+    \item for $c_s$:
+    \[
+    -u'(1-c_s) + \theta u'(c_s) = 0 \quad \implies \quad \theta = \frac{u'(1-c_s)}{u'(c_s)}.
+    \]
+    \item for $w_s$:
+    \[
+    \beta P'(w_s) + \theta \beta = 0 \quad \implies \quad P'(w_s) +\theta = 0.
+    \]
+\end{itemize}
+
+And the envelope condition is given by
+\[P'(v) = -\theta.
+\]
+
+This provides a beautiful economic interpretation for the Lagrange multiplier $\theta$. Since the Pareto frontier $P(v)$ represents Agent 2's maximum utility given Agent 1's promised utility $v$, its derivative $P'(v)$ must be strictly negative. It measures the marginal cost to Agent 2 of delivering one additional unit of utility to Agent 1. Thus, $-P'(v) = \theta$ is exactly the \textit{marginal rate of utility substitution} between the two agents.
+
+From those conditions, we have
+\[P'(w_s) = P'(v) \quad \implies \quad w_s = v, \quad \forall s.
+\]
+
+And we also have
+\[
+\frac{u'(1-c_s)}{u'(c_s)} = \theta = -P'(v).
+\]
+
+This implies that the consumption is constant over time and across states: $c_s = c$ for all $s$, which indicates complete risk-sharing of the idiosyncratic risk. Notably, this recursive equilibrium corresponds to some allocation in the sequential social planner's problem. 
+
+Intuitively, these results mean that the planner optimally keeps this ``utility exchange rate" perfectly constant across all future states $s$. If the exchange rate of utility never fluctuates, the physical allocation of consumption must also remain perfectly smooth, leading directly to the perfect risk-sharing conclusion ($c_s = c$).
+
