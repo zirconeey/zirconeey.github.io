@@ -213,19 +213,20 @@
 <body>
 
   <nav>
-    <div class="nav-inner">
-      <div class="nav-left">
-        <a href="https://ruizhou03.github.io" class="nav-back">← 学术主页</a>
-        <ul class="nav-site-links">
-          <li><a href="{{ site.baseurl }}/">首页</a></li>
-          <li><a href="{{ site.baseurl }}/#notes">笔记</a></li>
-          <li><a href="{{ site.baseurl }}/#blog">随笔</a></li>
-          <li><a href="{{ site.baseurl }}/#archive">存档</a></li>
-        </ul>
-      </div>
-      <button class="theme-toggle" onclick="toggleTheme()" title="切换深色/浅色模式">&#9683;</button>
+  <div class="nav-inner">
+    <div style="display: flex; gap: 1.5rem; align-items: center;">
+      <a href="{{ site.baseurl }}/" style="font-weight: bold; color: var(--color-ink);">首页</a>
+      <a href="{{ site.baseurl }}/notes/" style="color: var(--color-muted);">课程笔记</a>
+      <a href="{{ site.baseurl }}/essays/" style="color: var(--color-muted);">随笔</a>
+      <a href="{{ site.baseurl }}/tools/" style="color: var(--color-muted);">省你时间</a>
     </div>
-  </nav>
+    
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <a href="https://ruizhou03.github.io" class="nav-back">← 英文学术主页</a>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">&#9790;</button>
+    </div>
+  </div>
+</nav>
 
   <main>
     {{ content }}

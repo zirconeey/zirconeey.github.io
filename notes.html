@@ -1,0 +1,56 @@
+---
+layout: default
+title: 课程笔记 | Rui Zhou
+permalink: /notes/
+---
+
+<style>
+  .category-container { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; margin-top: 2rem; }
+  .sidebar { border-right: 1px solid var(--color-border); padding-right: 1rem; }
+  .sidebar h3 { font-size: 1.1rem; margin-bottom: 1rem; }
+  .tag-list { list-style: none; padding: 0; }
+  .tag-list li { margin-bottom: 0.5rem; }
+  .tag-list a { color: var(--color-muted); text-decoration: none; font-size: 0.95rem; }
+  .tag-list a:hover { color: var(--color-accent); }
+  
+  @media (max-width: 768px) {
+    .category-container { grid-template-columns: 1fr; }
+    .sidebar { border-right: none; border-bottom: 1px solid var(--color-border); padding-bottom: 1rem; margin-bottom: 1rem; }
+  }
+</style>
+
+<h1>📚 课程笔记</h1>
+<p class="post-meta">这里收录了我的本科及研究生课程笔记。点击左侧标签筛选不同学科。</p>
+
+<div class="category-container">
+  <aside class="sidebar">
+    <h3>学科分类</h3>
+    <ul class="tag-list">
+      <li><a href="#economics">经济学</a></li>
+      <li><a href="#math">数学</a></li>
+      <li><a href="#general">通识课</a></li>
+    </ul>
+  </aside>
+
+  <main class="content">
+    
+    <h2 id="economics" style="margin-top: 0;">经济学</h2>
+    <ul class="post-list">
+      {% for post in site.tags['经济学'] %}
+        <li class="post-item">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <h2 id="math" style="margin-top: 3rem;">数学</h2>
+    <ul class="post-list">
+      {% for post in site.tags['数学'] %}
+        <li class="post-item">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+  </main>
+</div>
