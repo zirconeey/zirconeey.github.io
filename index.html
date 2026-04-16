@@ -1,0 +1,52 @@
+---
+layout: default
+title: 周睿的中文存档 | Rui Zhou
+---
+
+<section class="bio-section" style="margin-bottom: 3rem;">
+  <h1>关于这里</h1>
+  <p>你好，我是<strong>周睿</strong>。</p>
+  <p>我目前在<a href="https://econ.la.psu.edu/">宾夕法尼亚州立大学（Penn State University）</a>攻读经济学博士学位。我的主要研究方向为行为经济学与微观经济理论。</p>
+  
+  <div class="notice-box" style="background: var(--color-bg); border-left: 4px solid var(--color-muted);">
+    <strong>📌 存档说明</strong><br>
+    这个中文站点是我个人的文字与知识存档区。<strong>本站不再追求定期更新</strong>，主要用于存放我过往的学习笔记、随笔与分享。如需了解我最新的学术动态，请移步我的<a href="https://ruizhou03.github.io/">英文学术主页</a>。
+  </div>
+</section>
+
+<section class="notes-section">
+  <h2>📚 课程与学习笔记 (Archive)</h2>
+  
+  <div class="notice-box">
+    ⚠️ <strong>特别说明</strong>：以下课程笔记多为我在北京大学本科期间（及其他早期阶段）整理。这些文档<strong>目前已不再维护更新</strong>，难免存在疏漏、typo 甚至错误，仅作分享与存档，请带着批判性思维参考。
+  </div>
+
+  <ul class="post-list">
+    <li class="post-item">
+      <div class="post-meta">2024 / University of Michigan</div>
+      <h3 class="post-title"><a href="你的PDF链接或文章链接">Real Analysis (实分析) 笔记</a></h3>
+    </li>
+    <li class="post-item">
+      <div class="post-meta">2023 / Peking University</div>
+      <h3 class="post-title"><a href="你的PDF链接或文章链接">Advanced Microeconomics (高级微观经济学) 笔记</a></h3>
+    </li>
+    <li class="post-item">
+      <div class="post-meta">2023 / Peking University</div>
+      <h3 class="post-title"><a href="你的PDF链接或文章链接">Advanced Econometrics (高级计量经济学) 笔记</a></h3>
+    </li>
+    </ul>
+</section>
+
+<section class="blog-section">
+  <h2>🖋️ 随笔杂谈</h2>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li class="post-item">
+        <div class="post-meta">{{ post.date | date: "%Y-%m-%d" }}</div>
+        <h3 class="post-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
