@@ -19,27 +19,32 @@ title: 周睿的中文博客 | Rui Zhou
   </div>
 </section>
 
-<section class="hot-posts" style="margin-top: 3rem;">
-  <h2>🔥 热门与精选</h2>
-  <ul class="post-list">
-    {% for post in site.posts %}
-      {% if post.hot == true %}
-        <li class="post-item">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</section>
-
-<section class="latest-posts" style="margin-top: 3rem;">
-  <h2 style="margin-bottom: 1.5rem;">✨ 最新发布</h2>
+<section class="blog-preview" style="margin-top: 3rem;">
+  <h2 style="margin-bottom: 1.5rem;">✨ 近期导读</h2>
   <ul class="post-list" style="list-style: none; padding: 0;">
-    {% for post in site.posts limit:5 %}
+    
+    {% assign limit = 5 %} 
+    {% assign hot_posts = site.posts | where: "hot", true %}
+    {% assign hot_count = hot_posts | size %}
+    
+    {% for post in hot_posts limit: limit %}
       <li class="post-item" style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed var(--color-border); padding: 1rem 0; transition: all 0.2s;">
-        <a href="{{ post.url | relative_url }}" style="font-size: 1.1rem; text-decoration: none; color: var(--color-ink); font-weight: 500; display: block; flex: 1;">{{ post.title }}</a>
-        <span class="post-meta" style="font-size: 0.85rem; color: var(--color-light); white-space: nowrap; margin-left: 1.5rem; font-family: monospace;">{{ post.date | date: "%Y-%m-%d" }}</span>
+        <a href="{{ post.url | relative_url }}" style="font-size: 1.1rem; text-decoration: none; color: var(--color-ink); font-weight: 600; display: block; flex: 1;">{{ post.title }}</a>
+        <span class="post-meta" style="font-size: 0.85rem; color: var(--color-highlight); white-space: nowrap; margin-left: 1.5rem; font-style: italic;">Editor's Choice</span>
       </li>
     {% endfor %}
+
+    {% if hot_count < limit %}
+      {% assign remaining = limit | minus: hot_count %}
+      {% assign recent_posts = site.posts | where_exp: "item", "item.hot != true" %}
+      
+      {% for post in recent_posts limit: remaining %}
+        <li class="post-item" style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed var(--color-border); padding: 1rem 0; transition: all 0.2s;">
+          <a href="{{ post.url | relative_url }}" style="font-size: 1.1rem; text-decoration: none; color: var(--color-ink); font-weight: 500; display: block; flex: 1;">{{ post.title }}</a>
+          <span class="post-meta" style="font-size: 0.85rem; color: var(--color-light); white-space: nowrap; margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif;">{{ post.date | date: "%Y-%m-%d" }}</span>
+        </li>
+      {% endfor %}
+    {% endif %}
+
   </ul>
 </section>
