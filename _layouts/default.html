@@ -266,48 +266,55 @@
     }
 
     /* ==========================================
-       右下角电梯悬浮标 (回到顶部/底部)
+       二合一“太极圆”电梯按钮
        ========================================== */
     .elevator-fab {
       position: fixed;
       right: 1.5rem;
       bottom: 2rem;
+      width: 50px; /* 稍微加大直径，保证点击精度 */
+      height: 50px;
+      z-index: 101;
+      border-radius: 50%;
+      overflow: hidden; /* 核心：裁剪内部的两个半圆 */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+      border: 1px solid var(--color-border);
+      background: var(--color-nav-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      z-index: 101;
+      transition: transform 0.3s ease;
     }
-    
+
+    .elevator-fab:hover { transform: translateY(-3px); }
+
+    /* 上下两个半圆按钮 */
     .elevator-fab button {
-      width: 42px;
-      height: 42px;
-      background: var(--color-nav-bg); /* 毛玻璃底色 */
+      width: 100%;
+      height: 50%; /* 各占一半 */
+      background: transparent;
       color: var(--color-accent);
-      border: 1px solid var(--color-border);
-      border-radius: 50%;
+      border: none;
       cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      font-size: 1.2rem;
-      font-family: inherit;
+      font-size: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: background 0.2s, color 0.2s;
     }
-    
+
+    /* 中间的分割线 */
+    .elevator-btn-up { border-bottom: 1px solid var(--color-border) !important; }
+
+    /* 悬浮效果：背景变色，文字变白 */
     .elevator-fab button:hover {
       background: var(--color-accent);
       color: white;
-      border-color: var(--color-accent);
-      transform: scale(1.08);
     }
 
-    /* 手机端稍微缩小一点，防止遮挡内容 */
     @media (max-width: 768px) {
-      .elevator-fab { right: 1rem; bottom: 1.5rem; }
-      .elevator-fab button { width: 38px; height: 38px; font-size: 1.1rem; }
+      .elevator-fab { right: 1rem; bottom: 1.5rem; width: 44px; height: 44px; }
     }
   </style>
 </head>
@@ -370,8 +377,8 @@
   </script>
 
   <div class="elevator-fab">
-    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到顶部">↑</button>
-    <button onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" title="前往底部">↓</button>
+    <button class="elevator-btn-up" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到顶部">↑</button>
+    <button class="elevator-btn-down" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" title="前往底部">↓</button>
   </div>
 </body>
 </html>
