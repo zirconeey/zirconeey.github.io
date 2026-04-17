@@ -8,7 +8,7 @@ layout: default
        style="font-family: var(--font-display); font-size: 1.05rem; color: var(--color-ink); text-decoration: none; font-weight: 600; display: block; transition: color 0.2s;"
        onmouseover="this.style.color='var(--color-accent)'" 
        onmouseout="this.style.color='var(--color-ink)'">
-      ↑ {{ page.title | replace: 'LaTeX', 'L<span class="latex-a">a</span>T<span class="latex-e">e</span>X' }}
+      {{ page.title | replace: 'LaTeX', 'L<span class="latex-a">a</span>T<span class="latex-e">e</span>X' }}
     </a>
   </h4>
   <ul id="toc-ul"></ul>
