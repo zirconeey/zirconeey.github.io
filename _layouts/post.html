@@ -31,11 +31,10 @@ layout: default
 </article>
 
 <script>
-  // A. 自动生成目录逻辑
+  // 自动生成目录逻辑
   document.addEventListener("DOMContentLoaded", function() {
     const postContent = document.getElementById('post-content');
     const tocUl = document.getElementById('toc-ul');
-    // 抓取正文中的所有 H1 和 H2
     const headings = postContent.querySelectorAll('h1, h2');
     
     if (headings.length === 0) {
@@ -44,7 +43,6 @@ layout: default
     }
 
     headings.forEach((heading, index) => {
-      // 为每个标题生成一个 ID 方便跳转
       const id = 'heading-' + index;
       heading.setAttribute('id', id);
 
@@ -53,7 +51,6 @@ layout: default
       a.href = '#' + id;
       a.textContent = heading.textContent;
       
-      // 根据标题等级设置不同样式
       if (heading.tagName === 'H2') {
         a.classList.add('toc-h2');
       }
@@ -61,18 +58,22 @@ layout: default
       li.appendChild(a);
       tocUl.appendChild(li);
 
-      // 点击目录项后，在移动端自动收起
-      a.onclick = () => {
-        if (window.innerWidth < 1200) toggleTOC();
-      };
+      // 点击后的交互逻辑
+      a.addEventListener('click', (e) => {
+        // 在手机端，点击后自动收起侧栏，防止遮挡内容
+        if (window.innerWidth <= 768) {
+          toggleTOC();
+        }
+      });
     });
   });
 
-  // B. 侧边栏开关逻辑
+  // 侧边栏开关逻辑
   function toggleTOC() {
     const toc = document.getElementById('toc-container');
     const btn = document.getElementById('toc-toggle');
     toc.classList.toggle('open');
-    btn.textContent = toc.classList.contains('open') ? '✕' : '☰';
+    // 切换按钮的文字/图标
+    btn.innerHTML = toc.classList.contains('open') ? '&times;' : '&#9776;';
   }
 </script>

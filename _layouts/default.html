@@ -168,50 +168,67 @@
     .markdown-content a { color: var(--color-accent); text-decoration: none; border-bottom: 1px dashed var(--color-accent); transition: all 0.2s; padding-bottom: 1px; }
     .markdown-content a:hover { border-bottom-style: solid; background-color: rgba(30, 58, 95, 0.05); }
 
-    /* 1. Mac 风格代码块装饰 */
-    .markdown-content pre { position: relative; padding-top: 35px !important; background: #282c34; border-radius: 8px; }
-    .markdown-content pre::before {
-      content: ''; position: absolute; top: 12px; left: 15px; width: 12px; height: 12px;
-      background: #ff5f56; border-radius: 50%;
-      box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f; /* 三色控制按钮 */
-      z-index: 2;
-    }
+    /* 1. 全局平滑滚动动画 */
+    html { scroll-behavior: smooth; }
 
-    /* 2. 去除标题多余横线 */
-    /* 假设横线来自你之前提到的 section 标签全局样式 */
-    .post-container section { border-bottom: none !important; padding: 0.5rem 0 !important; }
-    /* 去掉 H1 前后可能存在的边框 */
-    .markdown-content h1 { border: none !important; margin-top: 1.5em; }
-    /* 保留 H2 的浅色底线，增加呼吸感 */
-    .markdown-content h2 { border-bottom: 1px solid var(--color-border); padding-bottom: 0.3em; margin-top: 2em; }
-
-    /* 3. 侧边栏目录 (TOC) 样式 */
+    /* 2. 侧边栏目录 (TOC) 样式升级 */
     #toc-container {
-      position: fixed; left: 2rem; top: 10rem; width: 200px;
-      max-height: 70vh; overflow-y: auto; padding: 1rem;
-      background: var(--color-bg); border-left: 2px solid var(--color-accent);
-      z-index: 100; transition: transform 0.3s ease, opacity 0.3s;
-      opacity: 0; transform: translateX(-250px); /* 默认关闭 */
-    }
-    #toc-container.open { opacity: 1; transform: translateX(0); }
-    #toc-container h4 { font-family: var(--font-display); font-size: 0.9rem; color: var(--color-muted); margin-bottom: 1rem; text-transform: uppercase; }
-    #toc-ul { list-style: none; padding: 0; font-size: 0.85rem; }
-    #toc-ul li { margin-bottom: 0.6rem; line-height: 1.3; }
-    #toc-ul a { color: var(--color-muted); text-decoration: none; border-bottom: none; }
-    #toc-ul a:hover { color: var(--color-accent); }
-    #toc-ul .toc-h2 { padding-left: 1rem; color: var(--color-light); font-size: 0.8rem; }
-
-    /* 侧边栏切换按钮 */
-    #toc-toggle {
-      position: fixed; left: 1rem; bottom: 2rem; width: 40px; height: 40px;
-      background: var(--color-accent); color: white; border: none; border-radius: 50%;
-      cursor: pointer; z-index: 101; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+      position: fixed; 
+      left: 2rem; 
+      top: 10rem; 
+      width: 280px; /* 宽度从 200px 增加到 280px，适应长标题 */
+      max-height: 65vh; 
+      overflow-y: auto; 
+      padding: 1.5rem;
+      background: var(--color-bg); 
+      border-left: 2px solid var(--color-accent);
+      z-index: 100; 
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* 更丝滑的弹性动画 */
+      opacity: 0; 
+      transform: translateX(-20px); 
+      visibility: hidden; /* 隐藏时不可交互 */
     }
 
-    @media (max-width: 1200px) {
-      /* 在屏幕较窄时，侧边栏改为浮动卡片 */
-      #toc-container { left: 1rem; top: 5rem; width: 250px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    /* 展开状态 */
+    #toc-container.open { 
+      opacity: 1; 
+      transform: translateX(0); 
+      visibility: visible;
+      box-shadow: 10px 0 30px rgba(0,0,0,0.05);
+    }
+
+    #toc-ul li { margin-bottom: 0.8rem; line-height: 1.4; }
+    #toc-ul a { 
+      color: var(--color-muted); 
+      text-decoration: none; 
+      border-bottom: none; 
+      display: block; 
+      transition: color 0.2s;
+    }
+    #toc-ul .toc-h2 { padding-left: 1.2rem; font-size: 0.85em; opacity: 0.8; }
+
+    /* 3. 手机端 UI 重塑：从左下角图标“生长”出来 */
+    @media (max-width: 768px) {
+      #toc-container {
+        left: 1rem;
+        bottom: 4.5rem; /* 刚好在切换按钮上方 */
+        top: auto;      /* 取消顶部定位 */
+        width: 260px;
+        max-height: 50vh;
+        border-left: none;
+        border-bottom: 2px solid var(--color-accent);
+        background: var(--color-nav-bg); /* 带模糊的背景 */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transform-origin: bottom left; /* 设置动画起点为左下角 */
+        transform: scale(0.9) translateY(10px);
+        border-radius: 8px 8px 8px 0; /* 裁掉左下角的圆角，使其更像气泡延伸 */
+        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      }
+      
+      #toc-container.open {
+        transform: scale(1) translateY(0);
+      }
     }
   </style>
 </head>
