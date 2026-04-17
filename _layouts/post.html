@@ -1,50 +1,24 @@
 ---
 layout: default
 ---
-<article class="post">
-  <header style="margin-bottom: 2rem;">
-    <h1>{{ page.title }}</h1>
-    <div class="post-meta">
-      <time datetime="{{ page.date | date_to_xmlschema }}">发布于 {{ page.date | date: "%Y年%-m月%-d日" }}</time>
-      {% if page.categories.size > 0 %}
-        · {{ page.categories | join: ", " }}
-      {% endif %}
-    </div>
+
+<article class="post-container" style="max-width: 800px; margin: 0 auto;">
+  
+  <header class="post-header" style="margin-bottom: 3rem; text-align: center;">
+    <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--color-ink);">
+      {{ page.title | replace: 'LaTeX', 'L<span class="latex-a">a</span>T<span class="latex-e">e</span>X' }}
+    </h1>
+    <p class="post-meta" style="color: var(--color-light); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic;">
+      {{ page.date | date: "%B %d, %Y" }}
+    </p>
   </header>
 
-  <div class="post-content">
+  <div class="markdown-content">
     {{ content }}
   </div>
-  
-  <script src="https://giscus.app/client.js"
-        data-repo="zirconeey/zirconeey.github.io"
-        data-repo-id="R_kgDOSEbt8Q"
-        data-category="General"
-        data-category-id="DIC_kwDOSEbt8c4C7BEn"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
 
-  <div class="post-nav">
-    <div>
-      {% if page.previous.url %}
-        <a href="{{ page.previous.url | relative_url }}">← {{ page.previous.title }}</a>
-      {% endif %}
-    </div>
-    <div>
-      <a href="{{ site.baseurl }}/">返回首页</a>
-    </div>
-    <div>
-      {% if page.next.url %}
-        <a href="{{ page.next.url | relative_url }}">{{ page.next.title }} →</a>
-      {% endif %}
-    </div>
+  <div style="margin-top: 4rem; text-align: center;">
+    <a href="{{ site.baseurl }}/" style="color: var(--color-muted); font-size: 0.95rem; text-decoration: none;">← 返回首页</a>
   </div>
+
 </article>

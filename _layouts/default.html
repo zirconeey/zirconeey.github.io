@@ -125,6 +125,48 @@
     .latex-logo { font-variant: small-caps; }
     .latex-logo .latex-a { text-transform: uppercase; font-size: 0.75em; vertical-align: 0.25em; margin-left: -0.32em; margin-right: -0.15em; }
     .latex-logo .latex-e { text-transform: uppercase; font-size: 0.75em; vertical-align: -0.25em; margin-left: -0.15em; margin-right: -0.05em; }
+
+    /* ======================================================
+       Doocs 风格 Markdown 正文排版 (融合典雅学术风)
+       ====================================================== */
+    .markdown-content { font-family: var(--font-body); line-height: 1.8; color: var(--color-text); word-wrap: break-word; }
+    .markdown-content p { margin-bottom: 1.2em; }
+    
+    /* 标题：加粗并拉开层次，H2 带底部边框 */
+    .markdown-content h1, .markdown-content h2, .markdown-content h3, .markdown-content h4 { color: var(--color-ink); font-family: var(--font-display); margin-top: 2em; margin-bottom: 1em; font-weight: 600; }
+    .markdown-content h2 { font-size: 1.6rem; border-bottom: 1px solid var(--color-border); padding-bottom: 0.4em; }
+    .markdown-content h3 { font-size: 1.3rem; }
+
+    /* Doocs 标志性的引用块 (Blockquote) */
+    .markdown-content blockquote { margin: 1.5em 0; padding: 0.8em 1.2em; border-left: 4px solid var(--color-accent); background-color: var(--color-bg-warm); color: var(--color-muted); border-radius: 0 4px 4px 0; }
+    .markdown-content blockquote p { margin: 0; }
+
+    /* Doocs 标志性的行内代码 (Inline Code) - 浅洋红色底色 */
+    .markdown-content code { color: #c7254e; background-color: #f9f2f4; padding: 0.2em 0.4em; border-radius: 4px; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: 0.85em; }
+    
+    /* 适配暗黑模式的行内代码 */
+    @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .markdown-content code { background-color: rgba(255, 80, 120, 0.15); color: #ff7b93; } }
+    :root[data-theme="dark"] .markdown-content code { background-color: rgba(255, 80, 120, 0.15); color: #ff7b93; }
+
+    /* 深色代码块 (Preformatted Text) */
+    .markdown-content pre { background-color: #282c34; color: #abb2bf; padding: 1.2rem; border-radius: 6px; overflow-x: auto; margin-bottom: 1.5em; }
+    .markdown-content pre code { color: inherit; background-color: transparent; padding: 0; }
+
+    /* 列表排版 */
+    .markdown-content ul, .markdown-content ol { padding-left: 2em; margin-bottom: 1.5em; }
+    .markdown-content li { margin-bottom: 0.5em; }
+
+    /* 图片：增加相框质感与居中 */
+    .markdown-content img { max-width: 100%; display: block; margin: 1.5em auto; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+
+    /* 表格：清爽的斑马线风格 */
+    .markdown-content table { width: 100%; border-collapse: collapse; margin-bottom: 1.5em; font-size: 0.95rem; }
+    .markdown-content th, .markdown-content td { border: 1px solid var(--color-border); padding: 0.6em 1em; }
+    .markdown-content th { background-color: var(--color-bg-warm); font-weight: 600; }
+
+    /* 超链接下划线特效 */
+    .markdown-content a { color: var(--color-accent); text-decoration: none; border-bottom: 1px dashed var(--color-accent); transition: all 0.2s; padding-bottom: 1px; }
+    .markdown-content a:hover { border-bottom-style: solid; background-color: rgba(30, 58, 95, 0.05); }
   </style>
 </head>
 <body>
