@@ -4,14 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title | default: site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description }}">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c9a96e'/><text x='50' y='72' font-family='-apple-system, sans-serif' font-size='56' font-weight='bold' fill='white' text-anchor='middle'>睿</text></svg>">
   
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23c9a96e'/><text x='50' y='72' font-family='-apple-system, sans-serif' font-size='56' font-weight='bold' fill='white' text-anchor='middle'>睿</text></svg>">
+
   <style>
     :root {
       --color-ink: #1a1a2e;
@@ -24,232 +23,152 @@
       --color-accent: #1e3a5f;
       --color-accent-light: #2d5a8e;
       --color-highlight: #c9a96e;
-      --color-card: #ffffff;
       --color-nav-bg: rgba(250,250,249,0.92);
-      --color-code-bg: #f0efe9;
-      /* 全局标题与正文：英文完美对齐你的英文主页(Garamond)，中文强制使用高雅宋体 */
+      
+      /* 字体变量 */
       --font-display: 'Cormorant Garamond', 'Noto Serif SC', 'Songti SC', serif;
       --font-body: 'Cormorant Garamond', 'Noto Serif SC', 'Songti SC', serif;
-      
-      /* 专属楷体变量：自动适配苹果和Windows系统 */
       --font-kaiti: 'Kaiti SC', 'STKaiti', 'KaiTi', '楷体', serif;
       --max-width: 800px;
     }
 
+    /* 暗黑模式配置 */
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
-        --color-ink: #e8e6e3; --color-text: #b8b5b0; --color-muted: #8a8680;
-        --color-light: #6b6762; --color-border: #2e2c2a; --color-bg: #1a1918;
-        --color-bg-warm: #222120; --color-accent: #7aaddb; --color-accent-light: #9dc4e8;
-        --color-card: #232221; --color-nav-bg: rgba(26,25,24,0.92);
-        --color-code-bg: #2a2928;
+        --color-ink: #e8e6e3; --color-text: #b8b5b0; --color-border: #2e2c2a;
+        --color-bg: #1a1918; --color-bg-warm: #222120; --color-accent: #7aaddb;
+        --color-nav-bg: rgba(26,25,24,0.92);
       }
     }
     :root[data-theme="dark"] {
-      --color-ink: #e8e6e3; --color-text: #b8b5b0; --color-muted: #8a8680;
-      --color-light: #6b6762; --color-border: #2e2c2a; --color-bg: #1a1918;
-      --color-bg-warm: #222120; --color-accent: #7aaddb; --color-accent-light: #9dc4e8;
-      --color-card: #232221; --color-nav-bg: rgba(26,25,24,0.92);
-      --color-code-bg: #2a2928;
+      --color-ink: #e8e6e3; --color-text: #b8b5b0; --color-border: #2e2c2a;
+      --color-bg: #1a1918; --color-bg-warm: #222120; --color-accent: #7aaddb;
+      --color-nav-bg: rgba(26,25,24,0.92);
     }
     :root[data-theme="light"] {
-      --color-ink: #1a1a2e; --color-text: #374151; --color-muted: #6b7280;
-      --color-light: #9ca3af; --color-border: #e5e7eb; --color-bg: #fafaf9;
-      --color-bg-warm: #f5f4f0; --color-accent: #1e3a5f; --color-accent-light: #2d5a8e;
-      --color-card: #ffffff; --color-nav-bg: rgba(250,250,249,0.92);
-      --color-code-bg: #f0efe9;
+      --color-ink: #1a1a2e; --color-text: #374151; --color-border: #e5e7eb;
+      --color-bg: #fafaf9; --color-bg-warm: #f5f4f0; --color-accent: #1e3a5f;
+      --color-nav-bg: rgba(250,250,249,0.92);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: var(--font-body); color: var(--color-text);
-      background: var(--color-bg); line-height: 1.8; font-size: 17px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.8; font-size: 17px; transition: background 0.3s; }
     
-    a { 
-      color: var(--color-accent); text-decoration: underline;
-      text-decoration-color: rgba(30,58,95,0.3); text-underline-offset: 3px;
-      transition: all 0.2s;
-    }
+    /* 强化的超链接 */
+    a { color: var(--color-accent); text-decoration: underline; text-decoration-color: rgba(30, 58, 95, 0.2); transition: all 0.2s; }
     a:hover { color: var(--color-accent-light); text-decoration-color: var(--color-accent-light); }
     
-    /* Navigation */
-    nav {
-      position: fixed; top: 0; width: 100%; z-index: 100;
-      background: var(--color-nav-bg); backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--color-border);
-      transition: background-color 0.3s;
-    }
-    .nav-inner {
-      max-width: 960px; margin: 0 auto; padding: 0.85rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .nav-left { display: flex; align-items: center; gap: 2rem; }
-    .nav-back {
-      font-size: 0.85rem; font-weight: 500; color: var(--color-accent);
-      text-decoration: none; display: flex; align-items: center; gap: 0.3rem;
-    }
-    .nav-back:hover { color: var(--color-accent-light); }
-    .nav-site-links { display: flex; gap: 1.4rem; list-style: none; }
-    .nav-site-links a {
-      font-size: 0.85rem; font-weight: 500; color: var(--color-muted);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .nav-site-links a:hover { color: var(--color-accent); }
-    
-    .theme-toggle {
-      background: none; border: 1px solid var(--color-border);
-      cursor: pointer; padding: 0.35rem 0.5rem; border-radius: 4px;
-      font-size: 0.9rem; color: var(--color-muted); transition: border-color 0.2s;
-    }
-    .theme-toggle:hover { border-color: var(--color-accent); }
-
-    /* Main */
-    main { max-width: var(--max-width); margin: 6rem auto 4rem; padding: 0 2rem; }
-    h1, h2, h3 { font-family: var(--font-display); color: var(--color-ink); font-weight: 600; margin-bottom: 1rem; }
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.6rem; margin-top: 2.5rem; }
-    h2::after {
-      content: ''; display: block; width: 40px; height: 2px;
-      background: var(--color-highlight); margin-top: 0.4rem; border-radius: 2px;
+    /* 导航栏核心布局 */
+    nav { position: fixed; top: 0; width: 100%; z-index: 1000; background: var(--color-nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); }
+    .nav-inner { 
+      max-width: 960px; margin: 0 auto; padding: 0.7rem 2rem; 
+      display: flex; justify-content: space-between; align-items: center; 
     }
     
-    /* Notice box */
-    .notice-box {
-      background: var(--color-bg-warm); border-left: 4px solid var(--color-highlight);
-      padding: 1rem 1.5rem; margin: 1.5rem 0; border-radius: 0 4px 4px 0; font-size: 0.92rem;
-    }
-    .notice-box.muted { border-left-color: var(--color-light); }
-    
-    /* Section divider */
-    .section-divider {
-      border: none; height: 1px; background: var(--color-border);
-      margin: 2.5rem 0;
-    }
+    /* 导航链接 (PC端显示，手机端隐藏) */
+    .nav-links { display: flex; list-style: none; gap: 1.8rem; }
+    .nav-links a { text-decoration: none; font-size: 0.95rem; font-weight: 500; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav-links a:hover { color: var(--color-accent); }
 
-    /* Post list */
-    .post-list { list-style: none; margin-top: 1rem; }
-    .post-item {
-      padding: 0.8rem 0; border-bottom: 1px solid var(--color-border);
-    }
-    .post-item:last-child { border-bottom: none; }
-    .post-meta { font-size: 0.82rem; color: var(--color-light); margin-bottom: 0.2rem; }
-    .post-title { font-size: 1.1rem; font-family: var(--font-display); font-weight: 600; }
-    .post-title a { text-decoration: none; color: var(--color-ink); }
-    .post-title a:hover { color: var(--color-accent); text-decoration: underline; }
+    /* 返回链接样式 */
+    .nav-back { font-size: 0.9rem; font-weight: 500; color: var(--color-accent); text-decoration: none; display: flex; align-items: center; gap: 0.3rem; }
 
-    /* Notes archive */
-    .notes-category { margin-bottom: 1.5rem; }
-    .notes-category h3 {
-      font-family: var(--font-display); font-size: 1.15rem; font-weight: 600;
-      color: var(--color-ink); margin-bottom: 0.5rem;
-    }
-    .notes-list { list-style: none; padding-left: 0.5rem; }
-    .notes-list li { font-size: 0.92rem; padding: 0.25rem 0; }
-    .notes-list li ul { margin-left: 1.2rem; margin-top: 0.2rem; }
+    /* 汉堡菜单按钮 (默认隐藏) */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .nav-toggle span { display: block; width: 20px; height: 1.5px; background: var(--color-ink); margin: 5px auto; transition: 0.3s; }
 
-    /* Collapsible */
-    details { margin: 1rem 0; }
-    details summary {
-      cursor: pointer; font-size: 0.9rem; font-weight: 500;
-      color: var(--color-accent); user-select: none; list-style: none;
-    }
-    details summary::-webkit-details-marker { display: none; }
-    details summary::before { content: '▸ '; font-size: 0.75rem; }
-    details[open] summary::before { content: '▾ '; }
+    /* 主题切换按钮 */
+    .theme-toggle { background: none; border: 1px solid var(--color-border); cursor: pointer; padding: 0.35rem 0.5rem; border-radius: 4px; font-size: 0.9rem; color: var(--color-muted); transition: all 0.2s; }
+    .theme-toggle:hover { border-color: var(--color-accent); color: var(--color-accent); }
 
-    /* Post content (for individual articles) */
-    .post-content { font-size: 1rem; line-height: 1.85; }
-    .post-content h2 { font-size: 1.5rem; margin-top: 2.5rem; }
-    .post-content h3 { font-size: 1.2rem; margin-top: 2rem; }
-    .post-content p { margin-bottom: 1rem; }
-    .post-content ul, .post-content ol { margin-left: 1.5rem; margin-bottom: 1rem; }
-    .post-content li { margin-bottom: 0.4rem; }
-    .post-content blockquote {
-      border-left: 3px solid var(--color-highlight);
-      padding-left: 1.2rem; margin: 1.2rem 0;
-      color: var(--color-muted); font-style: italic;
-    }
-    .post-content code {
-      background: var(--color-code-bg); padding: 0.15rem 0.45rem;
-      border-radius: 3px; font-size: 0.88em;
-    }
-    .post-content pre {
-      background: var(--color-code-bg); padding: 1.2rem;
-      border-radius: 6px; overflow-x: auto; margin: 1.2rem 0;
-      border: 1px solid var(--color-border);
-    }
-    .post-content pre code { background: none; padding: 0; font-size: 0.85em; }
-    .post-content img { max-width: 100%; border-radius: 5px; margin: 1rem 0; }
-    .post-content hr { border: none; height: 1px; background: var(--color-border); margin: 2rem 0; }
-
-    /* Post navigation */
-    .post-nav {
-      display: flex; justify-content: space-between; margin-top: 3rem;
-      padding-top: 1.5rem; border-top: 1px solid var(--color-border);
-      font-size: 0.9rem;
-    }
-    .post-nav a { text-decoration: none; }
-    .post-nav a:hover { text-decoration: underline; }
-
-    /* Footer */
-    footer {
-      max-width: var(--max-width); margin: 0 auto; padding: 2rem;
-      text-align: center; font-size: 0.85rem; color: var(--color-light);
-      border-top: 1px solid var(--color-border);
-    }
-    footer a { color: var(--color-accent); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-
-    /* Responsive */
+    /* 响应式：手机端调整 */
     @media (max-width: 768px) {
-      body { font-size: 16px; }
-      main { padding: 0 1.5rem; margin-top: 5rem; }
-      h1 { font-size: 1.8rem; }
-      .nav-left { gap: 1rem; }
-      .nav-site-links { gap: 0.8rem; }
-      .nav-site-links a { font-size: 0.78rem; }
-      .nav-back { font-size: 0.78rem; }
+      .nav-inner { 
+        display: grid; 
+        grid-template-columns: 1fr auto 1fr; /* 三段式：左、中、右 */
+        align-items: center;
+        padding: 0.6rem 1.2rem;
+      }
+      
+      .nav-back { justify-self: start; font-size: 0.8rem; } /* 左对齐 */
+      .nav-toggle { display: block; justify-self: center; } /* 居中汉堡包 */
+      .nav-right-box { justify-self: end; } /* 右对齐亮度 */
+
+      /* 手机端下拉菜单 */
+      .nav-links { 
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 100%; left: 0; right: 0; 
+        background: var(--color-nav-bg); 
+        padding: 1.5rem; gap: 1.2rem; 
+        border-bottom: 1px solid var(--color-border); 
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      }
+      .nav-links.open { display: flex; }
+      
+      /* 汉堡菜单变成 X */
+      .nav-toggle.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+      .nav-toggle.active span:nth-child(2) { opacity: 0; }
+      .nav-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
     }
+
+    /* 主体内容 */
+    main { max-width: var(--max-width); margin: 6.5rem auto 4rem; padding: 0 2rem; }
+    h1, h2, h3 { font-family: var(--font-display); color: var(--color-ink); font-weight: 600; margin-bottom: 1rem; }
+    h1 { font-size: 2.5rem; }
+    
+    footer { max-width: var(--max-width); margin: 4rem auto 0; padding: 2rem; text-align: center; font-size: 0.85rem; color: var(--color-light); border-top: 1px solid var(--color-border); }
   </style>
 </head>
 <body>
 
   <nav>
-  <div class="nav-inner">
-    <div style="display: flex; gap: 1.5rem; align-items: center;">
-      <a href="{{ site.baseurl }}/" style="font-weight: bold; color: var(--color-ink);">首页</a>
-      <a href="{{ site.baseurl }}/notes/" style="color: var(--color-muted);">课程笔记</a>
-      <a href="{{ site.baseurl }}/essays/" style="color: var(--color-muted);">随笔</a>
-      <a href="{{ site.baseurl }}/tools/" style="color: var(--color-muted);">省你时间</a>
+    <div class="nav-inner">
+      <a href="https://ruizhou03.github.io" class="nav-back">← 英文主页</a>
+
+      <button class="nav-toggle" onclick="toggleMenu()" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links">
+        <li><a href="{{ site.baseurl }}/">首页</a></li>
+        <li><a href="{{ site.baseurl }}/notes/">课程笔记</a></li>
+        <li><a href="{{ site.baseurl }}/essays/">随笔</a></li>
+        <li><a href="{{ site.baseurl }}/tools/">省你时间</a></li>
+      </ul>
+
+      <div class="nav-right-box">
+        <button class="theme-toggle" onclick="toggleTheme()" title="切换模式">&#9683;</button>
+      </div>
     </div>
-    
-    <div style="display: flex; align-items: center; gap: 1rem;">
-      <a href="https://ruizhou03.github.io" class="nav-back">← 英文学术主页</a>
-      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">&#9790;</button>
-    </div>
-  </div>
-</nav>
+  </nav>
 
   <main>
     {{ content }}
   </main>
 
   <footer>
-    &copy; {{ site.time | date: "%Y" }} 周睿 &middot;
-    <a href="https://ruizhou03.github.io">English Homepage</a>
+    &copy; {{ site.time | date: "%Y" }} Rui Zhou. 静态存档站点。
   </footer>
 
   <script>
+    // 菜单切换逻辑
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      const toggle = document.querySelector('.nav-toggle');
+      links.classList.toggle('open');
+      toggle.classList.toggle('active');
+    }
+
+    // 亮度切换逻辑
     function toggleTheme() {
       const root = document.documentElement;
       const current = root.getAttribute('data-theme');
-      const btn = document.querySelector('.theme-toggle');
-      if (!current) { root.setAttribute('data-theme', 'dark'); btn.innerHTML = '&#9790;'; btn.title = '切换为浅色模式'; }
-      else if (current === 'dark') { root.setAttribute('data-theme', 'light'); btn.innerHTML = '&#9728;'; btn.title = '切换为跟随系统'; }
-      else { root.removeAttribute('data-theme'); btn.innerHTML = '&#9683;'; btn.title = '切换为深色模式'; }
+      if (!current) { root.setAttribute('data-theme', 'dark'); }
+      else if (current === 'dark') { root.setAttribute('data-theme', 'light'); }
+      else { root.removeAttribute('data-theme'); }
     }
   </script>
 </body>
