@@ -266,56 +266,64 @@
     }
 
     /* ==========================================
-       二合一“太极圆”电梯按钮
+       右下角电梯：A/B/C 方案实况测试场
        ========================================== */
-    .elevator-fab {
+    .elevator-testing-ground {
       position: fixed;
       right: 1.5rem;
       bottom: 2rem;
-      width: 50px; /* 稍微加大直径，保证点击精度 */
-      height: 50px;
-      z-index: 101;
-      border-radius: 50%;
-      overflow: hidden; /* 核心：裁剪内部的两个半圆 */
-      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-      border: 1px solid var(--color-border);
-      background: var(--color-nav-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease;
-    }
-
-    .elevator-fab:hover { transform: translateY(-3px); }
-
-    /* 上下两个半圆按钮 */
-    .elevator-fab button {
-      width: 100%;
-      height: 50%; /* 各占一半 */
-      background: transparent;
-      color: var(--color-accent);
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-      display: flex;
+      gap: 2rem; /* 让三个方案之间留出足够的距离对比 */
       align-items: center;
-      justify-content: center;
-      transition: background 0.2s, color 0.2s;
+      z-index: 101;
     }
 
-    /* 中间的分割线 */
-    .elevator-btn-up { border-bottom: 1px solid var(--color-border) !important; }
-
-    /* 悬浮效果：背景变色，文字变白 */
-    .elevator-fab button:hover {
-      background: var(--color-accent);
-      color: white;
+    /* 消除原生按钮样式 */
+    .elevator-testing-ground button {
+      padding: 0; border: none; cursor: pointer; 
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    @media (max-width: 768px) {
-      .elevator-fab { right: 1rem; bottom: 1.5rem; width: 44px; height: 44px; }
+    /* --- 方案 A: 建筑级折线 (毛玻璃半圆) --- */
+    .fab-a {
+      width: 48px; height: 48px; border-radius: 50%; overflow: hidden;
+      display: flex; flex-direction: column;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 1px solid var(--color-border);
+      background: var(--color-nav-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     }
+    .fab-a button { width: 100%; height: 50%; background: transparent; color: var(--color-accent); }
+    .fab-a button:hover { background: var(--color-accent); color: white; }
+    .fab-a svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    .fab-a .up-btn { border-bottom: 1px solid rgba(0,0,0,0.05); }
+
+    /* --- 方案 B: 锆石棱镜 (菱形拼接) --- */
+    .fab-b {
+      display: flex; flex-direction: column; gap: 2px; /* 留出一丝极其精致的缝隙 */
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.12));
+    }
+    .fab-b button {
+      width: 46px; height: 28px; 
+      background: var(--color-nav-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      color: var(--color-accent);
+    }
+    /* 使用 clip-path 完美切割出上下两个三角形 */
+    .fab-b .up-btn { clip-path: polygon(50% 0%, 100% 100%, 0% 100%); }
+    .fab-b .down-btn { clip-path: polygon(0% 0%, 100% 0%, 50% 100%); }
+    .fab-b button:hover { background: var(--color-accent); transform: scale(1.1); }
+
+    /* --- 方案 C: 悬浮重力场 (实心微圆角三角) --- */
+    .fab-c {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .fab-c button {
+      background: transparent; color: var(--color-accent); opacity: 0.65;
+      filter: drop-shadow(0 2px 4px rgba(30,58,95,0.2));
+    }
+    /* 鼠标悬浮时，透明度拉满，模拟物理按键升起 */
+    .fab-c button:hover { opacity: 1; transform: translateY(-3px) scale(1.1); filter: drop-shadow(0 6px 12px rgba(30,58,95,0.3)); }
+    /* 用 stroke 技巧实现锐角变圆角 */
+    .fab-c svg { width: 26px; height: 18px; fill: currentColor; stroke: currentColor; stroke-width: 4; stroke-linejoin: round; }
   </style>
 </head>
 <body>
@@ -376,9 +384,31 @@
     }
   </script>
 
-  <div class="elevator-fab">
-    <button class="elevator-btn-up" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="回到顶部">↑</button>
-    <button class="elevator-btn-down" onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'})" title="前往底部">↓</button>
+  <div class="elevator-testing-ground">
+    
+    <div class="fab-a" title="方案A：建筑级折线">
+      <button class="up-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+      </button>
+      <button class="down-btn" onclick="window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'})">
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+    </div>
+
+    <div class="fab-b" title="方案B：锆石棱镜">
+      <button class="up-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})"></button>
+      <button class="down-btn" onclick="window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'})"></button>
+    </div>
+
+    <div class="fab-c" title="方案C：悬浮重力场">
+      <button class="up-btn" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <svg viewBox="0 0 24 24"><path d="M12 4.5l8.5 13.5H3.5L12 4.5z"/></svg>
+      </button>
+      <button class="down-btn" onclick="window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'})">
+        <svg viewBox="0 0 24 24"><path d="M12 19.5L3.5 6h17L12 19.5z"/></svg>
+      </button>
+    </div>
+
   </div>
 </body>
 </html>
