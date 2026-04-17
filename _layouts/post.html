@@ -2,7 +2,14 @@
 layout: default
 ---
 
-<article class="post-container" style="max-width: 800px; margin: 0 auto;">
+<nav id="toc-container">
+  <h4>目录 Index</h4>
+  <ul id="toc-ul"></ul>
+</nav>
+
+<button id="toc-toggle" onclick="toggleTOC()" title="显示/隐藏目录">☰</button>
+
+<article class="post-container" style="max-width: 800px; margin: 0 auto; position: relative;">
   
   <header class="post-header" style="margin-bottom: 3rem; text-align: center;">
     <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--color-ink);">
@@ -13,7 +20,7 @@ layout: default
     </p>
   </header>
 
-  <div class="markdown-content">
+  <div class="markdown-content" id="post-content">
     {{ content }}
   </div>
 
@@ -22,3 +29,50 @@ layout: default
   </div>
 
 </article>
+
+<script>
+  // A. 自动生成目录逻辑
+  document.addEventListener("DOMContentLoaded", function() {
+    const postContent = document.getElementById('post-content');
+    const tocUl = document.getElementById('toc-ul');
+    // 抓取正文中的所有 H1 和 H2
+    const headings = postContent.querySelectorAll('h1, h2');
+    
+    if (headings.length === 0) {
+      document.getElementById('toc-toggle').style.display = 'none';
+      return;
+    }
+
+    headings.forEach((heading, index) => {
+      // 为每个标题生成一个 ID 方便跳转
+      const id = 'heading-' + index;
+      heading.setAttribute('id', id);
+
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.href = '#' + id;
+      a.textContent = heading.textContent;
+      
+      // 根据标题等级设置不同样式
+      if (heading.tagName === 'H2') {
+        a.classList.add('toc-h2');
+      }
+      
+      li.appendChild(a);
+      tocUl.appendChild(li);
+
+      // 点击目录项后，在移动端自动收起
+      a.onclick = () => {
+        if (window.innerWidth < 1200) toggleTOC();
+      };
+    });
+  });
+
+  // B. 侧边栏开关逻辑
+  function toggleTOC() {
+    const toc = document.getElementById('toc-container');
+    const btn = document.getElementById('toc-toggle');
+    toc.classList.toggle('open');
+    btn.textContent = toc.classList.contains('open') ? '✕' : '☰';
+  }
+</script>
