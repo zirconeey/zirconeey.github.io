@@ -386,20 +386,27 @@
     .file-list a:hover { color: var(--color-accent); border-bottom-color: var(--color-accent); }
 
     /* ======================================================
-       丝滑折叠动画 (针对知识库目录)
+       双向丝滑折叠动画 (支持展开与收起)
        ====================================================== */
-    details summary {
-      outline: none; /* 去除点击时难看的默认蓝框 */
-    }
+    details summary { outline: none; }
     
-    /* 当 details 处于 open 状态时，它后面的所有兄弟元素触发动画 */
+    /* 展开时的动画 */
     details[open] summary ~ * {
-      animation: sweep 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+      animation: sweepDown 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
     }
     
-    @keyframes sweep {
-      0%    { opacity: 0; transform: translateY(-10px); }
-      100%  { opacity: 1; transform: translateY(0); }
+    /* 收起时的动画（配合 JS 触发） */
+    details.is-closing summary ~ * {
+      animation: sweepUp 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes sweepDown {
+      0%   { opacity: 0; transform: translateY(-10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes sweepUp {
+      0%   { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-10px); }
     }
   </style>
 </head>
@@ -431,7 +438,13 @@
         <li><a href="{{ site.baseurl }}/tools/">省你时间</a></li>
       </ul>
 
-      <div class="nav-right-box">
+      <div class="nav-right-box" style="display: flex; align-items: center; gap: 1rem;">
+        <div id="search-container" style="position: relative;">
+          <input type="text" id="search-input" placeholder="🔍 搜索文章或笔记..." 
+                 style="padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid var(--color-border); background: var(--color-bg); color: var(--color-text); outline: none; font-size: 0.9rem; width: 180px; transition: width 0.3s;">
+          <ul id="results-container" style="position: absolute; top: 100%; right: 0; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 8px; width: 250px; max-height: 400px; overflow-y: auto; list-style: none; padding: 0; margin-top: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 1000; display: none;"></ul>
+        </div>
+        
         <button class="theme-toggle" onclick="toggleTheme()" title="切换模式">&#9683;</button>
       </div>
     </div>
@@ -472,5 +485,43 @@
       <svg viewBox="0 0 24 24"><path d="M12 19.5L3.5 6h17L12 19.5z"/></svg>
     </button>
   </div>
+  
+  <script>
+    // 接管所有 details 的点击事件，实现完美双向动画
+    document.querySelectorAll('details summary').forEach(summary => {
+      summary.addEventListener('click', function(e) {
+        const details = this.parentNode;
+        // 如果当前是打开状态，准备收起
+        if (details.hasAttribute('open')) {
+          e.preventDefault(); // 阻止瞬间关闭
+          details.classList.add('is-closing'); // 触发收起动画
+          setTimeout(() => {
+            details.removeAttribute('open');
+            details.classList.remove('is-closing');
+          }, 280); // 等待动画接近完成时再真正移除属性
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+  <script>
+    // 初始化搜索功能
+    if (document.getElementById('search-input')) {
+      SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '{{ site.baseurl }}/search.json',
+        searchResultTemplate: '<li style="padding: 0.8rem; border-bottom: 1px solid var(--color-border);"><a href="{url}" style="text-decoration: none; color: var(--color-accent); font-weight: 500; font-size: 0.95rem; display: block;">{title}</a><span style="font-size: 0.8rem; color: var(--color-muted);">{category}</span></li>',
+        noResultsText: '<li style="padding: 1rem; text-align: center; color: var(--color-muted);">没有找到相关内容 🥲</li>'
+      });
+
+      // 当输入框有内容时显示结果，失去焦点时隐藏
+      const searchInput = document.getElementById('search-input');
+      const resultsDiv = document.getElementById('results-container');
+      searchInput.addEventListener('input', () => { resultsDiv.style.display = searchInput.value ? 'block' : 'none'; });
+      document.addEventListener('click', (e) => { if(!e.target.closest('#search-container')) resultsDiv.style.display = 'none'; });
+    }
+  </script>
 </body>
 </html>
