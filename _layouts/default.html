@@ -356,6 +356,34 @@
       border-bottom: none !important;
       border-top: none !important;
     }
+
+    /* 现代排版魔法：智能平衡标题换行 */
+    .post-header h1, 
+    .post-container h1, 
+    .post-container h2 {
+      text-wrap: balance; /* 让多行标题自动保持长短均匀 */
+    }
+
+    /* 针对正文段落，防止最后一行只剩孤零零的一个词 */
+    .markdown-content p {
+      text-wrap: pretty; 
+    }
+
+    .knowledge-base details { margin-bottom: 1rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-bg); }
+    .knowledge-base summary { padding: 1rem; cursor: pointer; font-weight: 600; color: var(--color-ink); list-style: none; transition: background 0.2s; }
+    .knowledge-base summary:hover { background: var(--color-bg-warm); }
+    .knowledge-base summary::before { content: '▸'; margin-right: 0.8rem; color: var(--color-accent); transition: transform 0.2s; display: inline-block; }
+    .knowledge-base details[open] > summary::before { transform: rotate(90deg); }
+
+    .discipline-title { font-size: 1.3rem; border-left: 4px solid var(--color-accent); }
+    .course-block { margin: 0.5rem 1.5rem 1rem 1.5rem; border: none !important; border-bottom: 1px dashed var(--color-border) !important; }
+    .course-title { font-size: 1.1rem; color: var(--color-accent); }
+    .type-section { padding-left: 3rem; margin-bottom: 1rem; }
+    .type-title { font-family: var(--font-display); font-style: italic; color: var(--color-light); margin-bottom: 0.5rem; }
+    .file-list { list-style: none; padding: 0; }
+    .file-list li { margin-bottom: 0.4rem; }
+    .file-list a { color: var(--color-text); text-decoration: none; border-bottom: 1px solid transparent; }
+    .file-list a:hover { color: var(--color-accent); border-bottom-color: var(--color-accent); }
   </style>
 </head>
 <body>

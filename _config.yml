@@ -24,3 +24,9 @@ exclude:
   - Gemfile.lock
   - vendor/
   - .gitignore
+
+# Collections (if needed)
+collections:
+  notes:
+    output: true            # 让每一篇笔记生成独立的网页
+    permalink: /notes/:path/ # URL 路径保持与文件夹结构一致

@@ -1,56 +1,58 @@
 ---
 layout: default
-title: 课程笔记 | Rui Zhou
-permalink: /notes/
+title: "课程笔记"
 ---
 
-<style>
-  .category-container { display: grid; grid-template-columns: 200px 1fr; gap: 3rem; margin-top: 2rem; }
-  .sidebar { border-right: 1px solid var(--color-border); padding-right: 1rem; }
-  .sidebar h3 { font-size: 1.1rem; margin-bottom: 1rem; }
-  .tag-list { list-style: none; padding: 0; }
-  .tag-list li { margin-bottom: 0.5rem; }
-  .tag-list a { color: var(--color-muted); text-decoration: none; font-size: 0.95rem; }
-  .tag-list a:hover { color: var(--color-accent); }
-  
-  @media (max-width: 768px) {
-    .category-container { grid-template-columns: 1fr; }
-    .sidebar { border-right: none; border-bottom: 1px solid var(--color-border); padding-bottom: 1rem; margin-bottom: 1rem; }
-  }
-</style>
+<article class="post-container" style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
+  <header style="margin-bottom: 3rem; text-align: center;">
+    <h1 style="font-size: 2.2rem; color: var(--color-ink); margin-bottom: 1rem;">课程笔记 & 资源备份</h1>
+    <p style="color: var(--color-light); font-style: italic;">Academic Archives & Knowledge Base</p>
+  </header>
 
-<h1>📚 课程笔记</h1>
-<p class="post-meta">这里收录了我的本科及研究生课程笔记。点击左侧标签筛选不同学科。</p>
-
-<div class="category-container">
-  <aside class="sidebar">
-    <h3>学科分类</h3>
-    <ul class="tag-list">
-      <li><a href="#economics">经济学</a></li>
-      <li><a href="#math">数学</a></li>
-      <li><a href="#general">通识课</a></li>
-    </ul>
-  </aside>
-
-  <main class="content">
+  <div class="knowledge-base">
+    {% assign grouped_disciplines = site.notes | group_by: "discipline" %}
     
-    <h2 id="economics" style="margin-top: 0;">经济学</h2>
-    <ul class="post-list">
-      {% for post in site.tags['经济学'] %}
-        <li class="post-item">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-
-    <h2 id="math" style="margin-top: 3rem;">数学</h2>
-    <ul class="post-list">
-      {% for post in site.tags['数学'] %}
-        <li class="post-item">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-
-  </main>
-</div>
+    {% for discipline in grouped_disciplines %}
+      <details class="discipline-block" open>
+        <summary class="discipline-title">{{ discipline.name | default: "未分类学科" }}</summary>
+        
+        <div class="discipline-content" style="padding: 1rem 0 1rem 1.5rem;">
+          {% assign grouped_courses = discipline.items | group_by: "course" %}
+          {% for course in grouped_courses %}
+            
+            <details class="course-block">
+              <summary class="course-title">{{ course.name | default: "通用资料" }}</summary>
+              
+              <div class="course-content" style="padding: 1rem 0 1rem 2rem;">
+                {% assign grouped_types = course.items | group_by: "material_type" %}
+                {% for type in grouped_types %}
+                  
+                  <div class="type-section" style="margin-bottom: 1.5rem;">
+                    <h4 class="type-title" style="font-size: 0.9rem; color: var(--color-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; border-bottom: 1px solid var(--color-border); display: inline-block;">
+                      {{ type.name | default: "其他" }}
+                    </h4>
+                    
+                    <ul class="file-list" style="list-style: none; padding: 0; margin: 0;">
+                      {% for item in type.items %}
+                        <li style="margin-bottom: 0.6rem;">
+                          <a href="{{ item.url | relative_url }}" style="color: var(--color-text); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.color='var(--color-accent)'; this.style.borderBottomColor='var(--color-accent)'" onmouseout="this.style.color='var(--color-text)'; this.style.borderBottomColor='transparent'">
+                            {{ item.title }}
+                          </a>
+                          {% if item.description %}
+                            <span style="font-size: 0.85rem; color: var(--color-muted); margin-left: 0.5rem;">— {{ item.description }}</span>
+                          {% endif %}
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </div>
+                  
+                {% endfor %}
+              </div>
+            </details>
+            
+          {% endfor %}
+        </div>
+      </details>
+    {% endfor %}
+  </div>
+</article>
