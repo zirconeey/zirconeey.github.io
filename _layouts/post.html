@@ -3,11 +3,11 @@ layout: default
 ---
 
 <nav id="toc-container">
-  <h4 style="font-family: var(--font-display); font-size: 0.85rem; color: var(--color-light); margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Index</h4>
+  <h4 style="font-family: var(--font-display); font-size: 0.85rem; color: var(--color-light); margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">目录 INDEX</h4>
   <ul id="toc-ul"></ul>
 </nav>
 
-<button id="toc-toggle" onclick="toggleTOC()" title="Toggle Index">☰</button>
+<button id="toc-toggle" onclick="toggleTOC(event)" title="Toggle Index">☰</button>
 
 <article class="post-container" style="max-width: 800px; margin: 0 auto;">
   <header class="post-header" style="margin-bottom: 3.5rem; text-align: center;">
@@ -70,7 +70,6 @@ layout: default
       a.href = '#' + id;
       a.textContent = heading.textContent;
       
-      // 区分一级和二级样式
       if (heading.tagName === 'H2') {
         a.classList.add('toc-h2');
       }
@@ -78,14 +77,27 @@ layout: default
       li.appendChild(a);
       tocUl.appendChild(li);
 
-      // 手机端点击后自动关闭
       a.addEventListener('click', () => {
         if (window.innerWidth <= 768) toggleTOC();
       });
     });
   });
 
-  function toggleTOC() {
+  // 核心改动：点击目录和按钮以外的区域，自动收回目录
+  document.addEventListener('click', function(event) {
+    const toc = document.getElementById('toc-container');
+    const btn = document.getElementById('toc-toggle');
+    
+    // 如果目录是打开状态，且点击的既不是目录内部，也不是开关按钮本身
+    if (toc.classList.contains('open') && !toc.contains(event.target) && !btn.contains(event.target)) {
+      if (window.innerWidth <= 768) {
+        toggleTOC();
+      }
+    }
+  });
+
+  function toggleTOC(event) {
+    if (event) event.stopPropagation(); // 阻止事件冒泡，防止触发 document 的点击监听
     const toc = document.getElementById('toc-container');
     const btn = document.getElementById('toc-toggle');
     toc.classList.toggle('open');
