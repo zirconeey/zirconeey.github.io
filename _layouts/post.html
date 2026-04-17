@@ -3,7 +3,14 @@ layout: default
 ---
 
 <nav id="toc-container">
-  <h4 style="font-family: var(--font-display); font-size: 0.85rem; color: var(--color-light); margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">目录 INDEX</h4>
+  <h4 style="margin-bottom: 1.2rem; line-height: 1.4;">
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); if(window.innerWidth <= 768) toggleTOC(event); return false;" 
+       style="font-family: var(--font-display); font-size: 1.05rem; color: var(--color-ink); text-decoration: none; font-weight: 600; display: block; transition: color 0.2s;"
+       onmouseover="this.style.color='var(--color-accent)'" 
+       onmouseout="this.style.color='var(--color-ink)'">
+      ↑ {{ page.title | replace: 'LaTeX', 'L<span class="latex-a">a</span>T<span class="latex-e">e</span>X' }}
+    </a>
+  </h4>
   <ul id="toc-ul"></ul>
 </nav>
 

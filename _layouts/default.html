@@ -258,6 +258,12 @@
         transform-origin: bottom left;
       }
     }
+    /* 解决目录跳转后标题被导航栏遮挡的问题 */
+    .markdown-content h1, 
+    .markdown-content h2, 
+    .markdown-content h3 {
+      scroll-margin-top: 6.5rem; /* 预留顶部导航栏高度 + 呼吸空间 */
+    }
   </style>
 </head>
 <body>
