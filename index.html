@@ -23,8 +23,10 @@ title: 锆铌 | Rui Zhou
   <h2 style="margin-bottom: 1.5rem;">✨ 近期导读</h2>
   <ul class="post-list" style="list-style: none; padding: 0;">
     
+    {% assign all_content = site.posts | concat: site.notes | sort: "date" | reverse %}
+    
     {% assign limit = 5 %} 
-    {% assign hot_posts = site.posts | where: "hot", true %}
+    {% assign hot_posts = all_content | where: "hot", true %}
     {% assign hot_count = hot_posts | size %}
     
     {% for post in hot_posts limit: limit %}
@@ -41,7 +43,7 @@ title: 锆铌 | Rui Zhou
 
     {% if hot_count < limit %}
       {% assign remaining = limit | minus: hot_count %}
-      {% assign recent_posts = site.posts | where_exp: "item", "item.hot != true" %}
+      {% assign recent_posts = all_content | where_exp: "item", "item.hot != true" %}
       
       {% for post in recent_posts limit: remaining %}
       <li class="post-item" style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px dashed var(--color-border); padding: 1rem 0;">
