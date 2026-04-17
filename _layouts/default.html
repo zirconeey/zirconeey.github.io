@@ -171,12 +171,12 @@
     /* 1. 全局平滑滚动 */
     html { scroll-behavior: smooth; }
 
-    /* 2. 侧边栏目录容器 - 增加宽度与弹性动画 */
+    /* 2. 侧边栏目录容器 - 电脑端收窄，避免紧贴正文 */
     #toc-container {
       position: fixed;
-      left: 2rem;
+      left: 1.5rem;
       top: 10rem;
-      width: 320px; /* 拉长宽度，防止长标题换行 */
+      width: 250px; /* 电脑端从 320px 缩减到 250px */
       max-height: 65vh;
       overflow-y: auto;
       padding: 1.5rem 1rem;
@@ -196,7 +196,7 @@
       box-shadow: 10px 0 30px rgba(0,0,0,0.05);
     }
 
-    /* 3. 目录列表样式：精准控制圆点位置 */
+    /* 3. 目录列表样式 */
     #toc-ul { list-style: none; padding: 0; margin: 0; }
     #toc-ul li { position: relative; margin-bottom: 0.8rem; line-height: 1.4; }
     
@@ -209,23 +209,22 @@
     }
     #toc-ul a:hover { color: var(--color-accent); }
 
-    /* 二级标题缩进与圆点微调 */
+    /* 二级标题缩进与圆点微调：让圆点靠近文字 */
     #toc-ul .toc-h2 { 
-      padding-left: 2.2rem; /* 给文字留出足够的左边距 */
+      padding-left: 1.8rem; /* 缩短文字左间距 */
       font-size: 0.85rem;
       opacity: 0.85;
     }
     
-    /* 精调圆点：位于左边缘和文字起始位置的正中间 */
     #toc-ul .toc-h2::before {
       content: "•";
       position: absolute;
-      left: 1rem; /* 这里的 1rem 刚好是 2.2rem 的中间附近，视觉上最平衡 */
+      left: 0.75rem; /* 圆点现在精准位于边缘和文字的中间，不再显得孤零零 */
       color: var(--color-accent);
       font-size: 1rem;
     }
 
-    /* 4. 回归：左下角经典悬浮标设计 */
+    /* 4. 左下角经典悬浮标按钮 */
     #toc-toggle {
       position: fixed;
       left: 1.5rem;
@@ -245,13 +244,11 @@
       font-size: 1.4rem;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    #toc-toggle:hover { transform: scale(1.1); background: var(--color-accent-light); }
-    #toc-toggle:active { transform: scale(0.95); }
 
-    /* 手机端适配：保持气泡弹出感 */
+    /* 5. 手机端适配：保持气泡弹出感 */
     @media (max-width: 768px) {
       #toc-container {
-        width: 280px;
+        width: 260px;
         left: 1.2rem;
         bottom: 5.5rem;
         top: auto;
@@ -267,7 +264,15 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="https://ruizhou03.github.io" class="nav-back">← 英文主页</a>
+      <div class="nav-left-zone">
+        {% if page.url == "/" or page.url == "/index.html" %}
+          <a href="https://ruizhou03.github.io" class="nav-back">← 英文主页</a>
+        {% elsif page.layout == "post" %}
+          <a href="{{ site.baseurl }}/{{ page.categories | first | downcase }}/" class="nav-back">← {{ page.categories | first | default: "返回" }}</a>
+        {% else %}
+          <a href="{{ site.baseurl }}/" class="nav-back">← 首页</a>
+        {% endif %}
+      </div>
 
       <button class="nav-toggle" onclick="toggleMenu()" aria-label="菜单">
         <span></span><span></span><span></span>
