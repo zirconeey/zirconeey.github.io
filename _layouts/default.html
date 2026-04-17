@@ -344,18 +344,17 @@
       z-index: 2;
     }
 
-    /* ======================================================
-       去除多余的横线，优化层级视觉
-       ====================================================== */
-    /* 去掉 H1 底部可能自带的横线 */
-    .markdown-content h1 { 
+    /* 强制删除 H2 上方的线 */
+    .markdown-content h2 {
+      border-top: none !important;    
       border-bottom: none !important; 
+      padding-top: 1.5em;             
+      margin-top: 1em;
     }
-    
-    /* 如果你的 Jekyll 主题在文章每个大区块 (section) 之间加了横线，用这行干掉它 */
-    .post-container section, 
-    .markdown-content section { 
-      border-bottom: none !important; 
+    /* 同时也删除可能存在的 section 分隔线 */
+    .post-container section, .markdown-content section {
+      border-bottom: none !important;
+      border-top: none !important;
     }
   </style>
 </head>
