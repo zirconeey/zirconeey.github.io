@@ -29,8 +29,8 @@ title: 周睿的中文博客 | Rui Zhou
     
     {% for post in hot_posts limit: limit %}
       <li class="post-item" style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed var(--color-border); padding: 1rem 0; transition: all 0.2s;">
-        <a href="{{ post.url | relative_url }}" style="font-size: 1.1rem; text-decoration: none; color: var(--color-ink); font-weight: 600; display: block; flex: 1;">{{ post.title }}</a>
-        <span class="post-meta" style="font-size: 0.85rem; color: var(--color-highlight); white-space: nowrap; margin-left: 1.5rem; font-style: italic;">Editor's Choice</span>
+        <a href="{{ post.url | relative_url }}" style="font-family: var(--font-kaiti); font-size: 1.25rem; letter-spacing: 1px; text-decoration: none; color: var(--color-ink); font-weight: 500; display: block; flex: 1;">{{ post.title }}</a>
+        <span class="post-meta" style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--color-highlight); white-space: nowrap; margin-left: 1.5rem; font-style: italic;">Editor's Choice</span>
       </li>
     {% endfor %}
 
@@ -40,8 +40,8 @@ title: 周睿的中文博客 | Rui Zhou
       
       {% for post in recent_posts limit: remaining %}
         <li class="post-item" style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px dashed var(--color-border); padding: 1rem 0; transition: all 0.2s;">
-          <a href="{{ post.url | relative_url }}" style="font-size: 1.1rem; text-decoration: none; color: var(--color-ink); font-weight: 500; display: block; flex: 1;">{{ post.title }}</a>
-          <span class="post-meta" style="font-size: 0.85rem; color: var(--color-light); white-space: nowrap; margin-left: 1.5rem; font-family: 'Source Sans 3', sans-serif;">{{ post.date | date: "%Y-%m-%d" }}</span>
+          <a href="{{ post.url | relative_url }}" style="font-family: var(--font-kaiti); font-size: 1.25rem; letter-spacing: 1px; text-decoration: none; color: var(--color-ink); font-weight: 500; display: block; flex: 1;">{{ post.title }}</a>
+          <span class="post-meta" style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--color-light); white-space: nowrap; margin-left: 1.5rem;">{{ post.date | date: "%Y-%m-%d" }}</span>
         </li>
       {% endfor %}
     {% endif %}
