@@ -3,19 +3,18 @@ layout: default
 ---
 
 <nav id="toc-container">
-  <h4>目录 Index</h4>
+  <h4 style="font-family: var(--font-display); font-size: 0.85rem; color: var(--color-light); margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px;">Index</h4>
   <ul id="toc-ul"></ul>
 </nav>
 
-<button id="toc-toggle" onclick="toggleTOC()" title="显示/隐藏目录">☰</button>
+<button id="toc-toggle" onclick="toggleTOC()" title="Toggle Index">☰</button>
 
-<article class="post-container" style="max-width: 800px; margin: 0 auto; position: relative;">
-  
-  <header class="post-header" style="margin-bottom: 3rem; text-align: center;">
-    <h1 style="font-size: 2.2rem; margin-bottom: 0.5rem; color: var(--color-ink);">
+<article class="post-container" style="max-width: 800px; margin: 0 auto;">
+  <header class="post-header" style="margin-bottom: 3.5rem; text-align: center;">
+    <h1 style="font-size: 2.3rem; color: var(--color-ink); line-height: 1.3;">
       {{ page.title | replace: 'LaTeX', 'L<span class="latex-a">a</span>T<span class="latex-e">e</span>X' }}
     </h1>
-    <p class="post-meta" style="color: var(--color-light); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic;">
+    <p style="color: var(--color-light); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; margin-top: 0.8rem;">
       {{ page.date | date: "%B %d, %Y" }}
     </p>
   </header>
@@ -24,14 +23,12 @@ layout: default
     {{ content }}
   </div>
 
-  <div style="margin-top: 4rem; text-align: center;">
-    <a href="{{ site.baseurl }}/" style="color: var(--color-muted); font-size: 0.95rem; text-decoration: none;">← 返回首页</a>
+  <div style="margin-top: 5rem; text-align: center; border-top: 1px solid var(--color-border); padding-top: 2rem;">
+    <a href="{{ site.baseurl }}/" style="color: var(--color-muted); text-decoration: none; font-size: 0.9rem;">← 返回首页 Back Home</a>
   </div>
-
 </article>
 
 <script>
-  // 自动生成目录逻辑
   document.addEventListener("DOMContentLoaded", function() {
     const postContent = document.getElementById('post-content');
     const tocUl = document.getElementById('toc-ul');
@@ -43,7 +40,7 @@ layout: default
     }
 
     headings.forEach((heading, index) => {
-      const id = 'heading-' + index;
+      const id = 'section-' + index;
       heading.setAttribute('id', id);
 
       const li = document.createElement('li');
@@ -51,6 +48,7 @@ layout: default
       a.href = '#' + id;
       a.textContent = heading.textContent;
       
+      // 区分一级和二级样式
       if (heading.tagName === 'H2') {
         a.classList.add('toc-h2');
       }
@@ -58,22 +56,17 @@ layout: default
       li.appendChild(a);
       tocUl.appendChild(li);
 
-      // 点击后的交互逻辑
-      a.addEventListener('click', (e) => {
-        // 在手机端，点击后自动收起侧栏，防止遮挡内容
-        if (window.innerWidth <= 768) {
-          toggleTOC();
-        }
+      // 手机端点击后自动关闭
+      a.addEventListener('click', () => {
+        if (window.innerWidth <= 768) toggleTOC();
       });
     });
   });
 
-  // 侧边栏开关逻辑
   function toggleTOC() {
     const toc = document.getElementById('toc-container');
     const btn = document.getElementById('toc-toggle');
     toc.classList.toggle('open');
-    // 切换按钮的文字/图标
     btn.innerHTML = toc.classList.contains('open') ? '&times;' : '&#9776;';
   }
 </script>

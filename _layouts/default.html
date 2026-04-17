@@ -168,66 +168,97 @@
     .markdown-content a { color: var(--color-accent); text-decoration: none; border-bottom: 1px dashed var(--color-accent); transition: all 0.2s; padding-bottom: 1px; }
     .markdown-content a:hover { border-bottom-style: solid; background-color: rgba(30, 58, 95, 0.05); }
 
-    /* 1. 全局平滑滚动动画 */
+    /* 1. 全局平滑滚动 */
     html { scroll-behavior: smooth; }
 
-    /* 2. 侧边栏目录 (TOC) 样式升级 */
+    /* 2. 侧边栏目录容器 - 增加宽度与弹性动画 */
     #toc-container {
-      position: fixed; 
-      left: 2rem; 
-      top: 10rem; 
-      width: 280px; /* 宽度从 200px 增加到 280px，适应长标题 */
-      max-height: 65vh; 
-      overflow-y: auto; 
-      padding: 1.5rem;
-      background: var(--color-bg); 
+      position: fixed;
+      left: 2rem;
+      top: 10rem;
+      width: 320px; /* 拉长宽度，防止长标题换行 */
+      max-height: 65vh;
+      overflow-y: auto;
+      padding: 1.5rem 1rem;
+      background: var(--color-bg);
       border-left: 2px solid var(--color-accent);
-      z-index: 100; 
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* 更丝滑的弹性动画 */
-      opacity: 0; 
-      transform: translateX(-20px); 
-      visibility: hidden; /* 隐藏时不可交互 */
+      z-index: 100;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      opacity: 0;
+      transform: translateX(-30px);
+      visibility: hidden;
     }
 
-    /* 展开状态 */
-    #toc-container.open { 
-      opacity: 1; 
-      transform: translateX(0); 
+    #toc-container.open {
+      opacity: 1;
+      transform: translateX(0);
       visibility: visible;
       box-shadow: 10px 0 30px rgba(0,0,0,0.05);
     }
 
-    #toc-ul li { margin-bottom: 0.8rem; line-height: 1.4; }
+    /* 3. 目录列表样式：精准控制圆点位置 */
+    #toc-ul { list-style: none; padding: 0; margin: 0; }
+    #toc-ul li { position: relative; margin-bottom: 0.8rem; line-height: 1.4; }
+    
     #toc-ul a { 
       color: var(--color-muted); 
       text-decoration: none; 
-      border-bottom: none; 
-      display: block; 
+      font-size: 0.9rem;
       transition: color 0.2s;
+      display: block;
     }
-    #toc-ul .toc-h2 { padding-left: 1.2rem; font-size: 0.85em; opacity: 0.8; }
+    #toc-ul a:hover { color: var(--color-accent); }
 
-    /* 3. 手机端 UI 重塑：从左下角图标“生长”出来 */
+    /* 二级标题缩进与圆点微调 */
+    #toc-ul .toc-h2 { 
+      padding-left: 2.2rem; /* 给文字留出足够的左边距 */
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+    
+    /* 精调圆点：位于左边缘和文字起始位置的正中间 */
+    #toc-ul .toc-h2::before {
+      content: "•";
+      position: absolute;
+      left: 1rem; /* 这里的 1rem 刚好是 2.2rem 的中间附近，视觉上最平衡 */
+      color: var(--color-accent);
+      font-size: 1rem;
+    }
+
+    /* 4. 回归：左下角经典悬浮标设计 */
+    #toc-toggle {
+      position: fixed;
+      left: 1.5rem;
+      bottom: 2rem;
+      width: 46px;
+      height: 46px;
+      background: var(--color-accent);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 101;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    #toc-toggle:hover { transform: scale(1.1); background: var(--color-accent-light); }
+    #toc-toggle:active { transform: scale(0.95); }
+
+    /* 手机端适配：保持气泡弹出感 */
     @media (max-width: 768px) {
       #toc-container {
-        left: 1rem;
-        bottom: 4.5rem; /* 刚好在切换按钮上方 */
-        top: auto;      /* 取消顶部定位 */
-        width: 260px;
-        max-height: 50vh;
+        width: 280px;
+        left: 1.2rem;
+        bottom: 5.5rem;
+        top: auto;
         border-left: none;
         border-bottom: 2px solid var(--color-accent);
-        background: var(--color-nav-bg); /* 带模糊的背景 */
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        transform-origin: bottom left; /* 设置动画起点为左下角 */
-        transform: scale(0.9) translateY(10px);
-        border-radius: 8px 8px 8px 0; /* 裁掉左下角的圆角，使其更像气泡延伸 */
-        box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-      }
-      
-      #toc-container.open {
-        transform: scale(1) translateY(0);
+        border-radius: 12px 12px 12px 0;
+        transform-origin: bottom left;
       }
     }
   </style>
