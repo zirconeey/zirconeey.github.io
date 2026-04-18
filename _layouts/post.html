@@ -56,23 +56,20 @@ layout: default
   </div>
 
 <style>
-  /* 保留最基本的字体统一和隐藏无效链接 */
+  /* 隐藏 Waline 默认的 Markdown 语法指引图标 */
   .wl-actions a { display: none !important; }
+  
+  /* 统一输入框字体 */
   .wl-editor, .wl-input, .wl-btn { font-family: inherit !important; }
 
-  /* 🚀 极其安全的隐藏头像大法（绝对不破坏原有的网格排版） */
-  .wl-avatar {
-    width: 0 !important;
-    min-width: 0 !important;
-    height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    opacity: 0 !important;
-    overflow: hidden !important;
+  /* 🚀 终极去头像方案：精准击杀，并保护右侧排版 */
+  .wl-card .wl-avatar {
+    display: none !important; /* 彻底移除头像节点 */
   }
-  
-  /* 抹除头像消失后留下的左侧空白 */
-  .wl-panel { margin-left: 0 !important; }
+  .wl-card .wl-panel {
+    margin-left: 0 !important; /* 抹除头像消失后的左侧空隙 */
+    width: 100% !important; /* 强迫评论面板占满全宽，绝不让名字被挤压 */
+  }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
