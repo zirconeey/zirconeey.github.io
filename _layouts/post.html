@@ -30,6 +30,14 @@ layout: default
     {{ content }}
   </div>
 
+  <div style="text-align: center; margin-top: 3rem; color: var(--color-light); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; display: flex; justify-content: center; align-items: center; gap: 0.4rem;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    </svg>
+    <span>阅读量: <span class="waline-pageview-count" data-path="{{ page.url }}">...</span></span>
+  </div>
+
 <div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
 
 <script type="module">
@@ -37,16 +45,19 @@ layout: default
 
   init({
     el: '#waline',
-    serverURL: 'https://zircon-comments.vercel.app', // 你的专属后端地址
-    dark: 'auto', // 自动适配博客的暗黑模式
+    serverURL: 'https://zircon-comments.vercel.app', 
+    dark: 'auto', 
+    // 精简了评论框里的表情包，去掉了过于花哨的B站表情，只留下一套相对克制的贴吧表情，你也可以直接写 emoji: [] 彻底关掉表情包输入
     emoji: [
-      '//unpkg.com/@waline/emojis@1.1.0/weibo',
-      '//unpkg.com/@waline/emojis@1.1.0/bilibili'
+      '//unpkg.com/@waline/emojis@1.1.0/tieba'
     ],
-    placeholder: '欢迎交流！支持匿名评论和点赞...',
-    pageview: true, // 开启阅读量统计
-    reaction: true, // 开启文章底部的表情点赞功能
-    requiredMeta: ['nick'], // 访客只需填昵称即可评论
+    placeholder: '欢迎交流！支持匿名评论...',
+    pageview: true, // 保持开启阅读量统计底层功能
+    
+    // 🚀 核心改动：把文章底部的互动改成了你指定的这两个极简 Emoji
+    reaction: ['👍', '👎'], 
+    
+    requiredMeta: ['nick'], 
   });
 </script>
 
