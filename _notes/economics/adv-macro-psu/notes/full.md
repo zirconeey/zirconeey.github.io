@@ -21,7 +21,7 @@ reactions: ['👍', '🎓', '📝', '🔥']
     您的浏览器不支持内嵌 PDF，请通过下方链接下载。
   </iframe>
   <div style="margin-top: 1rem; text-align: center;">
-    <a href="/assets/files/adv-micro-psu/Micro.pdf" download class="download-btn" style="padding: 10px 20px; border: 1px solid var(--color-ink); text-decoration: none; color: var(--color-ink); font-family: var(--font-display); transition: 0.3s;">
+    <a href="/assets/files/adv-micro-psu/Micro.pdf" download style="padding: 10px 20px; border: 1px solid var(--color-ink); text-decoration: none; color: var(--color-ink); font-family: var(--font-display); transition: 0.3s;">
       📥 下载完整版 PDF 讲义
     </a>
   </div>
