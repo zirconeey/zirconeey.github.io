@@ -56,22 +56,10 @@ layout: default
   </div>
 
 <style>
+  /* 只隐藏 Waline 默认的 Markdown 语法指引图标 */
   .wl-actions a { display: none !important; }
-  .wl-reply > svg { display: none !important; }
-  .wl-reply { display: inline-flex !important; align-items: center; gap: 4px; }
-  .wl-reply::before {
-    content: '';
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background-color: currentColor;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
-    -webkit-mask-size: cover;
-    mask-size: cover;
-  }
 
-  /* 🚀 新增：强行接管 Waline 的字体，使其与你的博客正文完全统一 */
+  /* 强行接管 Waline 的字体，使其与你的博客正文完全统一 */
   .wl-editor, .wl-input, .wl-btn {
     font-family: inherit !important;
   }
