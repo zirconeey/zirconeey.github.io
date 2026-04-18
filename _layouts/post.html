@@ -56,8 +56,25 @@ layout: default
   </div>
 
 <style>
-  /* 现在这里只保留隐藏 Markdown 指引图标的代码，其余所有针对回复按钮的修改已全部删除 */
   .wl-actions a { display: none !important; }
+  .wl-reply > svg { display: none !important; }
+  .wl-reply { display: inline-flex !important; align-items: center; gap: 4px; }
+  .wl-reply::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
+    -webkit-mask-size: cover;
+    mask-size: cover;
+  }
+
+  /* 🚀 新增：强行接管 Waline 的字体，使其与你的博客正文完全统一 */
+  .wl-editor, .wl-input, .wl-btn {
+    font-family: inherit !important;
+  }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
@@ -87,11 +104,10 @@ layout: default
     lang: 'zh-CN', 
     avatar: 'identicon', 
     emoji: ['//unpkg.com/@waline/emojis@1.1.0/tieba'],
-    placeholder: '欢迎交流！支持匿名评论...',
+    placeholder: '欢迎交流！不填昵称也可以直接发布哦...',
     pageview: true, 
     comment: true,  
     
-    /* 手动接管公式渲染，防崩溃 */
     texRenderer: (blockMode, tex) => {
       if (window.katex) {
         return window.katex.renderToString(tex, { displayMode: blockMode, throwOnError: false });
@@ -100,14 +116,18 @@ layout: default
     },
     highlighter: (code) => code, 
 
+    /* 🚀 核心改动：修改默认匿名者的称呼 */
     locale: {
       reactionTitle: '', 
-      // 已经删除了对 reply 按钮文字的覆盖，让其 100% 恢复原生
-      preview: '👀 开启 Markdown 预览' 
+      reply: '回复', 
+      preview: '👀 Markdown 预览',
+      anonymous: '一位不愿透露姓名的读者' // 当访客不填名字时，会自动显示这个雅称
     },
 
     reaction: reactionConfig, 
-    requiredMeta: ['nick'], 
+    
+    /* 🚀 核心改动：将 requiredMeta 置为空数组，代表没有任何必填项 */
+    requiredMeta: [], 
   });
 </script>
 
