@@ -54,25 +54,11 @@ layout: default
   <div class="markdown-content" id="post-content">
     {{ content }}
   </div>
+
 <style>
-  /* 隐藏 Waline 默认的 Markdown 语法指引图标 */
-  .wl-actions a {
-    display: none !important;
-  }
-  
-  /* 隐藏 Waline 默认的回复气泡图标 */
-  .wl-reply > svg {
-    display: none !important;
-  }
-  
-  /* 🚀 终极居中方案：使用 Flex 布局强行垂直居中箭头与文字 */
-  .wl-reply {
-    display: inline-flex !important;
-    align-items: center;
-    gap: 4px;
-  }
-  
-  /* 恢复高级感纤细线条版回复图标 */
+  .wl-actions a { display: none !important; }
+  .wl-reply > svg { display: none !important; }
+  .wl-reply { display: inline-flex !important; align-items: center; gap: 4px; }
   .wl-reply::before {
     content: '';
     display: inline-block;
@@ -88,13 +74,12 @@ layout: default
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 
 <div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
 
 <script type="module">
-  // 换用国内极速镜像源 elemecdn，彻底解决内部组件下载失败的问题
-  import { init } from 'https://npm.elemecdn.com/@waline/client@v2/dist/waline.mjs';
+  // 换回你之前一直能稳定显示的 unpkg 官方源！
+  import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 
   {% if page.reactions %}
     const customReactions = {{ page.reactions | jsonify }};
@@ -114,14 +99,12 @@ layout: default
     dark: 'auto', 
     lang: 'zh-CN', 
     avatar: 'identicon', 
-    emoji: [
-      '//unpkg.com/@waline/emojis@1.1.0/tieba'
-    ],
+    emoji: ['//unpkg.com/@waline/emojis@1.1.0/tieba'],
     placeholder: '欢迎交流！支持匿名评论...',
     pageview: true, 
     comment: true,  
-    math: true, // 强制开启数学公式解析
     
+    /* 🚀 手动接管公式渲染，彻底斩断对被墙节点的请求 */
     texRenderer: (blockMode, tex) => {
       if (window.katex) {
         return window.katex.renderToString(tex, { displayMode: blockMode, throwOnError: false });
@@ -139,20 +122,6 @@ layout: default
     reaction: reactionConfig, 
     requiredMeta: ['nick'], 
   });
-
-  // 🚀 终极兜底：当评论加载出来后，强制扫描并渲染所有漏网的公式
-  const observer = new MutationObserver(() => {
-    if (window.renderMathInElement) {
-      window.renderMathInElement(document.getElementById('waline'), {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false}
-        ],
-        throwOnError: false
-      });
-    }
-  });
-  observer.observe(document.getElementById('waline'), { childList: true, subtree: true });
 </script>
 
 <div style="margin-top: 4rem; text-align: center;">
