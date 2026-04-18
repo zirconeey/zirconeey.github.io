@@ -54,16 +54,6 @@ layout: default
   <div class="markdown-content" id="post-content">
     {{ content }}
   </div>
-
-<style>
-  /* 隐藏 Waline 默认的 Markdown 语法指引图标 */
-  .wl-actions a {
-    display: none !important;
-  }
-</style>
-
-<div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
-
 <style>
   /* 隐藏 Waline 默认的 Markdown 语法指引图标 */
   .wl-actions a {
@@ -75,16 +65,16 @@ layout: default
     display: none !important;
   }
   
-  /* 注入高级感的 SVG 邮件左转箭头，并支持暗黑模式自动变色 */
+  /* 🚀 替换为你指定的实心经典回复图标 (自动适配暗黑模式) */
   .wl-reply::before {
     content: '';
     display: inline-block;
-    width: 14px;
-    height: 14px;
+    width: 15px;
+    height: 15px;
     margin-right: 4px;
     background-color: currentColor;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.3 189.8L252.3 5.4c13-9.8 31.7-.6 31.7 15.7v112c140.2 0 228 42.7 228 214.8 0 56.7-37.1 123.6-54.9 151.7-7.1 11.3-24.2 7.2-24.2-6.2 0-76.3-44.6-137.7-148.9-137.7v112c0 16.3-18.7 25.6-31.7 15.7L8.3 221.3c-11.1-8.4-11.1-23.1 0-31.5z' fill='black'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.3 189.8L252.3 5.4c13-9.8 31.7-.6 31.7 15.7v112c140.2 0 228 42.7 228 214.8 0 56.7-37.1 123.6-54.9 151.7-7.1 11.3-24.2 7.2-24.2-6.2 0-76.3-44.6-137.7-148.9-137.7v112c0 16.3-18.7 25.6-31.7 15.7L8.3 221.3c-11.1-8.4-11.1-23.1 0-31.5z' fill='black'/%3E%3C/svg%3E");
     -webkit-mask-size: cover;
     mask-size: cover;
     vertical-align: -2px;
@@ -124,9 +114,18 @@ layout: default
     pageview: true, 
     comment: true,  
     
+    /* 🚀 彻底斩断网络请求：手动接管渲染，防止 Markdown 引擎崩溃 */
+    texRenderer: (blockMode, tex) => {
+      if (window.katex) {
+        return window.katex.renderToString(tex, { displayMode: blockMode, throwOnError: false });
+      }
+      return tex;
+    },
+    highlighter: (code) => code, // 禁用自动代码高亮抓取，防止其他 CDN 阻断
+
     locale: {
       reactionTitle: '', 
-      reply: '回复', // 图标已经通过上面的 CSS 画出来了，这里只留纯净的文字
+      reply: '回复', 
       preview: '👀 开启 Markdown 预览' 
     },
 
