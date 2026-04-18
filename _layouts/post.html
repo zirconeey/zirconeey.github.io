@@ -56,20 +56,8 @@ layout: default
   </div>
 
 <style>
+  /* 现在这里只保留隐藏 Markdown 指引图标的代码，其余所有针对回复按钮的修改已全部删除 */
   .wl-actions a { display: none !important; }
-  .wl-reply > svg { display: none !important; }
-  .wl-reply { display: inline-flex !important; align-items: center; gap: 4px; }
-  .wl-reply::before {
-    content: '';
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background-color: currentColor;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
-    -webkit-mask-size: cover;
-    mask-size: cover;
-  }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
@@ -78,7 +66,6 @@ layout: default
 <div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
 
 <script type="module">
-  // 换回你之前一直能稳定显示的 unpkg 官方源！
   import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 
   {% if page.reactions %}
@@ -104,7 +91,7 @@ layout: default
     pageview: true, 
     comment: true,  
     
-    /* 🚀 手动接管公式渲染，彻底斩断对被墙节点的请求 */
+    /* 手动接管公式渲染，防崩溃 */
     texRenderer: (blockMode, tex) => {
       if (window.katex) {
         return window.katex.renderToString(tex, { displayMode: blockMode, throwOnError: false });
@@ -115,7 +102,7 @@ layout: default
 
     locale: {
       reactionTitle: '', 
-      reply: '回复', 
+      // 已经删除了对 reply 按钮文字的覆盖，让其 100% 恢复原生
       preview: '👀 开启 Markdown 预览' 
     },
 
