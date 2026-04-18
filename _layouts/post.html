@@ -58,17 +58,30 @@ layout: default
 <style>
   /* 隐藏 Waline 默认的 Markdown 语法指引图标 */
   .wl-actions a { display: none !important; }
-  
-  /* 统一输入框字体 */
   .wl-editor, .wl-input, .wl-btn { font-family: inherit !important; }
 
-  /* 🚀 终极去头像方案：精准击杀，并保护右侧排版 */
-  .wl-card .wl-avatar {
-    display: none !important; /* 彻底移除头像节点 */
+  /* 🚀 极其暴力的物理去头像方案，无视任何版本差异 */
+  #waline .wl-avatar,
+  #waline img.wl-avatar,
+  #waline .wl-badge-wrap {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
-  .wl-card .wl-panel {
-    margin-left: 0 !important; /* 抹除头像消失后的左侧空隙 */
-    width: 100% !important; /* 强迫评论面板占满全宽，绝不让名字被挤压 */
+  
+  /* 强行接管右侧评论面板的排版 */
+  #waline .wl-panel {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* 去除输入框旁边留给头像的空白 */
+  #waline .wl-header {
+    margin-left: 0 !important;
   }
 </style>
 
