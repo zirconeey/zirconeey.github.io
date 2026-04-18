@@ -94,6 +94,18 @@ layout: default
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 
+  // 🚀 杀手锏：用 JS 强行生成 CSS 并注入到网页大脑里，优先级绝对碾压 Waline自带样式
+  const forceStyle = document.createElement('style');
+  forceStyle.innerHTML = `
+    .wl-actions a { display: none !important; }
+    .wl-editor, .wl-input, .wl-btn { font-family: inherit !important; }
+    /* 连锅端：连同头像和它的保护壳一起彻底抹除 */
+    #waline .wl-user { display: none !important; width: 0 !important; }
+    /* 强行接管排版：让名字靠左，并占满全屏防止挤压 */
+    #waline .wl-panel { margin-left: 0 !important; width: 100% !important; }
+  `;
+  document.head.appendChild(forceStyle);
+
   {% if page.reactions %}
     const customReactions = {{ page.reactions | jsonify }};
     const reactionConfig = customReactions.map(emoji => 
@@ -106,7 +118,6 @@ layout: default
     ];
   {% endif %}
 
-  // 初始化评论区 (去除了导致崩溃的监听器)
   init({
     el: '#waline',
     serverURL: 'https://zircon-comments.vercel.app', 
@@ -132,8 +143,7 @@ layout: default
     requiredMeta: [], 
   });
 
-  // 🚀 终极全局公式渲染补丁
-  // 等待网页加载完成后，扫描【整个网页正文】，而不仅仅是评论区
+  // 🚀 全局公式渲染（绝对原封不动）
   setTimeout(() => {
     if (window.renderMathInElement) {
       window.renderMathInElement(document.body, {
@@ -141,7 +151,7 @@ layout: default
           {left: '$$', right: '$$', display: true},
           {left: '\\[', right: '\\]', display: true},
           {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false} // 兼容你截图里的 \( \) 语法
+          {left: '\\(', right: '\\)', display: false}
         ],
         throwOnError: false
       });
