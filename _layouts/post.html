@@ -56,17 +56,30 @@ layout: default
   </div>
 
 <style>
-  /* 只隐藏 Waline 默认的 Markdown 语法指引图标 */
   .wl-actions a { display: none !important; }
-
-  /* 强行接管 Waline 的字体，使其与你的博客正文完全统一 */
-  .wl-editor, .wl-input, .wl-btn {
-    font-family: inherit !important;
+  .wl-reply > svg { display: none !important; }
+  .wl-reply { display: inline-flex !important; align-items: center; gap: 4px; }
+  .wl-reply::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: currentColor;
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
+    -webkit-mask-size: cover;
+    mask-size: cover;
   }
+  .wl-editor, .wl-input, .wl-btn { font-family: inherit !important; }
+
+  /* 🚀 审美大升级：彻底隐藏所有头像，打造纯净的学术排版 */
+  .wl-avatar { display: none !important; }
+  .wl-panel { margin-left: 0 !important; } /* 抹除头像留下的空隙 */
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 
 <div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
 
@@ -90,37 +103,32 @@ layout: default
     serverURL: 'https://zircon-comments.vercel.app', 
     dark: 'auto', 
     lang: 'zh-CN', 
-    avatar: 'identicon', 
     emoji: ['//unpkg.com/@waline/emojis@1.1.0/tieba'],
     placeholder: '欢迎交流！不填昵称也可以直接发布哦...',
     pageview: true, 
     comment: true,  
-    
-    // 强制接管公式渲染，防报错
-    texRenderer: (blockMode, tex) => {
-      if (window.katex) {
-        return window.katex.renderToString(tex, { displayMode: blockMode, throwOnError: false });
-      }
-      return tex;
-    },
-    highlighter: (code) => code, 
-
     locale: {
       reactionTitle: '', 
       reply: '回复', 
       preview: '👀 开启 Markdown 预览',
       anonymous: '神秘学者' 
     },
-
     reaction: reactionConfig, 
     requiredMeta: [], 
   });
 
-  // 🚀 终极防漏网之鱼补丁：只在网页所有内容（包括评论）彻底加载完毕后，再扫一遍公式
-  window.addEventListener('load', function() {
-    setTimeout(() => {
+  // 🚀 终极数学公式兜底：带安全锁的智能监控器
+  document.addEventListener('DOMContentLoaded', function() {
+    const walineNode = document.getElementById('waline');
+    if (!walineNode) return;
+
+    const observer = new MutationObserver(() => {
+      // 1. 只要发现服务器传来了评论，立刻切断监控（防止自己渲染公式引发的死循环崩溃）
+      observer.disconnect();
+
+      // 2. 强行渲染公式
       if (window.renderMathInElement) {
-        window.renderMathInElement(document.getElementById('waline'), {
+        window.renderMathInElement(walineNode, {
           delimiters: [
             {left: '$$', right: '$$', display: true},
             {left: '$', right: '$', display: false}
@@ -128,7 +136,13 @@ layout: default
           throwOnError: false
         });
       }
-    }, 1500); // 故意等 1.5 秒，等评论区完全加载出来再扫，绝不引发死循环
+
+      // 3. 渲染完成后，重新挂上监控，静静等待下一条新评论
+      observer.observe(walineNode, { childList: true, subtree: true });
+    });
+
+    // 启动初始监控
+    observer.observe(walineNode, { childList: true, subtree: true });
   });
 </script>
 
