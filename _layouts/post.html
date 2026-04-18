@@ -56,9 +56,23 @@ layout: default
   </div>
 
 <style>
-  /* 只保留最基本的字体统一和隐藏无效链接 */
+  /* 保留最基本的字体统一和隐藏无效链接 */
   .wl-actions a { display: none !important; }
   .wl-editor, .wl-input, .wl-btn { font-family: inherit !important; }
+
+  /* 🚀 极其安全的隐藏头像大法（绝对不破坏原有的网格排版） */
+  .wl-avatar {
+    width: 0 !important;
+    min-width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    overflow: hidden !important;
+  }
+  
+  /* 抹除头像消失后留下的左侧空白 */
+  .wl-panel { margin-left: 0 !important; }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
