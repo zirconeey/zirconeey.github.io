@@ -55,15 +55,40 @@ layout: default
     {{ content }}
   </div>
 
+<style>
+  /* 隐藏 Waline 默认的 Markdown 语法指引图标 */
+  .wl-actions a {
+    display: none !important;
+  }
+</style>
+
 <div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
 
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 
+  // 🚀 前端魔法：从 YAML 读取自定义表情，并转化为 Waline 可识别的图片格式
+  {% if page.reactions %}
+    const customReactions = {{ page.reactions | jsonify }};
+    const reactionConfig = customReactions.map(emoji => 
+      `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E${emoji}%3C/text%3E%3C/svg%3E`
+    );
+  {% else %}
+    // 如果 YAML 没设置，则默认使用这两个全球通用高清源
+    const reactionConfig = [
+      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44d.png', 
+      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44e.png'  
+    ];
+  {% endif %}
+
   init({
     el: '#waline',
     serverURL: 'https://zircon-comments.vercel.app', 
     dark: 'auto', 
+    
+    /* 🚀 核心改动：强制系统语言为简体中文（取消、提交等按钮会自动翻译） */
+    lang: 'zh-CN', 
+    
     avatar: 'identicon', 
     emoji: [
       '//unpkg.com/@waline/emojis@1.1.0/tieba'
@@ -71,14 +96,17 @@ layout: default
     placeholder: '欢迎交流！支持匿名评论...',
     pageview: true, 
     comment: true,  
+    
+    /* 🚀 核心改动：自定义文字替换 */
     locale: {
-      reply: '↩️ 回复' 
+      reactionTitle: '', // 删掉 "What do you think"
+      reply: '↩️ 回复',
+      preview: '👀 开启 Markdown 预览' // 让预览按钮兼顾提示功能
     },
-    /* 👇 换成了最稳的 CDN 地址 👇 */
-    reaction: [
-      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44d.png', 
-      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44e.png'  
-    ], 
+
+    /* 🚀 传入动态生成的互动表情 */
+    reaction: reactionConfig, 
+    
     requiredMeta: ['nick'], 
   });
 </script>
