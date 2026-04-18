@@ -23,10 +23,30 @@ layout: default
     </h1>
     
     <div style="display: flex; justify-content: space-between; align-items: center; color: var(--color-light); font-family: 'Cormorant Garamond', serif; margin-top: 2rem; padding-bottom: 1rem; border-bottom: 1px dashed var(--color-border);">
+      
       <span style="font-size: 1.1rem;">{{ page.date | date: "%B %d, %Y" }}</span>
-      <div style="display: flex; gap: 1.5rem; font-family: var(--font-body); font-size: 0.95rem; opacity: 0.8;">
-         <span title="阅读量">👁️ <span class="waline-pageview-count" data-path="{{ page.url }}">...</span></span>
-         <span title="评论数">💬 <span class="waline-comment-count" data-path="{{ page.url }}">...</span></span>
+
+      <span style="font-size: 1.1rem; font-style: italic; letter-spacing: 0.05rem;">
+        By {{ page.author | default: "Zircon" }}
+      </span>
+
+      <div style="display: flex; gap: 1.2rem; align-items: center; font-family: var(--font-body); font-size: 0.95rem; opacity: 0.85;">
+        
+        <div style="display: flex; align-items: center; gap: 0.4rem;" title="阅读量">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
+          <span class="waline-pageview-count" data-path="{{ page.url }}">...</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.4rem;" title="评论数">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span class="waline-comment-count" data-path="{{ page.url }}">...</span>
+        </div>
+
       </div>
     </div>
   </header>
