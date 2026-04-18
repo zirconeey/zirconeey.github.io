@@ -64,15 +64,26 @@ layout: default
     el: '#waline',
     serverURL: 'https://zircon-comments.vercel.app', 
     dark: 'auto', 
-    // 精简了评论框里的表情包，去掉了过于花哨的B站表情，只留下一套相对克制的贴吧表情，你也可以直接写 emoji: [] 彻底关掉表情包输入
+    avatar: 'identicon', 
     emoji: [
       '//unpkg.com/@waline/emojis@1.1.0/tieba'
     ],
     placeholder: '欢迎交流！支持匿名评论...',
-    pageview: true, // 保持开启阅读量统计底层功能
     
-    // 🚀 核心改动：把文章底部的互动改成了你指定的这三个极简 Emoji
-    reaction: ['👍', '👎'], 
+    /* 🚀 修复问题1：必须开启 comment: true 才会自动刷新文章顶部的评论数 */
+    pageview: true, 
+    comment: true,  
+    
+    /* 🚀 修复问题2：通过 locale 字典替换默认的 Reply 样式 */
+    locale: {
+      reply: '↩️ 回复' // 你可以根据喜好改成纯图标 '↩️' 或者 '✉️'
+    },
+
+    /* 🚀 修复问题3：传入真实的高清表情包图片 URL，而不是纯文本 */
+    reaction: [
+      'https://unpkg.com/@waline/emojis@1.1.0/twemoji/1f44d.png', // 高清 👍
+      'https://unpkg.com/@waline/emojis@1.1.0/twemoji/1f44e.png'  // 高清 👎
+    ], 
     
     requiredMeta: ['nick'], 
   });
