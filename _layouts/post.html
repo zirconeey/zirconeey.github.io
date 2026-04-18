@@ -65,29 +65,36 @@ layout: default
     display: none !important;
   }
   
-  /* 🚀 替换为你指定的实心经典回复图标 (自动适配暗黑模式) */
+  /* 🚀 终极居中方案：使用 Flex 布局强行垂直居中箭头与文字 */
+  .wl-reply {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  /* 恢复高级感纤细线条版回复图标 */
   .wl-reply::before {
     content: '';
     display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin-right: 4px;
+    width: 14px;
+    height: 14px;
     background-color: currentColor;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.3 189.8L252.3 5.4c13-9.8 31.7-.6 31.7 15.7v112c140.2 0 228 42.7 228 214.8 0 56.7-37.1 123.6-54.9 151.7-7.1 11.3-24.2 7.2-24.2-6.2 0-76.3-44.6-137.7-148.9-137.7v112c0 16.3-18.7 25.6-31.7 15.7L8.3 221.3c-11.1-8.4-11.1-23.1 0-31.5z' fill='black'/%3E%3C/svg%3E");
-    mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.3 189.8L252.3 5.4c13-9.8 31.7-.6 31.7 15.7v112c140.2 0 228 42.7 228 214.8 0 56.7-37.1 123.6-54.9 151.7-7.1 11.3-24.2 7.2-24.2-6.2 0-76.3-44.6-137.7-148.9-137.7v112c0 16.3-18.7 25.6-31.7 15.7L8.3 221.3c-11.1-8.4-11.1-23.1 0-31.5z' fill='black'/%3E%3C/svg%3E");
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 14 4 9 9 4'/%3E%3Cpath d='M20 20v-7a4 4 0 0 0-4-4H4'/%3E%3C/svg%3E");
     -webkit-mask-size: cover;
     mask-size: cover;
-    vertical-align: -2px;
   }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 
 <div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
 
 <script type="module">
-  import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+  // 换用国内极速镜像源 elemecdn，彻底解决内部组件下载失败的问题
+  import { init } from 'https://npm.elemecdn.com/@waline/client@v2/dist/waline.mjs';
 
   {% if page.reactions %}
     const customReactions = {{ page.reactions | jsonify }};
@@ -113,15 +120,15 @@ layout: default
     placeholder: '欢迎交流！支持匿名评论...',
     pageview: true, 
     comment: true,  
+    math: true, // 强制开启数学公式解析
     
-    /* 🚀 彻底斩断网络请求：手动接管渲染，防止 Markdown 引擎崩溃 */
     texRenderer: (blockMode, tex) => {
       if (window.katex) {
         return window.katex.renderToString(tex, { displayMode: blockMode, throwOnError: false });
       }
       return tex;
     },
-    highlighter: (code) => code, // 禁用自动代码高亮抓取，防止其他 CDN 阻断
+    highlighter: (code) => code, 
 
     locale: {
       reactionTitle: '', 
@@ -132,6 +139,20 @@ layout: default
     reaction: reactionConfig, 
     requiredMeta: ['nick'], 
   });
+
+  // 🚀 终极兜底：当评论加载出来后，强制扫描并渲染所有漏网的公式
+  const observer = new MutationObserver(() => {
+    if (window.renderMathInElement) {
+      window.renderMathInElement(document.getElementById('waline'), {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false}
+        ],
+        throwOnError: false
+      });
+    }
+  });
+  observer.observe(document.getElementById('waline'), { childList: true, subtree: true });
 </script>
 
 <div style="margin-top: 4rem; text-align: center;">
