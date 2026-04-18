@@ -69,22 +69,16 @@ layout: default
       '//unpkg.com/@waline/emojis@1.1.0/tieba'
     ],
     placeholder: '欢迎交流！支持匿名评论...',
-    
-    /* 🚀 修复问题1：必须开启 comment: true 才会自动刷新文章顶部的评论数 */
     pageview: true, 
     comment: true,  
-    
-    /* 🚀 修复问题2：通过 locale 字典替换默认的 Reply 样式 */
     locale: {
-      reply: '↩️ 回复' // 你可以根据喜好改成纯图标 '↩️' 或者 '✉️'
+      reply: '↩️ 回复' 
     },
-
-    /* 🚀 修复问题3：传入真实的高清表情包图片 URL，而不是纯文本 */
+    /* 👇 换成了最稳的 CDN 地址 👇 */
     reaction: [
-      'https://unpkg.com/@waline/emojis@1.1.0/twemoji/1f44d.png', // 高清 👍
-      'https://unpkg.com/@waline/emojis@1.1.0/twemoji/1f44e.png'  // 高清 👎
+      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44d.png', 
+      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44e.png'  
     ], 
-    
     requiredMeta: ['nick'], 
   });
 </script>
