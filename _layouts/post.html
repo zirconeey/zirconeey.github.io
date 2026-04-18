@@ -30,27 +30,29 @@ layout: default
     {{ content }}
   </div>
 
-  <section class="post-comments" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);">
-    <script src="https://giscus.app/client.js"
-            data-repo="zirconeey/zirconeey.github.io"
-            data-repo-id="R_kgDOSEbt8Q"
-            data-category="General"
-            data-category-id="DIC_kwDOSEbt8c4C7BEn"
-            data-mapping="pathname"
-            data-strict="0"
-            data-reactions-enabled="1"
-            data-emit-metadata="0"
-            data-input-position="bottom"
-            data-theme="preferred_color_scheme"
-            data-lang="zh-CN"
-            crossorigin="anonymous"
-            async>
-    </script>
-  </section>
+<div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
 
-  <div style="margin-top: 4rem; text-align: center;">
-    <a href="{{ site.baseurl }}/" style="color: var(--color-muted); text-decoration: none;">← 返回首页</a>
-  </div>
+<script type="module">
+  import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
+
+  init({
+    el: '#waline',
+    serverURL: 'https://zircon-comments.vercel.app', // 你的专属后端地址
+    dark: 'auto', // 自动适配博客的暗黑模式
+    emoji: [
+      '//unpkg.com/@waline/emojis@1.1.0/weibo',
+      '//unpkg.com/@waline/emojis@1.1.0/bilibili'
+    ],
+    placeholder: '欢迎交流！支持匿名评论和点赞...',
+    pageview: true, // 开启阅读量统计
+    reaction: true, // 开启文章底部的表情点赞功能
+    requiredMeta: ['nick'], // 访客只需填昵称即可评论
+  });
+</script>
+
+<div style="margin-top: 4rem; text-align: center;">
+  <a href="{{ site.baseurl }}/" style="color: var(--color-muted); text-decoration: none;">← 返回首页</a>
+</div>
 
 </article>
 
