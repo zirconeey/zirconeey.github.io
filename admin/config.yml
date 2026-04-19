@@ -1,0 +1,38 @@
+# 1. 绑定你的 GitHub 仓库
+backend:
+  name: github
+  repo: zirconeey/zirconeey.github.io 
+  branch: main
+  base_url: https://decap-cms-oauth.netlify.app
+  site_domain: "zirconeey.github.io"           # 你的网站域名
+  client_id: "Ov23liGHNIUM15cyrrx9"            # 你刚刚拿到的专属钥匙
+
+# 2. 图片和文件的存放路径
+media_folder: "files" 
+public_folder: "/files"
+
+# 3. 设置后台界面为中文
+locale: "zh_Hans"
+
+# 4. 定义你的文章集合 (Collections)
+collections:
+  - name: "notes"
+    label: "📚 课程笔记与资料 (_notes)"
+    folder: "_notes"
+    create: true         # 允许在后台创建新笔记
+    extension: "md"
+    format: "yaml-frontmatter"
+    fields:
+      # 这些 fields 就是你在后台会看到的输入框和开关
+      - {label: "是否展示本篇笔记 (开关)", name: "published", widget: "boolean", default: true, required: false}
+      - {label: "文章标题", name: "title", widget: "string"}
+      - {label: "所属学科 (如: 经济学)", name: "discipline", widget: "string", default: "经济学"}
+      - {label: "课程名称", name: "course", widget: "string"}
+      - {label: "资料类型", name: "material_type", widget: "select", options: ["Notes", "Exams", "Script", "Tool", "其他"]}
+      - {label: "发布日期", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+      - {label: "作者", name: "author", widget: "string", default: "Zircon"}
+      - {label: "PDF 链接 (选填)", name: "pdf_url", widget: "string", required: false}
+      - {label: "自定义链接 (Permalink)", name: "permalink", widget: "string", required: false}
+      - {label: "页面布局 (默认无需修改)", name: "layout", widget: "hidden", default: "post"}
+      # 下面这是 Markdown 正文编辑器
+      - {label: "笔记正文内容", name: "body", widget: "markdown", required: false}
