@@ -1,0 +1,198 @@
+---
+title: "CShadow"
+author: "Rui"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r}
+library(bruceR)
+shadowprice = import("shadowprice.xlsx") %>% 
+  separate(
+    col = district,
+    into = c("district","year"),
+    sep = -4
+  ) %>% 
+  mutate(
+    year = as.numeric(year)
+  )
+```
+
+
+```{r}
+library(fixest)
+feols(price ~ year | district,
+      data = shadowprice)
+
+feols(price ~ year,
+      data = shadowprice)
+
+feols(price ~ district,
+      data = shadowprice)
+
+shadowprice %>% ggplot(aes(x = year, y = price)) + 
+  geom_point()+
+  geom_smooth()
+
+```
+
+```{r}
+library(fixest)
+cprice = import("cprice.csv")
+
+cprice %>% ggplot(aes(x = year, y = price)) + 
+  geom_point()+
+  geom_smooth()
+
+
+
+
+dev_gdp = feols(gdp~1,
+      data = cprice,
+      split = ~district) %>% residuals()
+dev_gdp = dev_gdp %>% as.data.frame() %>% mutate(
+  deviation_gdp = rowSums(dev_gdp,na.rm = T)
+)
+
+dev_capital = feols(capital~1,
+      data = cprice,
+      split = ~district) %>% residuals()
+dev_capital = dev_capital %>% as.data.frame() %>% mutate(
+  deviation_capital = rowSums(dev_capital,na.rm = T)
+)
+
+dev_energy = feols(energy~1,
+      data = cprice,
+      split = ~district) %>% residuals()
+dev_energy = dev_energy %>% as.data.frame() %>% mutate(
+  deviation_energy = rowSums(dev_energy,na.rm = T)
+)
+
+dev_empop = feols(empop~1,
+      data = cprice,
+      split = ~district) %>% residuals()
+dev_empop = dev_empop %>% as.data.frame() %>% mutate(
+  deviation_empop = rowSums(dev_empop,na.rm = T)
+)
+
+dev_cemission = feols(cemission~1,
+      data = cprice,
+      split = ~district) %>% residuals() %>% as.data.frame() %>% mutate(
+  deviation_cemission = rowSums(.,na.rm = T)
+)
+
+dev_price = feols(price~1,
+      data = cprice,
+      split = ~district) %>% residuals()
+dev_price = dev %>% as.data.frame() %>% mutate(
+  deviation_price = rowSums(dev_price,na.rm = T)
+)
+
+cprice = cprice %>% mutate(
+  deviation_cemission = dev_cemission$deviation_cemission,
+  deviation_price = dev_price$deviation_price,
+  deviation_gdp = dev_gdp$deviation_gdp,
+  deviation_capital = dev_capital$deviation_capital,
+  deviation_energy = dev_energy$deviation_energy,
+  deviation_empop = dev_empop$deviation_empop
+)
+
+for (var in c("price","gdp","capital","energy","cemission","empop")) {
+  name = paste("deviation_",i)
+  cprice = cprice %>% mutate(
+  name = feols(`var`~1,
+      data = cprice,
+      split = ~district) %>% residuals() %>% as.data.frame() %>% mutate(
+  name = rowSums(.,na.rm = T)
+) %>% pull(name))
+}
+```
+
+
+```{r}
+library(patchwork)
+cprice %>% ggplot(aes(x = year, y = deviation_price)) + 
+  geom_point()+
+  geom_smooth(method = "lm")
+
+cprice %>% ggplot(aes(x = year, y = deviation_cemission)) + 
+  geom_point()+
+  geom_smooth()
+
+cprice %>% ggplot(aes(x = year, y = deviation_gdp)) + 
+  geom_point()+
+  geom_smooth()
+
+cprice %>% ggplot(aes(x = year, y = deviation_capital)) + 
+  geom_point()+
+  geom_smooth()
+
+cprice %>% ggplot(aes(x = year, y = deviation_energy)) + 
+  geom_point()+
+  geom_smooth()
+
+cprice %>% ggplot(aes(x = year, y = deviation_empop)) + 
+  geom_point()+
+  geom_smooth()
+```
+
+```{r}
+library(patchwork)
+((cprice %>% ggplot(aes(x = year, y = deviation_price)) + 
+  geom_point()+
+  geom_smooth()) + (cprice %>% ggplot(aes(x = year, y = deviation_cemission)) + 
+  geom_point()+
+  geom_smooth()))/
+  ((cprice %>% ggplot(aes(x = year, y = deviation_gdp)) + 
+  geom_point()+
+  geom_smooth())+(cprice %>% ggplot(aes(x = year, y = deviation_capital)) + 
+  geom_point()+
+  geom_smooth()))/
+  ((cprice %>% ggplot(aes(x = year, y = deviation_energy)) + 
+  geom_point()+
+  geom_smooth())+(cprice %>% ggplot(aes(x = year, y = deviation_empop)) + 
+  geom_point()+
+  geom_smooth()))
+
+ggsave("deviation.pdf",height = 15,width = 16)
+```
+
+
+```{r}
+library(fixest)
+year_stand = lm(price~as.factor(year)+district,
+                data = cprice) 
+year_stand %>% stargazer::stargazer(out = "regrst.docx",type = "html")
+esttable(year_stand)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r}
+feols(price~as.factor(year) | district,
+      data = cprice) 
+
+
+library(bruceR)
+feols(price~as.factor(year) + district,
+      data = cprice,se = "standard") %>% stargazer::stargazer()
+
+# feols(price~as.factor(year)|district,
+      # data = cprice,se = "cluster")
+
+year_hetero = feols(price~as.factor(year) + district,
+      data = cprice,se = "hetero")
+
+library(sjPlot)
+plot_model(year_stand,terms = paste("as.factor(year)",2012:2020,sep = ""),show.p = T,colors = "bw",vline.color = "red")
+```
