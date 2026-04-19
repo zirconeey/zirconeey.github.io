@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "mid-sample-4-sol"
+title: "公司财务管理期中样卷4答案"
 discipline: "经济学"
-course: "corp-fin"
+course: "公司财务管理"
 material_type: "Exams"
 date: 2026-04-18
 author: "Zircon"
@@ -27,7 +27,7 @@ pdf_url: "/files/corp-fin/mid-sample-4-sol.pdf"
       您的浏览器不支持内嵌 PDF，请通过下方链接下载。
     </iframe>
   </div>
-  
+
   <div style="margin-top: 1rem; text-align: center;">
     <a href="{{ page.pdf_url }}" download style="padding: 10px 20px; border: 1px solid var(--color-ink); text-decoration: none; color: var(--color-ink); font-family: var(--font-display); transition: 0.3s;">
       📥 下载完整版 PDF 讲义

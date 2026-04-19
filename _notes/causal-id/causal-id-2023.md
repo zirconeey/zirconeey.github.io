@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "causal-id-2023"
+title: "计量因果识别方法课程笔记"
 discipline: "经济学"
-course: "causal-id"
+course: "计量因果识别方法"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
@@ -27,7 +27,7 @@ pdf_url: "/files/causal-id/causal-id-2023.pdf"
       您的浏览器不支持内嵌 PDF，请通过下方链接下载。
     </iframe>
   </div>
-  
+
   <div style="margin-top: 1rem; text-align: center;">
     <a href="{{ page.pdf_url }}" download style="padding: 10px 20px; border: 1px solid var(--color-ink); text-decoration: none; color: var(--color-ink); font-family: var(--font-display); transition: 0.3s;">
       📥 下载完整版 PDF 讲义

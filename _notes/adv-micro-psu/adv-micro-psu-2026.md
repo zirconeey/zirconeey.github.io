@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "ch2_game_representation"
+title: "Advanced Microeconomics Lecture Notes"
 discipline: "经济学"
-course: "output"
+course: "Advanced Microeconomics"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: "/notes/output/ch2_game_representation"
-pdf_url: "/files/output/ch2_game_representation.pdf"
+permalink: "/notes/adv-micro-psu/Micro"
+pdf_url: "/files/adv-micro-psu/Micro.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---
 
@@ -27,7 +27,7 @@ pdf_url: "/files/output/ch2_game_representation.pdf"
       您的浏览器不支持内嵌 PDF，请通过下方链接下载。
     </iframe>
   </div>
-  
+
   <div style="margin-top: 1rem; text-align: center;">
     <a href="{{ page.pdf_url }}" download style="padding: 10px 20px; border: 1px solid var(--color-ink); text-decoration: none; color: var(--color-ink); font-family: var(--font-display); transition: 0.3s;">
       📥 下载完整版 PDF 讲义
