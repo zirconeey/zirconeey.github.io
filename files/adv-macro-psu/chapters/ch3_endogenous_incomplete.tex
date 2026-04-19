@@ -1,0 +1,788 @@
+\chapter{Endogenously Incomplete Markets}
+
+\section{One-Sided Lack of Commitment}
+
+Assume:
+\begin{itemize}
+    \item Money lender (ML):
+    \begin{itemize}
+        \item risk neutral.
+        \item can borrow and lend money at the interest rate $R$ such that $\beta R = 1$.
+        \item contracts are state-dependent.
+        \item all borrowings and savings can only go through the money lender.
+    \end{itemize}
+    \item Consumer:
+    \begin{itemize}
+        \item preferences:
+        \[
+        \mathbb E\br{\sum_{t=0}^\infty \beta^t u(c_t)},
+        \]
+        where $u$ is assumed to be strictly increasing, strictly concave, and twice continuously differentiable.
+        \item stochastic endowment: $y(s^t)$ that is i.i.d. with each state $s^t$ occurring with probability $\pi(s^t)$. And the space of $y(s^t)$ is finite such that
+        \[
+        y_1<y_2<\cdots<y_N.
+        \]
+        \item Consumers cannot commit to a contract: if the consumer walks out of the contract at some point, then the consumer will not be able to borrow or lend from the money lender in the future. That is, from the period onwards, the consumer can only consume their endowment $y(s^t)$ in each period (``\textit{Autarky}'').
+    \end{itemize}
+\end{itemize}
+
+Before solving the complex model with lack of commitment, it is standard practice to establish the frictionless ``First-Best" (efficient) benchmark. 
+
+\clm{First-Best Benchmark}{
+    The efficient allocation is such that the consumer consumes the average endowment at each period and each state, i.e.,
+    \[
+    \sum_t\beta^t u \pr{\sum_s\pi_sy_s} = \frac{1}{1-\beta}u\pr{\sum_s\pi_sy_s}.
+    \]
+    Thus, the profit of the money lender is given by
+\[
+\mathbb E\br{\sum_{t=0}^\infty \beta^t \pr{y(s^t) - c_t}} = \mathbb E\br{\sum_{t=0}^\infty \beta^t \pr{y(s^t) - \sum_s\pi_sy_s}}.
+\]
+}
+
+Why is it efficient? The economy consists of a risk-neutral Money Lender (ML) and a strictly risk-averse consumer. A fundamental result in microeconomics is that Pareto efficiency requires the risk-neutral party to fully absorb all risk. Therefore, the ML should provide \textit{perfect insurance}, keeping the consumer's consumption perfectly smooth across all states and time. To ensure the contract is feasible (and the ML breaks even in expectation), this constant consumption level must exactly equal the expected (average) endowment: $c_t = \sum_s \pi_s y_s := \bar{y}$.
+    
+But later we will see that this efficient allocation is not sustainable under the lack of commitment friction. Intuitively, this perfect insurance contract requires the consumer to make net payments to the ML in good states ($y_s > \bar{y}$) and receive transfers in bad states ($y_s < \bar{y}$). However, under \textit{lack of commitment}, when a good state realizes (e.g., the best state $y_N > \bar{y}$), the consumer's autarky payoff $u(y_N)$ at the current period strictly dominates the contract's smoothed payoff $u(\bar{y})$, which makes the consumer want to walk out of the contract and consume the endowment $y_N$ instead.
+
+\subsection{Self-Enforcing Contract}
+
+Due to the lack of commitment, the ML will find a contract that is \textit{self-enforcing} (also called \textit{sustainable}), which means that the consumer will not want to walk out of the contract at any point in time.
+
+Assume the ML is offering a stream of consumption $\brace{c(s^t)}_{t=0}^\infty$ to the consumer.
+
+Under the contract, the consumer's utility is given by
+\[
+v = \sum_t\sum_{s^t}\beta^t \pi(s^t) u(c(s^t)).
+\]
+
+For the money lender, the profit is given by
+\[
+P = \sum_t\sum_{s^t}\beta^t\pi(s^t)\pr{y(s^t) - c(s^t)}.
+\]
+
+If at some point the consumer decides to walk out of the contract, then the consumer's utility will be given by
+\[
+\begin{aligned}
+    & u(y(s))+\beta \sum_{s'}\pi(s'|s)u(y(s')) + \beta^2 \sum_{s''}\pi(s''|s')u(y(s'')) + \cdots\\
+    = & u(y(s)) + \frac{\beta}{1-\beta} \sum_{s'}\pi(s'|s)u(y(s')) \\
+    := & u(y(s))+\beta V^{\text{aut}}.
+\end{aligned}
+\]
+
+For a contract to be self-enforcing, the ML must offer at least the utility that the consumer can get by walking out of the contract, for all $t$ and $s^t$.
+
+The natural question is then, what is the optimal contract?
+
+The ML wants to maximize the profit $P$ by choosing the contract $\brace{c(s^t)}_{t=0}^\infty$ subject to the self-enforcing constraint.
+
+To analyze this question, we make an important assumption about the timing. Specifically, we assume \textit{ex-ante} timing, which means that at each state, the consumer wakes up and makes decisions based on the expected realizations, and then the state (and thus the endowment realization) is revealed.
+
+The ML's problem is given by
+\[
+\begin{aligned}
+    P(v) & = \max_{c_s,w_s} \sum_s\pi_s\br{y(s) - c(s)+\beta P(w)}\\
+    \text{s.t. } & \sum_s\pi_s\br{u(c_s)+\beta w_s} \ge v,\\
+    & u(c_s)+\beta w_s\ge u(y_s)+\beta V^{\text{aut}}, \quad \forall s,
+\end{aligned}
+\]
+where the first constraint is the \textit{promise-keeping constraint}, and the second constraint is the \textit{participation constraint} (or, the self-enforcing constraint from the perspective of the ML).
+
+Here we in addition assume that 
+\[
+\begin{aligned}
+     w_s &\in \br{V^{\text{aut}}, V^{\max}}, \quad \forall s,\\
+     c_s &\in \br{c_{\min},c_{\max}},\quad \forall s.
+\end{aligned}
+\]
+
+And we give the following claim without proof:
+\clm{}{
+\begin{itemize}
+    \item $P(v)$ is strictly decreasing in $v$.
+    \item $P(v)$ is strictly concave in $v$.
+    \item $P(v)$ is continuously differentiable in $v$.
+\end{itemize}
+}
+
+The Lagrange is given by
+\[
+\begin{aligned}
+    \mathcal{L} = & \sum_{s}\pi_s\br{y_s-c_s+\beta P(w_s)}\\
+    & + \mu\br{\sum_s\pi_s\br{u(c_s)+\beta w_s} - v} \\
+    & + \sum_s\lambda_s\br{u(c_s)+\beta w_s - u(y_s) - \beta V^{\text{aut}}}.
+\end{aligned}
+\]
+
+The FOC is given by
+\begin{itemize}
+    \item w.r.t. $c_s$:
+    \[
+    -\pi_s + \mu \pi_s u'(c_s) + \lambda_s u'(c_s) = 0.
+    \]
+    \item w.r.t. $w_s$:
+    \[
+    \beta \pi_s P'(w_s) + \mu \beta \pi_s + \lambda_s \beta = 0.
+    \]
+\end{itemize}
+
+The envelope condition is given by
+\[
+    P'(v) = -\mu.
+\]
+
+From the three conditions above, we can obtain the following results:
+\begin{itemize}
+    \item $u'(c_s) = -1/P'(w_s)$.
+    \item $P'(v) = \lambda_s/\pi_s+P'(w_s)$.
+    \item $1/u'(c_s) = \lambda_s/\pi_s+1/u'(c_{s-1})$.
+\end{itemize} 
+
+We analyze the problem by considering two cases:
+\begin{itemize}
+    \item Case 1: Participation constraint is not binding.
+    
+    Then $\lambda_s = 0$. This immediately implies 
+    \[
+    P'(v) = P'(w_s), \quad 1/u'(c_s) = 1/u'(c_{s-1}).
+    \]
+    Since $P'(\cdot)$ and $u'(\cdot)$ are strictly increasing, we have $v = w_s$ and $c_s = c_{s-1}$. So when the participation constraint does not bind, the consumption and promised value are just constants and do not depend on the state $s$.
+    \item Case 2: Participation constraint is binding for some $s$.
+    
+    Then $\lambda_{s}>0$. This implies
+    \[
+    \begin{cases}
+        P'(v) > P'(w_s) \implies v<w_s,\\
+        1/u'(c_s) > 1/u'(c_{s-1}) \implies c_{s-1}<c_s.
+    \end{cases}
+    \]
+    \textbf{Intuition}: The consumer has incentives to walk out of the contract when they are in a good state (i.e., when $y(s)$ is high). To prevent the consumer from walking out of the contract, the ML needs to offer a higher promised value $w_s$ and a higher consumption $c_s$ in the good state than in the bad state.
+\end{itemize}
+
+In conclusion, the consumption is always non-decreasing: strictly increases when the participation constraint binds, and remains constant when the participation constraint does not bind. When the participation constraint binds (i.e., the consumer wakes up in a good state), the ML incentivizes the consumer to stay in the contract by offering a higher promised value and a higher consumption from then on (although the consumer will then need to forgo some of their current endowment since $c_s<y_s$\footnote{
+Here we show that $c_s<y_s$ for all state $s$. In order to make the consumer participate in the contract, the ML must make the promised value $v\ge V^{\text{aut}}$. When the participation constraint binds, we have $u(c_s)+\beta w_s = u(y(s)) + \beta V^{\text{aut}}$. Since $w_s>v\ge V^{\text{aut}}$, we have $u(c_s)<u(y(s))$, which implies $c_s<y_s$. This happens when the participation constraint binds, so when the participation constraint does not bind, we still have $c_s < y_s$. Intuitively, this is true because the ML needs to make a positive profit from the contract, so the consumption stream offered to the consumer must be less than their endowment in each state.
+}).
+
+Motivated by the analysis above, for a given promised value $v$, there exists $\bar y(v)$ such that the participation constraint binds when $y(s)>\bar y(v)$ and does not bind when $y(s)<\bar y(v)$. In order to find such $\bar y(v)$, we can solve the following equations:
+    \[
+    \begin{cases}
+        w_s = v\\
+        c_s = c_{s-1}\\
+        u(c_s)+\beta w_s = u(y(s)) + \beta V^{\text{aut}}.
+    \end{cases}
+\]
+
+Below we give graphical illustrations of the above analysis. When $\lambda_s = 0$, $c_s = c_{s-1}$ and $w_s = v$. When $\lambda_s>0$, $c_s :=\tilde c(s)$ such that $\tilde c(s)>c_{s-1}$ and $w_s := \tilde w(s)$ such that $\tilde w(s)>v$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+    % 绘制坐标轴
+    \draw[->] (-0.5,0) -- (6,0) node[right] {$y_s$};
+    \draw[->] (0,-0.5) -- (0,4) node[above] {$\tilde{c}_s, \tilde{w}_s$};
+    
+    % 标记\bar{y}(v)
+    \draw (2.5,0) -- (2.5,-0.2);
+    \node[below] at (2.5,-0.3) {$\bar{y}(v)$};
+    
+    % 垂直虚线
+    \draw[dashed] (2.5,0) -- (2.5,3.5);
+    
+    % 第一条线：\tilde{c}(s)
+    % 0到2.5是水平的，高度为1.5
+    \draw[blue, thick] (0,1.5) -- (2.5,1.5);
+    % 2.5之后以斜率0.4上升
+    \draw[blue, thick] (2.5,1.5) -- (6,2.9);
+    \node[right] at (6,2.9) {$\tilde{c}(s)$};
+    
+    % 第二条线：\tilde{w}(s)
+    % 0到2.5是水平的，高度为2.2
+    \draw[red, thick] (0,2.2) -- (2.5,2.2);
+    % 2.5之后以斜率0.5上升
+    \draw[red, thick] (2.5,2.2) -- (6,3.95);
+    \node[right] at (6,3.95) {$\tilde{w}(s)$};
+\end{tikzpicture}
+\end{center}
+
+Consider the following consumption dynamics. We assume that the participation constraint does not bind at $y_1$, but binds at $y_2,\cdots ,y_N$. 
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c|c}
+$t$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+\hline
+$y_t$ & $y_1$ & $y_1$ & $y_2$ & $y_1$ & $y_N$ & $y_2$ & $y_1$ \\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2]
+    % 绘制坐标轴
+    \draw[->] (-0.5,0) -- (6,0) node[right] {$y_s$};
+    \draw[->] (0,-0.5) -- (0,6) node[above] {$c_s$};
+    
+    % 45度线：c_s = y_s
+    \draw[dashed, gray, thick] (0,0) -- (6,6);
+    \node[font=\small] at (6.4,5.7) {$c_s = y_s$};
+    
+    % 为每个y_s绘制c_s的取值区间
+    % y_1处的区间：从0.4到0.7
+    \draw[red, thick] (1,0.4) -- (1,0.7);
+    \draw[red, thick] (0.95,0.4) -- (1.05,0.4);
+    \draw[red, thick] (0.95,0.7) -- (1.05,0.7);
+    
+    % y_2处的区间：从1.0到1.4
+    \draw[red, thick] (2.5,1.0) -- (2.5,1.4);
+    \draw[red, thick] (2.45,1.0) -- (2.55,1.0);
+    \draw[red, thick] (2.45,1.4) -- (2.55,1.4);
+    
+    % y_N处的区间：从3.8到4.3
+    \draw[red, thick] (5.5,3.8) -- (5.5,4.3);
+    \draw[red, thick] (5.45,3.8) -- (5.55,3.8);
+    \draw[red, thick] (5.45,4.3) -- (5.55,4.3);
+    
+    % t = 1和t = 2的点：在y_1区间内选择c_1 = 0.55
+    \draw[fill=black] (1,0.55) circle (0.06);
+    % 纵轴标记c_1
+    \draw (0,0.55) -- (-0.1,0.55);
+    \node[left] at (-0.15,0.55) {$c_1$};
+    % 虚线从纵轴连接到点
+    \draw[dashed] (0,0.55) -- (1,0.55);
+    % 点右边标记t = 1和t = 2
+    \node[right, font=\tiny, align=left] at (1.2,0.55) {$t=1$\\$t=2$};
+    % 自环箭头：从点出发指向它自己（几乎闭合的圆弧，在点右侧，半径缩小）
+    \draw[thick, ->, blue] (1.10,0.55) arc(180:530:0.075);
+    
+    % 从第一个点跳到第二个点的箭头（t=2到t=3的转移）
+    \draw[thick, ->, bend left=30, blue] (1,0.55) to (2.5,1.2);
+    
+    % t = 3和t = 4的点：在y_2区间内选择c_2 = 1.2（满足c_2 > c_1）
+    \draw[fill=black] (2.5,1.2) circle (0.06);
+    % 纵轴标记c_2
+    \draw (0,1.2) -- (-0.1,1.2);
+    \node[left] at (-0.15,1.2) {$c_2$};
+    % 虚线从纵轴连接到点
+    \draw[dashed] (0,1.2) -- (2.5,1.2);
+    % 点右边标记t = 3和t = 4
+    \node[right, font=\tiny, align=left] at (2.7,1.2) {$t=3$\\$t=4$};
+    % 自环箭头：从点出发指向它自己（几乎闭合的圆弧，在点右侧，半径缩小）
+    \draw[thick, ->, blue] (2.60,1.2) arc(180:530:0.075);
+    
+    % 从第二个点跳到第三个点的箭头（t=4到t=5的转移）
+    \draw[thick, ->, bend left=30, blue] (2.5,1.2) to (5.5,4.0);
+    
+    % t = 5,6,7的点：在y_N区间内选择c_3 = 4.0（满足c_3 > c_2）
+    \draw[fill=black] (5.5,4.0) circle (0.06);
+    % 纵轴标记c_3
+    \draw (0,4.0) -- (-0.1,4.0);
+    \node[left] at (-0.15,4.0) {$c_N$};
+    % 虚线从纵轴连接到点
+    \draw[dashed] (0,4.0) -- (5.5,4.0);
+    % 点右边标记t = 5,6,7
+    \node[right, font=\tiny, align=left] at (5.7,4.0) {$t=5$\\$t=6$\\$t=7$};
+    % 自环箭头：从点出发指向它自己（几乎闭合的圆弧，在点右侧，半径缩小）
+    \draw[thick, ->, blue] (5.60,4.0) arc(180:530:0.075);
+    % 横轴标记 y_1, y_2, ..., y_N
+    % 假设分别位于 x = 1, 2.5, 5.5
+    \draw (1,0) -- (1,-0.15);
+    \node[below] at (1,-0.25) {$y_1$};
+    
+    \draw (2.5,0) -- (2.5,-0.15);
+    \node[below] at (2.5,-0.25) {$y_2$};
+    
+    % 省略号
+    \node[below] at (3.75,-0.25) {$\cdots$};
+    
+    \draw (5.5,0) -- (5.5,-0.15);
+    \node[below] at (5.5,-0.25) {$y_N$};
+\end{tikzpicture}
+\end{center}
+
+
+Initially, the consumer wakes up in a bad state with endowment $y_1$ and the participation constraint does not bind, so the consumer will consume $c_1$. At $t = 2$, the consumer wakes up in the same state with endowment $y_1$, so the consumption remains unchanged. At $t = 3$, the consumer wakes up in a good state with endowment $y_2$, and the participation constraint binds. In order to incentivize the consumer to stay in the contract, the ML needs to offer a higher promised value and a higher consumption $c_2$ such that $c_2>c_1$. At $t = 4$, the consumer wakes up in the same state with endowment $y_1<y_2$, so the participation constraint does not bind, and then the consumption remains unchanged at $c_2$. At $t = 5$, the consumer wakes up in a better state with endowment $y_N$, and the participation constraint binds again. The ML then offers a higher promised value and a higher consumption $c_N$ such that $c_N>c_2$ to keep the consumer in the contract. At $t = 6$ and $7$, although the consumer wakes up in relatively bad states, the consumption remains unchanged (in particular, does not decrease) at $c_N$ since the participation constraint does not bind.
+
+\subsection{Profit of the ML}
+
+\textit{Ex-ante}, the ML would offer
+\[
+v = V^\text{aut}.
+\]
+
+If $y_s$ happens to be $y_1$, and $v = V^\text{aut}$, we consider the case when the participation constraint binds:
+\[
+u(c_1)+\beta v = u(y_1)+\beta V^{\text{aut}}.
+\]
+
+This implies the ML must offer the consumer $c_1 = y_1$ to make them stay in the contract. Then the ML will make zero profit from the consumer when $y_s = y_1$. (From the reasoning we also know that $\bar y (V^{\text{aut}}) = y_1$.)
+
+When $y_s$ happens to be $y_N$ at some point, the consumption will be $c_N$ from then on. In other words, the consumption will converge to $c_N:=\bar c$ once the best state $y_N$ is realized.
+
+Again, the ML will offer $c_N$ to make the consumer just stay in the contract when $y_s = y_N$:
+\[
+u(\bar c)+ \beta \frac{u(\bar c)}{1-\beta} = u(y_N) + \beta V^{\text{aut}} = u(y_N) + \frac{\beta}{1-\beta}\sum_s\pi_s u(y_s).
+\]
+
+Previously we have shown that $c_s<y_s$ for all state $s$, so we have $\bar c < y_N$. This implies that
+\[
+u(\bar c)>\sum_s\pi_s u(y_s).
+\]
+
+Namely, the value of the contract is higher than the (expected) value of autarky.
+
+Once the best state $y_N$ is reached, the profit of the ML is given by
+\[
+\begin{aligned}
+    P & = y_N-\bar c+\frac{\beta}{1-\beta}\sum_s\pi_s(y_s-\bar c)\\
+    & = y_N+\frac{\beta}{1-\beta}\sum_s\pi_sy_s-\frac{\bar c}{1-\beta}.
+\end{aligned}
+\]
+
+\clmp{}{
+    The profit of the ML is positive after the best state $y_N$ is reached.
+}{
+The profit of the ML is positive if and only if
+\[
+y_N+\frac{\beta}{1-\beta}\sum_s\pi_sy_s>\frac{\bar c}{1-\beta}.
+\]
+
+We prove this by contradiction. Suppose not, then we have
+\[
+\begin{aligned}
+    & y_N+\frac{\beta}{1-\beta}\sum_s\pi_sy_s\le \frac{\bar c}{1-\beta}\\
+    \iff & (1-\beta)y_N+\beta\sum_s\pi_sy_s \le \bar c\\
+    \iff & u\pr{(1-\beta)y_N+\beta\sum_s\pi_sy_s} \le u(\bar c) = (1-\beta)u(y_N)+\beta\sum_s\pi_s u(y_s),\\
+    \iff & u\pr{(1-\beta)y_N+\beta\sum_s\pi_sy_s} \le (1-\beta)u(y_N)+\beta\sum_s\pi_s u(y_s).
+\end{aligned}
+\]
+where the equality in the third line holds from the participation constraint:
+\[
+u(\bar c)+ \beta \frac{u(\bar c)}{1-\beta} =  u(y_N) + \frac{\beta}{1-\beta}\sum_s\pi_s u(y_s) \implies u(\bar c) = (1-\beta)u(y_N)+\beta\sum_s\pi_s u(y_s).
+\]
+
+But the last inequality holds if and only if $u$ is convex, by Jensen's inequality. This contradicts the assumption that $u$ is strictly concave. Therefore, we must have $P>0$ after the best state $y_N$ is reached.
+}
+
+\rmkb[Intuition]{
+    \begin{itemize}
+        \item Intuitively, the ML is making positive profit because of risk sharing. The consumer is risk averse, while the ML is risk neutral. After hitting the best state, the consumer is insured against the idiosyncratic risk through the contract, so the consumer is willing to pay a positive amount (by sacrificing the current consumption of $y_N-c_N>0$) to the ML to get insurance. The ML then makes positive profit from the contract (\textit{risk premium}).
+        \item The agent owes money to the ML in $y_N$ state, but receives net transfers (insurance) from the ML in future bad states. The ML makes positive profit from the contract because the consumer is risk averse and thus values the insurance provided by the contract.
+    \end{itemize}
+}
+\rmkb[Why focus only on $y_1$ and $y_N$? What about the intermediate states?]{
+    In the analysis of the one-sided lack of commitment model, the notes explicitly target $y_1$ and $y_N$ because they serve as the two critical \textbf{boundary conditions} of the dynamic contract. The intermediate states are omitted not because they do not exist, but because characterizing the boundaries is sufficient to demonstrate the economic mechanism of the contract.
+
+    In these states, the single-period profit $y_s - c_s$ is transitional and highly history-dependent. The ML might suffer temporary losses (paying out insurance when the agent draws bad shocks) or gain small profits. However, to formally prove that the contract is self-enforcing and profitable \textit{ex-ante}, macroeconomic proofs elegantly focus on showing that the ML breaks even at the absolute bottom ($y_1$) and strictly collects the risk premium at the permanent top ($y_N$).
+}
+
+\section{Bulow-Rogoff Contracts}
+
+\rmk{
+    This model deviates from the standard one-sided lack of commitment model. In standard models (e.g., Eaton-Gersovitz 1981), the punishment for default is a permanent exclusion from future borrowing, which acts as a sufficient threat to sustain debt. This model introduces a critical loophole: it allows the agent to \textbf{save} in complete financial markets after defaulting. We will prove that if an agent has the ability to save after default, borrowing through the Money Lender (ML) becomes completely infeasible (i.e., the credit limit inevitably collapses to zero).
+}
+~\\
+
+We assume 
+\begin{itemize}
+    \item \textbf{Agent:} Risk-averse with strictly increasing utility $u(\cdot)$. Receives a stochastic endowment stream $y(s)$.
+    \item \textbf{Money Lender (ML):} Risk-neutral and competitive. Has access to complete financial markets and discounts the future at a risk-free gross interest rate $R > 1$.
+\end{itemize}
+
+\defn{Wealth}{
+The agent's wealth at node $s^t$, denoted by $W(s^t)$, is defined as the expected present discounted value of all future endowments:
+\[
+W(s^t) = \sum_{\tau\ge t}\sum_{s^{\tau}|s^t}\pi(s^{\tau}|s^t) \frac{y(s^{\tau})}{R^{\tau-t}}
+\]
+}
+
+In addition, we assume $W(s^t)$ is finite (which requires $R$ to be sufficiently high).
+
+\defn{Contract}{
+A contract is defined by a stream of payments $p(s^t)$ from the agent to the ML.
+\begin{itemize}
+    \item $p(s^t) > 0$: The agent is paying back the ML.
+    \item $p(s^t) < 0$: The agent is borrowing (receiving inflows from the ML).
+\end{itemize}
+}
+
+\defn{Debt}{
+The agent's debt at node $s^t$, denoted by $D(s^t)$, is defined as the expected present discounted value of all future payments:
+\[
+D(s^t) = \sum_{\tau\ge t}\sum_{s^{\tau}|s^t}\pi(s^{\tau}|s^t) \frac{p(s^{\tau})}{R^{\tau-t}}
+\]
+}
+
+Intuitively, the ML manages risk by enforcing a strict credit limit: the agent's debt can never exceed a specific fraction $k$ of their total future wealth.
+
+\asm{Borrowing Limit}{
+The ML will define a parameter $k \in [0,1]$ such that:
+\[
+D(s^t) \le k W(s^t), \quad \forall s^t.
+\]
+}
+
+In default, the agent can no longer borrow from the ML, but can still save by purchasing cash-in-advance contracts (Arrow securities).
+
+\defn{Cash-In-Advance}{
+    Cash-in-advance contracts allow the agent to save by purchasing state-contingent claims on future payoffs. The agent can choose a saving strategy defined by:
+\[
+a(s^t) = \sum_{s^{t+1}|s^t}\pi(s^{t+1}|s^t) \frac{g(s^{t+1})}{R}
+\]
+where $g(s^{t+1}) \ge 0$ is the state-contingent return on the asset tomorrow.
+}
+
+The intuition if the cash-in-advance contracts is that the agent acts as their own actuary. $a(s^t)$ is the total premium (cash) the agent pays today. In exchange, the market guarantees a non-negative payout $g(s^{t+1})$ tomorrow, exactly tailored to the agent's desired self-insurance needs.
+
+\thm{Bulow-Rogoff}{
+In any equilibrium, the debt must be non-positive ($D(s^t) \le 0$) for all $s^t$, the borrowing limit $k = 0$, and the agent cannot borrow at all.
+}
+
+Here, we motivate the proof by intuition before going into the formal proof. 
+
+Suppose there exists a node $s^t$ where the debt satisfies two conditions:
+\[
+\begin{aligned}
+    1. \quad & D(s^t) \le k W(s^t) \quad \text{(The global borrowing limit is respected)}\\
+    2. \quad & D(s^t) > k\left(W(s^t) - y(s^t)\right) \quad \text{(The debt exceeds future collateral)}
+\end{aligned}
+\]
+
+The intuition for the second condition is that, the current debt is so heavy that it exceeds the allowable borrowing limit on \textit{strictly future} wealth ($W - y$). Consequently, the agent is forced to make a painful net transfer out of today's pocket ($y(s^t)$) to service the debt. This is the optimal moment to default.
+
+We consider the case when the agent defaults at this specific node $s^t$ and starts the following savings sequence for all $\tau \ge t$:
+\[
+a(s^{\tau}) = p(s^{\tau}) + k\left(W(s^{\tau}) - y(s^{\tau})\right) - D(s^{\tau}),
+\]
+where $k$ is assumed to be $k>0$, since we try to prove by contradiction that $k$ must be zero in equilibrium.
+
+Here is the intuition for this saving sequence: the agent redirects the payment $p(s^{\tau})$ they \textit{would} have made to the ML into a private savings account. They adjust this amount perfectly by taking the maximum theoretical future borrowing limit ($k(W-y)$) and subtracting the actual future debt burden ($D$). They are essentially using the financial market to mimic the ML's balance sheet.
+
+But we are still left with two critical questions:
+\begin{itemize}
+    \item \textbf{Feasibility:} Is this asset (defined by the savings sequence) legally available in the market? In other words, can the agent actually purchase this asset to implement the savings strategy?
+    \item \textbf{Optimality:} Does this asset make the agent strictly better off than repaying the debt? In other words, is defaulting and following this savings strategy strictly more profitable than repaying the debt?
+\end{itemize}
+
+To prove this asset is legally available in the market, we must show that its future payoff $g(s^{\tau+1})$ is non-negative. 
+
+First, we write down the recursive definitions of $W$ and $D$:
+\[
+\begin{aligned}
+    W(s^{\tau}) & = y(s^{\tau}) + \sum_{s^{\tau+1}|s^{\tau}}\pi(s^{\tau+1}|s^{\tau}) \frac{W(s^{\tau+1})}{R} \implies W(s^{\tau}) - y(s^{\tau}) = \sum_{s^{\tau+1}|s^{\tau}}\pi(s^{\tau+1}|s^{\tau}) \frac{W(s^{\tau+1})}{R}\\
+    D(s^{\tau}) & = p(s^{\tau}) + \sum_{s^{\tau+1}|s^{\tau}}\pi(s^{\tau+1}|s^{\tau}) \frac{D(s^{\tau+1})}{R} \implies D(s^{\tau}) - p(s^{\tau}) = \sum_{s^{\tau+1}|s^{\tau}}\pi(s^{\tau+1}|s^{\tau}) \frac{D(s^{\tau+1})}{R}
+\end{aligned}
+\]
+
+Substitute these recursive forms back into our savings sequence $a(s^{\tau})$:
+\[
+\begin{aligned}
+    a(s^{\tau}) & = k\left(W(s^{\tau}) - y(s^{\tau})\right) - \left(D(s^{\tau}) - p(s^{\tau})\right)\\
+    & = k \sum_{s^{\tau+1}|s^{\tau}}\pi(s^{\tau+1}|s^{\tau}) \frac{W(s^{\tau+1})}{R} - \sum_{s^{\tau+1}|s^{\tau}}\pi(s^{\tau+1}|s^{\tau}) \frac{D(s^{\tau+1})}{R}\\
+    & = \sum_{s^{\tau+1}|s^{\tau}}\pi(s^{\tau+1}|s^{\tau}) \frac{kW(s^{\tau+1}) - D(s^{\tau+1})}{R}
+\end{aligned}
+\]
+By matching this with the standard cash-in-advance pricing formula ($a(s^\tau) = \sum \pi \frac{g}{R}$), we identify the state-contingent payoff tomorrow as:
+\[
+g(s^{\tau+1}) = kW(s^{\tau+1}) - D(s^{\tau+1}).
+\]
+Since the ML's contract globally enforces $D(s^{\tau+1}) \le kW(s^{\tau+1})$, it strictly follows that $g(s^{\tau+1}) \ge 0$ for all possible future states. Therefore, the proposed asset is a feasible cash-in-advance contract.
+
+Then, we compare the agent's consumption payoffs under repayment vs. default.
+
+\begin{itemize}
+    \item At the moment of default (Today, $s^t$):
+    \begin{itemize}
+    \item Payoff in repayment: $y(s^t) - p(s^t)$ %
+    \item Payoff in default: 
+    \[
+    \begin{aligned}
+        y(s^t) - a(s^t) &= y(s^t) - \left[ p(s^t) + k\left(W(s^t) - y(s^t)\right) - D(s^t) \right] \\
+        &= y(s^t) - p(s^t) + \underbrace{\left[ D(s^t) - k\left(W(s^t) - y(s^t)\right) \right]}_{> 0 \text{ (due to our choice of the tipping point)}}
+    \end{aligned}
+    \]
+\end{itemize}
+As a result, the agent consumes strictly more today by defaulting.
+    \item At any future node (Tomorrow and beyond, $s^{\tau}$ for $\tau > t$):
+    \begin{itemize}
+    \item Payoff in repayment: $y(s^{\tau}) - p(s^{\tau})$ %
+    \item Payoff in default (= endowment - cost of new asset + payoff from yesterday's asset):
+    \[
+    \begin{aligned}
+        & y(s^{\tau}) - a(s^{\tau}) + g(s^{\tau}) \\
+        = \ & y(s^{\tau}) - \left[ p(s^{\tau}) + k(W(s^{\tau}) - y(s^{\tau})) - D(s^{\tau}) \right] + \left[ kW(s^{\tau}) - D(s^{\tau}) \right] \\
+        = \ & y(s^{\tau}) - p(s^{\tau}) - kW(s^{\tau}) + ky(s^{\tau}) + D(s^{\tau}) + kW(s^{\tau}) - D(s^{\tau}) \\
+        = \ & (1+k)y(s^{\tau}) - p(s^{\tau})
+    \end{aligned}
+    \]
+\end{itemize}
+As a result, since the endowment $y > 0$, if $k > 0$, then $(1+k)y - p > y - p$. The agent consumes strictly more ($ky$ extra) in every single future period.
+\end{itemize}
+
+In conclusion, if $k > 0$, the agent will inevitably reach node $s^t$, choose to default, and be strictly better off in every period thereafter. Anticipating this, the ML will never lend. Consequently, the only equilibrium is $k \le 0 \implies k = 0$, meaning debt $D(s^t) \le 0$, and the agent cannot borrow.
+
+\rmkb[Existence of Tipping Point and Discussion of $k$]{
+In the proof above, we crucially rely on the existence of a \textbf{tipping point} $s^*$ that satisfies the two conditions. The existence of such a tipping point is guaranteed by the following lemma.
+
+\lemp{Existence of the Tipping Point}{
+    Suppose the Money Lender (ML) offers a contract where the supremum of the debt-to-wealth ratio is strictly positive. Let $k = \sup_{s^t} \frac{D(s^t)}{W(s^t)} > 0$. Then, there exists at least one node $s^*$ in the contract history that satisfies:
+\[
+\begin{aligned}
+    1. \quad & D(s^*) \le k W(s^*) \\
+    2. \quad & D(s^*) > k\left(W(s^*) - y(s^*)\right)
+\end{aligned}
+\]
+}{
+By the definition of the supremum $k$, the first condition $D(s^t) \le kW(s^t)$ holds globally for all $s^t$.
+
+To prove the second condition, we first establish a strictly positive lower bound for the ratio of the flow endowment to the total stock wealth, $\frac{y(s^t)}{W(s^t)}$. Assuming a finite Markov state space where endowments are strictly positive, there exists a minimum possible endowment $y_{\min} > 0$ and a maximum possible total wealth $W_{\max} < \infty$ (since the discount rate $R > 1$). Therefore, for any node $s^t$:
+\[
+\frac{y(s^t)}{W(s^t)} \ge \frac{y_{\min}}{W_{\max}} \equiv \delta > 0
+\]
+
+Now, choose an arbitrarily small positive number $\epsilon$ such that $\epsilon = \frac{1}{2} k \delta > 0$. By the definition of the supremum $k$, there must exist at least one node $s^*$ such that the actual debt-to-wealth ratio is strictly within $\epsilon$ of the supremum:
+\[
+\frac{D(s^*)}{W(s^*)} > k - \epsilon \implies D(s^*) > kW(s^*) - \epsilon W(s^*)
+\]
+
+Substitute our specific choice of $\epsilon$ into this inequality:
+\[
+\begin{aligned}
+    D(s^*) & > kW(s^*) - \left(\frac{1}{2} k \delta\right) W(s^*)\\
+    &  > kW(s^*) - k \left( \frac{y(s^*)}{W(s^*)} \right) W(s^*)\\
+    & = k\pr{W(s^*) - y(s^*)}.
+\end{aligned}
+\]
+
+Thus, the node $s^*$ satisfying both conditions is mathematically guaranteed to exist.
+}
+
+For narrative simplicity, we often state that the Money Lender (ML) specifies a global borrowing limit $k$ such that $D(s^t) \le k W(s^t)$. However, mathematically, it is crucial that the $k$ used in this proof is defined as the \textit{supremum} of the actual debt-to-wealth ratio, rather than an arbitrary constant.
+
+If we were to use a loosely defined nominal rule $k_{\text{rule}}$, and the actual borrowing behavior is significantly more conservative (i.e., $k_{\text{rule}} \gg \sup \frac{D}{W}$), the strict inequality $D(s^t) > k_{\text{rule}}\left(W(s^t) - y(s^t)\right)$ might never be satisfied. In such a case, the debt would never mathematically ``squeeze" the current endowment enough to trigger the tipping point. Therefore, constructing the shadow asset around the precise, tight supremum $k$ is the exact mechanism that guarantees the existence of the default node.
+}
+
+\section{Two-Sided Lack of Commitment}
+
+Assume:
+\begin{itemize}
+    \item Two agents: 
+    \begin{itemize}
+        \item identical preferences with risk aversion; 
+        \item lack of commitment.
+    \end{itemize}
+    \item Endowments: 
+    \[
+    y_A = y_s, \quad y_B = 1-y_s,\quad y_s\in [0,1],
+    \]
+    where $y_s$ is i.i.d. with each state $s$ occurring with probability $\pi(s)$.
+    \begin{itemize}
+        \item The feasibility constraint is then given by
+        \[
+        c_A(s^t) + c_B(s^t) = 1, \quad \forall t, s^t.
+        \]
+    \end{itemize}
+    \item Lending and borrowing can only be done through the reallocation of consumption between agents. If any agent defaults on the contract, then both agents will be in autarky and consume their own endowment forever.
+    \[
+    \begin{aligned}
+        V_A^{\text{aut}} = & \sum_t\beta^t \sum_s\pi(s) u(y_s)  = \frac{\sum_s\pi_su(y_s)}{1-\beta},\\
+        V_B^{\text{aut}} = & \sum_t\beta^t \sum_s\pi(s) u(1-y_s)  = \frac{\sum_s\pi_su(1-y_s)}{1-\beta}.
+    \end{aligned}
+    \]
+\end{itemize}
+
+An allocation $\brace{c_A(s^t), c_B(s^t)}_{t=0}^\infty$ is sustainable if neither agent has incentives to default on the contract at any point in time. That is, for all $t$ and $s^t$, we have
+\[
+\begin{aligned}
+    u(c^A(s^t))+\mathbb E_t\br{\sum_j\beta^ju(c^A(s^{t+j}))}&\ge u(y(s^t))+\beta V_A^{\text{aut}},\\
+    u(c^B(s^t))+\mathbb E_t\br{\sum_j\beta^ju(c^B(s^{t+j}))}&\ge u(1-y(s^t))+\beta V_B^{\text{aut}}.
+\end{aligned}
+\]
+
+We characterize the Pareto frontier of feasible and sustainable allocation by the function $Q(v)$, which is defined as the maximum utility that agent $B$ can get given that agent $A$ gets at least $v$ more utility than their autarky utility (we call it \textit{difference in utilities} later):
+\[
+\begin{aligned}
+    Q(v) & = \max_{c(s^t)}\sum_t\sum_{s^t}\beta \br{u(1-c(s^t))-u(1-y(s^t))} \\
+    \text{s.t. } & \sum_t\sum_{s^t}\beta \br{u(c(s^t))-u(y(s^t))} \ge v,\\  
+    & c(s^t)\in \Gamma.
+\end{aligned}
+\]
+where $\Gamma$ is the set of feasible and sustainable allocations.
+
+Obviously, it has to be true that $v\ge 0$ and $Q(v)\ge 0$ for all $v\ge 0$.
+
+If $\underline{v} = 0$, then the present value of $A$'s consumption utility is promised to be just at least as high as $A$'s autarky utility, so $v_{\min} = \underline v = 0$. If $Q(\bar v) = 0$, then the present value of $B$'s consumption utility is promised to be just at least as high as $B$'s autarky utility, so $v_{\max} = \bar v$.
+
+The recursive problem can be written as
+\[
+\begin{aligned}
+    Q(\Delta, s) & = \max_{c,\Delta(s')} u(1-c)-u(1-y_s)+\beta\sum_{s'}\pi(s')Q(\Delta(s'),s')\\
+\text{s.t. } & u(c)-u(y_s)+\beta\sum_{s'}\pi(s')\Delta(s') \ge \Delta,\\
+& \Delta(s')\ge 0,\quad \forall s',\\
+& Q(\Delta(s'),s')\ge 0,\quad \forall s',\\
+& c\in [0,1].
+\end{aligned}
+\]
+
+Here $\Delta$ is the promise in terms of the difference in utilities for agent $A$ (i.e., the present value of $A$'s consumption utility minus $A$'s autarky utility). Note that the first constraint is the promise-keeping constraint, and the second and third constraints are the participation constraints for agent $A$ and agent $B$, respectively.
+
+\rmkb[]{
+    \begin{itemize}
+        \item We can show that $\Delta(s)\in \br{0,\bar\Delta(s)}$ for all $s$, where $\bar\Delta(s)$ is such that $Q(\bar\Delta(s),s) = 0$.
+        \item $Q$ inherits the properties of $u$: $Q$ is decreasing in $\Delta$, strictly concave in $\Delta$, and continuously differentiable in $\Delta$.
+    \end{itemize}
+}
+
+Let $\mu$ be the Lagrange multiplier for the promise-keeping constraint, $\lambda_{s'}\beta\pi_{s'}$ be the Lagrange multiplier for the participation constraint of agent $A$, and $\theta_{s'}\beta\pi_{s'}$ be the Lagrange multiplier for the participation constraint of agent $B$. The FOC is given by
+\begin{itemize}
+    \item w.r.t. $c$:
+    \[
+    -u'(1-c) + \mu u'(c) = 0.
+    \]
+    \item w.r.t. $\Delta(s')$:
+    \[
+    \beta\pi_{s'}Q'(\Delta(s'),s') + \mu\beta\pi_{s'} + \lambda_{s'}\beta\pi_{s'} + \theta_{s'}\beta\pi_{s'}Q'(\Delta(s'),s') = 0.
+    \]
+\end{itemize}
+
+The envelope condition is given by
+\[
+Q'(\Delta, s) = -\mu.
+\]
+
+From the FOC and the envelope condition, we can obtain the following results:
+\[
+\begin{aligned}
+    Q'(\Delta,s) & = -\frac{u'(1-c)}{u'(c)},\\
+    Q'(\Delta,s) & = (1+\theta_{s'})Q'(\Delta(s'),s') + \lambda_{s'}.
+\end{aligned}
+\]
+
+This implies that the consumption $c$ is increasing in $\Delta$. We have already argued that $\Delta(s)\in \br{0,\bar\Delta(s)}$ for all $s$. Therefore, the consumption $c$ will fall in the range $\br{\underline c_s,\bar c_s}$ for all $s$, where
+\[
+\begin{aligned}
+    Q'(0,s) & = -\frac{u'(1-\underline c_s)}{u'(\bar c_s)}, \quad (c = \underline c_s, \Delta = 0),\\
+    Q'(\bar\Delta(s),s) & = -\frac{u'(1-\bar c_s)}{u'(\underline c_s)}, \quad (c = \bar c_s, \Delta = \bar\Delta(s)).
+\end{aligned}
+\]
+
+Furthermore, we can rewrite the FOC w.r.t. $c$ as
+\[
+c = g(Q'(\Delta,s)) = g\pr{-\frac{u'(1-c)}{u'(c)}},
+\]
+where $g^{-1}$ is decreasing and negative. 
+
+With this, the FOC w.r.t. $\Delta(s')$ can be rewritten as
+\[
+g^{-1}(c_s) = (1+\theta_{s'})g^{-1}(c_{s'}) + \lambda_{s'}.
+\]
+
+Here we analyze the problem by considering four cases:
+\begin{itemize}
+    \item No participation constraint binds. Then $\lambda_{s'} = 0$ and $\theta_{s'} = 0$ for all $s'$. This implies that $Q'(\Delta,s) = Q'(\Delta(s'),s')$ and $g^{-1}(c_s) = g^{-1}(c_{s'})$ for all $s$ and $s'$, so the consumption is constant across states:
+    \[
+    c_s = c_{s'}, \quad \Delta = \Delta(s').
+    \]
+    \item Only participation constraint of agent $A$ binds. Then $\lambda_{s'}>0$ and $\theta_{s'} = 0$ for some $s'$. Also by construction, $\Delta(s') = 0$ and $c_{s'} = \underline{c}_{s'}$ in this case. So we have
+    \[
+    \begin{aligned}
+        & g^{-1}(c_s)  = g^{-1}(c_{s'}) + \lambda_{s'}\\
+        \implies & g^{-1}(c_s) > g^{-1}(c_{s'})\\
+         \implies &  c_s < c_{s'}.
+    \end{aligned}
+    \]
+    \item Only participation constraint of agent $B$ binds. Then $\lambda_{s'} = 0$ and $\theta_{s'} > 0$ for some $s'$. Also by construction, $\Delta(s') = \bar\Delta(s')$, $Q(\Delta(s'),s') = 0$, and $c_{s'} = \bar{c}_{s'}$ in this case. So we have
+    \[
+    \begin{aligned}
+        & g^{-1}(c_s)  = (1+\theta_{s'})g^{-1}(c_{s'})\\
+        \implies & g^{-1}(c_s) < g^{-1}(c_{s'})\\
+         \implies &  c_s > c_{s'}\\
+         \implies & 1-c_s<1-c_{s'}.
+    \end{aligned}
+    \]
+    \item Both participation constraints bind. 
+    
+    This case is not feasible as long as some risk-sharing is possible. 
+    If both participation constraints bind simultaneously in some state $s'$, it implies that $\Delta(s') = 0$ (Agent A gets exactly their autarky value) and $Q(\Delta(s'), s') = 0$ (Agent B gets exactly their autarky value). Mathematically, this means $Q(0, s') = 0$.
+    
+    However, this contradicts the assumption that some risk-sharing is possible. If risk-sharing is sustainable, the contract generates a strictly positive total surplus relative to autarky due to the agents' risk aversion. 
+    
+    Since $Q(\Delta, s')$ defines the \textit{Pareto frontier} (the maximum possible surplus for B given A's surplus), if A is pushed down to their autarky outside option ($\Delta = 0$), Agent B must capture \textit{all} the strictly positive risk-sharing surplus. Therefore, it must be true that $Q(0, s') > 0$. 
+    
+    In geometric terms, the autarky point $(0,0)$ lies strictly \textit{inside} the feasible payoff set. The Pareto frontier $Q$ strictly bounds this set away from the origin. The only scenario where $Q(0,s')=0$ holds is when the commitment friction is so severe that the risk-sharing market completely collapses, making autarky the only sustainable allocation.
+\end{itemize}
+
+In conclusion,
+\[
+c_{s'} = \begin{cases}
+    c_s & \mif c_s\in \br{\underline c_{s'},\bar c_{s'}} \quad \text{(no participation constraint binds)}\\
+    \underline c_{s'} & \mif c_s<\underline c_{s'}, \Delta(s') = 0 \quad \text{(only participation constraint of agent $A$ binds)}\\
+    \bar c_{s'} & \mif c_s>\bar c_{s'}, Q(\Delta(s'),s') = 0 \quad \text{(only participation constraint of agent $B$ binds)}
+\end{cases}
+\]
+
+\rmkb[]{
+    \begin{itemize}
+        \item \textbf{Intuition}: When the participation constraint of agent $A$ binds, the planner raises the consumption of agent $A$ so that they are indifferent between autarky and the contract, given their high endowment today. The same logic applies to agent $B$ when the participation constraint of agent $B$ binds.
+        \item Note that although agent $A$ is getting the minimum consumption level $\underline c_{s'}$ when the participation constraint of agent $A$ binds, it does not necessarily mean that agent $A$ is worse off than in autarky. Actually agent $A$ is made (weakly) better off than in the previous state because the planner raises their consumption level to keep them in the contract. (The ``worst'' in a good state is still better than some consumption level in a bad state.)
+    \end{itemize}
+}
+
+\clmp{}{
+    We can obtain a stationary distribution of consumption if 
+    \begin{itemize}
+        \item consumption intervals do not contain each other. That is,
+        \[
+        y_1>y_2\implies \bar c_1>\bar c_2,\quad \underline c_1>\underline c_2.
+        \]
+        \item endowments are contained in the consumption intervals. That is,
+        \[
+        y_s\in \br{\underline c_s,\bar c_s},\quad \forall s.
+        \]
+        \item consumption intervals are non-degenerate. That is,
+        \[
+        \underline c_s < \bar c_s, \quad \forall s.
+        \]
+    \end{itemize}
+}{
+    \clmp{}{
+        \[
+        Q(\Delta+u(y_2)-u(y_1),s_1) = Q(\Delta,s_2) + u(1-y_2)-u(1-y_1).
+        \]
+    }{We prove this by definition.
+        \[
+        \begin{aligned}
+            Q(\Delta+u(y_2)-u(y_1),s_1) & = \max u(1-c)-u(1-y_1)+\beta \sum_{s'}\pi(s')Q(\Delta(s'),s')\\
+            \text{s.t. }& u(c)-u(y_1)+\beta \sum_{s'}\pi(s')\Delta(s') \ge \Delta+u(y_2)-u(y_1).\\
+        \end{aligned}
+        \]
+
+        \[
+        \begin{aligned}
+            Q(\Delta,s_2)+u(1-y_2)-u(1-y_1) & = \max u(1-c)-u(1-y_2)+\beta \sum_{s'}\pi(s')Q(\Delta(s'),s')\\
+            \text{s.t. }& u(c)-u(y_2)+\beta \sum_{s'}\pi(s')\Delta(s') \ge \Delta.\\
+        \end{aligned}
+        \]
+        Hence, the equality holds.
+    }
+    Let $y_1>y_2$. We evaluate at $\Delta = \bar \Delta (s_2):=\bar \Delta_2$. By the just-proven equality, we have
+    \[
+    Q(\bar \Delta_2+u(y_2)-u(y_1),s_1) = Q(\bar \Delta_2,s_2)+u(1-y_2)-u(1-y_1).
+    \]
+    Note that $Q(\bar \Delta_2,s_2) = 0$ by definition, and $u(1-y_2)-u(1-y_1)>0$ since $y_1>y_2$ and $u$ is increasing. Therefore, we have $Q(\bar \Delta_2) > 0$. Also note that $0 = Q(\bar \Delta_1,s_1)$, so we have
+    \[
+    Q(\bar \Delta_2+u(y_2)-u(y_1),s_1) > Q(\bar \Delta_1,s_1).
+    \]
+    Since $Q$ is decreasing in $\Delta$, this implies
+    \[
+    \bar \Delta_2 + u(y_2) - u(y_1) < \bar \Delta_1.
+    \]
+    Since $Q$ is strictly concave, $Q'$ is strictly decreasing in $\Delta$. Therefore, we have
+    \[
+    \begin{aligned}
+        Q'(\bar\Delta_1,s_1) & < Q'(\bar\Delta_2+u(y_2)-u(y_1),s_1)\\
+        & = Q'(\bar\Delta_2,s_2),\\
+    \end{aligned}
+    \]
+    where the equality holds by the just-proven equality (and taking derivatives). 
+
+    Note that we previously defined $c = g(Q'(\Delta,s))$, and we have argued that $g$ is strictly increasing. Finally, we have
+    \[
+    \bar c_1>\bar c_2.
+    \]
+}
+

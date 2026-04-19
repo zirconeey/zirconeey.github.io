@@ -83,6 +83,13 @@ layout: default
   #waline .wl-header {
     margin-left: 0 !important;
   }
+
+  /* 🚀 新增：移动端彻底隐藏 PDF 预览框，只保留下载按钮 */
+  @media (max-width: 768px) {
+    .pdf-container iframe {
+      display: none !important;
+    }
+  }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
