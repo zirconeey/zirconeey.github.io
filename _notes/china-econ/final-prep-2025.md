@@ -6,7 +6,7 @@ course: "china-econ"
 material_type: "Exams"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/china-econ/final-prep-2025
+permalink: "/notes/china-econ/final-prep-2025"
 pdf_url: "/files/china-econ/final-prep-2025.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

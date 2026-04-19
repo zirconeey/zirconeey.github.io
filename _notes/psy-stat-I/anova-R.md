@@ -6,7 +6,7 @@ course: "psy-stat-I"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/psy-stat-I/anova-R
+permalink: "/notes/psy-stat-I/anova-R"
 pdf_url: "/files/psy-stat-I/anova-R.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

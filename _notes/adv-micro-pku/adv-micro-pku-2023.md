@@ -6,7 +6,7 @@ course: "adv-micro-pku"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/adv-micro-pku/adv-micro-pku-2023
+permalink: "/notes/adv-micro-pku/adv-micro-pku-2023"
 pdf_url: "/files/adv-micro-pku/adv-micro-pku-2023.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

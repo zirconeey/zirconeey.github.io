@@ -6,7 +6,7 @@ course: "causal-id"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/causal-id/robustness-check
+permalink: "/notes/causal-id/robustness-check"
 pdf_url: "/files/causal-id/robustness-check.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

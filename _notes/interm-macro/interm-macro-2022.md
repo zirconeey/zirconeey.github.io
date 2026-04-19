@@ -6,7 +6,7 @@ course: "interm-macro"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/interm-macro/interm-macro-2022
+permalink: "/notes/interm-macro/interm-macro-2022"
 pdf_url: "/files/interm-macro/interm-macro-2022.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

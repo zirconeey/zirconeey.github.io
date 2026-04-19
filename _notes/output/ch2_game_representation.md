@@ -6,7 +6,7 @@ course: "output"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/output/ch2_game_representation
+permalink: "/notes/output/ch2_game_representation"
 pdf_url: "/files/output/ch2_game_representation.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

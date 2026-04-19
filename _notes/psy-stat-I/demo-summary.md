@@ -6,7 +6,7 @@ course: "psy-stat-I"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/psy-stat-I/demo-summary
+permalink: "/notes/psy-stat-I/demo-summary"
 pdf_url: "/files/psy-stat-I/demo-summary.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

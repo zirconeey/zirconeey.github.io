@@ -6,7 +6,7 @@ course: "corp-fin"
 material_type: "Exams"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/corp-fin/cheat-sheet-final-2022
+permalink: "/notes/corp-fin/cheat-sheet-final-2022"
 pdf_url: "/files/corp-fin/cheat-sheet-final-2022.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

@@ -6,7 +6,7 @@ course: "psy-stat-II"
 material_type: "Exams"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/psy-stat-II/psy-stat-II-mid-2023
+permalink: "/notes/psy-stat-II/psy-stat-II-mid-2023"
 pdf_url: "/files/psy-stat-II/psy-stat-II-mid-2023.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

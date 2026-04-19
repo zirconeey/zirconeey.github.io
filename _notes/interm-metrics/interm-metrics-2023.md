@@ -6,7 +6,7 @@ course: "interm-metrics"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/interm-metrics/interm-metrics-2023
+permalink: "/notes/interm-metrics/interm-metrics-2023"
 pdf_url: "/files/interm-metrics/interm-metrics-2023.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

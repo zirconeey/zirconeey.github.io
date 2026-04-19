@@ -6,7 +6,7 @@ course: "corp-fin"
 material_type: "Exams"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/corp-fin/final-2021
+permalink: "/notes/corp-fin/final-2021"
 pdf_url: "/files/corp-fin/final-2021.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

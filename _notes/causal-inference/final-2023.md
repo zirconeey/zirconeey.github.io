@@ -6,7 +6,7 @@ course: "causal-inference"
 material_type: "Exams"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/causal-inference/final-2023
+permalink: "/notes/causal-inference/final-2023"
 pdf_url: "/files/causal-inference/final-2023.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

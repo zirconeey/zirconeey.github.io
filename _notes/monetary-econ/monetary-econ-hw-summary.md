@@ -6,7 +6,7 @@ course: "monetary-econ"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/monetary-econ/monetary-econ-hw-summary
+permalink: "/notes/monetary-econ/monetary-econ-hw-summary"
 pdf_url: "/files/monetary-econ/monetary-econ-hw-summary.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

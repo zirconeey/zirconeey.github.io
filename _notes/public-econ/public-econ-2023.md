@@ -6,7 +6,7 @@ course: "public-econ"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/public-econ/public-econ-2023
+permalink: "/notes/public-econ/public-econ-2023"
 pdf_url: "/files/public-econ/public-econ-2023.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

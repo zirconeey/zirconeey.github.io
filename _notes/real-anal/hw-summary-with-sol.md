@@ -6,7 +6,7 @@ course: "real-anal"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/real-anal/hw-summary-with-sol
+permalink: "/notes/real-anal/hw-summary-with-sol"
 pdf_url: "/files/real-anal/hw-summary-with-sol.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

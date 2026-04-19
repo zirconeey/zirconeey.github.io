@@ -6,7 +6,7 @@ course: "china-hist"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/china-hist/china-hist-2024
+permalink: "/notes/china-hist/china-hist-2024"
 pdf_url: "/files/china-hist/china-hist-2024.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

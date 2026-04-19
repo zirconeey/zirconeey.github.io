@@ -6,7 +6,7 @@ course: "game-theory"
 material_type: "Exams"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/game-theory/game-theory-mid-2023
+permalink: "/notes/game-theory/game-theory-mid-2023"
 pdf_url: "/files/game-theory/game-theory-mid-2023.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

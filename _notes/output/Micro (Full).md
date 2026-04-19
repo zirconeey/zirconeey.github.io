@@ -6,8 +6,8 @@ course: "output"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/output/Micro (Full)
-pdf_url: "/files/output/Micro (Full).pdf"
+permalink: "/notes/output/Micro%20%28Full%29"
+pdf_url: "/files/output/Micro%20%28Full%29.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---
 

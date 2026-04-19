@@ -6,7 +6,7 @@ course: "output"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/output/ch7_mechanism_design
+permalink: "/notes/output/ch7_mechanism_design"
 pdf_url: "/files/output/ch7_mechanism_design.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

@@ -6,7 +6,7 @@ course: "adv-metrics-pku"
 material_type: "Exams"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/adv-metrics-pku/final-2015
+permalink: "/notes/adv-metrics-pku/final-2015"
 pdf_url: "/files/adv-metrics-pku/final-2015.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

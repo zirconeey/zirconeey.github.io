@@ -6,7 +6,7 @@ course: "real-anal"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/real-anal/real-anal-ch2-2024
+permalink: "/notes/real-anal/real-anal-ch2-2024"
 pdf_url: "/files/real-anal/real-anal-ch2-2024.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

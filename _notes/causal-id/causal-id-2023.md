@@ -6,7 +6,7 @@ course: "causal-id"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/causal-id/causal-id-2023
+permalink: "/notes/causal-id/causal-id-2023"
 pdf_url: "/files/causal-id/causal-id-2023.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

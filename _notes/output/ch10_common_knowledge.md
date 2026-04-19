@@ -6,7 +6,7 @@ course: "output"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/output/ch10_common_knowledge
+permalink: "/notes/output/ch10_common_knowledge"
 pdf_url: "/files/output/ch10_common_knowledge.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---

@@ -6,7 +6,7 @@ course: "adv-metrics-pku"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
-permalink: /notes/adv-metrics-pku/adv-metrics-pku-2023
+permalink: "/notes/adv-metrics-pku/adv-metrics-pku-2023"
 pdf_url: "/files/adv-metrics-pku/adv-metrics-pku-2023.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
 ---
