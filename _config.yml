@@ -30,3 +30,23 @@ collections:
   notes:
     output: true            # 让每一篇笔记生成独立的网页
     permalink: /notes/:path/ # URL 路径保持与文件夹结构一致
+
+course_order:
+  - adv-macro-psu
+  - adv-metrics-pku
+  - adv-micro-psu
+  - causal-id
+  - causal-inference
+  - china-econ
+  - china-hist
+  - corp-fin
+  - game-theory
+  - adv-micro-pku
+  - interm-macro
+  - interm-metrics
+  - monetary-econ
+  - or
+  - psy-stat-I
+  - psy-stat-II
+  - public-econ
+  - real-anal

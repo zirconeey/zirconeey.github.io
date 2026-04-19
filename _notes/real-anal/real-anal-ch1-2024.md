@@ -4,11 +4,12 @@ title: "Real Analysis Ch1 Measures"
 discipline: "其他"
 course: "Real Analysis"
 material_type: "Notes"
-date: 2026-04-18
+date: "2026-04-18"
 author: "Zircon"
 permalink: "/notes/real-anal/real-anal-ch1-2024"
 pdf_url: "/files/real-anal/real-anal-ch1-2024.pdf"
 # reactions: ['👍', '🎓', '📝', '🔥']
+published: true
 ---
 
 ## 讲义在线预览与下载
