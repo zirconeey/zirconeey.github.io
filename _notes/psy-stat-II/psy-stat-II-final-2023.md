@@ -2,7 +2,7 @@
 layout: post
 title: "心理统计Ⅱ课程笔记（期末）"
 discipline: "其他"
-course: "心理统计ⅡI"
+course: "心理统计Ⅱ"
 material_type: "Notes"
 date: 2026-04-18
 author: "Zircon"
