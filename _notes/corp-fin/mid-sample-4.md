@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "公司财务管理期中样卷4"
-discipline: "经济学"
+title: "公司财务管理期中样卷4试题"
+discipline: "其他"
 course: "公司财务管理"
 material_type: "Exams"
 date: 2026-04-18
