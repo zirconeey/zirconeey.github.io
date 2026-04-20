@@ -50,3 +50,10 @@ course_order:
   - or
   - china-hist
   - corp-fin
+
+# 重新定向 RSS 订阅源到我们的四宫格数字花园
+feed:
+  posts_limit: 0   # 强制它放弃对 _posts 的执念
+  collections:
+    notes:
+      path: "/feed.xml"
