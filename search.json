@@ -2,20 +2,13 @@
 layout: null
 ---
 [
-  {% for post in site.posts %}
+  {% assign items = site.posts | concat: site.notes %}
+  {% for item in items %}
     {
-      "title"    : "{{ post.title | escape }}",
-      "category" : "{{ post.categories | first }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}",
-      "date"     : "{{ post.date | date: '%Y-%m-%d' }}"
-    }{% unless forloop.last %},{% endunless %}
-  {% endfor %},
-  {% for note in site.notes %}
-    {
-      "title"    : "{{ note.title | escape }}",
-      "category" : "课程笔记",
-      "url"      : "{{ site.baseurl }}{{ note.url }}",
-      "date"     : "{{ note.date | date: '%Y-%m-%d' }}"
+      "title"    : {{ item.title | jsonify }},
+      "category" : "{% if item.main_category %}{{ item.main_category }}{% elsif item.categories.size > 0 %}{{ item.categories | first }}{% else %}未分类{% endif %}",
+      "url"      : "{{ site.baseurl }}{{ item.url }}",
+      "date"     : "{{ item.date | date: '%Y-%m-%d' }}"
     }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

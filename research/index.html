@@ -2,16 +2,19 @@
 layout: default
 title: 科研妙招 | Rui Zhou
 ---
-<div style="max-width: 800px; margin: 0 auto; padding-top: 2rem;">
-  <h1 style="margin-bottom: 2rem; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem; color: var(--color-ink); font-family: var(--font-display);">科研妙招</h1>
-  
+<article style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
+  <header style="margin-bottom: 3rem; text-align: center;">
+    <h1 style="font-size: 2.2rem; color: var(--color-ink); margin-bottom: 1rem;">科研妙招</h1>
+    <p style="color: var(--color-light); font-style: italic;">Research Tips &amp; Workflow</p>
+  </header>
+
   {% assign raw_posts = site.notes | where: "main_category", "科研妙招" %}
   {% assign dated_posts = raw_posts | where_exp: "item", "item.date" | sort: "date" | reverse %}
   {% assign undated_posts = raw_posts | where_exp: "item", "item.date == nil" %}
   {% assign category_posts = dated_posts | concat: undated_posts %}
-  
+
   {% assign sub_categories = category_posts | map: "sub_category" | compact | uniq %}
-  
+
   {% for sub in sub_categories %}
     <h2 style="font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--color-accent); font-family: var(--font-display);">
       <span style="color: var(--color-muted); margin-right: 0.5rem;">📂</span>{{ sub }}
@@ -21,16 +24,14 @@ title: 科研妙招 | Rui Zhou
       {% for post in sub_posts %}
         {% if post.published != false %}
         <li style="display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px dashed var(--color-border);">
-          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--color-text); font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--color-accent)'" onmouseout="this.style.color='var(--color-text)'">
-            {{ post.title }}
-          </a>
+          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--color-text); font-weight: 500;">{{ post.title }}</a>
           <span style="color: var(--color-light); font-size: 0.9rem; font-family: 'Cormorant Garamond', serif;">{{ post.date | date: "%Y-%m-%d" }}</span>
         </li>
         {% endif %}
       {% endfor %}
     </ul>
   {% endfor %}
-  
+
   {% assign no_sub_posts = category_posts | where_exp: "item", "item.sub_category == nil" %}
   {% if no_sub_posts.size > 0 %}
     <h2 style="font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--color-accent); font-family: var(--font-display);">
@@ -40,13 +41,11 @@ title: 科研妙招 | Rui Zhou
       {% for post in no_sub_posts %}
         {% if post.published != false %}
         <li style="display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px dashed var(--color-border);">
-          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--color-text); font-weight: 500;">
-            {{ post.title }}
-          </a>
+          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--color-text); font-weight: 500;">{{ post.title }}</a>
           <span style="color: var(--color-light); font-size: 0.9rem; font-family: 'Cormorant Garamond', serif;">{{ post.date | date: "%Y-%m-%d" }}</span>
         </li>
         {% endif %}
       {% endfor %}
     </ul>
   {% endif %}
-</div>
+</article>

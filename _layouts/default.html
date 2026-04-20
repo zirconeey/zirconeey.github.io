@@ -542,6 +542,17 @@
       toggle.classList.toggle('active');
     }
 
+    // 点击菜单外的任何地方关闭菜单
+    document.addEventListener('click', function(e) {
+      const links = document.querySelector('.nav-links');
+      const toggle = document.querySelector('.nav-toggle');
+      if (links && links.classList.contains('open') &&
+          !links.contains(e.target) && !toggle.contains(e.target)) {
+        links.classList.remove('open');
+        toggle.classList.remove('active');
+      }
+    });
+
     // 亮度切换逻辑
     function toggleTheme() {
       const root = document.documentElement;

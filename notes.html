@@ -3,10 +3,47 @@ layout: default
 title: "课程资料"
 ---
 
-<article class="post-container" style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
-  <header style="margin-bottom: 3rem; text-align: center;">
-    <h1 style="font-size: 2.2rem; color: var(--color-ink); margin-bottom: 1rem;">课程资料 &amp; 资源备份</h1>
-    <p style="color: var(--color-light); font-style: italic;">Academic Archives &amp; Knowledge Base</p>
+<style>
+  .kb-page-wrap { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+  .kb-header { margin-bottom: 3rem; text-align: center; }
+  .kb-header h1 { font-size: 2.2rem; color: var(--color-ink); margin-bottom: 1rem; }
+  .kb-header p { color: var(--color-light); font-style: italic; }
+
+  /* 减小桌面端层级缩进 */
+  .knowledge-base .discipline-content { padding: 0.8rem 0 0.8rem 1rem; }
+  .knowledge-base .course-block { margin: 0.5rem 0.5rem 1rem 0.5rem !important; }
+  .knowledge-base .course-content { padding: 0.8rem 0 0.8rem 1rem; }
+  .knowledge-base .type-section { padding-left: 1.5rem !important; margin-bottom: 1.5rem; }
+  .knowledge-base .type-title {
+    font-size: 0.9rem; color: var(--color-light); text-transform: uppercase;
+    letter-spacing: 1px; margin-bottom: 0.8rem;
+    border-bottom: 1px solid var(--color-border); display: inline-block;
+  }
+  .knowledge-base .file-list { list-style: none; padding: 0; margin: 0; }
+  .knowledge-base .file-list li { margin-bottom: 0.6rem; }
+  .knowledge-base .file-list a {
+    color: var(--color-text); text-decoration: none;
+    border-bottom: 1px solid transparent; transition: all 0.2s;
+  }
+  .knowledge-base .file-list a:hover {
+    color: var(--color-accent); border-bottom-color: var(--color-accent);
+  }
+
+  /* 手机端进一步压缩 */
+  @media (max-width: 768px) {
+    .kb-page-wrap { padding: 1rem 0.5rem; }
+    .knowledge-base summary { padding: 0.7rem !important; }
+    .knowledge-base .discipline-content { padding-left: 0.3rem; }
+    .knowledge-base .course-block { margin: 0.3rem 0.3rem 0.6rem 0.3rem !important; }
+    .knowledge-base .course-content { padding-left: 0.3rem; }
+    .knowledge-base .type-section { padding-left: 0.8rem !important; }
+  }
+</style>
+
+<article class="kb-page-wrap">
+  <header class="kb-header">
+    <h1>课程资料</h1>
+    <p>Academic Archives &amp; Knowledge Base</p>
   </header>
 
   <div class="knowledge-base">
@@ -30,7 +67,7 @@ title: "课程资料"
       {% if disc != "" %}
         <details class="discipline-block" open>
           <summary class="discipline-title">{{ disc }}</summary>
-          <div class="discipline-content" style="padding: 1rem 0 1rem 1.5rem;">
+          <div class="discipline-content">
 
             {% for folder in site.course_order %}
               {% assign match_path = "/" | append: folder | append: "/" %}
@@ -41,20 +78,16 @@ title: "课程资料"
                 {% if this_disc == disc %}
                   <details class="course-block">
                     <summary class="course-title">{{ first_note.course | default: folder }}</summary>
-                    <div class="course-content" style="padding: 1rem 0 1rem 2rem;">
+                    <div class="course-content">
                       {% assign grouped_types = folder_notes | group_by: "material_type" %}
                       {% for type in grouped_types %}
-                        <div class="type-section" style="margin-bottom: 1.5rem;">
-                          <h4 class="type-title" style="font-size: 0.9rem; color: var(--color-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; border-bottom: 1px solid var(--color-border); display: inline-block;">
-                            {{ type.name | default: "其他" }}
-                          </h4>
-                          <ul class="file-list" style="list-style: none; padding: 0; margin: 0;">
+                        <div class="type-section">
+                          <h4 class="type-title">{{ type.name | default: "其他" }}</h4>
+                          <ul class="file-list">
                             {% for item in type.items %}
                               {% if item.published != false %}
-                              <li style="margin-bottom: 0.6rem;">
-                                <a href="{{ item.url | relative_url }}" style="color: var(--color-text); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.color='var(--color-accent)'; this.style.borderBottomColor='var(--color-accent)'" onmouseout="this.style.color='var(--color-text)'; this.style.borderBottomColor='transparent'">
-                                  {{ item.title }}
-                                </a>
+                              <li>
+                                <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
                               </li>
                               {% endif %}
                             {% endfor %}
