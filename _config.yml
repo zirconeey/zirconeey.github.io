@@ -14,7 +14,7 @@ permalink: /posts/:year-:month-:day-:title/
 
 # Plugins (GitHub Pages supported)
 plugins:
-  - jekyll-feed
+  # - jekyll-feed
   - jekyll-seo-tag
 
 # Exclude from build
