@@ -32,21 +32,21 @@ collections:
     permalink: /notes/:path/ # URL 路径保持与文件夹结构一致
 
 course_order:
-  - adv-macro-psu
-  - adv-metrics-pku
   - adv-micro-psu
+  - adv-metrics-pku
+  - adv-micro-pku
+  - interm-metrics
+  - interm-macro
+  - public-econ
+  - monetary-econ
+  - game-theory
   - causal-id
   - causal-inference
   - china-econ
-  - china-hist
-  - corp-fin
-  - game-theory
-  - adv-micro-pku
-  - interm-macro
-  - interm-metrics
-  - monetary-econ
-  - or
+  - adv-macro-psu
+  - real-anal
   - psy-stat-I
   - psy-stat-II
-  - public-econ
-  - real-anal
+  - or
+  - china-hist
+  - corp-fin
