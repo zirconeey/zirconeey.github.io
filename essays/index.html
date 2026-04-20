@@ -3,9 +3,12 @@ layout: default
 title: 随笔漫谈 | Rui Zhou
 ---
 <div style="max-width: 800px; margin: 0 auto; padding-top: 2rem;">
-  <h1 style="margin-bottom: 2rem; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem; color: var(--color-ink); font-family: var(--font-display);">科研妙招</h1>
+  <h1 style="margin-bottom: 2rem; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem; color: var(--color-ink); font-family: var(--font-display);">随笔漫谈</h1>
   
-  {% assign category_posts = site.notes | where: "main_category", "科研妙招" | sort: "date" | reverse %}
+  {% assign raw_posts = site.notes | where: "main_category", "随笔漫谈" %}
+  {% assign dated_posts = raw_posts | where_exp: "item", "item.date != nil" | sort: "date" | reverse %}
+  {% assign undated_posts = raw_posts | where_exp: "item", "item.date == nil" %}
+  {% assign category_posts = dated_posts | concat: undated_posts %}
   
   {% assign sub_categories = category_posts | map: "sub_category" | compact | uniq %}
   

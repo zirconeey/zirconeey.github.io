@@ -23,7 +23,8 @@ title: 锆铌 | Rui Zhou
   <h2 style="margin-bottom: 1.5rem;">✨ 近期导读</h2>
   <ul class="post-list" style="list-style: none; padding: 0;">
     
-    {% assign all_content = site.notes | sort: "date" | reverse %}
+    {% assign valid_notes = site.notes | where_exp: "item", "item.date != nil" %}
+    {% assign all_content = valid_notes | sort: "date" | reverse %}
     
     {% assign limit = 5 %} 
     {% assign hot_posts = all_content | where: "hot", true %}
