@@ -1,72 +1,75 @@
 ---
 layout: default
-title: "课程笔记"
+title: "课程资料"
 ---
 
 <article class="post-container" style="max-width: 800px; margin: 0 auto; padding: 2rem 1rem;">
   <header style="margin-bottom: 3rem; text-align: center;">
-    <h1 style="font-size: 2.2rem; color: var(--color-ink); margin-bottom: 1rem;">课程笔记 & 资源备份</h1>
+    <h1 style="font-size: 2.2rem; color: var(--color-ink); margin-bottom: 1rem;">课程资料 &amp; 资源备份</h1>
     <p style="color: var(--color-light); font-style: italic;">Academic Archives &amp; Knowledge Base</p>
   </header>
 
   <div class="knowledge-base">
-    {% assign prev_disc = "" %}
-    {% assign disc_open = false %}
+    {%- assign seen_disciplines = "" -%}
 
-    {% for folder in site.course_order %}
-      {% assign match_path = "/" | append: folder | append: "/" %}
-      {% assign folder_notes = site.notes | where_exp: "note", "note.path contains match_path" %}
+    {%- for folder in site.course_order -%}
+      {%- assign match_path = "/" | append: folder | append: "/" -%}
+      {%- assign folder_notes = site.notes | where_exp: "n", "n.path contains match_path" -%}
+      {%- if folder_notes.size > 0 -%}
+        {%- assign first_note = folder_notes[0] -%}
+        {%- assign curr_disc = first_note.discipline | default: "未分类学科" -%}
+        {%- unless seen_disciplines contains curr_disc -%}
+          {%- assign seen_disciplines = seen_disciplines | append: curr_disc | append: "|||" -%}
+        {%- endunless -%}
+      {%- endif -%}
+    {%- endfor -%}
 
-      {% if folder_notes.size > 0 %}
-        {% assign first_note = folder_notes[0] %}
-        {% assign curr_disc = first_note.discipline | default: "未分类学科" %}
+    {%- assign disc_list = seen_disciplines | split: "|||" -%}
 
-        {% if curr_disc != prev_disc %}
-          {% if disc_open %}
-            </div>
-            </details>
-          {% endif %}
+    {% for disc in disc_list %}
+      {% if disc != "" %}
+        <details class="discipline-block" open>
+          <summary class="discipline-title">{{ disc }}</summary>
+          <div class="discipline-content" style="padding: 1rem 0 1rem 1.5rem;">
 
-          <details class="discipline-block" open>
-            <summary class="discipline-title">{{ curr_disc }}</summary>
-            <div class="discipline-content" style="padding: 1rem 0 1rem 1.5rem;">
-
-          {% assign prev_disc = curr_disc %}
-          {% assign disc_open = true %}
-        {% endif %}
-
-        <details class="course-block">
-          <summary class="course-title">{{ first_note.course | default: folder }}</summary>
-          <div class="course-content" style="padding: 1rem 0 1rem 2rem;">
-            {% assign grouped_types = folder_notes | group_by: "material_type" %}
-            {% for type in grouped_types %}
-              <div class="type-section" style="margin-bottom: 1.5rem;">
-                <h4 class="type-title" style="font-size: 0.9rem; color: var(--color-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; border-bottom: 1px solid var(--color-border); display: inline-block;">
-                  {{ type.name | default: "其他" }}
-                </h4>
-                <ul class="file-list" style="list-style: none; padding: 0; margin: 0;">
-                  {% for item in type.items %}
-                    <li style="margin-bottom: 0.6rem;">
-                      <a href="{{ item.url | relative_url }}" style="color: var(--color-text); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.color='var(--color-accent)'; this.style.borderBottomColor='var(--color-accent)'" onmouseout="this.style.color='var(--color-text)'; this.style.borderBottomColor='transparent'">
-                        {{ item.title }}
-                      </a>
-                      {% if item.description %}
-                        <span style="font-size: 0.85rem; color: var(--color-muted); margin-left: 0.5rem;">— {{ item.description }}</span>
-                      {% endif %}
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
+            {% for folder in site.course_order %}
+              {% assign match_path = "/" | append: folder | append: "/" %}
+              {% assign folder_notes = site.notes | where_exp: "n", "n.path contains match_path" %}
+              {% if folder_notes.size > 0 %}
+                {% assign first_note = folder_notes[0] %}
+                {% assign this_disc = first_note.discipline | default: "未分类学科" %}
+                {% if this_disc == disc %}
+                  <details class="course-block">
+                    <summary class="course-title">{{ first_note.course | default: folder }}</summary>
+                    <div class="course-content" style="padding: 1rem 0 1rem 2rem;">
+                      {% assign grouped_types = folder_notes | group_by: "material_type" %}
+                      {% for type in grouped_types %}
+                        <div class="type-section" style="margin-bottom: 1.5rem;">
+                          <h4 class="type-title" style="font-size: 0.9rem; color: var(--color-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; border-bottom: 1px solid var(--color-border); display: inline-block;">
+                            {{ type.name | default: "其他" }}
+                          </h4>
+                          <ul class="file-list" style="list-style: none; padding: 0; margin: 0;">
+                            {% for item in type.items %}
+                              {% if item.published != false %}
+                              <li style="margin-bottom: 0.6rem;">
+                                <a href="{{ item.url | relative_url }}" style="color: var(--color-text); text-decoration: none; border-bottom: 1px solid transparent; transition: all 0.2s;" onmouseover="this.style.color='var(--color-accent)'; this.style.borderBottomColor='var(--color-accent)'" onmouseout="this.style.color='var(--color-text)'; this.style.borderBottomColor='transparent'">
+                                  {{ item.title }}
+                                </a>
+                              </li>
+                              {% endif %}
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </details>
+                {% endif %}
+              {% endif %}
             {% endfor %}
+
           </div>
         </details>
-
       {% endif %}
     {% endfor %}
-
-    {% if disc_open %}
-      </div>
-      </details>
-    {% endif %}
   </div>
 </article>
