@@ -409,6 +409,65 @@
       100% { opacity: 0; transform: translateY(-10px); }
     }
     
+    /* ======================================================
+       全新的搜索框与移动端变身适配
+       ====================================================== */
+    #search-container { position: relative; display: flex; align-items: center; }
+    #mobile-search-btn { display: none; background: none; border: none; color: var(--color-ink); cursor: pointer; padding: 0.2rem; }
+    .search-wrapper { position: relative; display: flex; align-items: center; }
+    
+    /* 电脑端内嵌放大镜 */
+    .search-icon { position: absolute; left: 12px; color: var(--color-muted); pointer-events: none; display: flex; align-items: center; }
+    
+    #search-input {
+      padding: 0.4rem 0.8rem 0.4rem 2.2rem; /* 左侧留出 2.2rem 的空间给放大镜 */
+      border-radius: 20px;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg);
+      color: var(--color-text);
+      outline: none;
+      font-size: 0.9rem;
+      width: 180px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    #search-input:focus { width: 240px; border-color: var(--color-accent); }
+    #close-search-btn { display: none; background: none; border: none; color: var(--color-ink); font-size: 1.2rem; cursor: pointer; padding: 0 10px; }
+    
+    /* 搜索结果框样式 */
+    #results-container {
+      position: absolute; top: calc(100% + 12px); right: 0; background: var(--color-nav-bg); 
+      border: 1px solid var(--color-border); border-radius: 8px; width: 280px; max-height: 400px; 
+      overflow-y: auto; list-style: none; padding: 0; box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+      z-index: 1000; display: none; backdrop-filter: blur(10px);
+    }
+
+    /* 手机端响应式魔法 */
+    @media (max-width: 768px) {
+      .nav-right-box { gap: 0.8rem !important; }
+      
+      /* 默认状态：隐藏长条输入框，显示小放大镜 */
+      .search-wrapper { display: none; }
+      #mobile-search-btn { display: block; }
+
+      /* 搜索激活状态：变身全屏搜索栏 */
+      .nav-inner.search-active { display: flex; gap: 10px; }
+      
+      /* 变身时，强行隐藏返回键、汉堡包、亮度键 */
+      .nav-inner.search-active .nav-left-zone,
+      .nav-inner.search-active .nav-toggle,
+      .nav-inner.search-active .theme-toggle { display: none; } 
+
+      /* 让搜索框霸占 100% 宽度 */
+      .nav-inner.search-active .nav-right-box { flex: 1; width: 100%; justify-content: flex-end; }
+      .nav-inner.search-active #search-container { width: 100%; }
+      .nav-inner.search-active #mobile-search-btn { display: none; }
+      .nav-inner.search-active .search-wrapper { display: flex; width: 100%; }
+      .nav-inner.search-active #search-input { width: 100%; padding-left: 1rem; }
+      .nav-inner.search-active .search-icon { display: none; } /* 全屏搜索时隐藏内嵌图标，保持极简 */
+      .nav-inner.search-active #close-search-btn { display: block; }
+      .nav-inner.search-active #results-container { width: 100%; }
+    }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css" />
 </head>
@@ -418,16 +477,19 @@
     <div class="nav-inner">
       <div class="nav-left-zone">
         {% if page.layout == "post" or page.collection == "notes" %}
-          {% if page.collection == "notes" %}
-            <a href="{{ site.baseurl }}/notes/" class="nav-back">← 课程笔记目录</a>
+          {% if page.main_category == "科研妙招" %}
+            <a href="{{ site.baseurl }}/research/" class="nav-back">← 科研妙招</a>
+          {% elsif page.main_category == "生活攻略" %}
+            <a href="{{ site.baseurl }}/life/" class="nav-back">← 生活攻略</a>
+          {% elsif page.main_category == "随笔漫谈" %}
+            <a href="{{ site.baseurl }}/essays/" class="nav-back">← 随笔漫谈</a>
           {% else %}
-            <a href="{{ site.baseurl }}/{{ page.categories | first | default: 'essays' | downcase }}/" class="nav-back">← 返回列表</a>
+            <a href="{{ site.baseurl }}/notes/" class="nav-back">← 课程资料</a>
           {% endif %}
         {% else %}
           <a href="https://ruizhou03.github.io" class="nav-back">← 英文主页</a>
         {% endif %}
       </div>
-      
 
       <button class="nav-toggle" onclick="toggleMenu()" aria-label="菜单">
         <span></span><span></span><span></span>
@@ -435,16 +497,27 @@
 
       <ul class="nav-links">
         <li><a href="{{ site.baseurl }}/">首页</a></li>
-        <li><a href="{{ site.baseurl }}/notes/">课程笔记</a></li>
-        <li><a href="{{ site.baseurl }}/essays/">随笔</a></li>
-        <li><a href="{{ site.baseurl }}/tools/">省你时间</a></li>
+        <li><a href="{{ site.baseurl }}/notes/">课程资料</a></li>
+        <li><a href="{{ site.baseurl }}/research/">科研妙招</a></li>
+        <li><a href="{{ site.baseurl }}/life/">生活攻略</a></li>
+        <li><a href="{{ site.baseurl }}/essays/">随笔漫谈</a></li>
       </ul>
 
       <div class="nav-right-box" style="display: flex; align-items: center; gap: 1rem;">
-        <div id="search-container" style="position: relative;">
-          <input type="text" id="search-input" placeholder="🔍 搜索文章或笔记..." 
-                 style="padding: 0.4rem 0.8rem; border-radius: 20px; border: 1px solid var(--color-border); background: var(--color-bg); color: var(--color-text); outline: none; font-size: 0.9rem; width: 180px; transition: width 0.3s;">
-          <ul id="results-container" style="position: absolute; top: 100%; right: 0; background: var(--color-bg); border: 1px solid var(--color-border); border-radius: 8px; width: 250px; max-height: 400px; overflow-y: auto; list-style: none; padding: 0; margin-top: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.1); z-index: 1000; display: none;"></ul>
+        <div id="search-container">
+          <button id="mobile-search-btn" onclick="toggleMobileSearch()" aria-label="搜索">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </button>
+
+          <div class="search-wrapper">
+            <span class="search-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </span>
+            <input type="text" id="search-input" placeholder="搜索文章或笔记...">
+            <button id="close-search-btn" onclick="toggleMobileSearch()">✕</button>
+          </div>
+
+          <ul id="results-container"></ul>
         </div>
         
         <button class="theme-toggle" onclick="toggleTheme()" title="切换模式">&#9683;</button>
@@ -476,6 +549,24 @@
       if (!current) { root.setAttribute('data-theme', 'dark'); }
       else if (current === 'dark') { root.setAttribute('data-theme', 'light'); }
       else { root.removeAttribute('data-theme'); }
+    }
+
+    // 🚀 新增：手机端搜索栏变身逻辑
+    function toggleMobileSearch() {
+      const navInner = document.querySelector('.nav-inner');
+      const searchInput = document.getElementById('search-input');
+      const resultsDiv = document.getElementById('results-container');
+
+      navInner.classList.toggle('search-active');
+
+      if (navInner.classList.contains('search-active')) {
+        // 展开时，延迟 100ms 自动弹出手机软键盘
+        setTimeout(() => searchInput.focus(), 100);
+      } else {
+        // 收起时，清空内容并隐藏结果
+        searchInput.value = '';
+        resultsDiv.style.display = 'none';
+      }
     }
   </script>
 
