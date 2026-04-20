@@ -6,7 +6,7 @@ title: 生活攻略 | Rui Zhou
   <h1 style="margin-bottom: 2rem; border-bottom: 2px solid var(--color-accent); padding-bottom: 0.5rem; color: var(--color-ink); font-family: var(--font-display);">生活攻略</h1>
   
   {% assign raw_posts = site.notes | where: "main_category", "生活攻略" %}
-  {% assign dated_posts = raw_posts | where_exp: "item", "item.date != nil" | sort: "date" | reverse %}
+  {% assign dated_posts = raw_posts | where_exp: "item", "item.date" | sort: "date" | reverse %}
   {% assign undated_posts = raw_posts | where_exp: "item", "item.date == nil" %}
   {% assign category_posts = dated_posts | concat: undated_posts %}
   
@@ -31,7 +31,7 @@ title: 生活攻略 | Rui Zhou
     </ul>
   {% endfor %}
   
-  {% assign no_sub_posts = category_posts | where_exp: "item", "item.sub_category == nil or item.sub_category == ''" %}
+  {% assign no_sub_posts = category_posts | where_exp: "item", "item.sub_category == nil" %}
   {% if no_sub_posts.size > 0 %}
     <h2 style="font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--color-accent); font-family: var(--font-display);">
       <span style="color: var(--color-muted); margin-right: 0.5rem;">📂</span>其他
