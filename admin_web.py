@@ -14,6 +14,7 @@ WORK_DIR = Path.cwd().resolve()
 NOTES_DIR = (WORK_DIR / "_notes").resolve()
 CONFIG_FILE = (WORK_DIR / "_config.yml").resolve()
 UPLOAD_DIR = (WORK_DIR / "files" / "images").resolve()
+ALLOWED_IMAGE_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'}
 
 MAIN_CATE_MAP = {
     "courses":  "🎒 课程资料",
@@ -59,7 +60,8 @@ def is_safe_path(base_dir, target_path):
         base = Path(base_dir).resolve()
         target = Path(target_path).resolve()
         # 兼容 Python 3.8 (用 startswith 而不是 is_relative_to)
-        return str(target).startswith(str(base))
+        # 加 os.sep 防止 /notes_backup 被误判为 /notes 的子路径
+        return str(target).startswith(str(base) + os.sep) or target == base
     except Exception:
         return False
 
@@ -353,7 +355,9 @@ def api_upload():
         if not file.filename:
             return jsonify({"error": "文件名无效"}), 400
         UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
-        ext = Path(file.filename).suffix or ".png"
+        ext = Path(file.filename).suffix.lower() or ".png"
+        if ext not in ALLOWED_IMAGE_EXTENSIONS:
+            return jsonify({"error": f"不支持的文件类型 {ext}，仅允许 jpg/png/gif/webp/svg"}), 400
         new_name = f"img_{int(time.time())}{ext}"
         file.save(UPLOAD_DIR / new_name)
         return jsonify({"url": f"/files/images/{new_name}"})

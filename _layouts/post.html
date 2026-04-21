@@ -60,16 +60,11 @@ layout: default
   .wl-actions a { display: none !important; }
   .wl-editor, .wl-input, .wl-btn { font-family: inherit !important; }
 
-  /* 🚀 极其暴力的物理去头像方案，无视任何版本差异 */
+  /* 隐藏 Waline 头像及徽章容器 */
   #waline .wl-avatar,
   #waline img.wl-avatar,
   #waline .wl-badge-wrap {
     display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
   }
   
   /* 强行接管右侧评论面板的排版 */
@@ -101,14 +96,12 @@ layout: default
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
 
-  // 🚀 杀手锏：用 JS 强行生成 CSS 并注入到网页大脑里，优先级绝对碾压 Waline自带样式
+  // 动态注入样式以覆盖 Waline 异步加载后的样式
   const forceStyle = document.createElement('style');
   forceStyle.innerHTML = `
     .wl-actions a { display: none !important; }
     .wl-editor, .wl-input, .wl-btn { font-family: inherit !important; }
-    /* 连锅端：连同头像和它的保护壳一起彻底抹除 */
-    #waline .wl-user { display: none !important; width: 0 !important; }
-    /* 强行接管排版：让名字靠左，并占满全屏防止挤压 */
+    #waline .wl-user { display: none !important; }
     #waline .wl-panel { margin-left: 0 !important; width: 100% !important; }
   `;
   document.head.appendChild(forceStyle);
