@@ -15,6 +15,7 @@ layout: default
 </nav>
 
 <button id="toc-toggle" onclick="toggleTOC(event)" title="Toggle Index">☰</button>
+<div id="toc-backdrop"></div>
 
 <article class="post-container" style="max-width: 800px; margin: 0 auto;">
   <header class="post-header" style="margin-bottom: 3.5rem; text-align: center;">
@@ -204,7 +205,7 @@ layout: default
     const postContent = document.getElementById('post-content');
     const tocUl = document.getElementById('toc-ul');
     const headings = postContent.querySelectorAll('h1, h2');
-    
+
     if (headings.length === 0) {
       document.getElementById('toc-toggle').style.display = 'none';
       return;
@@ -218,11 +219,11 @@ layout: default
       const a = document.createElement('a');
       a.href = '#' + id;
       a.textContent = heading.textContent;
-      
+
       if (heading.tagName === 'H2') {
         a.classList.add('toc-h2');
       }
-      
+
       li.appendChild(a);
       tocUl.appendChild(li);
 
@@ -230,14 +231,25 @@ layout: default
         if (window.innerWidth <= 768) toggleTOC();
       });
     });
+
+    // 宽屏自动常驻：同步 open 类状态
+    if (window.innerWidth >= 1400) {
+      document.getElementById('toc-container').classList.add('open');
+      document.getElementById('toc-toggle').innerHTML = '&times;';
+    }
+
+    // 点击遮罩关闭抽屉（手机端）
+    const backdrop = document.getElementById('toc-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', () => toggleTOC());
+    }
   });
 
-  // 核心改动：点击目录和按钮以外的区域，自动收回目录
+  // 点击目录和按钮以外的区域，自动收回目录（仅手机端）
   document.addEventListener('click', function(event) {
     const toc = document.getElementById('toc-container');
     const btn = document.getElementById('toc-toggle');
-    
-    // 如果目录是打开状态，且点击的既不是目录内部，也不是开关按钮本身
+
     if (toc.classList.contains('open') && !toc.contains(event.target) && !btn.contains(event.target)) {
       if (window.innerWidth <= 768) {
         toggleTOC();
@@ -246,10 +258,13 @@ layout: default
   });
 
   function toggleTOC(event) {
-    if (event) event.stopPropagation(); // 阻止事件冒泡，防止触发 document 的点击监听
+    if (event) event.stopPropagation();
     const toc = document.getElementById('toc-container');
     const btn = document.getElementById('toc-toggle');
+    const backdrop = document.getElementById('toc-backdrop');
     toc.classList.toggle('open');
-    btn.innerHTML = toc.classList.contains('open') ? '&times;' : '&#9776;';
+    const isOpen = toc.classList.contains('open');
+    if (backdrop) backdrop.classList.toggle('active', isOpen && window.innerWidth <= 768);
+    btn.innerHTML = isOpen ? '&times;' : '&#9776;';
   }
 </script>
