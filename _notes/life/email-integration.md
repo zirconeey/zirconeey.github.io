@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "优雅地整合你的邮箱"
-date: 2021-07-01
+date: 2023-10-07
 main_category: "生活攻略"
 extra_categories:
   - 科研妙招
