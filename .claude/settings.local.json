@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(python3 -)",
+      "WebFetch(domain:mp.weixin.qq.com)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import requests, bs4; print\\('OK'\\)\")",
+      "Bash(python3 download_wechat_images.py 'https://mp.weixin.qq.com/s/jTN-tiwTL1dFugxKWUmrgQ' files/images/birthday-21/)",
+      "Bash(python3 download_wechat_images.py 'https://mp.weixin.qq.com/s/jTN-tiwTL1dFugxKWUmrgQ' /tmp/birthday_recheck)",
+      "Bash(bundle exec *)",
+      "Bash(jekyll build *)",
+      "Bash(ruby -e \"require 'jekyll'\")",
+      "Read(//usr/**)",
+      "Bash(gem list *)",
+      "Bash(xargs -I{} head -12 {})",
+      "Bash(printf '.DS_Store\\\\n_site/\\\\n.jekyll-cache/\\\\n*.pyc\\\\n__pycache__/\\\\nadmin_web.py\\\\ndownload_wechat_images.py\\\\n.env\\\\nnode_modules/\\\\n')",
+      "Bash(git rm *)",
+      "Bash(python3 download_wechat_images.py 'https://mp.weixin.qq.com/s/8Ax-9oD-MGAwB1bzKKGfSA' test-article -c 随笔漫谈)",
+      "Bash(sed -i '' 's/date: 2021-07-01/date: 2023-10-07/' /Users/zhourui/Desktop/zirconeey.github.io/_notes/life/email-integration.md)",
+      "Bash(git commit -m 'fix: correct article date to 2023-10-07 *)",
+      "Bash(python3 download_wechat_images.py \"https://mp.weixin.qq.com/s/NU-vISERomZDaTDZFGMQLg\" temp-preview)",
+      "Bash(sed -i '' 's/sub_category: \"LaTex相关\"/sub_category: \"LaTeX相关\"/g' /Users/zhourui/Desktop/zirconeey.github.io/_notes/research/latex/latex-commands.md /Users/zhourui/Desktop/zirconeey.github.io/_notes/research/latex/latex-clean-workflow.md)",
+      "Bash(sed -i '' 's/date: 2026-09-01/date: 2026-04-20/' /Users/zhourui/Desktop/zirconeey.github.io/_notes/courses/adv-micro-psu/adv-micro-psu-2026.md)",
+      "Bash(python3 download_wechat_images.py \"https://mp.weixin.qq.com/s/jTN-tiwTL1dFugxKWUmrgQ\" birthday-21-new)",
+      "Bash(git mv *)"
+    ]
+  }
+}

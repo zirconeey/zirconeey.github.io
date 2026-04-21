@@ -1,0 +1,193 @@
+\chapter{Dynamic Games}
+
+\section{Repeated Games}
+
+\subsection{Setup}
+
+Consider a \textbf{stage game} $G = (S_i, u_i)_{i=1}^n$, where $S_i$ is the action set of player $i$ and $u_i: S \to \RR$ is the payoff function, with $S = \prod_{i=1}^n S_i$. The \textbf{infinitely repeated game} $G^\delta(\infty)$ consists of playing $G$ in every period $t = 1, 2, \ldots$, with players discounting future payoffs by a common discount factor $\delta < 1$. We assume \textbf{perfect monitoring}: after each period, all players observe the realized action profile.
+
+\defn{Strategy in $G^\delta(\infty)$}{
+  A \textbf{strategy} for player $i$ in the infinitely repeated game is a sequence $\sigma_i = (\sigma_i^1, \sigma_i^2, \ldots)$, where:
+  \begin{itemize}
+    \item $\sigma_i^1 \in S_i$ specifies the action in period 1;
+    \item For $t > 1$, $\sigma_i^t: S^{t-1} \to S_i$ maps the history of play $h^{t-1} = (s^1, s^2, \ldots, s^{t-1})$ to an action in period $t$.
+  \end{itemize}
+}
+\todo{to confirm: so basically we are assuming that we only consider pure strategies?}
+
+Given a strategy profile $\sigma = (\sigma_1, \ldots, \sigma_n)$, the induced action profile in period $t$ is $s^t(\sigma)$. Player $i$'s \textbf{average discounted payoff} in $G^\delta(\infty)$ is:
+\[
+U_i(\sigma) = (1 - \delta) \sum_{t=1}^{\infty} \delta^{t-1}\, u_i\!\left(s^t(\sigma)\right).
+\]
+The $(1 - \delta)$ normalization ensures that perpetual play of a constant action profile $s$ yields payoff $u_i(s)$, making payoffs in the repeated game directly comparable to stage-game payoffs.
+
+\subsection{Subgame Perfect Equilibrium}
+
+\defn{Subgame Perfect Equilibrium (SPE) of $G^\delta(\infty)$}{
+  A strategy profile $\sigma^* = (\sigma_1^*, \sigma_2^*, \ldots, \sigma_n^*)$ is a \textbf{subgame perfect equilibrium} if:
+  \begin{enumerate}[label=(\roman*)]
+    \item $\sigma^*$ is a Nash equilibrium of $G^\delta(\infty)$: for all $i$ and all alternative strategies $\sigma_i$,
+    \[
+    (1-\delta) \sum_{t=1}^{\infty} \delta^{t-1}\, u_i\!\left(s^t(\sigma^*)\right) \ge (1-\delta) \sum_{t=1}^{\infty} \delta^{t-1}\, u_i\!\left(s^t(\sigma_i, \sigma_{-i}^*)\right).
+    \]
+    \todo{i think it might be more straightforward if we could write the discounted term as $\sum_{t = 0}^{\infty}\delta^t$, do you agree?}
+    \item For every period $t$ and every history $h^{t-1} = (s^1, s^2, \ldots, s^{t-1})$, the \textbf{continuation strategy} $\sigma^*|_{h^{t-1}}$ is also a Nash equilibrium of $G^\delta(\infty)$.\todo{is there any strict definition of continuation strategy? better if you illustrate it with a graph or diagram?}
+  \end{enumerate}
+}
+
+Condition (ii) is what distinguishes SPE from NE: not only must the strategy be optimal on the equilibrium path, but it must also be optimal after \textit{every} possible history, including histories that arise from deviations. \todo{so i think the intuition is that, every subgame is essentially the same as the original game, execpt that some history has been generated. so the strategy profile must be a NE in every subgame, which is what condition (ii) requires. is that right?}
+
+\ex[Cooperative Outcomes in the Prisoner's Dilemma]{
+Consider the following stage game (Prisoner's Dilemma):
+
+\begin{center}
+\begin{tabular}{c|cc}
+  & $C$ & $D$ \\
+  \hline
+  $C$ & $2,\;2$ & $-1,\;3$ \\
+  $D$ & $3,\;-1$ & $0,\;0$
+\end{tabular}
+\end{center}
+
+In the stage game, $D$ is strictly dominant for both players, so the unique Nash equilibrium is $(D, D)$ with payoff $(0, 0)$. The cooperative outcome $(C, C)$ with payoff $(2, 2)$ is Pareto superior but not a Nash equilibrium.
+
+\medskip
+\noindent\textbf{Can cooperation be sustained in $G^\delta(\infty)$?} Consider the following \textit{grim trigger} strategy for each player $i$:
+\[
+\sigma_i^1 = C, \qquad \sigma_i^t = \begin{cases} C & \text{if } s^\tau = (C, C) \text{ for all } \tau < t, \\ D & \text{otherwise.} \end{cases}
+\]
+Under this strategy, both players cooperate in every period as long as no deviation has ever occurred. If any player deviates, both players switch to $D$ forever (the ``punishment'').
+
+\medskip
+\noindent\textbf{On-path payoff.} If both players follow $\sigma^*$, the outcome is $(C, C)$ in every period. The average discounted payoff is:
+\[
+(1-\delta) \sum_{t=1}^{\infty} \delta^{t-1} \cdot 2 = 2(1-\delta) \cdot \frac{1}{1-\delta} = 2.
+\]
+
+\noindent\textbf{Deviation payoff.} Suppose player $i$ deviates to $D$ in period 1. They get 3 in period 1 (playing $D$ against $C$), but trigger permanent punishment: $(D, D)$ with payoff 0 in every subsequent period. The average discounted payoff from deviating is:
+\[
+(1-\delta)\!\left[3 + \sum_{t=2}^{\infty} \delta^{t-1} \cdot 0\right] = 3(1-\delta).
+\]
+
+\noindent\textbf{No-deviation condition.} Cooperation is sustained if the on-path payoff exceeds the deviation payoff:
+\[
+2 \ge 3(1-\delta) \quad \iff \quad \delta \ge \frac{1}{3}.
+\]
+So for $\delta \ge \frac{1}{3}$, the grim trigger strategy profile constitutes an SPE that sustains the cooperative outcome $(C, C)$ in every period. When players are sufficiently patient, the threat of permanent punishment is credible and severe enough to deter short-run deviations.
+}
+
+
+\subsection{The One-Deviation Principle}
+
+Verifying that a strategy profile is an SPE requires checking that no player can profit from deviation following \textit{any} history. In an infinitely repeated game, a deviation could in principle involve changing actions in infinitely many periods. The following result greatly simplifies the verification.
+
+\thm{One-Deviation Principle}{
+  To check that $\sigma^*$ is an SPE, it is sufficient to check that, following any history, no player $i$ can benefit by deviating once and then returning to $\sigma_i^*$.
+}
+
+\rmkb[Why It Works]{
+  The intuition behind the one-deviation principle is the following. Suppose, for contradiction, that there exists an infinite (multi-period) deviation that is profitable. Then there must exist a finite deviation (say, deviating in $N$ periods) that is also profitable: with discounting $\delta < 1$, the contribution of periods beyond some finite $N$ to the total payoff becomes arbitrarily small, so any profitable infinite deviation can be approximated by a profitable finite one. Among all profitable finite deviations, consider the latest period in which a deviation occurs. At that period, the player must benefit from deviating once and then returning to $\sigma^*$---which is exactly a one-shot deviation. Hence, if no profitable one-shot deviation exists, no profitable multi-period deviation can exist either.
+}
+
+\section{The Folk Theorem}
+
+We now turn to the central question of repeated games: which payoff profiles can be sustained as SPE outcomes when players are sufficiently patient? The \textit{Folk Theorem} provides a remarkably broad answer.
+
+\subsection{Feasible and Individually Rational Payoffs}
+
+Fix a stage game $G = (S_i, u_i)_{i=1}^n$. The image of the payoff function $u(S) \se \RR^n$ collects all payoff profiles achievable by some pure action profile.
+
+\defn{Feasible Set of Payoffs}{
+  The \textbf{feasible set} of payoffs is the convex hull of the pure-action payoff profiles:
+  \[
+  F = \mathrm{co}\, u(S) \se \RR^n.
+  \]
+  Any $u \in F$ can be achieved by appropriate randomization over (or time-averaging across) pure action profiles.
+}
+
+To define the lower bound on what players can be forced to accept, we introduce the \textit{minmax payoff}.
+
+\defn{Minmax Payoff}{
+  Player $i$'s \textbf{minmax payoff} is:
+  \[
+  v_i = \min_{s_{-i}} \max_{s_i} u_i(s_i, s_{-i}).
+  \]
+  This is the lowest payoff that the other players can force player $i$ to accept, given that player $i$ best-responds. Equivalently, letting $m_{-i}$ denote the minmaxing action profile by $-i$:
+  \[
+  v_i = \min_{s_{-i}} u_i\!\left(\mathrm{BR}_i(s_{-i}), s_{-i}\right) = u_i\!\left(\mathrm{BR}_i(m_{-i}), m_{-i}\right),
+  \]
+  and for all $s_i$, $u_i(s_i, m_{-i}) \le v_i$.
+}
+
+\ex[Computing Minmax Payoffs]{
+  Consider the stage game:
+  \begin{center}
+  \begin{tabular}{c|cc}
+   & $L$ & $R$ \\ \hline
+  $U$ & $3, 2$ & $5, 1$ \\
+  $D$ & $4, 0$ & $1, -1$
+  \end{tabular}
+  \end{center}
+  To compute $v_1$: player 2 chooses $s_2$ to minimize the maximum payoff player 1 can guarantee. If 2 plays $L$, player 1's best response gives $\max\{3, 4\} = 4$. If 2 plays $R$, player 1 gets $\max\{5, 1\} = 5$. So $v_1 = \min\{4, 5\} = 4$, with $m_2 = L$. Similarly, $v_2 = 0$.
+}
+
+\defn{Feasible and Individually Rational Set}{
+  The \textbf{feasible and individually rational set} is:
+  \[
+  F^* = \brace{u \in F \mid u_i \ge v_i \;\; \forall i}.
+  \]
+  These are the payoff profiles that are both achievable and weakly preferred by every player to their minmax payoff.
+}
+
+\subsection{Necessity: NE Payoffs Lie in $F^*$}
+
+\propp{NE Payoffs Are Individually Rational}{
+  In any Nash equilibrium of $G^\delta(\infty)$, the discounted average payoff profile lies in $F^*$.
+}{
+  Two parts:
+  \begin{enumerate}[label=(\roman*)]
+    \item \textbf{NE payoffs lie in $F$.} The average discounted payoff in any strategy profile is a convex combination of stage-game payoff vectors $u(s)$ for $s \in S$. Hence the average payoff lies in $F = \mathrm{co}\, u(S)$.
+    \item \textbf{NE payoffs satisfy $u_i \ge v_i$.} Player $i$ can always guarantee at least $v_i$ in every period by best-responding to whatever the others play. Specifically, no matter what strategy the opponents use, player $i$ can achieve at least $v_i$ in each period by playing $\mathrm{BR}_i$ to the realized $s_{-i}^t$. So in any NE, player $i$'s payoff must satisfy $u_i \ge v_i$.
+  \end{enumerate}
+  Combining, NE payoffs $\in F^*$.
+}
+
+\subsection{Sufficiency: The Folk Theorem}
+
+The converse---every payoff in $F^*$ can be sustained as an SPE for sufficiently patient players---is the celebrated \textbf{Folk Theorem}.
+
+\thm{Folk Theorem}{
+  Let $u \in F^*$. Then there exists $\bar\delta < 1$ such that for all $\delta > \bar\delta$, there exists an SPE of $G^\delta(\infty)$ whose average discounted payoff profile is $u$.
+}
+
+\begin{thmpf}
+  We prove the result for $n = 2$ and assume that there exists a pure action profile $s$ with $u(s) = u$. (The general case requires public randomization or time-averaging across action profiles; the construction below extends naturally.)
+  
+  Let $m_i$ denote player $i$'s minmaxing action against player $j \neq i$ (i.e., $m_i$ is the action that minmaxes player $j$).
+  
+  Consider the following strategy profile $\sigma^*$ for each player $i$:
+  \begin{enumerate}
+    \item \textbf{Period 1:} Play $s_i$.
+    \item \textbf{On-path play:} Play $s_i$ in period $t$ if the history is $h^{t-1} = (s, s, \ldots, s)$ (i.e., $s$ was played in every previous period).
+    \item \textbf{Punishment phase:} If $s$ was not played in period $t-1$ (i.e., some player deviated), play $m_i$ for $k$ periods.
+    \item \textbf{Resume:} After the $k$-period punishment, return to phases (1)--(2). If any player deviates from the punishment in phase (3), restart phase (3).
+  \end{enumerate}
+  
+  We will show that there exist $k$ and $\bar\delta < 1$ such that for all $\delta > \bar\delta$, the strategy profile $\sigma^*$ is an SPE.
+  
+  By the one-deviation principle, it suffices to check that no player can profit from a one-shot deviation, in either the cooperative phase or the punishment phase.
+  
+  \textbf{Cooperative phase.} On the equilibrium path, player $i$ receives $u_i$ in every period. The best one-shot deviation gives player $i$ a payoff of at most $\bar u_i := \max_{s_i'} u_i(s_i', s_j)$ in the deviation period, followed by $k$ periods of minmax payoff $v_i$, and then a return to $u_i$ forever. The deviation is unprofitable if:
+  \[
+  u_i \;\ge\; (1-\delta)\bar u_i + (1-\delta)\sum_{\tau=1}^{k} \delta^\tau v_i + \delta^{k+1} u_i.
+  \]
+  Since $u_i > v_i$ (as $u \in F^*$ and we can choose $u$ in the interior; the boundary case requires a small perturbation), one can choose $k$ large enough and $\delta$ close enough to 1 so that this inequality holds.
+  
+  \textbf{Punishment phase.} During punishment, player $i$ is playing $m_i$ (minmaxing the other player). Deviating from $m_i$ does not help, because the punishment phase only restarts---player $i$ would face the same punishment period again. Formally, the continuation value from following the prescription weakly exceeds the value from deviating.
+  
+  Choosing $k$ and $\bar\delta$ appropriately yields an SPE with average payoff $u$.
+\end{thmpf}
+
+\rmkb[The Folk Theorem in Words]{
+  The Folk Theorem states that \textit{anything that is feasible and individually rational can be sustained as an SPE}, provided players are patient enough. This is both a celebration and a caution: while cooperation, fair sharing, and many other socially desirable outcomes can be supported, so can a vast multitude of other outcomes---including very inefficient or asymmetric ones. The theorem highlights the fundamental \textbf{indeterminacy} of repeated games: the equilibrium concept alone does not pin down a unique prediction, and selection among the many SPE requires additional considerations (such as renegotiation-proofness, evolutionary stability, or focal points).
+}
