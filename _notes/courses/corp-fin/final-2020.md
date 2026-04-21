@@ -4,7 +4,7 @@ title: "公司财务管理期末试题（2020）"
 discipline: "其他"
 course: "公司财务管理"
 material_type: "Exams"
-date: 2026-04-18
+date: 2020-09-01
 author: "Zircon"
 permalink: "/notes/corp-fin/final-2020"
 pdf_url: "/files/corp-fin/final-2020.pdf"

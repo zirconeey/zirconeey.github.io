@@ -3,6 +3,7 @@ layout: post
 title: "自洽的安定，何以寻？"
 main_category: "随笔漫谈"
 sub_category: "生命故事"
+date: 2023-12-19
 permalink: "/essays/birthday-20"
 ---
 
