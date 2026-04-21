@@ -176,7 +176,7 @@
       position: fixed;
       left: 1.5rem;
       top: 10rem;
-      width: 320px;
+      width: 360px;
       max-height: 65vh;
       overflow-y: auto;
       padding: 1.5rem 1rem;
@@ -200,26 +200,36 @@
     #toc-ul { list-style: none; padding: 0; margin: 0; }
     #toc-ul li { position: relative; margin-bottom: 0.8rem; line-height: 1.4; }
     
-    #toc-ul a { 
-      color: var(--color-muted); 
-      text-decoration: none; 
-      font-size: 0.9rem;
+    #toc-ul a {
+      color: var(--color-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
       transition: color 0.2s;
       display: block;
+      padding-left: 1.4rem;
     }
     #toc-ul a:hover { color: var(--color-accent); }
 
-    /* 二级标题缩进与圆点微调：让圆点靠近文字 */
-    #toc-ul .toc-h2 { 
-      padding-left: 1.8rem; /* 缩短文字左间距 */
-      font-size: 0.85rem;
+    /* 一级标题圆点 */
+    #toc-ul li > a:not(.toc-h2)::before {
+      content: "•";
+      position: absolute;
+      left: 0.3rem;
+      color: var(--color-accent);
+      font-size: 1rem;
+    }
+
+    /* 二级标题缩进与圆点 */
+    #toc-ul .toc-h2 {
+      padding-left: 2.6rem;
+      font-size: 0.9rem;
       opacity: 0.85;
     }
-    
+
     #toc-ul .toc-h2::before {
       content: "•";
       position: absolute;
-      left: 0.75rem; /* 圆点现在精准位于边缘和文字的中间，不再显得孤零零 */
+      left: 1.4rem;
       color: var(--color-accent);
       font-size: 1rem;
     }
