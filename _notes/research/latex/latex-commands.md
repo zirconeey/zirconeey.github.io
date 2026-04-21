@@ -2,7 +2,7 @@
 layout: post
 title: "我常用的LaTeX快捷键大全"
 main_category: "科研妙招"
-sub_category: "LaTex相关"
+sub_category: "LaTeX相关"
 date: "2026-04-20"
 author: "Zircon"
 permalink: "/research/latex/latex-commands"

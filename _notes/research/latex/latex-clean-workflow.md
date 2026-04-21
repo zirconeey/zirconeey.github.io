@@ -2,7 +2,7 @@
 layout: post
 title: "告别 LaTeX 编译后的「文件海洋」：三招打造极致整洁的科研工作流"
 main_category: "科研妙招"
-sub_category: "LaTex相关"
+sub_category: "LaTeX相关"
 date: "2026-04-20"
 author: "Zircon"
 permalink: "/research/latex/latex-clean-workflow"
