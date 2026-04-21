@@ -134,80 +134,205 @@ title: 锆铌 | Rui Zhou
   </div>
 </section>
 
-<section id="urge-section" style="margin-bottom: 3.5rem;">
-  <div style="background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 14px; padding: 1.5rem 2rem; text-align: center;">
-    <button id="urge-btn" onclick="urgeClick()"
-      style="padding: 0.55rem 1.8rem; border: 1.5px solid var(--color-ink); background: transparent; color: var(--color-ink); font-family: var(--font-display); font-size: 1rem; border-radius: 8px; cursor: pointer; transition: border-color 0.2s, color 0.2s;"
-      onmouseover="this.style.borderColor='var(--color-accent)';this.style.color='var(--color-accent)'"
-      onmouseout="this.style.borderColor='var(--color-ink)';this.style.color='var(--color-ink)'">
-      📣 催更！
-    </button>
-    <div style="margin-top: 0.8rem; font-size: 0.95rem; color: var(--color-muted);">
-      已有 <strong id="urge-num" style="color: var(--color-ink); display: inline-block;">—</strong> 人在催了
-      <span id="urge-days" style="display: none; font-size: 0.82rem; color: var(--color-light);">（距上次更新 <span id="urge-days-num"></span> 天）</span>
-    </div>
-    <div id="urge-chart" style="margin: 0.9rem auto 0; display: flex; align-items: flex-end; justify-content: center; gap: 3px; height: 32px; max-width: 260px;"></div>
-    <div id="urge-msg" style="font-size: 0.82rem; color: var(--color-accent); margin-top: 0.5rem; min-height: 1.2em;"></div>
+<style>
+  #react-widget {
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  @media (min-width: 1250px) {
+    #react-widget {
+      position: fixed;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 195px;
+      margin-bottom: 0;
+      z-index: 50;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+  }
+  .rw-main-btn {
+    width: 100%;
+    padding: 0.5rem 0.8rem;
+    border: 1.5px solid var(--color-ink);
+    background: transparent;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .rw-main-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+  .rw-count-line { font-size: 0.82rem; color: var(--color-muted); margin-top: 0.5rem; }
+  .rw-num { color: var(--color-ink); display: inline-block; }
+  .rw-chart {
+    display: flex; align-items: flex-end; justify-content: center;
+    gap: 2px; height: 22px; margin: 0.5rem auto 0;
+    max-width: 170px;
+  }
+  .rw-divider { border: none; border-top: 1px dashed var(--color-border); margin: 0.8rem 0; }
+  .rw-reactions { display: flex; justify-content: space-around; }
+  .rw-reaction-btn {
+    display: flex; flex-direction: column; align-items: center; gap: 0.15rem;
+    cursor: pointer; padding: 0.35rem 0.5rem; border-radius: 8px;
+    border: none; background: transparent;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .rw-reaction-btn:hover { background: var(--color-bg); transform: scale(1.15); }
+  .rw-emoji { font-size: 1.15rem; line-height: 1; }
+  .rw-r-num { font-size: 0.72rem; color: var(--color-muted); }
+  .rw-msg-toggle {
+    width: 100%; padding: 0.4rem; border: none; background: transparent;
+    color: var(--color-muted); font-family: var(--font-body); font-size: 0.85rem;
+    cursor: pointer; transition: color 0.2s;
+  }
+  .rw-msg-toggle:hover { color: var(--color-accent); }
+  #rw-msg-form textarea {
+    width: 100%; height: 76px; resize: none;
+    border: 1px solid var(--color-border); border-radius: 6px;
+    padding: 0.45rem 0.6rem; font-family: var(--font-body); font-size: 0.82rem;
+    color: var(--color-ink); background: var(--color-bg);
+    outline: none; transition: border-color 0.2s; margin-bottom: 0.4rem;
+  }
+  #rw-msg-form textarea:focus { border-color: var(--color-accent); }
+  #rw-msg-form .rw-send-btn {
+    padding: 0.3rem 1rem; border: 1px solid var(--color-ink);
+    background: transparent; color: var(--color-ink);
+    font-family: var(--font-display); font-size: 0.85rem;
+    border-radius: 6px; cursor: pointer; transition: 0.2s;
+  }
+  #rw-msg-form .rw-send-btn:hover { border-color: var(--color-accent); color: var(--color-accent); }
+  #rw-feedback { font-size: 0.78rem; color: var(--color-accent); min-height: 1.1em; margin-top: 0.3rem; }
+</style>
+
+<div id="react-widget">
+  <button class="rw-main-btn" onclick="reactClick('urge')">📣 催更！</button>
+  <div class="rw-count-line">已有 <strong class="rw-num" id="urge-num">—</strong> 人在催了</div>
+  <div id="urge-days" style="display:none; font-size:0.75rem; color:var(--color-light); margin-top:0.2rem;">
+    距上次更新 <span id="urge-days-num"></span> 天
   </div>
-</section>
+  <div id="urge-chart" class="rw-chart"></div>
+
+  <hr class="rw-divider">
+
+  <div class="rw-reactions">
+    <button class="rw-reaction-btn" onclick="reactClick('like')">
+      <span class="rw-emoji">👍</span>
+      <span class="rw-r-num" id="like-num">—</span>
+    </button>
+    <button class="rw-reaction-btn" onclick="reactClick('heart')">
+      <span class="rw-emoji">❤️</span>
+      <span class="rw-r-num" id="heart-num">—</span>
+    </button>
+    <button class="rw-reaction-btn" onclick="reactClick('star')">
+      <span class="rw-emoji">🌟</span>
+      <span class="rw-r-num" id="star-num">—</span>
+    </button>
+  </div>
+
+  <hr class="rw-divider">
+
+  <button class="rw-msg-toggle" onclick="toggleMsgForm()">💬 给博主留言</button>
+  <div id="rw-msg-form" style="display:none; margin-top:0.5rem;">
+    <textarea id="rw-msg-text" maxlength="500" placeholder="留下你想说的话…"></textarea>
+    <button class="rw-send-btn" onclick="sendMsg()">发送</button>
+    <div style="font-size:0.7rem; color:var(--color-light); margin-top:0.3rem;">仅博主可见</div>
+  </div>
+  <div id="rw-feedback"></div>
+</div>
 
 <script>
 (function() {
   const API = 'https://zircon-urge.vercel.app/api/urge';
 
-  async function loadUrge() {
+  async function loadData() {
     try {
       const r = await fetch(API);
-      const data = await r.json();
-      const numEl = document.getElementById('urge-num');
-      if (numEl) numEl.textContent = data.total;
-      if (data.daysSinceReset != null) {
-        const daysEl = document.getElementById('urge-days');
-        const daysNum = document.getElementById('urge-days-num');
-        if (daysEl && daysNum) { daysNum.textContent = data.daysSinceReset; daysEl.style.display = 'inline'; }
+      const d = await r.json();
+      setText('urge-num', d.urge);
+      setText('like-num', d.like);
+      setText('heart-num', d.heart);
+      setText('star-num', d.star);
+      if (d.daysSinceReset != null) {
+        setText('urge-days-num', d.daysSinceReset);
+        const el = document.getElementById('urge-days');
+        if (el) el.style.display = 'block';
       }
-      renderChart(data.last15days);
+      renderChart(d.last15days);
     } catch(e) {}
+  }
+
+  function setText(id, val) {
+    const el = document.getElementById(id);
+    if (el && val !== undefined) el.textContent = val;
   }
 
   function renderChart(days) {
     const chart = document.getElementById('urge-chart');
     if (!chart || !days || !days.length) return;
     const max = Math.max(...days.map(d => d.count), 1);
-    const todayStr = new Date().toISOString().slice(0, 10);
+    const today = new Date().toISOString().slice(0, 10);
     chart.innerHTML = days.map(d => {
-      const h = Math.max(2, Math.round((d.count / max) * 28));
-      const isToday = d.date === todayStr;
-      return `<div title="${d.date}: ${d.count}次" style="flex:1;height:${h}px;background:${isToday ? 'var(--color-accent)' : 'var(--color-border)'};border-radius:2px 2px 0 0;opacity:${isToday ? '1' : '0.7'};"></div>`;
+      const h = Math.max(2, Math.round((d.count / max) * 18));
+      const isT = d.date === today;
+      return `<div title="${d.date}: ${d.count}" style="flex:1;height:${h}px;background:${isT?'var(--color-accent)':'var(--color-border)'};border-radius:2px 2px 0 0;"></div>`;
     }).join('');
   }
 
-  window.urgeClick = async function() {
-    const btn = document.getElementById('urge-btn');
-    const msg = document.getElementById('urge-msg');
-    btn.disabled = true; btn.style.opacity = '0.6';
+  window.reactClick = async function(type) {
+    const numEl = document.getElementById(type + '-num');
     try {
-      const r = await fetch(API, { method: 'POST' });
-      const data = await r.json();
-      if (data.duplicate) {
-        msg.textContent = '今天已经催过啦 ✓';
+      const r = await fetch(`${API}?type=${type}`, { method: 'POST' });
+      const d = await r.json();
+      if (d.duplicate) {
+        showFeedback('今天已经点过啦 ✓');
       } else {
-        const numEl = document.getElementById('urge-num');
-        numEl.textContent = data.total;
-        numEl.style.transition = 'transform 0.15s';
-        numEl.style.transform = 'scale(1.5)';
-        setTimeout(() => numEl.style.transform = 'scale(1)', 160);
-        msg.textContent = '已记录！感谢催更 ✓';
+        if (numEl) {
+          numEl.textContent = d.total;
+          numEl.style.transition = 'transform 0.15s';
+          numEl.style.transform = 'scale(1.5)';
+          setTimeout(() => numEl.style.transform = 'scale(1)', 160);
+        }
+        showFeedback(type === 'urge' ? '已记录！感谢催更 ✓' : '感谢！✓');
       }
-      setTimeout(() => { if(msg) msg.textContent = ''; }, 3000);
-    } catch(e) {
-      if(msg) msg.textContent = '网络错误，请稍后再试';
-    } finally {
-      btn.disabled = false; btn.style.opacity = '1';
-    }
+    } catch(e) { showFeedback('网络错误，请稍后再试'); }
   };
 
-  document.addEventListener('DOMContentLoaded', loadUrge);
+  window.toggleMsgForm = function() {
+    const f = document.getElementById('rw-msg-form');
+    if (f) f.style.display = f.style.display === 'none' ? 'block' : 'none';
+  };
+
+  window.sendMsg = async function() {
+    const ta = document.getElementById('rw-msg-text');
+    const text = (ta && ta.value || '').trim();
+    if (!text) return showFeedback('请先写点什么…');
+    try {
+      const r = await fetch(`${API}?action=msg`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text })
+      });
+      const d = await r.json();
+      if (d.ok) {
+        if (ta) ta.value = '';
+        toggleMsgForm();
+        showFeedback('留言已发送 ✓');
+      }
+    } catch(e) { showFeedback('发送失败，请稍后再试'); }
+  };
+
+  function showFeedback(text) {
+    const el = document.getElementById('rw-feedback');
+    if (el) { el.textContent = text; setTimeout(() => el.textContent = '', 4000); }
+  }
+
+  document.addEventListener('DOMContentLoaded', loadData);
 })();
 </script>
 
