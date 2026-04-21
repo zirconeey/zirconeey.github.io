@@ -3,67 +3,199 @@ layout: default
 title: 锆铌 | Rui Zhou
 ---
 
-<section class="bio-section" style="margin-bottom: 4rem;">
+<style>
+  .cat-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 1rem 1.2rem;
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .cat-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+    text-decoration: none;
+  }
+  .cat-icon { font-size: 1.5rem; line-height: 1; }
+  .cat-name { font-weight: 600; font-size: 1rem; color: var(--color-ink); }
+  .cat-count { font-size: 0.82rem; color: var(--color-muted); margin-top: 0.15rem; }
+
+  .featured-card {
+    background: var(--color-bg-warm);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 10px 10px 0;
+    padding: 1.1rem 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  .featured-card .featured-label {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    font-family: var(--font-display);
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+  .featured-card h3 {
+    margin: 0.4rem 0 0.5rem;
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+  .featured-card h3 a {
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+  .featured-card h3 a:hover { color: var(--color-accent); }
+  .featured-card .featured-excerpt {
+    font-size: 0.92rem;
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin: 0.5rem 0 0;
+  }
+  .featured-card .featured-meta {
+    font-size: 0.82rem;
+    color: var(--color-light);
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 0.4rem;
+  }
+
+  .post-tip {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: calc(100% + 2px);
+    background: var(--color-bg-warm);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    font-size: 0.88rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    max-width: 480px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+    z-index: 20;
+    pointer-events: none;
+    width: max-content;
+  }
+  @media (hover: hover) {
+    .post-item:hover .post-tip { display: block; }
+  }
+</style>
+
+{% assign valid_notes = site.notes | where_exp: "item", "item.date != nil" %}
+{% assign all_content = valid_notes | sort: "date" | reverse %}
+{% assign total = site.notes | where_exp: "item", "item.published != false" | size %}
+{% assign cat_count = site.notes | map: "main_category" | uniq | compact | size %}
+{% assign notes_count    = site.notes | where: "main_category", "课程资料" | size %}
+{% assign research_count = site.notes | where: "main_category", "科研妙招" | size %}
+{% assign life_count     = site.notes | where: "main_category", "生活攻略" | size %}
+{% assign essay_count    = site.notes | where: "main_category", "随笔漫谈" | size %}
+{% assign hot_posts = all_content | where: "hot", true %}
+{% assign featured = hot_posts | first %}
+
+<section class="bio-section" style="margin-bottom: 3rem;">
   <h1>关于这里</h1>
   <p style="font-size: 1.1rem; margin-bottom: 1rem;">你好，我是<strong>周睿</strong>。</p>
   <p style="margin-bottom: 1rem;">
     我目前在<a href="https://econ.la.psu.edu/">宾夕法尼亚州立大学（Penn State）</a>攻读经济学博士学位，研究兴趣主要在行为经济学与微观经济理论。
   </p>
   <p style="margin-bottom: 1.5rem;">
-    在严谨的学术生活之外，我也是一个热爱生活的人——喜欢跑步、唱歌，也热衷于探索未知的风景。建立这个中文博客，是希望拥有一个属于自己的“数字花园”。这里既会存档我过往的硬核课程笔记和干货教程，也会收录我随心写下的生活感悟与反思。
+    在严谨的学术生活之外，我也是一个热爱生活的人——喜欢跑步、唱歌，也热衷于探索未知的风景。建立这个中文博客，是希望拥有一个属于自己的"数字花园"。这里既会存档我过往的硬核课程笔记和干货教程，也会收录我随心写下的生活感悟与反思。
   </p>
-  
+
+  <div style="font-size: 0.88rem; color: var(--color-muted); margin: 1.2rem 0 1.5rem; display: flex; gap: 1.8rem;">
+    <span>📝 {{ total }} 篇文章</span>
+    <span>🗂 {{ cat_count }} 个分类</span>
+  </div>
+
   <div class="notice-box" style="background: var(--color-bg-warm); border-left: 4px solid var(--color-muted); padding: 1rem 1.5rem; border-radius: 0 4px 4px 0; font-size: 0.95rem;">
     <strong>📌 存档说明</strong><br>
     本站主要用于个人知识管理与分享，不定期更新。如需了解我最新的学术动态或工作论文，请移步我的<a href="https://ruizhou03.github.io/">英文学术主页</a>。
   </div>
 </section>
 
-<section class="blog-preview" style="margin-top: 3rem;">
+<section style="margin-bottom: 3.5rem;">
+  <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem;">
+    <a href="/notes/" class="cat-card">
+      <span class="cat-icon">📚</span>
+      <div>
+        <div class="cat-name">课程资料</div>
+        <div class="cat-count">{{ notes_count }} 篇笔记</div>
+      </div>
+    </a>
+    <a href="/research/" class="cat-card">
+      <span class="cat-icon">🔬</span>
+      <div>
+        <div class="cat-name">科研妙招</div>
+        <div class="cat-count">{{ research_count }} 篇文章</div>
+      </div>
+    </a>
+    <a href="/life/" class="cat-card">
+      <span class="cat-icon">☕</span>
+      <div>
+        <div class="cat-name">生活攻略</div>
+        <div class="cat-count">{{ life_count }} 篇文章</div>
+      </div>
+    </a>
+    <a href="/essays/" class="cat-card">
+      <span class="cat-icon">✍️</span>
+      <div>
+        <div class="cat-name">随笔漫谈</div>
+        <div class="cat-count">{{ essay_count }} 篇文章</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="blog-preview">
   <h2 style="margin-bottom: 1.5rem;">✨ 近期导读</h2>
-  <ul class="post-list" style="list-style: none; padding: 0;">
-    
-    {% assign valid_notes = site.notes | where_exp: "item", "item.date != nil" %}
-    {% assign all_content = valid_notes | sort: "date" | reverse %}
-    
-    {% assign limit = 5 %} 
-    {% assign hot_posts = all_content | where: "hot", true %}
-    {% assign hot_count = hot_posts | size %}
-    
-    {% for post in hot_posts limit: limit %}
-      <li class="post-item" style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px dashed var(--color-border); padding: 1rem 0;">
-        <a href="{{ post.url | relative_url }}" 
-          style="font-family: var(--font-body); font-size: 1.05rem; text-decoration: none; color: var(--color-accent); font-weight: 500; flex: 1; margin-right: 1rem; line-height: 1.5;">
-          {% if post.main_category %}
-            <span style="font-size: 0.75rem; background: var(--color-bg-warm); color: var(--color-accent); padding: 0.15rem 0.5rem; border-radius: 12px; margin-right: 0.5rem; border: 1px solid var(--color-border); vertical-align: text-bottom;">{{ post.main_category }}</span>
-          {% endif %}
-          {{ post.title | replace: 'LaTeX', 'L<span class="latex-a">a</span>T<span class="latex-e">e</span>X' }}
-        </a>
-        <span class="post-meta" style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--color-light); white-space: nowrap;">
-          {{ post.date | date: "%Y-%m-%d" }}
-        </span>
-      </li>
-    {% endfor %}
 
-    {% if hot_count < limit %}
-      {% assign remaining = limit | minus: hot_count %}
-      {% assign recent_posts = all_content | where_exp: "item", "item.hot != true" %}
-      
-      {% for post in recent_posts limit: remaining %}
-      <li class="post-item" style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px dashed var(--color-border); padding: 1rem 0;">
-        <a href="{{ post.url | relative_url }}" 
-          style="font-family: var(--font-body); font-size: 1.05rem; text-decoration: none; color: var(--color-accent); font-weight: 500; flex: 1; margin-right: 1rem; line-height: 1.5;">
-          {% if post.main_category %}
-            <span style="font-size: 0.75rem; background: var(--color-bg-warm); color: var(--color-accent); padding: 0.15rem 0.5rem; border-radius: 12px; margin-right: 0.5rem; border: 1px solid var(--color-border); vertical-align: text-bottom;">{{ post.main_category }}</span>
-          {% endif %}
-          {{ post.title | replace: 'LaTeX', 'L<span class="latex-a">a</span>T<span class="latex-e">e</span>X' }}
-        </a>
-        <span class="post-meta" style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--color-light); white-space: nowrap;">
-          {{ post.date | date: "%Y-%m-%d" }}
-        </span>
-      </li>
-      {% endfor %}
+  {% if featured %}
+  <div class="featured-card">
+    <div class="featured-label">✦ 精选</div>
+    <h3>
+      {% if featured.main_category %}
+        <span style="font-size: 0.75rem; background: var(--color-bg-warm); color: var(--color-accent); padding: 0.15rem 0.5rem; border-radius: 12px; margin-right: 0.5rem; border: 1px solid var(--color-border); font-weight: 400; vertical-align: middle;">{{ featured.main_category }}</span>
+      {% endif %}
+      <a href="{{ featured.url | relative_url }}">{{ featured.title | replace: 'LaTeX', 'L<span class="latex-a">a</span>T<span class="latex-e">e</span>X' }}</a>
+    </h3>
+    <div class="featured-meta">{{ featured.date | date: "%Y-%m-%d" }}</div>
+    {% assign excerpt_text = featured.content | strip_html | strip | truncate: 120 %}
+    {% if excerpt_text and excerpt_text != "" %}
+    <p class="featured-excerpt">{{ excerpt_text }}</p>
     {% endif %}
+  </div>
+  {% endif %}
 
+  <ul class="post-list" style="list-style: none; padding: 0;">
+    {% assign limit = 8 %}
+    {% assign shown = 0 %}
+
+    {% for post in all_content %}
+      {% if shown >= limit %}{% break %}{% endif %}
+      {% if featured and post.url == featured.url %}{% continue %}{% endif %}
+
+      {% assign excerpt_raw = post.content | strip_html | strip | truncate: 150 %}
+      <li class="post-item" style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px dashed var(--color-border); padding: 1rem 0; position: relative;" data-excerpt="{{ excerpt_raw | escape }}">
+        <a href="{{ post.url | relative_url }}"
+          style="font-family: var(--font-body); font-size: 1.05rem; text-decoration: none; color: var(--color-accent); font-weight: 500; flex: 1; margin-right: 1rem; line-height: 1.5;">
+          {% if post.main_category %}
+            <span style="font-size: 0.75rem; background: var(--color-bg-warm); color: var(--color-accent); padding: 0.15rem 0.5rem; border-radius: 12px; margin-right: 0.5rem; border: 1px solid var(--color-border); vertical-align: text-bottom;">{{ post.main_category }}</span>
+          {% endif %}
+          {{ post.title | replace: 'LaTeX', 'L<span class="latex-a">a</span>T<span class="latex-e">e</span>X' }}
+        </a>
+        <span class="post-meta" style="font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; color: var(--color-light); white-space: nowrap;">
+          {{ post.date | date: "%Y-%m-%d" }}
+        </span>
+        {% if excerpt_raw and excerpt_raw != "" %}
+        <div class="post-tip">{{ excerpt_raw }}</div>
+        {% endif %}
+      </li>
+      {% assign shown = shown | plus: 1 %}
+    {% endfor %}
   </ul>
 </section>
