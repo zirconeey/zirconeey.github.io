@@ -13,11 +13,11 @@ published: true
 
 在文件夹里点击一次编译，原本干干净净的 `.tex` 源码旁边，瞬间会蹦出一大堆 `.aux`、`.log`、`.toc`、`.synctex.gz` 等副产物。这些文件虽然是 LaTeX 记录交叉引用和页码的"临时大脑"，但散落在根目录下实在让人抓狂。
 
-![清理之前](https://fastly.jsdelivr.net/gh/bucketio/img15@main/2026/04/16/1776312102656-f0d8722f-c238-4a3e-aaff-81114d80c6a7.png)
+<img src="https://fastly.jsdelivr.net/gh/bucketio/img15@main/2026/04/16/1776312102656-f0d8722f-c238-4a3e-aaff-81114d80c6a7.png" alt="清理之前" style="width: 65%; display: block; margin: 1rem auto;">
 
 今天分享三招，教你如何优雅地把这些中间文件"关进笼子"或者一键消灭，让你的项目目录永远保持极简状态。
 
-![清理之后](https://fastly.jsdelivr.net/gh/bucketio/img0@main/2026/04/16/1776312120997-1e032b07-6140-4198-a0f5-ebfc3d4f60bf.png)
+<img src="https://fastly.jsdelivr.net/gh/bucketio/img0@main/2026/04/16/1776312120997-1e032b07-6140-4198-a0f5-ebfc3d4f60bf.png" alt="清理之后" style="width: 65%; display: block; margin: 1rem auto;">
 
 ---
 
@@ -31,13 +31,13 @@ published: true
 
 1. 在 VS Code 中按 `Cmd + ,` (Mac) 或 `Ctrl + ,` (Win) 进入设置。
 
-   ![VS Code 设置入口](https://fastly.jsdelivr.net/gh/bucketio/img11@main/2026/04/16/1776312192991-936f1b10-6577-4519-9fe8-a4ff4b42cf33.png)
+   <img src="https://fastly.jsdelivr.net/gh/bucketio/img11@main/2026/04/16/1776312192991-936f1b10-6577-4519-9fe8-a4ff4b42cf33.png" alt="VS Code 设置入口" style="width: 40%; display: block; margin: 1rem auto;">
 
 2. 搜索并修改以下两项：
    - **`latex-workshop.latex.outDir`**：设置为 `%DIR%/out`。
    - **`latex-workshop.latex.autoClean.run`**：设置为 `onBuilt`。
 
-   ![设置截图](https://fastly.jsdelivr.net/gh/bucketio/img0@main/2026/04/16/1776312254376-1c939a0d-b624-4ebb-a1b0-34edbc004c90.png)
+   <img src="https://fastly.jsdelivr.net/gh/bucketio/img0@main/2026/04/16/1776312254376-1c939a0d-b624-4ebb-a1b0-34edbc004c90.png" alt="设置截图" style="width: 65%; display: block; margin: 1rem auto;">
 
 **原理：**
 - **`outDir`**：以后所有的中间文件都会自动跑进一个叫 `out` 的子文件夹。
