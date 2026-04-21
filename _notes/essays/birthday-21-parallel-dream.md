@@ -20,7 +20,9 @@ published: true
 
 《重拾\_快乐》是我2023年听得最多的一张专辑。但我一遍遍地听，却也没有理解专辑名字的含义。我不知道为什么要有这个下划线，我也不知道快乐如何重拾，快乐又是什么。也许专辑里的《孤独娱乐》最赤裸裸地唱出了痛苦与快乐：
 
-"痛濒临快乐，痛心疼快乐"
+> "痛濒临快乐，痛心疼快乐"
+>
+> —— 《孤独娱乐》
 
 <img src="/files/images/birthday-21/02.jpg" alt="2023年一度低落，某个晚上和朋友畅聊之后决定取消第二天的心理咨询" style="width: 65%; display: block; margin: 1.5rem auto;">
 <p style="text-align: center; color: var(--color-light); font-size: 0.85rem; margin-top: -0.5rem; font-style: italic;">2023年一度低落，某个晚上和朋友畅聊之后决定取消第二天的心理咨询</p>
@@ -57,7 +59,9 @@ published: true
 
 就这样，我怀揣着期待和不安奔赴我的交换学期。临行前，我无比依恋这里的一切，有点像一场永别，因为在未来的百余个日子里这儿对我来说就是另一个世界了。但好像看更远一点又不是一场永别，因为无论四个月内发生了什么，我都会在四个月后回归。那天耳机里我循环了很多次《交换余生》：
 
-"交换余生，也许忘了第几梦。那时我们身处，第几号时空？"
+> "交换余生，也许忘了第几梦。那时我们身处，第几号时空？"
+>
+> —— 《交换余生》
 
 <img src="/files/images/birthday-21/05.jpg" alt="捎我去大洋彼岸的飞机" style="width: 65%; display: block; margin: 1.5rem auto;">
 <p style="text-align: center; color: var(--color-light); font-size: 0.85rem; margin-top: -0.5rem; font-style: italic;">捎我去大洋彼岸的飞机</p>
