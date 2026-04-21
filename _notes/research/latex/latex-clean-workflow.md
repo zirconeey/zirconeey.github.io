@@ -19,8 +19,6 @@ published: true
 
 <img src="https://fastly.jsdelivr.net/gh/bucketio/img0@main/2026/04/16/1776312120997-1e032b07-6140-4198-a0f5-ebfc3d4f60bf.png" alt="清理之后" style="width: 65%; display: block; margin: 1rem auto;">
 
----
-
 ## 第一招：VS Code 自动重定向（从源头拦截）
 
 如果你使用 **VS Code + LaTeX Workshop** 插件（这是目前最主流的组合），其实可以给 LaTeX 装修一个"密闭厨房"。
@@ -42,8 +40,6 @@ published: true
 **原理：**
 - **`outDir`**：以后所有的中间文件都会自动跑进一个叫 `out` 的子文件夹。
 - **`autoClean`**：每次 PDF 生成成功后，插件会自动帮你打扫卫生。你的文件夹里将只剩下源码和最终的 PDF。
-
----
 
 ## 第二招：编写 Shell 脚本（暴力美学，一键清理）
 
@@ -79,8 +75,6 @@ alias texclean="sh ~/你的脚本路径/clean-tex.sh"
 
 从此以后，你只需在终端任何地方敲下 `texclean` 这一行命令，整个世界的后缀名就都清净了。
 
----
-
 ## 第三招：Git 忽略大法（保持云端纯净）
 
 无论你在本地如何编译，推送到 GitHub 或 GitLab 的代码仓库应该是绝对纯净的。这不仅是为了减小仓库体积，更是为了避免不必要的版本冲突。
@@ -100,8 +94,6 @@ alias texclean="sh ~/你的脚本路径/clean-tex.sh"
 ```
 
 有了这份名单，Git 就会自动无视这些文件，你的云端备份将永远只有最核心的源码。
-
----
 
 ## 结语
 
