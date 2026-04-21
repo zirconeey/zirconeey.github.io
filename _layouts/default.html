@@ -156,8 +156,8 @@
     .markdown-content ul, .markdown-content ol { padding-left: 2em; margin-bottom: 1.5em; }
     .markdown-content li { margin-bottom: 0.5em; }
 
-    /* 图片：增加相框质感与居中 */
-    .markdown-content img { max-width: 100%; display: block; margin: 1.5em auto; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    /* 图片：增加相框质感与居中，限制最大宽度避免撑满全栏 */
+    .markdown-content img { max-width: 70%; display: block; margin: 1.5em auto; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
 
     /* 表格：清爽的斑马线风格 */
     .markdown-content table { width: 100%; border-collapse: collapse; margin-bottom: 1.5em; font-size: 0.95rem; }
@@ -206,7 +206,7 @@
       font-size: 0.95rem;
       transition: color 0.2s;
       display: block;
-      padding-left: 1.4rem;
+      padding-left: 2rem;
     }
     #toc-ul a:hover { color: var(--color-accent); }
 
@@ -214,14 +214,14 @@
     #toc-ul li > a:not(.toc-h2)::before {
       content: "•";
       position: absolute;
-      left: 0.3rem;
+      left: 0.9rem;
       color: var(--color-accent);
       font-size: 1rem;
     }
 
     /* 二级标题缩进与圆点 */
     #toc-ul .toc-h2 {
-      padding-left: 2.6rem;
+      padding-left: 3.2rem;
       font-size: 0.9rem;
       opacity: 0.85;
     }
@@ -229,7 +229,7 @@
     #toc-ul .toc-h2::before {
       content: "•";
       position: absolute;
-      left: 1.4rem;
+      left: 2rem;
       color: var(--color-accent);
       font-size: 1rem;
     }
