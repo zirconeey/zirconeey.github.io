@@ -2,5 +2,8 @@
 _site/
 .jekyll-cache/
 *.pyc
+__pycache__/
 admin_web.py
 download_wechat_images.py
+.env
+node_modules/
