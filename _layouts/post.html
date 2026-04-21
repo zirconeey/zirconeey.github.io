@@ -159,6 +159,40 @@ layout: default
   }, 800); 
 </script>
 
+{% if page.pdf_url or page.download_url %}
+  {% assign _dl_url = page.download_url | default: page.pdf_url %}
+  {% if page.download_label %}
+    {% assign _btn_label = page.download_label %}
+  {% elsif page.material_type == "Notes" %}
+    {% assign _btn_label = "下载完整版 PDF 讲义" %}
+  {% elsif page.material_type == "Exams" %}
+    {% assign _btn_label = "下载往年题 PDF" %}
+  {% elsif page.material_type == "Homework" %}
+    {% assign _btn_label = "下载作业整理 PDF" %}
+  {% else %}
+    {% assign _btn_label = "下载文件" %}
+  {% endif %}
+
+  <div class="pdf-container" style="margin: 2rem 0;">
+    {% unless page.download_url %}
+    <div class="pdf-preview">
+      <iframe src="{{ _dl_url }}" width="100%" height="600px"
+              style="border: 1px solid var(--color-border); border-radius: 8px;">
+        您的浏览器不支持内嵌 PDF，请通过下方链接下载。
+      </iframe>
+    </div>
+    {% endunless %}
+    <div style="margin-top: 1rem; text-align: center;">
+      <a href="{{ _dl_url }}" download
+         style="padding: 10px 20px; border: 1px solid var(--color-ink);
+                text-decoration: none; color: var(--color-ink);
+                font-family: var(--font-display); transition: 0.3s;">
+        📥 {{ _btn_label }}
+      </a>
+    </div>
+  </div>
+{% endif %}
+
 <div style="margin-top: 4rem; text-align: center;">
   <a href="{{ site.baseurl }}/" style="color: var(--color-muted); text-decoration: none;">← 返回首页</a>
 </div>
