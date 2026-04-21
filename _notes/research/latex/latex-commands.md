@@ -7,6 +7,7 @@ date: "2026-04-20"
 author: "Zircon"
 permalink: "/research/latex/latex-commands"
 published: true
+render_with_liquid: false
 ---
 
 不知道大家有没有过这样的体验：在上课听讲或者推导作业时，思路明明正如泉涌，却被冗长繁琐的 LaTeX 代码硬生生打断。为了敲出一个多行对齐的公式，或者一个带上下标的求和符号，手指在键盘上翻飞，结果一不小心漏掉一个大括号，编译报错，思路也跟着烟消云散了。
