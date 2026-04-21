@@ -8,7 +8,9 @@ title: 科研妙招 | Rui Zhou
     <p style="color: var(--color-light); font-style: italic;">Research Tips &amp; Workflow</p>
   </header>
 
-  {% assign raw_posts = site.notes | where: "main_category", "科研妙招" %}
+  {% assign raw_posts_main  = site.notes | where: "main_category", "科研妙招" %}
+  {% assign raw_posts_extra = site.notes | where_exp: "item", "item.extra_categories contains '科研妙招'" %}
+  {% assign raw_posts = raw_posts_main | concat: raw_posts_extra %}
   {% assign dated_posts = raw_posts | where_exp: "item", "item.date" | sort: "date" | reverse %}
   {% assign undated_posts = raw_posts | where_exp: "item", "item.date == nil" %}
   {% assign category_posts = dated_posts | concat: undated_posts %}

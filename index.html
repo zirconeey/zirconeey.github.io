@@ -68,10 +68,16 @@ title: 锆铌 | Rui Zhou
 {% assign valid_notes = site.notes | where_exp: "item", "item.date != nil" %}
 {% assign all_content = valid_notes | sort: "date" | reverse %}
 {% assign total = site.notes | where_exp: "item", "item.published != false" | size %}
-{% assign notes_count    = site.notes | where_exp: "item", "item.discipline != nil" | size %}
-{% assign research_count = site.notes | where: "main_category", "科研妙招" | size %}
-{% assign life_count     = site.notes | where: "main_category", "生活攻略" | size %}
-{% assign essay_count    = site.notes | where: "main_category", "随笔漫谈" | size %}
+{% assign notes_count = site.notes | where_exp: "item", "item.discipline != nil" | size %}
+{% assign research_count = site.notes | where: "main_category", "科研妙招" | size | plus: 0 %}
+{% assign research_extra = site.notes | where_exp: "item", "item.extra_categories contains '科研妙招'" | size %}
+{% assign research_count = research_count | plus: research_extra %}
+{% assign life_count = site.notes | where: "main_category", "生活攻略" | size | plus: 0 %}
+{% assign life_extra = site.notes | where_exp: "item", "item.extra_categories contains '生活攻略'" | size %}
+{% assign life_count = life_count | plus: life_extra %}
+{% assign essay_count = site.notes | where: "main_category", "随笔漫谈" | size | plus: 0 %}
+{% assign essay_extra = site.notes | where_exp: "item", "item.extra_categories contains '随笔漫谈'" | size %}
+{% assign essay_count = essay_count | plus: essay_extra %}
 {% assign hot_posts = all_content | where: "hot", true %}
 {% assign featured = hot_posts | first %}
 
@@ -81,10 +87,10 @@ title: 锆铌 | Rui Zhou
     这里是微信公众号<strong>「锆铌」</strong>的网页版存档，涵盖硬核课程笔记、科研干货，以及随心写下的生活感悟。
   </p>
   <p style="margin-bottom: 1rem;">
-    顺便解释一下这个名字为什么这么奇怪——锆（Zr）是我名字首字母对应的元素，铌（Nb）紧排在锆后面，网络俗称"nb"……拼在一起大概就是一个高中竞赛生留下来的中二遗产。确实挺蠢的，但我很喜欢这种蠢劲儿。
+    顺便解释一下这个名字为什么这么独特——锆（Zr）是我名字首字母对应的元素，铌（Nb）紧排在锆后面……拼在一起大概就是一个高中化学竞赛生留下来的中二遗产——我承认确实挺蠢的，但由于历史原因就一直沿用至今了
   </p>
   <p style="margin-bottom: 1rem;">
-    博主目前在<a href="https://econ.la.psu.edu/">宾夕法尼亚州立大学（Penn State）</a>攻读经济学博士，研究行为经济学与微观经济理论。课余喜欢跑步、健身和唱歌，热衷探索未知的风景——还是个重度强迫症患者，不然也不会有这个公众号。
+    博主目前在宾夕法尼亚州立大学（Penn State，不是UPenn宾大！）攻读经济学博士，研究行为经济学与微观经济理论。平时喜欢跑步、健身和唱歌，热衷探索未知的风景——还是个重度强迫症患者，不然也不会有这个公众号。
   </p>
   <p style="margin-bottom: 1.5rem;">
     相比公众号，这里的链接<strong>永不过期</strong>，支持<strong>全文搜索</strong>，课程资料可以直接下载，不用跳转外链。文章下方都有评论区，欢迎留言——这是我更新最大的动力！
@@ -92,7 +98,7 @@ title: 锆铌 | Rui Zhou
 
   <div class="notice-box" style="background: var(--color-bg-warm); border-left: 4px solid var(--color-muted); padding: 1rem 1.5rem; border-radius: 0 4px 4px 0; font-size: 0.95rem;">
     <strong>📌 存档说明</strong><br>
-    本站不定期更新。如需了解我最新的学术动态或工作论文，请移步我的<a href="https://ruizhou03.github.io/">英文学术主页</a>。
+    本站不定期更新。如需了解我最新的学术动态，请移步我的<a href="https://ruizhou03.github.io/">英文学术主页</a>。
   </div>
 
   <div style="font-size: 0.88rem; color: var(--color-muted); margin: 1.2rem 0 0; display: flex; gap: 1.8rem;">
