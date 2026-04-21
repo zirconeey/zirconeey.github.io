@@ -206,7 +206,7 @@ layout: default
     const tocUl = document.getElementById('toc-ul');
     const headings = postContent.querySelectorAll('h1, h2');
 
-    if (headings.length === 0) {
+    if (headings.length <= 1) {
       document.getElementById('toc-toggle').style.display = 'none';
       return;
     }

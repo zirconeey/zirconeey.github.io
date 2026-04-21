@@ -52,7 +52,7 @@
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.8; font-size: 17px; transition: background 0.3s; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.8; font-size: 18px; transition: background 0.3s; }
     
     /* 强化的超链接 */
     a { color: var(--color-accent); text-decoration: underline; text-decoration-color: rgba(30, 58, 95, 0.2); transition: all 0.2s; }
@@ -194,16 +194,6 @@
       transform: translateX(0);
       visibility: visible;
       box-shadow: 10px 0 30px rgba(0,0,0,0.05);
-    }
-
-    /* 宽屏（>1400px）自动常驻：无需点击即可见 */
-    @media (min-width: 1400px) {
-      #toc-container {
-        opacity: 1;
-        transform: translateX(0);
-        visibility: visible;
-        box-shadow: 10px 0 30px rgba(0,0,0,0.05);
-      }
     }
 
     /* 3. 目录列表样式 */
@@ -360,6 +350,13 @@
     @media (max-width: 768px) {
       .elevator-fab { right: 1rem; bottom: 1.5rem; gap: 8px; }
       .elevator-fab svg { width: 24px; height: 16px; }
+
+      /* 手机端段落：两端对齐，避免右边距参差不齐 */
+      .markdown-content p {
+        text-align: justify;
+        overflow-wrap: break-word;
+        text-wrap: normal;
+      }
     }
 
     /* ======================================================
