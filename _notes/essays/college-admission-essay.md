@@ -2,7 +2,7 @@
 layout: post
 title: "携稳重的自信，赴厚重的旅行"
 main_category: "随笔漫谈"
-sub_category: "生命故事"
+sub_category: "高中岁月"
 date: "2021-10-27"
 author: "Zircon"
 permalink: "/essays/college-admission-essay"

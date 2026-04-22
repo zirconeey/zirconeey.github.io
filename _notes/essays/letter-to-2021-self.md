@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "山海｜致 2021 的我"
+title: "致 2021 的我"
 main_category: "随笔漫谈"
-sub_category: "生命故事"
+sub_category: "高中岁月"
 date: 2023-06-01
 permalink: "/essays/letter-to-2021-self"
 ---
