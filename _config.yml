@@ -32,6 +32,7 @@ collections:
     permalink: /notes/:path/ # URL 路径保持与文件夹结构一致
 
 study_order:
+  - gre
   - adv-micro-psu
   - adv-metrics-pku
   - adv-micro-pku
