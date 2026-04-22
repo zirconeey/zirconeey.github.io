@@ -5,6 +5,8 @@ date: 2022-12-23
 discipline: "其他"
 course: "心理统计Ⅰ"
 material_type: "课程测评"
+review_category: "其他"
+semester: "2022 秋"
 ---
 
 作为本学期第一门结束考试的课，同时也是争议很大的一门课，赶在出分之前做一个课程测评积攒人品。

@@ -5,6 +5,8 @@ date: 2023-01-08
 discipline: "经济学"
 course: "行为经济学"
 material_type: "课程测评"
+review_category: "经济学"
+semester: "2022 秋"
 ---
 
 今天的这门课比较不一样，是光华的课，但是我上的第一门专业必修课，是第一门（目前）非必选的课。

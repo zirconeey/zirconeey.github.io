@@ -5,6 +5,8 @@ date: 2023-01-09
 discipline: "计算机"
 course: "数据科学的 Python 基础"
 material_type: "课程测评"
+review_category: "其他"
+semester: "2022 秋"
 ---
 
 ：

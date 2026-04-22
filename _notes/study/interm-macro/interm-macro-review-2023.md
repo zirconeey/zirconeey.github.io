@@ -5,6 +5,8 @@ date: 2023-01-06
 discipline: "经济学"
 course: "中级宏观经济学"
 material_type: "课程测评"
+review_category: "经济学"
+semester: "2022 秋"
 ---
 
 2022 年 12 月 28 日，交卷了，从此我的生活失去了颜色。（因为无法再退课（大雾

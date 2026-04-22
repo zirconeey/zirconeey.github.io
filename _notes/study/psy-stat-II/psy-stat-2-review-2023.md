@@ -5,6 +5,8 @@ date: 2023-06-25
 discipline: "其他"
 course: "心理统计Ⅱ"
 material_type: "课程测评"
+review_category: "其他"
+semester: "2023 春"
 ---
 
 心理统计 II 是这学期第一门结课的课，是这学期让我思维最活跃的课，也是对我意义最非凡的一门课。

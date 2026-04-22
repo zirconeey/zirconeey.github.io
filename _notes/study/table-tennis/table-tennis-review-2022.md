@@ -5,6 +5,8 @@ date: 2022-12-23
 discipline: "体育"
 course: "乒乓球"
 material_type: "课程测评"
+review_category: "体育"
+semester: "2022 秋"
 ---
 
 没能赶在出分前写完这篇测评，但分数客观且基本符合预期，所以下文应该也不至于有太大偏颇。

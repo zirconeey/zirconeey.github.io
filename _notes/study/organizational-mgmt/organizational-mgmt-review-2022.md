@@ -5,6 +5,8 @@ date: 2022-12-29
 discipline: "管理学"
 course: "组织与管理"
 material_type: "课程测评"
+review_category: "其他"
+semester: "2022 秋"
 ---
 
 [《组织与管理》](https://mp.weixin.qq.com/s?__biz=MzA3NTE2NzkyMg==&mid=2653280755&idx=1&sn=41858412816505898e9786dc3f495c34&scene=21#wechat_redirect)是光华培养计划中大二的必修课，直接点课名可以看**学院**给的课程介绍。这门课 4 学分，每周都有两次课，张建君老师讲组织理论，刘知老师讲组织行为学，仲为国老师讲战略管理理论。以本学期为例，具体安排如下：

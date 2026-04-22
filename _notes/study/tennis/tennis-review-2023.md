@@ -5,6 +5,8 @@ date: 2023-08-03
 discipline: "体育"
 course: "网球"
 material_type: "课程测评"
+review_category: "体育"
+semester: "2023 春"
 ---
 
 # 缘由

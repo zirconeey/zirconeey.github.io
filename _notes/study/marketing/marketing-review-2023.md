@@ -5,6 +5,8 @@ date: 2023-01-02
 discipline: "管理学"
 course: "营销学"
 material_type: "课程测评"
+review_category: "其他"
+semester: "2022 秋"
 ---
 
 这个封面确实有点奇特，看到后面你就懂。

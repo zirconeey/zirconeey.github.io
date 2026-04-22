@@ -5,6 +5,8 @@ date: 2023-07-18
 discipline: "经济学"
 course: "计量因果识别方法"
 material_type: "课程测评"
+review_category: "经济学"
+semester: "2023 夏"
 ---
 
 # 第 0 节课
