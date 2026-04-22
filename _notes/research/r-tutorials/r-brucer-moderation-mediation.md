@@ -13,11 +13,22 @@ published: true
 
 站在巨人的肩膀上简单评价前人的成果是“不道德”的，但在进入正文之前，我还是想通过简单对比看看这次是有多优雅！在上篇介绍的，在调节效应显著后，简单斜率分析用到的代码是这样复杂：
 
-![](/files/images/r-brucer-moderation-mediation/01.jpg)
+```r
+simpleSlope <- emtrends(model_moderation,
+                        pairwise ~ age_con,
+                        var = "Relationship",
+                        cov.keep = 3,
+                        at = list(
+                          age_con = c(m_Age-sd_Age, m_Age, m_Age+sd_Age)),
+                        level = 0.95)
+summary(simpleSlope)
+```
 
 不仅需要指定很繁杂的参数，还要**手动**设置中心化和标准差！而且这还没有考虑此前拟合模型所费的周章。而用了bruceR::PROCESS()，只要一句指令
 
-![](/files/images/r-brucer-moderation-mediation/02.jpg)
+```r
+PROCESS(stu, y="score", x="late", mods="gender")
+```
 
 就能给我返回部分模型、全模型，
 

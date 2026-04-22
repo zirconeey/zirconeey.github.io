@@ -9,8 +9,6 @@ permalink: "/research/r-tutorials/r-anova-manova"
 published: true
 ---
 
-文末的“**阅读原文**”是蓝色的。
-
 ![](/files/images/r-anova-manova/01.jpg)
 
 ![](/files/images/r-anova-manova/02.jpg)

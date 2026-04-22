@@ -14,5 +14,3 @@ published: true
 ![](/files/images/r-data-processing-aggregation/01.jpg)
 
 HTML 文件直接双击即可，一般会用默认浏览器直接打开。我在里面特意设置了一些互动组件（部分数据框有互动功能），读者可以自行发挥。
-
-![](/files/images/r-data-processing-aggregation/02.jpg)

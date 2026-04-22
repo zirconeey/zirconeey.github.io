@@ -9,12 +9,6 @@ permalink: "/research/r-tutorials/r-multiple-linear-regression"
 published: true
 ---
 
-文末“
-
-**阅读原文**
-
-”是蓝色的噢~
-
 ![](/files/images/r-multiple-linear-regression/01.jpg)
 
 ![](/files/images/r-multiple-linear-regression/02.jpg)

@@ -16,5 +16,3 @@ published: true
 参考李东风的《R 语言教程》，我整理了 R 语言在数据处理过程中的强大功能，文中章节包含：
 
 ![](/files/images/r-data-processing/02.jpg)
-
-![](/files/images/r-data-processing/03.jpg)
