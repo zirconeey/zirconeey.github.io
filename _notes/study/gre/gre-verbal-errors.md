@@ -35,6 +35,7 @@ material_type: "错题本"
 
 ![](/files/images/gre-verbal-errors/10.jpg)
 
+{% raw %}
 ```latex
 \usepackage{tabularx}
 
@@ -110,3 +111,4 @@ material_type: "错题本"
 \end{center}
 }
 ```
+{% endraw %}
