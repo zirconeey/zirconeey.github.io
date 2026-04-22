@@ -24,8 +24,6 @@ exclude:
   - Gemfile.lock
   - vendor/
   - .gitignore
-  - files/adv-micro-psu/commands.tex
-  - files/adv-micro-psu/theorems.tex
 
 # Collections (if needed)
 collections:

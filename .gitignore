@@ -7,3 +7,5 @@ admin_web.py
 download_wechat_images.py
 .env
 node_modules/
+files/adv-micro-psu/commands.tex
+files/adv-micro-psu/theorems.tex
