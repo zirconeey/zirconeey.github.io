@@ -31,7 +31,7 @@ collections:
     output: true            # 让每一篇笔记生成独立的网页
     permalink: /notes/:path/ # URL 路径保持与文件夹结构一致
 
-course_order:
+study_order:
   - adv-micro-psu
   - adv-metrics-pku
   - adv-micro-pku

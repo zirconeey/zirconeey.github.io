@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "课程资料"
+title: "学习资料"
 ---
 
 <style>
@@ -42,14 +42,14 @@ title: "课程资料"
 
 <article class="kb-page-wrap">
   <header class="kb-header">
-    <h1>课程资料</h1>
+    <h1>学习资料</h1>
     <p>Academic Archives &amp; Knowledge Base</p>
   </header>
 
   <div class="knowledge-base">
     {%- assign seen_disciplines = "" -%}
 
-    {%- for folder in site.course_order -%}
+    {%- for folder in site.study_order -%}
       {%- assign match_path = "/" | append: folder | append: "/" -%}
       {%- assign folder_notes = site.notes | where_exp: "n", "n.path contains match_path" -%}
       {%- if folder_notes.size > 0 -%}
@@ -69,7 +69,7 @@ title: "课程资料"
           <summary class="discipline-title">{{ disc }}</summary>
           <div class="discipline-content">
 
-            {% for folder in site.course_order %}
+            {% for folder in site.study_order %}
               {% assign match_path = "/" | append: folder | append: "/" %}
               {% assign folder_notes = site.notes | where_exp: "n", "n.path contains match_path" %}
               {% if folder_notes.size > 0 %}
