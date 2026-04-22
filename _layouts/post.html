@@ -103,6 +103,49 @@ layout: default
     }
   }
 
+  /* 自定义 reaction widget */
+  .rxn-widget {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    justify-content: center;
+    margin: 4rem auto 1rem;
+    padding-top: 1.8rem;
+    border-top: 1px dashed var(--color-border);
+  }
+  .rxn-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.55rem 0.9rem 0.45rem;
+    background: var(--color-bg-warm);
+    border: 1.5px solid var(--color-border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.2s, transform 0.2s, background 0.2s;
+    min-width: 58px;
+    color: inherit;
+  }
+  .rxn-btn:hover:not(:disabled) {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+  }
+  .rxn-btn:disabled { opacity: 0.55; cursor: wait; }
+  .rxn-btn.active {
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 10%, var(--color-bg-warm));
+  }
+  .rxn-emoji { font-size: 1.3rem; line-height: 1; }
+  .rxn-count {
+    font-size: 0.78rem;
+    color: var(--color-muted);
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1;
+  }
+  .rxn-btn.active .rxn-count { color: var(--color-accent); font-weight: 600; }
+
   /* 图片配文：正体、灰色、小字、居中、窄栏 */
   .markdown-content .img-caption {
     text-align: center;
@@ -126,6 +169,10 @@ layout: default
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 
+{% if page.reactions %}
+<div id="rxn-widget" class="rxn-widget" data-post="{{ page.permalink | default: page.url }}"></div>
+{% endif %}
+
 <div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
 
 <script type="module">
@@ -142,41 +189,107 @@ layout: default
   document.head.appendChild(forceStyle);
 
   {% if page.reactions %}
-    const customReactions = {{ page.reactions | jsonify }};
-    const reactionConfig = customReactions.map(emoji => 
-      `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E${emoji}%3C/text%3E%3C/svg%3E`
-    );
+    // 自定义 reaction widget 接管了 Waline 的 reaction UI
+    const reactionConfig = false;
   {% else %}
     const reactionConfig = [
-      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44d.png', 
-      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44e.png'  
+      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44d.png',
+      'https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44e.png'
     ];
   {% endif %}
 
   init({
     el: '#waline',
-    serverURL: 'https://zircon-comments.vercel.app', 
-    dark: 'auto', 
-    lang: 'zh-CN', 
+    serverURL: 'https://zircon-comments.vercel.app',
+    dark: 'auto',
+    lang: 'zh-CN',
     emoji: ['//unpkg.com/@waline/emojis@1.1.0/tieba'],
     placeholder: '欢迎交流！不填昵称也可以直接发布哦...',
-    pageview: true, 
-    comment: true,  
+    pageview: true,
+    comment: true,
     texRenderer: (blockMode, tex) => {
       if (window.katex) {
         return window.katex.renderToString(tex, { displayMode: blockMode, throwOnError: false });
       }
       return tex;
     },
-    highlighter: (code) => code, 
+    highlighter: (code) => code,
     locale: {
-      reactionTitle: '', 
+      reactionTitle: '',
       preview: '👀 开启 Markdown 预览',
-      anonymous: '神秘学者' 
+      anonymous: '神秘学者'
     },
     reaction: reactionConfig,
     requiredMeta: [],
   });
+
+  {% if page.reactions %}
+  // ── 自定义 reaction widget ─────────────────────────────────────────
+  (() => {
+    const RXN_API = 'https://zircon-urge.vercel.app/api/reactions';
+    const RXN_EMOJIS = {{ page.reactions | jsonify }};
+    const RXN_GROUPS = {% if page.reaction_groups %}{{ page.reaction_groups | jsonify }}{% else %}null{% endif %};
+    const container = document.getElementById('rxn-widget');
+    if (!container) return;
+    const POST_ID = container.dataset.post;
+
+    let uid = localStorage.getItem('rxn-uid');
+    if (!uid) {
+      uid = (crypto.randomUUID && crypto.randomUUID()) ||
+            (Date.now().toString(36) + Math.random().toString(36).slice(2, 10));
+      localStorage.setItem('rxn-uid', uid);
+    }
+
+    const groupMatesOf = (emoji) => {
+      if (!RXN_GROUPS || !RXN_GROUPS.length) return RXN_EMOJIS;
+      for (const g of RXN_GROUPS) if (g.includes(emoji)) return g;
+      return [emoji];
+    };
+
+    container.innerHTML = RXN_EMOJIS.map(e =>
+      `<button type="button" class="rxn-btn" data-emoji="${e}" title="${e}">
+         <span class="rxn-emoji">${e}</span>
+         <span class="rxn-count">·</span>
+       </button>`
+    ).join('');
+
+    const render = ({ counts, active }) => {
+      container.querySelectorAll('.rxn-btn').forEach(btn => {
+        const e = btn.dataset.emoji;
+        btn.querySelector('.rxn-count').textContent = counts[e] ?? 0;
+        btn.classList.toggle('active', active.includes(e));
+      });
+    };
+
+    const load = async () => {
+      try {
+        const url = `${RXN_API}?post=${encodeURIComponent(POST_ID)}&uid=${encodeURIComponent(uid)}&emojis=${encodeURIComponent(RXN_EMOJIS.join(','))}`;
+        const r = await fetch(url);
+        const data = await r.json();
+        if (data && data.counts) render(data);
+      } catch (err) { console.warn('rxn load failed', err); }
+    };
+
+    container.addEventListener('click', async (ev) => {
+      const btn = ev.target.closest('.rxn-btn');
+      if (!btn || btn.disabled) return;
+      btn.disabled = true;
+      const emoji = btn.dataset.emoji;
+      try {
+        const r = await fetch(RXN_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ post: POST_ID, uid, emoji, groupMates: groupMatesOf(emoji) })
+        });
+        const data = await r.json();
+        if (data && data.counts) render(data);
+      } catch (err) { console.warn('rxn toggle failed', err); }
+      finally { btn.disabled = false; }
+    });
+
+    load();
+  })();
+  {% endif %}
 
   // 评论区：三个 meta 输入框加"（可选）"提示 + 手机端靠 CSS 隐藏邮箱/网址
   const walineEl = document.getElementById('waline');
