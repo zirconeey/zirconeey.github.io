@@ -9,3 +9,6 @@ download_wechat_images.py
 node_modules/
 files/adv-micro-psu/commands.tex
 files/adv-micro-psu/theorems.tex
+wx_all.json
+wx_candidates.md
+batch_import_r.py
