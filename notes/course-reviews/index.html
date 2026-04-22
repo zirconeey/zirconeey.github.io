@@ -11,9 +11,15 @@ permalink: /notes/course-reviews/
   .cr-header p { color: var(--color-light); font-style: italic; }
 
   .knowledge-base .discipline-content { padding: 0.8rem 0 0.8rem 1rem; }
-  .knowledge-base .semester-block { margin: 0.5rem 0.5rem 1rem 0.5rem !important; }
-  .knowledge-base .semester-block > summary { font-size: 1.05rem; color: var(--color-accent); }
-  .knowledge-base .semester-content { padding: 0.6rem 0 0.6rem 2rem; }
+  .knowledge-base .semester-block {
+    margin: 0.2rem 0 0.2rem 0 !important;
+    border: none !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+  }
+  .knowledge-base .semester-block > summary { font-size: 1.05rem; color: var(--color-accent); font-weight: 500; }
+  .knowledge-base .semester-block > summary:hover { background: transparent; }
+  .knowledge-base .semester-content { padding: 0.4rem 0 0.4rem 2rem; }
   .knowledge-base .file-list { list-style: none; padding: 0; margin: 0; }
   .knowledge-base .file-list li { margin-bottom: 0.6rem; }
   .knowledge-base .file-list a {
@@ -40,20 +46,20 @@ permalink: /notes/course-reviews/
   </header>
 
   <div class="knowledge-base">
-    {% assign cat_order = "思政|英语|体育|经济学|其他" | split: "|" %}
+    {% assign cat_order = "经济学|思政|英语|体育|其他" | split: "|" %}
     {% assign sem_order = "2022 秋|2023 春|2023 夏" | split: "|" %}
     {% assign all_reviews = site.notes | where: "material_type", "课程测评" %}
 
     {% for cat in cat_order %}
       {% assign cat_reviews = all_reviews | where: "review_category", cat %}
       {% if cat_reviews.size > 0 %}
-        <details class="discipline-block" open>
+        <details class="discipline-block">
           <summary class="discipline-title">{{ cat }}</summary>
           <div class="discipline-content">
             {% for sem in sem_order %}
               {% assign sem_reviews = cat_reviews | where: "semester", sem %}
               {% if sem_reviews.size > 0 %}
-                <details class="semester-block" open>
+                <details class="semester-block">
                   <summary class="semester-title">{{ sem }}</summary>
                   <div class="semester-content">
                     <ul class="file-list">
