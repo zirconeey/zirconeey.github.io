@@ -87,6 +87,22 @@ layout: default
     }
   }
 
+  /* 评论区：手机端只保留昵称输入框 */
+  @media (max-width: 768px) {
+    #waline [data-waline-field="mail"],
+    #waline [data-waline-field="link"] {
+      display: none !important;
+    }
+    #waline [data-waline-field="nick"] {
+      flex: 1 1 100% !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    #waline .wl-header {
+      flex-wrap: wrap !important;
+    }
+  }
+
   /* 图片配文：正体、灰色、小字、居中、窄栏 */
   .markdown-content .img-caption {
     text-align: center;
@@ -158,9 +174,29 @@ layout: default
       preview: '👀 开启 Markdown 预览',
       anonymous: '神秘学者' 
     },
-    reaction: reactionConfig, 
-    requiredMeta: [], 
+    reaction: reactionConfig,
+    requiredMeta: [],
   });
+
+  // 评论区：三个 meta 输入框加"（可选）"提示 + 手机端靠 CSS 隐藏邮箱/网址
+  const walineEl = document.getElementById('waline');
+  const metaFields = {
+    nick: '昵称（可选）',
+    mail: '邮箱（可选）',
+    link: '网址（可选）'
+  };
+  const patchMeta = () => {
+    Object.entries(metaFields).forEach(([name, ph]) => {
+      const input = walineEl.querySelector(`input[name="${name}"]`);
+      if (!input) return;
+      if (input.placeholder !== ph) input.placeholder = ph;
+      const wrap = input.closest('.wl-header-item') || input.parentElement;
+      if (wrap && wrap.dataset.walineField !== name) {
+        wrap.dataset.walineField = name;
+      }
+    });
+  };
+  new MutationObserver(patchMeta).observe(walineEl, { childList: true, subtree: true });
 
   // 🚀 全局公式渲染（绝对原封不动）
   setTimeout(() => {
