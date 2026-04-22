@@ -64,7 +64,8 @@ title: "学习资料"
 
     {%- for folder in site.study_order -%}
       {%- assign match_path = "/" | append: folder | append: "/" -%}
-      {%- assign folder_notes = site.notes | where_exp: "n", "n.path contains match_path" -%}
+      {%- assign raw_folder_notes = site.notes | where_exp: "n", "n.path contains match_path" -%}
+      {%- assign folder_notes = raw_folder_notes | where_exp: "n", "n.material_type != '课程测评'" -%}
       {%- if folder_notes.size > 0 -%}
         {%- assign first_note = folder_notes[0] -%}
         {%- assign curr_disc = first_note.discipline | default: "未分类学科" -%}
@@ -84,7 +85,8 @@ title: "学习资料"
 
             {% for folder in site.study_order %}
               {% assign match_path = "/" | append: folder | append: "/" %}
-              {% assign folder_notes = site.notes | where_exp: "n", "n.path contains match_path" %}
+              {% assign raw_folder_notes = site.notes | where_exp: "n", "n.path contains match_path" %}
+              {% assign folder_notes = raw_folder_notes | where_exp: "n", "n.material_type != '课程测评'" %}
               {% if folder_notes.size > 0 %}
                 {% assign first_note = folder_notes[0] %}
                 {% assign this_disc = first_note.discipline | default: "未分类学科" %}
