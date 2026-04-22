@@ -11,15 +11,15 @@ permalink: /notes/course-reviews/
   .cr-header p { color: var(--color-light); font-style: italic; }
 
   .knowledge-base .discipline-content { padding: 0.8rem 0 0.8rem 1rem; }
-  .knowledge-base .semester-block {
-    margin: 0.2rem 0 0.2rem 0 !important;
-    border: none !important;
-    background: transparent !important;
-    border-radius: 0 !important;
+  .knowledge-base .semester-label {
+    font-size: 1rem;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin: 1rem 0 0.4rem 1rem;
+    letter-spacing: 0.02em;
   }
-  .knowledge-base .semester-block > summary { font-size: 1.05rem; color: var(--color-accent); font-weight: 500; }
-  .knowledge-base .semester-block > summary:hover { background: transparent; }
-  .knowledge-base .semester-content { padding: 0.4rem 0 0.4rem 2rem; }
+  .knowledge-base .semester-label:first-child { margin-top: 0.4rem; }
+  .knowledge-base .semester-content { padding: 0 0 0.4rem 2rem; }
   .knowledge-base .file-list { list-style: none; padding: 0; margin: 0; }
   .knowledge-base .file-list li { margin-bottom: 0.6rem; }
   .knowledge-base .file-list a {
@@ -59,23 +59,21 @@ permalink: /notes/course-reviews/
             {% for sem in sem_order %}
               {% assign sem_reviews = cat_reviews | where: "semester", sem %}
               {% if sem_reviews.size > 0 %}
-                <details class="semester-block">
-                  <summary class="semester-title">{{ sem }}</summary>
-                  <div class="semester-content">
-                    <ul class="file-list">
-                      {% assign sorted_sem = sem_reviews | sort: "date" %}
-                      {% for item in sorted_sem %}
-                        {% if item.published != false %}
-                          <li>
-                            <a href="{{ item.url | relative_url }}">
-                              {{ item.course | default: item.title }}
-                            </a>
-                          </li>
-                        {% endif %}
-                      {% endfor %}
-                    </ul>
-                  </div>
-                </details>
+                <div class="semester-label">{{ sem }}</div>
+                <div class="semester-content">
+                  <ul class="file-list">
+                    {% assign sorted_sem = sem_reviews | sort: "date" %}
+                    {% for item in sorted_sem %}
+                      {% if item.published != false %}
+                        <li>
+                          <a href="{{ item.url | relative_url }}">
+                            {{ item.course | default: item.title }}
+                          </a>
+                        </li>
+                      {% endif %}
+                    {% endfor %}
+                  </ul>
+                </div>
               {% endif %}
             {% endfor %}
           </div>
