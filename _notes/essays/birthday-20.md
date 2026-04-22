@@ -7,7 +7,7 @@ date: 2023-12-19
 permalink: "/essays/birthday-20"
 ---
 
-[**"如果要对十九岁说些什么，那就是希望二十岁看到这句话时，能露出微笑吧。"**](http://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487146&idx=1&sn=8a2219ad6387c4ae2dd59ba7073914a8&chksm=c31678a9f461f1bfc268af52c1c1211186e714b1fe55a22186e9ff2606a1b4f85603b3e721bc&scene=21#wechat_redirect)
+[**"如果要对十九岁说些什么，那就是希望二十岁看到这句话时，能露出微笑吧。"**](/essays/birthday-19)
 
 这是我站在十九岁的路口寄予未来一年的期望。
 
