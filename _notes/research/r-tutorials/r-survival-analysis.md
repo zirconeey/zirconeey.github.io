@@ -9,8 +9,6 @@ permalink: "/research/r-tutorials/r-survival-analysis"
 published: true
 ---
 
-文末“**阅读原文**”是蓝色的噢~
-
 这次只有九页，说起来难得这么优雅了。
 ![](/files/images/r-survival-analysis/01.png)
 
