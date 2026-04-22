@@ -21,9 +21,10 @@ import requests
 from bs4 import BeautifulSoup, NavigableString, Tag
 
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) '
-                  'AppleWebKit/537.36 (KHTML, like Gecko) '
-                  'Chrome/120.0.0.0 Safari/537.36',
+    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) '
+                  'AppleWebKit/605.1.15 (KHTML, like Gecko) '
+                  'Mobile/15E148 MicroMessenger/8.0.16(0x18001029) '
+                  'NetType/WIFI Language/zh_CN',
     'Referer': 'https://mp.weixin.qq.com/',
 }
 
@@ -238,7 +239,15 @@ def block_to_lines(node, url_map: dict, slug: str, list_depth: int = 0) -> list:
                 lines.extend(child_lines)
         return lines
 
-    # 其他标签：降级为内联文字
+    # 其他标签：先检查是否含有待处理图片，再降级为内联文字
+    inner_imgs = node.find_all('img')
+    img_lines = []
+    for img in inner_imgs:
+        src = img.get('data-src') or img.get('src', '')
+        if src in url_map:
+            img_lines.append(f'![](/files/images/{slug}/{url_map[src]})')
+    if img_lines:
+        return img_lines
     text = inline_md(node).strip()
     return [text] if text else []
 
