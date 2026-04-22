@@ -35,4 +35,4 @@ material_type: "经验之谈"
 
 希望能对大家有帮助吧！我现在只希望上帝保佑我 www
 
-![](/files/images/toefl-first-attempt/02.png)
+🙏

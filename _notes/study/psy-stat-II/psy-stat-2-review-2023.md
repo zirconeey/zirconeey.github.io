@@ -37,7 +37,7 @@ material_type: "课程测评"
 
 各部分的比例浮动用于最终调分，但各部分均不调分。今年魏坤琳老师给满了优秀率。
 
-心统 II 和心统 I 有差异，也有共同点。共同点可以补档《[课程测评 | 心理统计I](http://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487201&idx=1&sn=0b681ba15686f80531fc16b54c32aec6&chksm=c31678e2f461f1f46ce4adaacedd6c77135ab2cc950093fcead9887908aee337d1292f513a89&scene=21#wechat_redirect)》；关于差异，我认为心统 II 的工具性更为明显，这可能也是统计课进入更深的应用的必然趋势之一——尽可以不了解背后的原理，但也可以使用这一工具辅助研究。
+心统 II 和心统 I 有差异，也有共同点。共同点可以补档《[课程测评 \| 心理统计I](http://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487201&idx=1&sn=0b681ba15686f80531fc16b54c32aec6&chksm=c31678e2f461f1f46ce4adaacedd6c77135ab2cc950093fcead9887908aee337d1292f513a89&scene=21#wechat_redirect)》；关于差异，我认为心统 II 的工具性更为明显，这可能也是统计课进入更深的应用的必然趋势之一——尽可以不了解背后的原理，但也可以使用这一工具辅助研究。
 
 说实话，这学期心统对自己的帮助还是比较大的。每上一节课，我总会忍不住想想这节课的研究方法能否用到自己正在做（学期初）或者做完了（学期中）的挑战杯，并且现在也开始觉得当时自己只会多元线性回归加上倒退法，确实会的只是皮毛。昨天，总算有时间补了对于挑战杯数据的异质性分析——《[虽迟但到的——挑战杯高中生问卷的异质性](http://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247488904&idx=1&sn=3efaefba8240621367dc5cfb823f2a87&chksm=c316638bf461ea9db93ac9e1f9a134f5abfb6e9faec91eee1980b4d0ec1afaab72c66fd76eef&scene=21#wechat_redirect)》。不过话说回来，工具终归是工具，魏老师不断提醒的“So What?”如同头顶上那轮明月，柔美又值得敬畏！
 

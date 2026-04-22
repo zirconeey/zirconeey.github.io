@@ -61,7 +61,7 @@ material_type: "课程测评"
 - 考试时间为2023年6月16日晚上，形式为闭卷考试，共50分。
 - 考试题型
 - 个人经验
-- 更多关于期末考试，可以参考往期[《博雅 | 毛概 2023 年春期末考试试题》](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247488733&idx=1&sn=678f539ccf900ad39b017ca787ed6de7&chksm=c31662def461ebc8c35c2955e1f34390a7343afa00c3dc4fdda5ade23423ee302c9866e8da54&scene=21#wechat_redirect)，
+- 更多关于期末考试，可以参考往期[《博雅 \| 毛概 2023 年春期末考试试题》](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247488733&idx=1&sn=678f539ccf900ad39b017ca787ed6de7&chksm=c31662def461ebc8c35c2955e1f34390a7343afa00c3dc4fdda5ade23423ee302c9866e8da54&scene=21#wechat_redirect)，
 
 # 课程感受
 
@@ -76,6 +76,6 @@ material_type: "课程测评"
 ![](/files/images/mao-thought-review-2023/05.jpg)
 
 封世蓝老师不仅在给分上评价向好，在讲课上也被给予了很不错的评价。这学期封世蓝老师的三位老师——王久高、封世蓝、李洋老师——都**打破了我对毛概的一些刻板印象**。每节课我都坐在第一排认真听了（这课坐第一排甚至自带气场 hhh
-![](/files/images/mao-thought-review-2023/06.png)
+[旺柴]
 
 另外，如果封世蓝老师班级的助教如果没换的话，那想必推荐程度又能上一个档次。这次遇到的助教非常能理解和体谅同学们，处理事情上也很灵活，再度强化了我这次选毛概的欣喜！

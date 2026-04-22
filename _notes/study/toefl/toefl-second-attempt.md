@@ -9,7 +9,7 @@ material_type: "经验之谈"
 
 ## 二战托福的缘起
 
-这个标题想必很熟悉，因为此前有了一篇《[博雅 | 不配这个专栏的托福经验分享](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487687&idx=1&sn=5360fa275d07b6f961493ba4270db3a9&chksm=c31666c4f461efd24f3f14105852f3a01734891c39b981f620299f31010acf9f28762d2b1b1e&scene=21&token=1300811682&lang=zh_CN#wechat_redirect)》。问就是我二战托福了，再问就是上次的成绩很不体面。
+这个标题想必很熟悉，因为此前有了一篇《[博雅 \| 不配这个专栏的托福经验分享](https://mp.weixin.qq.com/s?__biz=Mzk0NTMxNjcxNg==&mid=2247487687&idx=1&sn=5360fa275d07b6f961493ba4270db3a9&chksm=c31666c4f461efd24f3f14105852f3a01734891c39b981f620299f31010acf9f28762d2b1b1e&scene=21&token=1300811682&lang=zh_CN#wechat_redirect)》。问就是我二战托福了，再问就是上次的成绩很不体面。
 
 上次考托福要多尴尬有多尴尬。原以为出分时间绰绰有余，结果让我错过了交换填报的DDL；原本以为一次搞定，没想到还得下次再战。这两件事情已经让我非常折腾了，更不用说交换上的其他糟心事了。
 
