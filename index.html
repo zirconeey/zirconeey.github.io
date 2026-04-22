@@ -216,7 +216,7 @@ title: 锆铌 | Rui Zhou
   #rw-feedback { font-size: 0.78rem; color: var(--color-accent); min-height: 1.1em; margin-top: 0.3rem; }
 </style>
 
-<div id="react-widget">
+<div id="react-widget" style="display: none;">
   <button class="rw-main-btn" onclick="reactClick('urge')">📣 催更！</button>
   <div class="rw-count-line">已有 <strong class="rw-num" id="urge-num">—</strong> 人在催了</div>
   <div id="urge-days" style="display:none; font-size:0.75rem; color:var(--color-light); margin-top:0.2rem;">
@@ -257,8 +257,10 @@ title: 锆铌 | Rui Zhou
   const API = 'https://zircon-urge.vercel.app/api/urge';
 
   async function loadData() {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 4000);
     try {
-      const r = await fetch(API);
+      const r = await fetch(API, { signal: ctrl.signal });
       const d = await r.json();
       setText('urge-num', d.urge);
       setText('like-num', d.like);
@@ -270,7 +272,13 @@ title: 锆铌 | Rui Zhou
         if (el) el.style.display = 'block';
       }
       renderChart(d.last15days);
-    } catch(e) {}
+      const widget = document.getElementById('react-widget');
+      if (widget) widget.style.display = '';
+    } catch(e) {
+      // 静默：保持 widget 隐藏状态，不给任何提示
+    } finally {
+      clearTimeout(timer);
+    }
   }
 
   function setText(id, val) {

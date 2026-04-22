@@ -31,8 +31,8 @@ layout: default
         By {{ page.author | default: "Zircon" }}
       </span>
 
-      <div style="display: flex; gap: 1.2rem; align-items: center; font-family: var(--font-body); font-size: 0.95rem; opacity: 0.85;">
-        
+      <div id="post-stats" style="display: none; gap: 1.2rem; align-items: center; font-family: var(--font-body); font-size: 0.95rem; opacity: 0.85;">
+
         <div style="display: flex; align-items: center; gap: 0.4rem;" title="阅读量">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -170,10 +170,10 @@ layout: default
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 
 {% if page.reactions %}
-<div id="rxn-widget" class="rxn-widget" data-post="{{ page.permalink | default: page.url }}"></div>
+<div id="rxn-widget" class="rxn-widget" data-post="{{ page.permalink | default: page.url }}" style="display: none;"></div>
 {% endif %}
 
-<div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border);"></div>
+<div id="waline" style="margin-top: 5rem; padding-top: 2rem; border-top: 1px dashed var(--color-border); display: none;"></div>
 
 <script type="module">
   import { init } from 'https://unpkg.com/@waline/client@v2/dist/waline.mjs';
@@ -188,6 +188,14 @@ layout: default
   `;
   document.head.appendChild(forceStyle);
 
+  // 带超时的可达性检测：任何响应（含 4xx）都算通；超时/网络错误算挂
+  const reachable = (url, ms) => {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), ms);
+    return fetch(url, { signal: ctrl.signal, cache: 'no-store' })
+      .then(() => true).catch(() => false).finally(() => clearTimeout(timer));
+  };
+
   {% if page.reactions %}
     // 自定义 reaction widget 接管了 Waline 的 reaction UI
     const reactionConfig = false;
@@ -198,29 +206,58 @@ layout: default
     ];
   {% endif %}
 
-  init({
-    el: '#waline',
-    serverURL: 'https://zircon-comments.vercel.app',
-    dark: 'auto',
-    lang: 'zh-CN',
-    emoji: ['//unpkg.com/@waline/emojis@1.1.0/tieba'],
-    placeholder: '欢迎交流！不填昵称也可以直接发布哦...',
-    pageview: true,
-    comment: true,
-    texRenderer: (blockMode, tex) => {
-      if (window.katex) {
-        return window.katex.renderToString(tex, { displayMode: blockMode, throwOnError: false });
-      }
-      return tex;
-    },
-    highlighter: (code) => code,
-    locale: {
-      reactionTitle: '',
-      preview: '👀 开启 Markdown 预览',
-      anonymous: '神秘学者'
-    },
-    reaction: reactionConfig,
-    requiredMeta: [],
+  // Waline：ping 通才显示 + init；否则静默保持隐藏
+  reachable('https://zircon-comments.vercel.app/api/comment?type=count&path=/', 4000).then(ok => {
+    if (!ok) return;
+
+    const walineEl = document.getElementById('waline');
+    const statsEl = document.getElementById('post-stats');
+    if (walineEl) walineEl.style.display = '';
+    if (statsEl) statsEl.style.display = 'flex';
+
+    init({
+      el: '#waline',
+      serverURL: 'https://zircon-comments.vercel.app',
+      dark: 'auto',
+      lang: 'zh-CN',
+      emoji: ['//unpkg.com/@waline/emojis@1.1.0/tieba'],
+      placeholder: '欢迎交流！不填昵称也可以直接发布哦...',
+      pageview: true,
+      comment: true,
+      texRenderer: (blockMode, tex) => {
+        if (window.katex) {
+          return window.katex.renderToString(tex, { displayMode: blockMode, throwOnError: false });
+        }
+        return tex;
+      },
+      highlighter: (code) => code,
+      locale: {
+        reactionTitle: '',
+        preview: '👀 开启 Markdown 预览',
+        anonymous: '神秘学者'
+      },
+      reaction: reactionConfig,
+      requiredMeta: [],
+    });
+
+    // 评论区：三个 meta 输入框加"（可选）"提示 + 手机端靠 CSS 隐藏邮箱/网址
+    const metaFields = {
+      nick: '昵称（可选）',
+      mail: '邮箱（可选）',
+      link: '网址（可选）'
+    };
+    const patchMeta = () => {
+      Object.entries(metaFields).forEach(([name, ph]) => {
+        const input = walineEl.querySelector(`input[name="${name}"]`);
+        if (!input) return;
+        if (input.placeholder !== ph) input.placeholder = ph;
+        const wrap = input.closest('.wl-header-item') || input.parentElement;
+        if (wrap && wrap.dataset.walineField !== name) {
+          wrap.dataset.walineField = name;
+        }
+      });
+    };
+    new MutationObserver(patchMeta).observe(walineEl, { childList: true, subtree: true });
   });
 
   {% if page.reactions %}
@@ -262,12 +299,21 @@ layout: default
     };
 
     const load = async () => {
+      const ctrl = new AbortController();
+      const timer = setTimeout(() => ctrl.abort(), 4000);
       try {
         const url = `${RXN_API}?post=${encodeURIComponent(POST_ID)}&uid=${encodeURIComponent(uid)}&emojis=${encodeURIComponent(RXN_EMOJIS.join(','))}`;
-        const r = await fetch(url);
+        const r = await fetch(url, { signal: ctrl.signal });
         const data = await r.json();
-        if (data && data.counts) render(data);
-      } catch (err) { console.warn('rxn load failed', err); }
+        if (data && data.counts) {
+          render(data);
+          container.style.display = '';  // 成功才显示 widget
+        }
+      } catch (err) {
+        // 静默：保持 widget 隐藏
+      } finally {
+        clearTimeout(timer);
+      }
     };
 
     container.addEventListener('click', async (ev) => {
@@ -290,26 +336,6 @@ layout: default
     load();
   })();
   {% endif %}
-
-  // 评论区：三个 meta 输入框加"（可选）"提示 + 手机端靠 CSS 隐藏邮箱/网址
-  const walineEl = document.getElementById('waline');
-  const metaFields = {
-    nick: '昵称（可选）',
-    mail: '邮箱（可选）',
-    link: '网址（可选）'
-  };
-  const patchMeta = () => {
-    Object.entries(metaFields).forEach(([name, ph]) => {
-      const input = walineEl.querySelector(`input[name="${name}"]`);
-      if (!input) return;
-      if (input.placeholder !== ph) input.placeholder = ph;
-      const wrap = input.closest('.wl-header-item') || input.parentElement;
-      if (wrap && wrap.dataset.walineField !== name) {
-        wrap.dataset.walineField = name;
-      }
-    });
-  };
-  new MutationObserver(patchMeta).observe(walineEl, { childList: true, subtree: true });
 
   // 🚀 全局公式渲染（绝对原封不动）
   setTimeout(() => {
