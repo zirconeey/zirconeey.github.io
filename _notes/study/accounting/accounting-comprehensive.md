@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "会计学 | 综合笔记"
+title: "会计学课程笔记"
 date: 2022-06-28
 discipline: "其他"
 course: "会计学"

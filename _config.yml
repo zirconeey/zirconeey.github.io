@@ -32,8 +32,6 @@ collections:
     permalink: /notes/:path/ # URL 路径保持与文件夹结构一致
 
 study_order:
-  - gre
-  - toefl
   - adv-micro-psu
   - adv-metrics-pku
   - adv-micro-pku
