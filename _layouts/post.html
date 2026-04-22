@@ -86,6 +86,24 @@ layout: default
       display: none !important;
     }
   }
+
+  /* 图片配文：正体、灰色、小字、居中、窄栏 */
+  .markdown-content .img-caption {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--color-light);
+    max-width: 60%;
+    margin: -0.5rem auto 2rem;
+    font-style: normal;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+  }
+  @media (max-width: 768px) {
+    .markdown-content .img-caption {
+      max-width: 80%;
+      font-size: 0.78rem;
+    }
+  }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" />
