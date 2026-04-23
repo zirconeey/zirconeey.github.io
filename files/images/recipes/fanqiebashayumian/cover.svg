@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ffe8ca"/>
+      <stop offset="55%" stop-color="#d84828"/>
+      <stop offset="100%" stop-color="#3a0a04"/>
+    </radialGradient>
+    <radialGradient id="broth" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#f06838"/>
+      <stop offset="100%" stop-color="#a02814"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- bowl shadow -->
+  <ellipse cx="400" cy="440" rx="280" ry="30" fill="#1a0504" opacity="0.5"/>
+  <!-- bowl -->
+  <path d="M130,260 Q130,440 400,440 Q670,440 670,260 Z" fill="#f2e8d0" stroke="#6a4018" stroke-width="3"/>
+  <!-- broth surface -->
+  <ellipse cx="400" cy="260" rx="270" ry="50" fill="url(#broth)"/>
+  <!-- angel hair noodles -->
+  <g stroke="#f8d070" stroke-width="2" fill="none" opacity="0.85">
+    <path d="M200,258 Q260,250 320,258 Q380,265 440,255 Q500,248 570,262"/>
+    <path d="M210,270 Q280,260 340,272 Q410,280 470,270 Q520,265 590,275"/>
+    <path d="M220,248 Q290,240 360,250 Q430,258 500,245 Q550,240 600,252"/>
+    <path d="M230,280 Q310,272 380,285 Q450,292 510,280 Q560,275 610,285"/>
+  </g>
+  <!-- tomato chunks -->
+  <g stroke="#8a1808" stroke-width="1.5">
+    <circle cx="280" cy="245" r="24" fill="#e84020"/>
+    <circle cx="350" cy="258" r="22" fill="#f05028"/>
+    <circle cx="460" cy="248" r="26" fill="#e84020"/>
+    <circle cx="530" cy="262" r="22" fill="#f05028"/>
+  </g>
+  <!-- tomato highlights -->
+  <g fill="#ff8050" opacity="0.6">
+    <ellipse cx="275" cy="238" rx="10" ry="5"/>
+    <ellipse cx="345" cy="252" rx="9" ry="4"/>
+    <ellipse cx="455" cy="241" rx="11" ry="5"/>
+    <ellipse cx="525" cy="256" rx="9" ry="4"/>
+  </g>
+  <!-- fish fillet chunks (white) -->
+  <g stroke="#a8a088" stroke-width="1" fill="#f8f0dc">
+    <path d="M225,275 Q260,270 295,278 Q290,295 255,293 Q225,290 225,275 Z"/>
+    <path d="M395,278 Q430,270 470,278 Q465,295 428,295 Q395,293 395,278 Z"/>
+    <path d="M555,275 Q590,270 620,280 Q615,295 585,295 Q555,290 555,275 Z"/>
+  </g>
+  <!-- green herb -->
+  <g fill="#5a9028">
+    <ellipse cx="240" cy="252" rx="5" ry="2"/>
+    <ellipse cx="320" cy="248" rx="5" ry="2"/>
+    <ellipse cx="395" cy="258" rx="5" ry="2"/>
+    <ellipse cx="485" cy="252" rx="5" ry="2"/>
+    <ellipse cx="565" cy="255" rx="5" ry="2"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="38" font-weight="700"
+        fill="#2a0604" text-anchor="middle" letter-spacing="5">番 茄 巴 沙 鱼 面</text>
+</svg>

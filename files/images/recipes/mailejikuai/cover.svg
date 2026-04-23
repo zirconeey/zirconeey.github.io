@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#fff5d8"/>
+      <stop offset="55%" stop-color="#e89838"/>
+      <stop offset="100%" stop-color="#5a2804"/>
+    </radialGradient>
+    <linearGradient id="nug" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbda88"/>
+      <stop offset="55%" stop-color="#e08828"/>
+      <stop offset="100%" stop-color="#8a4408"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- paper basket -->
+  <path d="M200,420 L600,420 L560,220 L240,220 Z" fill="#f8f0dc" stroke="#8a6a38" stroke-width="3"/>
+  <!-- red checker pattern on paper -->
+  <g fill="#d84020" opacity="0.15">
+    <rect x="240" y="230" width="20" height="20"/>
+    <rect x="280" y="230" width="20" height="20"/>
+    <rect x="320" y="230" width="20" height="20"/>
+    <rect x="260" y="250" width="20" height="20"/>
+    <rect x="300" y="250" width="20" height="20"/>
+    <rect x="340" y="250" width="20" height="20"/>
+    <rect x="380" y="240" width="20" height="20"/>
+    <rect x="420" y="240" width="20" height="20"/>
+    <rect x="460" y="240" width="20" height="20"/>
+    <rect x="500" y="240" width="20" height="20"/>
+    <rect x="540" y="240" width="20" height="20"/>
+  </g>
+  <!-- nuggets -->
+  <g stroke="#5a2c04" stroke-width="1.5">
+    <path d="M250,320 Q250,280 290,280 L340,280 Q380,280 380,320 L380,370 Q380,395 345,395 L285,395 Q250,395 250,370 Z" fill="url(#nug)"/>
+    <path d="M400,310 Q400,275 440,275 L485,275 Q520,275 520,310 L520,365 Q520,390 485,390 L435,390 Q400,390 400,365 Z" fill="url(#nug)"/>
+    <path d="M300,360 Q300,345 330,340 Q360,338 380,358 L405,355 Q430,355 440,380 Q420,400 380,400 Q340,400 300,395 Z" fill="url(#nug)"/>
+    <path d="M430,340 Q450,320 490,330 L520,335 Q555,345 555,370 Q555,395 520,400 Q460,400 440,385 Z" fill="url(#nug)"/>
+  </g>
+  <!-- crumb texture -->
+  <g fill="#fbe49c" opacity="0.7">
+    <circle cx="285" cy="320" r="2"/>
+    <circle cx="320" cy="330" r="2"/>
+    <circle cx="350" cy="340" r="2"/>
+    <circle cx="440" cy="315" r="2"/>
+    <circle cx="470" cy="325" r="2"/>
+    <circle cx="495" cy="340" r="2"/>
+    <circle cx="310" cy="370" r="2"/>
+    <circle cx="380" cy="375" r="2"/>
+    <circle cx="470" cy="370" r="2"/>
+  </g>
+  <!-- ketchup dip on side -->
+  <g>
+    <circle cx="550" cy="400" r="30" fill="#a82010" stroke="#6a1008" stroke-width="1.5"/>
+    <circle cx="548" cy="398" r="25" fill="#d82810"/>
+    <ellipse cx="545" cy="392" rx="8" ry="4" fill="#f04830" opacity="0.7"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="42" font-weight="700"
+        fill="#2a1402" text-anchor="middle" letter-spacing="6">麦 乐 鸡 块</text>
+</svg>

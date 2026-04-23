@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="75%">
+      <stop offset="0%" stop-color="#f4fcff"/>
+      <stop offset="55%" stop-color="#b0d8e4"/>
+      <stop offset="100%" stop-color="#3a5068"/>
+    </radialGradient>
+    <linearGradient id="cake1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#dce8f0"/>
+    </linearGradient>
+    <linearGradient id="cake2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffe8d0"/>
+      <stop offset="100%" stop-color="#f0c898"/>
+    </linearGradient>
+    <linearGradient id="cake3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8d4ff"/>
+      <stop offset="100%" stop-color="#b8a0d8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="420" rx="290" ry="45" fill="#1a2838" opacity="0.35"/>
+  <ellipse cx="400" cy="410" rx="290" ry="45" fill="#f0f8ff"/>
+  <!-- three mooncakes -->
+  <g stroke="#6a7080" stroke-width="2">
+    <!-- left white -->
+    <path d="M180,380 L180,310 Q180,295 195,295 L305,295 Q320,295 320,310 L320,380 Z" fill="url(#cake1)"/>
+    <ellipse cx="250" cy="295" rx="70" ry="14" fill="url(#cake1)"/>
+    <!-- middle orange/yellow -->
+    <path d="M340,390 L340,300 Q340,285 355,285 L465,285 Q480,285 480,300 L480,390 Z" fill="url(#cake2)"/>
+    <ellipse cx="410" cy="285" rx="70" ry="14" fill="url(#cake2)"/>
+    <!-- right purple -->
+    <path d="M500,380 L500,310 Q500,295 515,295 L625,295 Q640,295 640,310 L640,380 Z" fill="url(#cake3)"/>
+    <ellipse cx="570" cy="295" rx="70" ry="14" fill="url(#cake3)"/>
+  </g>
+  <!-- decorative top patterns (mooncake mold impressions) -->
+  <g stroke="#8090a0" stroke-width="1.2" fill="none" opacity="0.7">
+    <!-- white -->
+    <circle cx="250" cy="295" r="22"/>
+    <path d="M235,290 Q250,282 265,290"/>
+    <path d="M235,298 Q250,305 265,298"/>
+    <!-- yellow -->
+    <circle cx="410" cy="285" r="22"/>
+    <path d="M395,280 Q410,272 425,280"/>
+    <path d="M395,288 Q410,296 425,288"/>
+    <!-- purple -->
+    <circle cx="570" cy="295" r="22"/>
+    <path d="M555,290 Q570,282 585,290"/>
+    <path d="M555,298 Q570,305 585,298"/>
+  </g>
+  <!-- custard filling hint showing through -->
+  <circle cx="250" cy="295" r="6" fill="#f8d870" opacity="0.5"/>
+  <circle cx="410" cy="285" r="6" fill="#f8d870" opacity="0.6"/>
+  <circle cx="570" cy="295" r="6" fill="#f8d870" opacity="0.5"/>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#1a2838" text-anchor="middle" letter-spacing="6">冰 皮 月 饼</text>
+</svg>

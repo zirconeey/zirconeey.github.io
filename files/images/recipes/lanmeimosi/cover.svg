@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#f4e8ff"/>
+      <stop offset="55%" stop-color="#8a66b8"/>
+      <stop offset="100%" stop-color="#1a0e3a"/>
+    </radialGradient>
+    <linearGradient id="cake" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d0a8e8"/>
+      <stop offset="55%" stop-color="#8858b8"/>
+      <stop offset="100%" stop-color="#3e1e6a"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e8d0f4"/>
+      <stop offset="100%" stop-color="#a078d0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="470" rx="280" ry="35" fill="#0f0628" opacity="0.5"/>
+  <ellipse cx="400" cy="460" rx="280" ry="35" fill="#e8e0f0"/>
+  <!-- cake body -->
+  <path d="M250,460 L250,270 Q250,240 275,235 L525,235 Q550,240 550,270 L550,460 Z"
+        fill="url(#cake)" stroke="#2a0e48" stroke-width="2"/>
+  <!-- cake top -->
+  <ellipse cx="400" cy="235" rx="150" ry="25" fill="url(#top)" stroke="#6a3a98" stroke-width="2"/>
+  <!-- blueberries on top -->
+  <g stroke="#1a0638" stroke-width="1">
+    <circle cx="340" cy="228" r="13" fill="#3e1e78"/>
+    <circle cx="375" cy="222" r="14" fill="#4a2888"/>
+    <circle cx="415" cy="224" r="13" fill="#3e1e78"/>
+    <circle cx="445" cy="228" r="14" fill="#4a2888"/>
+    <circle cx="470" cy="232" r="12" fill="#3e1e78"/>
+    <circle cx="360" cy="242" r="12" fill="#3e1e78"/>
+    <circle cx="400" cy="240" r="13" fill="#4a2888"/>
+    <circle cx="430" cy="242" r="12" fill="#3e1e78"/>
+  </g>
+  <!-- blueberry highlights -->
+  <g fill="#c0a0e8" opacity="0.7">
+    <circle cx="337" cy="224" r="3"/>
+    <circle cx="372" cy="218" r="3"/>
+    <circle cx="412" cy="220" r="3"/>
+    <circle cx="442" cy="224" r="3"/>
+  </g>
+  <!-- side swirl -->
+  <path d="M250,330 Q320,340 400,330 Q480,325 550,335" stroke="#c0a0e8" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <path d="M250,390 Q320,398 400,390 Q480,385 550,395" stroke="#c0a0e8" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#0f0628" text-anchor="middle" letter-spacing="6">蓝 莓 慕 斯</text>
+</svg>
