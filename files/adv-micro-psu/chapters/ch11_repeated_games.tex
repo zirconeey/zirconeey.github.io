@@ -443,3 +443,202 @@ The construction allocates the $T$ periods into three phases: a long ``main'' ph
 \rmkb[Contrast with the Infinite-Horizon Folk Theorem]{
   The infinite-horizon folk theorem (Section 11.2) can use \emph{minmax} as the punishment threat, because the Nash-reversion argument makes the minmax punishment itself part of an SPE in infinite play. The finite-horizon folk theorem cannot use minmax directly---one must fall back on \emph{stage-game Nash equilibria} as punishments. This is why the hypothesis of Benoit-Krishna requires multiple NE with distinct payoffs for each player. A Prisoner's Dilemma, having a unique stage NE, is therefore outside the theorem's reach: cooperation in finitely repeated Prisoner's Dilemma remains impossible at any horizon.
 }
+
+\section{The Chain Store Paradox}
+
+Proposition 11.2---that a finitely repeated game with a unique stage-game NE has a unique SPE in which the stage NE is played every period---leaves a puzzle in its wake. Consider a monopolist chain store facing a sequence of $K$ potential entrants, one per market. Intuitively, the store should \emph{fight} early entrants to build a reputation for fighting, deterring later entrants from entering at all. Yet if fighting is dominated in each stage game taken in isolation, Proposition 11.2 rules this out: the unique SPE has every entrant entering and the store accommodating every time. Selten (1978) sharpened this tension into the \textbf{chain store paradox}, paradoxical because real-world chain stores manifestly \emph{do} fight entrants and real-world entrants often stay out. Kreps and Wilson (1982), along with Milgrom and Roberts (1982), resolved the paradox by introducing a vanishingly small amount of incomplete information: a tiny probability that the store is ``crazy'' and enjoys fighting is enough to sustain reputation-building as a sequential equilibrium.
+
+\subsection{The Stage Game}
+
+A single long-lived \textbf{store} $S$ faces $K$ short-lived \textbf{entrants} $E_1, E_2, \ldots, E_K$ in sequence. In period $k$, $E_k$ decides whether to enter (IN) or stay out (OUT). Conditional on entry, the store decides whether to accommodate ($A$) or fight ($F$). The stage tree is:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.2, font=\small]
+  \tikzstyle{level 1}=[level distance=1.4cm, sibling distance=3.2cm]
+  \tikzstyle{level 2}=[level distance=1.4cm, sibling distance=2cm]
+  \tikzstyle{solid node}=[circle,draw,inner sep=1.2pt,fill=black]
+
+  \node[solid node, label=above:{$E_k$}] {}
+    child { node[solid node, label=left:{$S$}] {}
+      child { node {$(b-1,\ -1)$} edge from parent node[left] {$F$} }
+      child { node {$(b,\ 0)$}    edge from parent node[right] {$A$} }
+      edge from parent node[above left] {IN}
+    }
+    child { node {$(0,\ a)$} edge from parent node[above right] {OUT} };
+\end{tikzpicture}
+\end{center}
+
+Parameters satisfy $0 < b < 1 < a$. The first coordinate is the entrant's payoff; the second is the store's stage payoff. The store's total payoff is the undiscounted sum across the $K$ periods.
+
+\rmkb[Interpreting the Payoffs]{
+  Entering a contested market and earning duopoly profit nets the entrant $b \in (0, 1)$, a positive but small gain relative to the outside option $0$. Entering and being fought costs the entrant $1 - b > 0$. For the store: maintaining a monopoly earns rent $a > 1$; sharing the market (accommodating) earns $0$; fighting costs $1$ relative to accommodating, which is why fighting is dominated in isolation.
+}
+
+\subsection{Selten's Paradox: Backward-Induction Collapse}
+
+\propp{SPE of the Chain Store Game Under Common Knowledge}{
+  Assume the store's payoffs above are common knowledge. Then the unique SPE of the $K$-period chain store game has every entrant entering and the store accommodating in every period.
+}{
+  By backward induction. Because markets are additively separable across periods, the store's current-period choice of $F$ vs.\ $A$ does not affect any later-period payoffs whenever both types are common knowledge. So the store's choice at each IN node is governed by the stage game alone: $A$ (payoff $0$) strictly dominates $F$ (payoff $-1$). Anticipating $A$, each entrant compares IN ($b > 0$) to OUT ($0$) and strictly prefers IN. Iterating from period $K$ backward, every period features (IN, $A$).
+}
+
+\rmkb[What Makes This ``Paradoxical'']{
+  Common-sense reasoning about reputation says the store should fight early entrants so that later entrants, seeing the track record, stay out. The proposition says this intuition is wrong whenever the store's payoffs are common knowledge: fighting today does nothing to alter tomorrow's common-knowledge rationality calculation. Selten's contribution was to pose the tension sharply---the game-theoretic solution contradicts robust empirical behavior. Kreps and Wilson's contribution was to show that a \emph{tiny} perturbation of the information structure rescues the intuition.
+}
+
+\subsection{Resolution: A ``Crazy'' Store Type}
+
+Suppose the store's type is not common knowledge. With probability $1 - \varepsilon$ the store is \textbf{normal}, with the payoffs above. With probability $\varepsilon$ the store is \textbf{crazy}, with payoffs reversed on the $F$-$A$ axis:
+
+\begin{center}
+\begin{tabular}{lcc}
+  \hline
+   & \textbf{Normal} (prob.\ $1 - \varepsilon$) & \textbf{Crazy} (prob.\ $\varepsilon$) \\
+  \hline
+  OUT     & $a$  & $a$  \\
+  IN, $A$ & $0$  & $-1$ \\
+  IN, $F$ & $-1$ & $0$  \\
+  \hline
+\end{tabular}
+\end{center}
+
+For the crazy type, $F$ strictly dominates $A$ at every IN node; the crazy store \emph{always fights} when entered, regardless of continuation. Entrants cannot observe the store's type directly---only its past behavior.
+
+This one perturbation is transformative. The normal store, knowing the crazy type always fights, has a strict incentive to \emph{pool} with the crazy type by fighting early entrants, so that later entrants cannot distinguish normal from crazy and stay out. Accommodating, by contrast, immediately reveals the store as normal (the crazy type would never accommodate), after which every subsequent entrant enters.
+
+\subsection{The Sequential Equilibrium}
+
+The equilibrium is characterized by four objects: (i) a belief $\mu_k$ that entrant $k$ assigns to the event that the store is crazy; (ii) a strategy for each entrant as a function of $\mu_k$; (iii) a strategy for the normal store as a function of $k$ and $\mu_k$; (iv) a consistency requirement that beliefs update from $\mu_1 = \varepsilon$ by Bayes' rule along the equilibrium path.
+
+Two structural observations organize the construction.
+\begin{enumerate}
+  \item \emph{Once accommodated, forever revealed.} If the store ever plays $A$, every subsequent entrant learns with certainty that the store is normal, and the remaining subgame collapses to Selten's paradox.
+  \item \emph{Beliefs move only after an IN-then-response event.} If entrant $k-1$ chose OUT, nothing was revealed and $\mu_k = \mu_{k-1}$. Beliefs update only when the store has been given a chance to choose.
+\end{enumerate}
+
+\subsubsection*{Entrant $k$'s strategy}
+
+Given belief $\mu_k$ and the normal store's equilibrium mixing probability (derived below), the probability that entrant $k$ faces a fight conditional on IN simplifies to $\mu_k / b^{K-k}$ in the mixing region; the entrant is indifferent between IN and OUT when this equals $b$, i.e.\ when
+\[
+  \mu_k \;=\; b^{K-k+1}.
+\]
+So the entrant's equilibrium rule is
+\begin{center}
+\begin{tabular}{ll}
+  \hline
+  OUT  & if $\mu_k > b^{K-k+1}$ \\
+  IN   & if $\mu_k < b^{K-k+1}$ \\
+  IN with probability $\tfrac{a-1}{a}$, OUT with probability $\tfrac{1}{a}$ & if $\mu_k = b^{K-k+1}$ \\
+  \hline
+\end{tabular}
+\end{center}
+The mixing weight $\tfrac{a-1}{a}$ is pinned down by a requirement one period earlier: it makes the normal store's continuation value from the next period equal exactly $1$, which is what the normal store needs to be indifferent between $F$ (paying $-1$ now for a continuation of $+1$) and $A$ (paying $0$ now, then revealed).
+
+\subsubsection*{Normal store's strategy at an on-path IN}
+
+If entrant $k$ has chosen IN, the normal store's choice depends on $k$ and $\mu_k$:
+\begin{center}
+\begin{tabular}{ll}
+  \hline
+  Play $A$ & if $k = K$ (endgame) \\
+  Play $F$ & if $k < K$ and $\mu_k \ge b^{K-k}$ \\
+  Play $F$ with probability $\sigma_k = \dfrac{1 - b^{K-k}}{b^{K-k}} \cdot \dfrac{\mu_k}{1 - \mu_k}$ & if $k < K$ and $\mu_k < b^{K-k}$ \\
+  \hline
+\end{tabular}
+\end{center}
+In the final period reputation has no future value, so the normal store accommodates for its one-period gain of $0$ over $-1$. Before the final period, a belief already at or above $b^{K-k}$ makes fighting costless on net (no update is needed to keep the next entrant out), so the normal store fights for sure. For interior beliefs, the normal store mixes just enough that \emph{if} it fights, the posterior lands exactly on the next entrant's indifference threshold.
+
+\subsubsection*{Belief updating}
+
+For $k \ge 2$, the posterior belief is determined by the previous period's realized path:
+\[
+  \mu_k \;=\; \begin{cases}
+    \mu_{k-1} & \text{if } (k-1) \text{ chose OUT,} \\[2pt]
+    \max\{b^{K-k+1},\ \mu_{k-1}\} & \text{if } (\text{IN}, F) \text{ at } k-1,\ \mu_{k-1} > 0, \\[2pt]
+    0 & \text{if } (\text{IN}, A) \text{ at } k-1, \text{ or } \mu_{k-1} = 0.
+  \end{cases}
+\]
+The third case formalizes ``once accommodated, forever revealed.'' The second case is the core piece of the construction: after a fight, the posterior jumps \emph{up to the next entrant's indifference threshold}. The $\max$ accounts for the pure-$F$ case, in which the belief was already above the threshold and observing $F$ provides no additional information.
+
+\subsection{Bayesian Consistency at the Threshold}
+
+The second update case is not a definition---it is forced by Bayes' rule given the normal store's mixing probability $\sigma$. We derive it explicitly. Suppose entrant $k^*$ is at an interior belief $\mu_{k^*}$ (so the normal store mixes); the mixing probability is
+\[
+  \Pr[F \mid \text{Normal}, \text{IN}] \;=\; \sigma_{k^*} \;=\; \frac{1 - b^{K-k^*}}{b^{K-k^*}} \cdot \frac{\mu_{k^*}}{1 - \mu_{k^*}}.
+\]
+The crazy store always fights, so $\Pr[F \mid \text{Crazy}] = 1$. By Bayes' rule, the posterior after observing $F$ is
+\[
+  \mu_{k^* + 1} \;=\; \Pr[\text{Crazy} \mid F_{k^*}]
+  \;=\; \frac{\Pr[F \mid C]\,\Pr[C]}{\Pr[F \mid C]\,\Pr[C] + \Pr[F \mid N]\,\Pr[N]}
+  \;=\; \frac{\mu_{k^*}}{\mu_{k^*} + \sigma_{k^*}\,(1 - \mu_{k^*})}.
+\]
+Substituting $\sigma_{k^*}$ and simplifying:
+\[
+  \mu_{k^* + 1}
+  \;=\; \frac{\mu_{k^*}}{\mu_{k^*} + \dfrac{1 - b^{K-k^*}}{b^{K-k^*}}\,\mu_{k^*}}
+  \;=\; \frac{1}{1 + \dfrac{1 - b^{K-k^*}}{b^{K-k^*}}}
+  \;=\; \frac{b^{K-k^*}}{b^{K-k^*} + (1 - b^{K-k^*})}
+  \;=\; b^{K-k^*}.
+\]
+So the posterior lands exactly at $b^{K-(k^*+1)+1} = b^{K-k^*}$, the next entrant's indifference threshold. The normal store's mixing probability was \emph{reverse-engineered} to make this happen: the equilibrium self-enforces consistency of beliefs along the mixing arc.
+
+\subsection{Dynamics: Reputation and Endgame}
+
+Plot the threshold curve $k \mapsto b^{K-k+1}$ against the belief trajectory $\mu_k$ in equilibrium:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0, font=\small]
+  \draw[->] (0, 0) -- (9, 0) node[right] {$k$};
+  \draw[->] (0, 0) -- (0, 4.2) node[above] {beliefs};
+
+  % threshold curve b^{K-k+1}, rising
+  \draw[thick, blue!70!black, domain=0.2:8, smooth, variable=\x, samples=60]
+    plot ({\x}, {0.25 * exp(0.33*\x)});
+  \node[blue!70!black, right] at (8.05, 3.45) {$b^{K-k+1}$};
+
+  % belief trajectory mu_k
+  % flat at epsilon for k <= k*
+  \draw[thick, red!70!black, dashed] (0.2, 1.15) -- (5.08, 1.15);
+  % epsilon label
+  \node[red!70!black, left] at (0, 1.15) {$\varepsilon$};
+  \draw[gray, dashed] (0, 1.15) -- (5.08, 1.15);
+
+  % vertical markers at k* and k*+1
+  \draw[gray, dashed] (5.08, 0) -- (5.08, 1.34);
+  \draw[gray, dashed] (5.75, 0) -- (5.75, 1.67);
+  \node[below] at (5.08, 0) {$k^*$};
+  \node[below] at (5.75, 0) {$k^* + 1$};
+
+  % after k*+1: belief tracks threshold if IN, F path
+  \draw[thick, red!70!black, domain=5.75:8, smooth, variable=\x, samples=40]
+    plot ({\x}, {0.25 * exp(0.33*\x)});
+  \node[red!70!black, right] at (7.9, 2.6) {\scriptsize (IN, $F$)};
+
+  % alternate path: if (IN, A) at k*+1, belief drops to 0
+  \draw[thick, red!70!black, dotted] (5.75, 1.67) -- (6.5, 0);
+  \node[red!70!black, below right, font=\scriptsize] at (6.15, 0.55) {(IN, $A$)};
+\end{tikzpicture}
+\end{center}
+
+The dynamics split into two phases. Let $k^*$ be defined implicitly by $\varepsilon = b^{K - k^* + 1}$, i.e.\
+\[
+  k^* \;=\; K + 1 - \frac{\log \varepsilon}{\log b}.
+\]
+
+\begin{itemize}
+  \item \textbf{Reputation phase, $k \le k^*$.} The threshold $b^{K-k+1}$ is below the prior $\varepsilon$, so every entrant stays OUT. Beliefs remain at $\varepsilon$; nothing is learned; the store collects monopoly rent $a$ every period. The normal store's reputation is untested, and untested reputation is free.
+
+  \item \textbf{Endgame phase, $k > k^*$.} The threshold has risen above $\varepsilon$, so without further updating the entrant would prefer IN to OUT. Entrant $k^* + 1$ enters pure; the normal store mixes $F$ and $A$. If $F$ is realized, the belief jumps up to $b^{K-k^*}$---the next entrant's indifference threshold---and from there on each entrant mixes IN/OUT while the normal store mixes $F/A$, with beliefs tracking the threshold curve exactly. If instead $A$ is realized at any point, the store is revealed as normal and all remaining entrants enter unopposed.
+\end{itemize}
+
+The length of the reputation phase is $k^* = K + 1 - \log \varepsilon / \log b$. As $\varepsilon \to 0$ with $K$ fixed, $k^* \to K + 1$: the reputation phase swallows \emph{the entire game} and all entrants stay out. As $K \to \infty$ with $\varepsilon$ fixed, $K - k^* = (\log \varepsilon)/(\log b) - 1$ is a \emph{constant}, so the endgame takes up only a fixed number of periods regardless of horizon---the reputation phase takes up the proportion $(K - k^*)/K \to 0$ of a long horizon.
+
+\rmkb[What the Chain Store Paradox Teaches]{
+  Three lessons. First, the backward-induction prediction of Proposition 11.2 is \emph{fragile}: a vanishingly small perturbation of the information structure changes the equilibrium qualitatively, not just quantitatively. The prediction discontinuity at $\varepsilon = 0$ is what earned the result the word ``paradox''---the limit of the reputation equilibrium as $\varepsilon \to 0$ is not the complete-information equilibrium.
+
+  \smallskip
+  Second, \emph{reputation requires a commitment device}, and in sequential-move games against short-lived opponents the natural device is uncertainty about one's own type. The normal store is willing to pay a short-run cost (fighting, $-1$ instead of $0$) precisely because doing so preserves ambiguity about its type, and ambiguity is what deters future entry.
+
+  \smallskip
+  Third, the chain store paradox is less about chain stores than about how small amounts of rationality-relevant uncertainty can rescue behaviors that strict common-knowledge reasoning rules out. The same logic underlies Kreps-Milgrom-Roberts-Wilson models of finitely repeated prisoner's dilemma (where a tiny probability of a ``tit-for-tat'' type rescues cooperation), reputation models in industrial organization (FTC enforcement, product quality signaling), and macroeconomic models of monetary policy commitment.
+}
