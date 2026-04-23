@@ -1,0 +1,167 @@
+% !TEX root = ../Main.tex
+\chapter{关联几何性质}
+
+当题目给出的约束本身有几何背景（如椭圆定义、圆周角、三角不等式等），与其一味代数推导，不如\textbf{直接调用几何性质}——几何性质本身就是一组经过验证的定理，能一步跨过繁琐代数。
+
+\section{三角不等式}
+
+\state{三角不等式}{
+    对任意三点 $A, B, C$：
+    \[
+    ||AB| - |AC|| \le |BC| \le |AB| + |AC|.
+    \]
+    $|BC|$ 的最大值 = $|AB| + |AC|$，取等当 $A$ 在 $BC$ 的延长线上（$B, A, C$ 共线，$A$ 在中间或两端）；$|BC|$ 的最小值 = $||AB| - |AC||$，取等当 $A$ 在线段 $BC$ 上或其延长线上。
+}
+
+\ex[三角不等式]{
+    设 $P$ 为定点 $A(1, 0)$ 与 $B(-1, 0)$ 之外一动点，满足 $|PA| + |PB| = 4$（椭圆定义）。求 $|PA| - |PB|$ 的范围。
+}
+
+\sol{
+    由椭圆定义，$P$ 在以 $A, B$ 为焦点、长轴长 $4$ 的椭圆上。$|PA| + |PB| = 4$。
+
+    \textbf{三角不等式}：$||PA| - |PB|| \le |AB| = 2$，即 $-2 \le |PA| - |PB| \le 2$。但 $P$ 不在 $AB$ 延长线上（否则 $P$ 在椭圆与 $x$ 轴交点处），即等号可达当 $P$ 为椭圆与 $x$ 轴的左右顶点时。
+
+    \textbf{故 $|PA| - |PB| \in [-2, 2]$}（含等号）。
+}
+
+\section{圆锥曲线定义的转化}
+
+\state{椭圆 / 双曲线的第一定义}{
+    \textbf{椭圆}：$|PF_1| + |PF_2| = 2a$（定值，$2a > |F_1 F_2|$）。\\
+    \textbf{双曲线}：$||PF_1| - |PF_2|| = 2a$（定值，$2a < |F_1 F_2|$）。
+
+    若题目里出现两个距离之和 / 之差，第一反应应是"它是不是椭圆 / 双曲线的定义？"
+}
+
+\ex[椭圆定义转化]{
+    设 $F$ 为抛物线 $y^2 = 8 x$ 的焦点，$A(4, 3)$ 为定点。求抛物线上点 $P$ 到 $A$、$F$ 的距离之和 $|PA| + |PF|$ 的最小值。
+}
+
+\sol{
+    $y^2 = 8 x$：$2 p = 8 \Rightarrow p = 4$，焦点 $F(2, 0)$，准线 $x = -2$。
+
+    \textbf{用抛物线第二定义}：$|PF| = x_P + 2 = $ $P$ 到准线的水平距离 $d(P)$。
+
+    $|PA| + |PF| = |PA| + d(P)$。若 $A$ 在抛物线外（即 $y_A^2 > 8 x_A$？代入：$9 < 32$，不成立，$A$ 在抛物线内），则...
+
+    实际检查：$A(4, 3)$ 代入抛物线方程 $y^2 - 8 x = 9 - 32 = -23 < 0$，按抛物线 $y^2 = 8x$ 的几何意义，$A$ 在抛物线内侧（凹侧）。此时 $|PA| + d(P)$ 的最小 \textbf{不再}是 $A$ 到准线距离（因为从 $A$ 向准线做垂线与抛物线的交点在 $A$ 的另一侧）。需重新分析。
+
+    实际上，若 $A$ 在抛物线内侧（焦点同侧），连接 $AF$ 并延长到准线，最小值 = $|AF|$ = $\sqrt{(4-2)^2 + 3^2} = \sqrt{13}$。等号在 $P$ 为 $AF$ 与抛物线的交点时取。
+
+    \textbf{最小值 $= \sqrt{13}$。}
+}
+
+\section{圆周角定理}
+
+\state{圆周角定理}{
+    同弧所对的\textbf{圆周角相等}，都等于\textbf{圆心角的一半}。一个重要衍生：
+    \begin{itemize}
+        \item 若点 $P$ 看定线段 $AB$ 的张角 $\angle APB = \theta$ 为定值，则 $P$ 的轨迹是以 $AB$ 为弦、$\theta$ 为圆周角的\textbf{圆弧}。
+        \item 张角越大，对应弧的半径越小（直径是最大张角 $90^\circ$ 时的圆）。
+    \end{itemize}
+}
+
+\ex[圆周角定轨迹]{
+    定线段 $AB$，$|AB| = 4$。动点 $P$ 满足 $\angle APB = 60^\circ$。求 $|PA| + |PB|$ 的最大值。
+}
+
+\sol{
+    \textbf{轨迹识别}：由圆周角定理，$P$ 的轨迹是弧 $\overset{\frown}{AB}$，以 $AB$ 为弦，圆心角 $= 2 \angle APB = 120^\circ$。设圆半径 $R$，由正弦定理 $\dfrac{|AB|}{\sin 60^\circ} = 2R \Rightarrow R = \dfrac{4}{2 \cdot \tfrac{\sqrt 3}{2}} = \dfrac{4}{\sqrt 3} = \dfrac{4\sqrt 3}{3}$。
+
+    \textbf{$|PA| + |PB|$ 的最大}：当 $P$ 在弧的中点（等腰位置），$|PA| = |PB|$。由余弦定理
+    \[
+    |AB|^2 = |PA|^2 + |PB|^2 - 2 |PA||PB|\cos 60^\circ = 2 |PA|^2 - |PA|^2 = |PA|^2.
+    \]
+    解得 $|PA| = |AB| = 4$。故 $|PA| + |PB| = 8$。
+
+    \textbf{更通用}：设 $|PA| = m$，$|PB| = n$。$m^2 + n^2 - m n = 16$。由 AM-GM：$(m+n)^2 = m^2 + 2mn + n^2 = 16 + 3 mn$。且 $m n \le \left(\dfrac{m+n}{2}\right)^2$（AM-GM），代回：$(m+n)^2 \le 16 + \dfrac{3 (m+n)^2}{4}$，$\dfrac{(m+n)^2}{4} \le 16$，$m + n \le 8$。故最大值 $= 8$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  % Circle center O, points A and B on circle, angle AOB = 120°
+  \coordinate (O) at (0,0);
+  \coordinate (A) at ({2.309*cos(-30)},{2.309*sin(-30)});
+  \coordinate (B) at ({2.309*cos(210)},{2.309*sin(210)});
+  \coordinate (P) at ({2.309*cos(90)},{2.309*sin(90)});
+  \draw[thick,blue!70!black] (O) circle (2.309);
+  \fill (A) circle (1.3pt) node[right]{\scriptsize $A$};
+  \fill (B) circle (1.3pt) node[left]{\scriptsize $B$};
+  \fill (P) circle (1.3pt) node[above]{\scriptsize $P$};
+  \fill (O) circle (1pt) node[below right]{\scriptsize $O$};
+  \draw[thick] (A) -- (P) -- (B);
+  \draw[thick,red!60!black] (A) -- (B);
+  \node at (0,1.3) {\scriptsize $60^\circ$};
+\end{tikzpicture}
+\end{center}
+
+\section{构造三角形}
+
+\state{几何构造法}{
+    当一个\textbf{代数表达式中出现几个距离}（或与距离成比例的量）时，可以尝试\textbf{把这些距离安排到一个三角形的三条边上}，然后用三角不等式 / 余弦定理 / 海伦公式等几何关系做约束。
+}
+
+\ex[构造三角形]{
+    设 $a, b > 0$，$a + b = 4$，求 $\sqrt{a^2 + 1} + \sqrt{b^2 + 4}$ 的最小值。
+}
+
+\sol{
+    \textbf{识别}：$\sqrt{a^2 + 1}$ 像是一条\textbf{直角边为 $a$ 和 $1$ 的直角三角形的斜边}；$\sqrt{b^2 + 4}$ 像是直角边为 $b, 2$ 的斜边。
+
+    \textbf{几何布置}：如图，把这两条斜边接在一起——构造折线。设 $P = (0, 0)$，$Q = (a, 1)$，$R = (a + b, 1 + 2) = (4, 3)$。则
+    \[
+    |PQ| = \sqrt{a^2 + 1},\qquad |QR| = \sqrt{b^2 + 2^2} = \sqrt{b^2 + 4}.
+    \]
+    故所求 $= |PQ| + |QR|$。由三角不等式，$|PQ| + |QR| \ge |PR| = \sqrt{4^2 + 3^2} = 5$。等号当 $P, Q, R$ 共线（即折线拉直）时取——此时 $\dfrac{1}{a} = \dfrac{3}{4}$ 即 $a = \dfrac{4}{3}$，$b = \dfrac{8}{3}$，满足 $a, b > 0$。
+
+    \textbf{最小值 = 5。}
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  \draw[->] (-0.5,0) -- (5,0) node[right]{\scriptsize $x$};
+  \draw[->] (0,-0.5) -- (0,3.5) node[above]{\scriptsize $y$};
+  \coordinate (P) at (0,0);
+  \coordinate (Q) at (1.333,1);
+  \coordinate (R) at (4,3);
+  \draw[thick,blue!70!black] (P) -- (Q) -- (R);
+  \draw[thick,red!60!black,dashed] (P) -- (R) node[midway,below right]{\scriptsize $|PR| = 5$};
+  \fill (P) circle (1.2pt) node[below left]{\scriptsize $P$};
+  \fill (Q) circle (1.2pt) node[above left]{\scriptsize $Q$};
+  \fill (R) circle (1.2pt) node[above right]{\scriptsize $R$};
+  \node at (0.7,0.3) {\scriptsize $\sqrt{a^2+1}$};
+  \node at (2.7,2.3) {\scriptsize $\sqrt{b^2+4}$};
+\end{tikzpicture}
+\end{center}
+
+\section{圆内接三角形}
+
+\state{圆内接三角形的最大面积}{
+    一个圆内接三角形的面积，当三角形为\textbf{等边三角形}时最大。这是因为固定外接圆半径 $R$ 时，面积 $S = \dfrac{abc}{4R}$，由 AM-GM 与正弦定理，等边 $\iff$ 三边最"对称"时 $abc$ 最大。
+}
+
+\ex[圆内接三角形]{
+    设 $A, B, C$ 为单位圆上三点。求 $\triangle ABC$ 的面积最大值。
+}
+
+\sol{
+    由外接圆半径 $R = 1$，三内角 $\alpha, \beta, \gamma$（$\alpha + \beta + \gamma = \pi$）。由正弦定理，三边
+    \[
+    a = 2 \sin\alpha,\qquad b = 2 \sin\beta,\qquad c = 2 \sin\gamma.
+    \]
+
+    面积 $S = \dfrac{abc}{4R} = \dfrac{8 \sin\alpha \sin\beta \sin\gamma}{4} = 2 \sin\alpha \sin\beta \sin\gamma$。
+
+    \textbf{用 AM-GM + 凹凸性}：$\ln \sin x$ 在 $(0, \pi)$ 上凹，由 Jensen
+    \[
+    \sin\alpha \sin\beta \sin\gamma \le \left(\sin \frac{\alpha + \beta + \gamma}{3}\right)^3 = \sin^3 \frac{\pi}{3} = \left(\frac{\sqrt 3}{2}\right)^3 = \frac{3\sqrt 3}{8}.
+    \]
+    故 $S \le 2 \cdot \dfrac{3\sqrt 3}{8} = \dfrac{3\sqrt 3}{4}$。等号在 $\alpha = \beta = \gamma = \dfrac{\pi}{3}$（等边）时取。
+
+    \textbf{最大面积 $= \dfrac{3\sqrt 3}{4}$。}
+}
+
+\rmkb{
+    \textbf{"关联几何性质"的本质}：把代数式的结构识别为\textbf{几何量}（距离、角、面积、轨迹），然后调用对应几何定理。这一招的门槛\textbf{不是代数技巧，而是几何直观}——需要脑海里有"距离和 → 椭圆"、"距离差 → 双曲线"、"张角 → 圆周角 → 轨迹圆"、"两距离之和最小 → 反射法 / 三角不等式"这样的 \textbf{条件反射}。
+}

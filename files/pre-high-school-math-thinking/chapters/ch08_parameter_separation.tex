@@ -1,0 +1,65 @@
+% !TEX root = ../Main.tex
+\chapter{分离参数法}
+
+"分离参数"指的是\textbf{把参数 $a$ 从主变量 $x$ 中剥离出来}，把不等式 / 方程 / 恒成立问题改写成 "$a \ge g(x)$" 或 "$a = g(x)$" 的形式。然后问题转为"$g(x)$ 的最值 / 值域"——通常比原问题更直接。
+
+\section{分离参数的基本操作}
+
+\state{分离参数的流程}{
+    设问题为"当 $x$ 属于某范围时，某不等式关于 $a$ 恒成立"。分离参数步骤：
+    \begin{enumerate}
+        \item 把 $a$ 与 $x$ 代数分离，改写为 $a \ge h(x)$ 或 $a \le h(x)$（取决于不等式方向）。\textbf{注意不等式方向是否翻转}——若两端同除某个可能为负的式子，方向翻转。
+        \item 求 $h(x)$ 在 $x$ 范围内的\textbf{最值}：
+            \begin{itemize}
+                \item $a \ge h(x)$ 恒成立 $\iff$ $a \ge \max h(x)$；
+                \item $a \le h(x)$ 恒成立 $\iff$ $a \le \min h(x)$。
+            \end{itemize}
+    \end{enumerate}
+}
+
+\ex[分离参数求范围]{
+    若 $\forall x \in [1, 2]$，不等式 $x^2 - 2 a x + 3 \ge 0$ 恒成立。求 $a$ 的取值范围。
+}
+
+\sol{
+    \textbf{分离参数}：$x \in [1, 2]$ 时 $x > 0$，由 $x^2 - 2 a x + 3 \ge 0 \iff 2 a x \le x^2 + 3 \iff a \le \dfrac{x^2 + 3}{2 x} = \dfrac{x}{2} + \dfrac{3}{2 x}$。
+
+    \textbf{求右端最小}：$h(x) = \dfrac{x}{2} + \dfrac{3}{2 x}$，$x \in [1, 2]$。
+    \[
+    h'(x) = \frac{1}{2} - \frac{3}{2 x^2} = \frac{x^2 - 3}{2 x^2}.
+    \]
+    $h'(x) = 0 \iff x = \sqrt 3 \approx 1.73 \in [1, 2]$，且 $h'$ 在 $x < \sqrt 3$ 时 $< 0$（减），$x > \sqrt 3$ 时 $> 0$（增）。故最小值在 $x = \sqrt 3$：
+    \[
+    h(\sqrt 3) = \frac{\sqrt 3}{2} + \frac{3}{2\sqrt 3} = \frac{\sqrt 3}{2} + \frac{\sqrt 3}{2} = \sqrt 3.
+    \]
+
+    \textbf{结论}：$a \le \sqrt 3$。
+
+    \textit{（"恒成立"要求 $a$ 小于等于所有 $x$ 的 $h(x)$，即 $a \le \min_x h(x) = \sqrt 3$。）}
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1]
+  \draw[->] (0,0) -- (3,0) node[right]{\scriptsize $x$};
+  \draw[->] (0,0) -- (0,3) node[above]{\scriptsize $h(x)$};
+  \draw[thick,blue!70!black,domain=0.8:2.3,samples=60] plot(\x, {0.5*\x + 1.5/\x});
+  \draw[dashed,gray] (1,0) -- (1,2);
+  \draw[dashed,gray] (2,0) -- (2,1.75);
+  \draw[dashed,gray] (1.732,0) -- (1.732,1.732);
+  \node[below] at (1,0) {\scriptsize $1$};
+  \node[below] at (2,0) {\scriptsize $2$};
+  \node[below] at (1.732,0) {\scriptsize $\sqrt 3$};
+  \fill (1.732,1.732) circle (1.3pt);
+  \node[right] at (1.732,1.732) {\scriptsize 谷底 $\sqrt 3$};
+  \fill (1,2) circle (1.3pt);
+  \fill (2,1.75) circle (1.3pt);
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{分离参数的核心优势}：把\textbf{"关于 $a$ 的恒成立"} 转为\textbf{"关于 $x$ 的最值"}。后者可用导数、换元、基本不等式等熟悉工具处理。
+
+    \textbf{什么时候不能分离}：若不等式中 $a$ 与 $x$ 交织（如 $\ln(a x) + e^{x/a}$），强行分离会造成式子更复杂——此时应\textbf{用其他手段}（主元法、构造函数 $f(a, x)$）。
+
+    \textbf{特殊陷阱}：若分离时两端同除含 $x$ 的式子 $g(x)$，需讨论 $g(x) > 0$ 或 $< 0$（方向翻转）、$= 0$（特殊点）。
+}

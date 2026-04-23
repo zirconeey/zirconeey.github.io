@@ -1,0 +1,170 @@
+% !TEX root = ../Main.tex
+\chapter{数形结合法}
+
+许多代数式或不等式，直接按代数方式处理繁琐。但若识别出它的\textbf{几何意义}——如斜率、距离、角度、向量夹角等——就能在坐标系里"一眼看出"最值/范围。本章按常见几何解释分类整理。
+
+\section{识别"斜率"结构}
+
+\state{$\dfrac{y - y_0}{x - x_0}$ 型：斜率解释}{
+    形如 $\dfrac{y - y_0}{x - x_0}$ 的式子（$x_0, y_0$ 给定常数，$(x, y)$ 在某曲线/区域上变动）可解释为\textbf{点 $(x, y)$ 与定点 $(x_0, y_0)$ 连线的斜率}。其取值范围 = 从定点出发、与目标曲线 / 区域相切或相交的直线斜率范围。
+}
+
+\ex[斜率法求取值范围]{
+    设点 $(x, y)$ 满足 $(x - 2)^2 + y^2 = 1$（以 $(2, 0)$ 为圆心、半径 $1$ 的圆），求 $\dfrac{y}{x}$ 的取值范围。
+}
+
+\sol{
+    \textbf{识别几何意义}：$\dfrac{y}{x} = \dfrac{y - 0}{x - 0}$ 是点 $(x, y)$ 与原点 $O$ 连线的\textbf{斜率}。
+
+    \textbf{作图}：过 $O$ 作圆 $(x-2)^2 + y^2 = 1$ 的切线。
+    \begin{itemize}
+        \item 圆心 $C(2, 0)$，半径 $1$。$|OC| = 2$，切线斜率为 $\pm \tan \alpha$，其中 $\sin\alpha = \dfrac{1}{2}$，故 $\alpha = 30^\circ$，$\tan\alpha = \dfrac{1}{\sqrt 3}$。
+        \item 两条切线斜率 $k = \pm \dfrac{1}{\sqrt 3} = \pm \dfrac{\sqrt 3}{3}$。
+    \end{itemize}
+
+    \textbf{范围}：两切线之间的"夹角扇区"内的斜率值都可达。即
+    \[
+    \frac{y}{x} \in \left[-\frac{\sqrt 3}{3},\ \frac{\sqrt 3}{3}\right].
+    \]
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  \draw[->] (-0.5,0) -- (4,0) node[right]{\scriptsize $x$};
+  \draw[->] (0,-1.5) -- (0,1.8) node[above]{\scriptsize $y$};
+  % circle (x-2)^2 + y^2 = 1
+  \draw[thick,blue!70!black] (2,0) circle (1);
+  \fill (2,0) circle (1pt) node[below]{\scriptsize $C(2,0)$};
+  % tangent lines from origin
+  \draw[thick,red!60!black,dashed] (0,0) -- (3.5,3.5/1.732);
+  \draw[thick,red!60!black,dashed] (0,0) -- (3.5,-3.5/1.732);
+  \fill (0,0) circle (1.2pt) node[below left]{\scriptsize $O$};
+  \node[right] at (3.5,2.0) {\scriptsize $k = \tfrac{\sqrt 3}{3}$};
+  \node[right] at (3.5,-2.0) {\scriptsize $k = -\tfrac{\sqrt 3}{3}$};
+\end{tikzpicture}
+\end{center}
+
+\section{识别"两点距离"结构}
+
+\state{$\sqrt{(x - a)^2 + (y - b)^2}$：距离解释}{
+    表达式 $\sqrt{(x - a)^2 + (y - b)^2}$ 是点 $(x, y)$ 到定点 $(a, b)$ 的\textbf{欧氏距离}。若两点其一在曲线上动、另一定点已知，最值等价于"动点到定点的最近 / 最远距离"——\textbf{连接圆心 / 用对称 / 用距离公式}即可。
+}
+
+\ex[距离法]{
+    点 $(x, y)$ 在直线 $x + y = 4$ 上。求 $\sqrt{x^2 + y^2} + \sqrt{(x - 3)^2 + (y - 1)^2}$ 的最小值。
+}
+
+\sol{
+    \textbf{识别}：$\sqrt{x^2 + y^2}$ = 点 $P(x, y)$ 到 $O(0, 0)$ 的距离；$\sqrt{(x-3)^2 + (y-1)^2}$ = 点 $P$ 到 $A(3, 1)$ 的距离。式子即 $|PO| + |PA|$，$P$ 在直线 $x + y = 4$ 上。
+
+    \textbf{反射法}：求 "$|PO| + |PA|$ 之和的最小值"，当 $O, A$ 在直线 $x + y = 4$ 的\textbf{同侧}时，关于该直线反射 $O$（或 $A$）得 $O'$，则 $|PO| + |PA| = |PO'| + |PA| \ge |O' A|$，等号当 $P$ 在线段 $O'A$ 上时取。
+
+    \textbf{检查同侧}：代入 $O(0,0)$：$0 + 0 - 4 = -4 < 0$；代入 $A(3, 1)$：$3 + 1 - 4 = 0$——$A$ 在直线上！则 $|PA|$ 最小 $= 0$ 当 $P = A$，此时 $|PO| = \sqrt{9 + 1} = \sqrt{10}$。故最小值为 $\sqrt{10}$。
+
+    \textit{（若 $A$ 不在线上而在同侧，则需反射之。）}
+}
+
+\section{识别"点到直线距离"结构}
+
+\state{$\dfrac{|a x + b y + c|}{\sqrt{a^2 + b^2}}$：点到直线距离}{
+    若式子可化为 $\dfrac{|a x + b y + c|}{\sqrt{a^2 + b^2}}$ 形式，即点 $(x, y)$ 到直线 $a x + b y + c = 0$ 的\textbf{距离}。常见于分子是绝对值、分母是固定正数根式的结构。
+}
+
+\ex[点线距]{
+    已知 $x, y$ 满足 $x^2 + y^2 \le 1$，求 $\dfrac{|x + y - 2|}{\sqrt 2}$ 的最大值。
+}
+
+\sol{
+    \textbf{几何意义}：$\dfrac{|x + y - 2|}{\sqrt 2}$ = 点 $(x, y)$ 到直线 $x + y - 2 = 0$ 的距离。$(x, y)$ 限制在单位圆及其内部。
+
+    \textbf{距离最大点} = 单位圆上离直线最远的点。由直线 $x + y = 2$ 的法向量 $(1, 1)$，单位圆上对应点为 $\left(-\tfrac{\sqrt 2}{2}, -\tfrac{\sqrt 2}{2}\right)$（向法向反方向延伸到边界）。
+
+    最大距离 = 圆心到直线距离 + 半径
+    \[
+    = \frac{|0 + 0 - 2|}{\sqrt 2} + 1 = \sqrt 2 + 1.
+    \]
+}
+
+\section{识别"向量夹角"结构}
+
+\state{$\dfrac{\vec a \cdot \vec b}{|\vec a|\,|\vec b|}$：余弦定理}{
+    若式子化为 $\dfrac{\vec a \cdot \vec b}{|\vec a| \cdot |\vec b|}$（两向量夹角的余弦），则可借助 $\cos\theta \in [-1, 1]$ 限定范围。也可反向用——看到 $\cos$ 结构去构造向量。
+}
+
+\ex[向量法]{
+    已知 $a, b \in \mathbb R$，$a^2 + b^2 = 4$。求 $3 a + 4 b$ 的范围。
+}
+
+\sol{
+    \textbf{构造向量}：令 $\vec u = (a, b)$，$\vec v = (3, 4)$。则 $|\vec u| = 2$，$|\vec v| = 5$，$\vec u \cdot \vec v = 3a + 4b$。由柯西不等式 (= 向量点积公式)：
+    \[
+    |\vec u \cdot \vec v| \le |\vec u| \cdot |\vec v| = 10.
+    \]
+    故 $3 a + 4 b \in [-10, 10]$。
+
+    \textit{（等号取在 $\vec u$ 与 $\vec v$ 共线时。）}
+}
+
+\section{识别"抛物线焦半径"结构}
+
+\state{抛物线的定义式：$|PF| = $ 到准线的距离}{
+    抛物线 $y^2 = 2 p x$（$p > 0$）上点 $P$ 满足
+    \[
+    |PF| = x_P + \frac{p}{2} \quad\text{（焦点 $F(\tfrac{p}{2}, 0)$，准线 $x = -\tfrac{p}{2}$）}.
+    \]
+    这使得许多"到焦点距离"问题可以转化为"到准线距离"——而准线是直线，容易处理。
+}
+
+\ex[抛物线焦半径]{
+    设 $P$ 在抛物线 $y^2 = 4 x$ 上，$A(3, 2)$ 为定点。求 $|PA| + |PF|$ 的最小值（$F$ 为焦点）。
+}
+
+\sol{
+    $y^2 = 4 x$：$2p = 4 \Rightarrow p = 2$，焦点 $F(1, 0)$，准线 $x = -1$。由抛物线定义，$|PF| = x_P + 1$。
+
+    设 $P$ 到准线距离 $= d(P)$，则 $|PF| = d(P)$。于是
+    \[
+    |PA| + |PF| = |PA| + d(P).
+    \]
+    这是"$P$ 到定点 $A$ 和 $P$ 到准线距离之和"——\textbf{当 $P, A$ 在准线同侧}（此处都在 $x > -1$ 一侧），$|PA| + d(P)$ 最小 $=$ $A$ 到准线的距离：
+    \[
+    d(A) = 3 - (-1) = 4.
+    \]
+    等号在 $P$ 为 $A$ 向准线作垂线与抛物线的交点时取到（需验证 $A$ 不在抛物线内）。
+
+    验 $A(3, 2)$：$y^2 = 4$，$4 x = 12$，$4 < 12$ 说明 $A$ 在抛物线右侧（外部）。故 $P$ 可取 $A$ 向准线作水平垂线与抛物线的交点，最小值 $= 4$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.8]
+  \draw[->] (-2,0) -- (5,0) node[right]{\scriptsize $x$};
+  \draw[->] (0,-2) -- (0,3) node[above]{\scriptsize $y$};
+  % parabola y^2 = 4x
+  \draw[thick,blue!70!black,domain=-2:2.6,samples=60,variable=\t]
+      plot ({\t*\t/4},\t);
+  % directrix x = -1
+  \draw[thick,green!55!black,dashed] (-1,-2.5) -- (-1,3);
+  \node[green!55!black,above] at (-1,3) {\scriptsize 准线};
+  % focus
+  \fill (1,0) circle (1.2pt) node[below right]{\scriptsize $F(1,0)$};
+  % point A(3,2)
+  \fill (3,2) circle (1.4pt) node[above right]{\scriptsize $A(3,2)$};
+  % P = (1, 2) [on parabola where y=2]
+  \fill (1,2) circle (1.4pt) node[above left]{\scriptsize $P$};
+  \draw[thick,red!60!black] (3,2) -- (1,2) -- (-1,2);
+  \draw[thick,red!60!black,dashed] (1,2) -- (1,0);
+  \node[below] at (0,2) {\scriptsize 水平距 $4$};
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{"数形结合"的诊断思路}：
+    \begin{enumerate}
+        \item 看到 $\dfrac{y - y_0}{x - x_0}$ → 斜率；
+        \item 看到 $\sqrt{(x-a)^2 + (y-b)^2}$ → 两点距；
+        \item 看到 $|ax + by + c|$ / 根式 → 点到直线距；
+        \item 看到 $\dfrac{ac + bd}{\sqrt{a^2+b^2}\sqrt{c^2+d^2}}$ → 向量夹角余弦；
+        \item 看到焦点、抛物线 → 焦半径 = 到准线距；椭圆、双曲线定义。
+    \end{enumerate}
+    "识别几何量是哪个"是第一步，第二步才是画图 / 作切 / 反射 / 构造。
+}

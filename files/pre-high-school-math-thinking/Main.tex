@@ -1,0 +1,84 @@
+\documentclass[oneside]{book}
+
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+\usepackage[UTF8,scheme=plain,fontset=macnew]{ctex}
+
+\usepackage{amsmath,amsthm,amssymb,amsfonts,mathtools}
+\usepackage{thmtools}
+
+\usepackage{geometry}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+\usepackage{setspace}
+\setstretch{1.2}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,arrows.meta,patterns,calc,intersections,decorations.markings,decorations.pathmorphing}
+
+\usepackage{environ}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins,breakable}
+
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*,labelindent=0pt}
+\setlist[enumerate]{leftmargin=*,labelindent=0pt}
+
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\textit{\leftmark}}
+\fancyhead[R]{\thepage}
+\fancyfoot[R]{\tiny \copyright\ Rui Zhou \the\year.\ Do not redistribute without permission.}
+
+\input{theorems.tex}
+\input{commands.tex}
+
+\def\notetitle{数学基础思维}
+\def\noteauthor{Zircon}
+\def\notedate{}
+
+\begin{document}
+
+\title{\heiti \LARGE \notetitle \vspace*{8\baselineskip}}
+\author{\noteauthor}
+\date{\notedate}
+
+\maketitle
+\newpage
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\newpage
+
+\part{式子处理}
+\include{chapters/ch01_substitution}
+\include{chapters/ch02_decomposition}
+\include{chapters/ch03_degree_reduction}
+\include{chapters/ch04_homogenization}
+\include{chapters/ch05_fraction}
+\include{chapters/ch06_geo_algebra}
+
+\part{数形结合}
+\include{chapters/ch07_geometric_properties}
+\include{chapters/ch08_parameter_separation}
+\include{chapters/ch09_function_separation}
+
+\part{大小比较}
+\include{chapters/ch10_intermediate_numbers}
+\include{chapters/ch11_inequality_scaling}
+
+\end{document}

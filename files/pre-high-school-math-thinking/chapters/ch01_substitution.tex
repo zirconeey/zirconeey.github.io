@@ -1,0 +1,70 @@
+% !TEX root = ../Main.tex
+\chapter{换元法}
+
+\state{换元法的黄金律}{
+    \textbf{正如研究函数，要先研究函数的定义域——引入新元，必不可少的一步是研究新元的取值范围。}
+
+    换元的好处在于把复杂的式子换成熟悉的形式（如二次函数、反比例函数），但\textbf{值域由新元的取值区间决定}——忘记这一步几乎是所有换元题失分的罪魁。
+}
+
+\ex[双元换元：正余弦之和与积]{
+    设 $f(\theta) = \sin\theta + \cos\theta + \sin\theta\cos\theta$，$\theta \in \mathbb R$。求 $f(\theta)$ 的值域。
+}
+
+\sol{
+    \textbf{观察结构：} 式中有 $\sin\theta + \cos\theta$ 与 $\sin\theta\cos\theta$ 两块。由平方关系
+    \[
+    (\sin\theta + \cos\theta)^2 = 1 + 2\sin\theta\cos\theta,
+    \]
+    这两块之间存在天然联系——因此\textbf{用同一个 $t$ 就能表达两者}。
+
+    \textbf{换元：} 令 $t = \sin\theta + \cos\theta = \sqrt 2 \sin\!\left(\theta + \tfrac{\pi}{4}\right) \in [-\sqrt 2,\ \sqrt 2]$。则
+    \[
+    \sin\theta\cos\theta = \frac{t^2 - 1}{2},
+    \]
+    从而
+    \[
+    f(\theta) = t + \frac{t^2 - 1}{2} = \frac{1}{2}(t+1)^2 - 1, \qquad t \in [-\sqrt 2,\ \sqrt 2].
+    \]
+
+    \textbf{二次函数分析：} 开口向上，对称轴 $t = -1 \in [-\sqrt 2,\ \sqrt 2]$。
+    \begin{itemize}
+        \item 最小值 $f_\text{min} = -1$，在 $t = -1$ 处取得；
+        \item 最大值 $f_\text{max}$ 在区间端点处取。比较 $t = -\sqrt 2$ 与 $t = \sqrt 2$：
+        \[
+        t = \sqrt 2: \tfrac{1}{2}(\sqrt 2 + 1)^2 - 1 = \tfrac{1}{2}(3 + 2\sqrt 2) - 1 = \tfrac{1}{2} + \sqrt 2,
+        \]
+        \[
+        t = -\sqrt 2: \tfrac{1}{2}(-\sqrt 2 + 1)^2 - 1 = \tfrac{1}{2}(3 - 2\sqrt 2) - 1 = \tfrac{1}{2} - \sqrt 2 < \tfrac{1}{2} + \sqrt 2.
+        \]
+        故 $f_\text{max} = \tfrac{1}{2} + \sqrt 2$。
+    \end{itemize}
+    \textbf{值域：} $f(\theta) \in \left[-1,\ \tfrac{1}{2} + \sqrt 2\right]$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.85]
+  \draw[->] (-2.5,0) -- (2.5,0) node[right]{\scriptsize$t$};
+  \draw[->] (0,-1.6) -- (0,2.5) node[above]{\scriptsize$f$};
+  \draw[thick,blue!70!black,domain=-2:1.8,samples=60]
+      plot (\x, {0.5*(\x+1)*(\x+1) - 1});
+  % 端点
+  \draw[dashed,gray] (-1.414,0) -- (-1.414,-0.914) -- (0,-0.914);
+  \draw[dashed,gray] (1.414,0) -- (1.414,1.914) -- (0,1.914);
+  \draw[dashed,gray] (-1,0) -- (-1,-1);
+  \fill (-1.414,-0.914) circle (1.3pt);
+  \fill (1.414,1.914) circle (1.3pt);
+  \fill (-1,-1) circle (1.3pt) node[below right]{\scriptsize 最小 $-1$};
+  \node[above right] at (1.414,1.914) {\scriptsize $\tfrac{1}{2}+\sqrt 2$};
+  \node[below] at (-1.414,0) {\scriptsize $-\sqrt 2$};
+  \node[below] at (1.414,0) {\scriptsize $\sqrt 2$};
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{换元的诊断问句}：换元之前先问自己两个问题——
+    \begin{enumerate}
+        \item \textbf{形式上能换吗？} 原式中的"复杂块"能否用一个新变量统一表达？（本题：两块有 $t^2 = 1 + 2u$ 的联系，所以只需一个 $t$。）
+        \item \textbf{新元的范围是多少？} 原变量的约束（如 $\theta \in \mathbb R$）要翻译成新元的约束。跳过这一步会造成"值域算大"。
+    \end{enumerate}
+}

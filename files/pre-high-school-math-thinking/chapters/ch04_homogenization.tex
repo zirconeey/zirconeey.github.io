@@ -1,0 +1,161 @@
+% !TEX root = ../Main.tex
+\chapter{齐次化处理}
+
+"齐次化"是指把式子的\textbf{各项次数调整到一致}，从而能够进行统一的代换或约分。常见场景有两类：三角函数"弦化切"（用 $\sin^2\theta + \cos^2\theta = 1$ 把常数"升次"到二次齐次）、以及几何中\textbf{椭圆 / 双曲线斜率乘积为定值}（通过齐次化把直线方程代入二次曲线）。另外条件 $p = \text{常数}$（如 $2a + b = 4$）可以\textbf{把"1"构造出来}——这就是所谓的"1 法"。
+
+\section{三角：弦化切（齐次化）}
+
+\state{把三角式统一成关于 $\tan\theta$ 的有理式}{
+    若已知 $\tan\theta = k$，欲求某三角式值，关键思路是\textbf{把分子分母化成同次（齐次）}：每一项凑成 $\sin^a\theta\cos^b\theta$ 且 $a + b = $ 某定次数 $n$。此时分子分母同除 $\cos^n\theta$，所有 $\sin\theta$ 变 $\tan\theta$，$\cos\theta$ 变 $1$，式子变为关于 $\tan\theta$ 的有理函数。
+
+    \textbf{若式中有常数（0 次项）}，用 $\sin^2\theta + \cos^2\theta = 1$ 把它"升次"到需要的阶。
+}
+
+\ex[弦化切]{
+    已知 $\tan\theta = -2$，求 $\dfrac{\sin\theta(1 + \sin 2\theta)}{\sin\theta + \cos\theta}$ 的值。
+}
+
+\sol{
+    \textbf{展开 $\sin 2\theta$：}
+    \[
+    \sin 2\theta = 2 \sin\theta\cos\theta,\qquad 1 + \sin 2\theta = \sin^2\theta + \cos^2\theta + 2\sin\theta\cos\theta = (\sin\theta + \cos\theta)^2.
+    \]
+
+    \textbf{代入化简：}
+    \[
+    \frac{\sin\theta(1 + \sin 2\theta)}{\sin\theta + \cos\theta} = \frac{\sin\theta \cdot (\sin\theta + \cos\theta)^2}{\sin\theta + \cos\theta} = \sin\theta(\sin\theta + \cos\theta) = \sin^2\theta + \sin\theta\cos\theta.
+    \]
+
+    \textbf{齐次化}：此时式子已是关于 $\sin\theta, \cos\theta$ 的 2 次齐次式。分子分母同除 $\cos^2\theta$（注：原式等于 $\dfrac{\sin^2\theta + \sin\theta\cos\theta}{1}$，把分母的 $1$ 当作 $\sin^2\theta + \cos^2\theta$）：
+    \[
+    \sin^2\theta + \sin\theta\cos\theta = \frac{\sin^2\theta + \sin\theta\cos\theta}{\sin^2\theta + \cos^2\theta} = \frac{\tan^2\theta + \tan\theta}{\tan^2\theta + 1}.
+    \]
+
+    代入 $\tan\theta = -2$：
+    \[
+    = \frac{4 + (-2)}{4 + 1} = \frac{2}{5}.
+    \]
+}
+
+\rmkb{
+    "弦化切"的诀窍是\textbf{把所有项凑成相同次数}。如果原式有 $\sin\theta\cos\theta$（2 次）与 $\sin\theta$（1 次）混合，就必须先用 $\sin^2\theta + \cos^2\theta = 1$ 把 1 次项升到 2 次——否则分子分母次数不同，除 $\cos^n\theta$ 无法统一。
+}
+
+\section{"1 法"：把条件当成 1}
+
+\state{"1 法"的核心}{
+    若条件形如 $p = \text{常数 } c$（例如 $2a + b = 4$），要求某个分式的最值，\textbf{可以把 $\dfrac{c}{c} = 1$ 当作乘因子塞进原式}——把条件"升次"拿进原式，使每一项都乘以 $\dfrac{p}{c}$。这样原式变成\textbf{齐次分式}，每项的次数平衡，再用基本不等式。
+}
+
+\ex["1 法"]{
+    已知 $a > 0$，$b > 0$ 且 $2a + b = 4$，求 $\dfrac{4}{a} + \dfrac{1}{b}$ 的最小值。
+}
+
+\sol{
+    \textbf{"1"的构造：} 由 $2a + b = 4$ 得 $\dfrac{2a + b}{4} = 1$。则
+    \[
+    \frac{4}{a} + \frac{1}{b} = \left(\frac{4}{a} + \frac{1}{b}\right) \cdot 1 = \left(\frac{4}{a} + \frac{1}{b}\right) \cdot \frac{2a + b}{4}.
+    \]
+
+    \textbf{展开：}
+    \[
+    = \frac{1}{4}\!\left(\frac{8a}{a} + \frac{4b}{a} + \frac{2a}{b} + \frac{b}{b}\right) = \frac{1}{4}\!\left(8 + 1 + \frac{4b}{a} + \frac{2a}{b}\right) = \frac{9}{4} + \frac{1}{4}\!\left(\frac{4b}{a} + \frac{2a}{b}\right).
+    \]
+
+    \textbf{基本不等式：}
+    \[
+    \frac{4b}{a} + \frac{2a}{b} \ge 2 \sqrt{\frac{4b}{a} \cdot \frac{2a}{b}} = 2\sqrt 8 = 4\sqrt 2.
+    \]
+
+    故
+    \[
+    \frac{4}{a} + \frac{1}{b} \ge \frac{9}{4} + \frac{1}{4} \cdot 4\sqrt 2 = \frac{9}{4} + \sqrt 2 = \frac{9 + 4\sqrt 2}{4}.
+    \]
+
+    \textbf{取等}：$\dfrac{4b}{a} = \dfrac{2a}{b} \iff a^2 = 2 b^2 \iff a = \sqrt 2 \, b$。结合 $2a + b = 4$ 得 $b = \dfrac{4}{2\sqrt 2 + 1}$（$> 0$），故等号可达。最小值为 $\dfrac{9 + 4\sqrt 2}{4}$。
+}
+
+\rmkb{
+    "1 法"的本质是\textbf{齐次化}：原式 $\dfrac{4}{a} + \dfrac{1}{b}$ 是 $-1$ 次的（每项分母一次），条件 $2a + b$ 是 $+1$ 次的，乘起来是 $0$ 次——而基本不等式要求的"两项乘积为常数"正是 $0$ 次条件。这与上一章 "二定" 的要求完全一致。
+}
+
+\section{椭圆 / 双曲线中的齐次化}
+
+\state{证明定直线 / 定斜率的齐次化套路}{
+    设圆锥曲线上一定点 $P$，过 $P$ 的两条直线 $PM$、$PN$ 分别交曲线于 $M$、$N$，已知 $k_{PM} + k_{PN} = 0$ 或 $k_{PM} \cdot k_{PN} = k_0$ 等\textbf{关于斜率的对称条件}。要证直线 $MN$ 有某定性质（如斜率为定值、过定点），常用\textbf{齐次化}：
+    \begin{enumerate}
+        \item 把原点平移到 $P$（即代换 $x \to x + x_P$，$y \to y + y_P$），使 $P$ 成为新原点。
+        \item 设直线 $MN: mx + ny = 1$（这是绕原点的一般线，$m, n$ 为参数；若 $MN$ 不过原点，这一形式可行）。
+        \item 把"$1$"代入曲线方程，把曲线中的\textbf{低次项都乘 $(mx + ny)$ 升次}——使得方程变为齐次二次方程 $A x^2 + B xy + C y^2 = 0$。
+        \item 两边同除 $x^2$，变为关于 $\dfrac{y}{x}$（即斜率）的\textbf{二次方程}，$\dfrac{y}{x}$ 的两根正是 $k_{PM}$、$k_{PN}$。由韦达，两根和/积可用 $m, n$ 表达。
+    \end{enumerate}
+}
+
+\ex[椭圆的斜率对称条件]{
+    已知椭圆 $\dfrac{x^2}{8} + \dfrac{y^2}{2} = 1$，$P(2, 1)$ 是椭圆上一点。过 $P$ 的两条直线 $PM$、$PN$ 分别交椭圆于 $M$、$N$，且斜率满足 $k_{PM} + k_{PN} = 0$。证明：直线 $MN$ 的斜率为定值，并求之。
+}
+
+\sol{
+    \textbf{第 1 步：平移。} 令 $x' = x - 2$，$y' = y - 1$（使 $P$ 为新原点）。椭圆方程 $\dfrac{(x' + 2)^2}{8} + \dfrac{(y' + 1)^2}{2} = 1$ 展开：
+    \[
+    \frac{x'^2 + 4 x' + 4}{8} + \frac{y'^2 + 2 y' + 1}{2} = 1,
+    \]
+    化简得
+    \[
+    x'^2 + 4 y'^2 + 4 x' + 8 y' = 0.
+    \]
+    （利用 $P$ 在椭圆上，常数项抵消。）
+
+    \textbf{第 2 步：设直线 $MN: m x' + n y' = 1$}（假设 $MN$ 不过 $P$，否则 $M = N = P$ 不成立）。关键一步——\textbf{把 1 次项 $4 x' + 8 y'$ 升次为 2 次}，方法是乘以 $(m x' + n y')$：
+    \[
+    x'^2 + 4 y'^2 + (4 x' + 8 y')(m x' + n y') = 0.
+    \]
+    展开：
+    \[
+    x'^2 + 4 y'^2 + 4 m x'^2 + (4 n + 8 m) x' y' + 8 n y'^2 = 0,
+    \]
+    \[
+    (1 + 4m) x'^2 + (4n + 8m) x' y' + (4 + 8n) y'^2 = 0.
+    \]
+
+    \textbf{第 3 步：除以 $x'^2$}（设 $x' \ne 0$，$M$、$N$ 均不在 $y$ 轴上）：
+    \[
+    (4 + 8n)\!\left(\frac{y'}{x'}\right)^2 + (4n + 8m)\!\left(\frac{y'}{x'}\right) + (1 + 4m) = 0.
+    \]
+
+    方程的两根即 $k_{PM}$、$k_{PN}$（新坐标下斜率）。由韦达定理：
+    \[
+    k_{PM} + k_{PN} = -\frac{4n + 8m}{4 + 8n} = 0 \implies 4 n + 8 m = 0 \implies n = -2 m.
+    \]
+
+    \textbf{第 4 步：回到 $MN$ 斜率。} $MN: m x' + n y' = 1$，即 $y' = \dfrac{1 - m x'}{n} = \dfrac{1 - m x'}{-2m}$。其斜率（新、旧坐标下相同，因平移不变）：
+    \[
+    k_{MN} = -\frac{m}{n} = -\frac{m}{-2 m} = \frac{1}{2}.
+    \]
+    故 $k_{MN} = \dfrac{1}{2}$ 为定值。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  \draw[->] (-3.5,0) -- (3.5,0) node[right]{\scriptsize $x$};
+  \draw[->] (0,-2) -- (0,2.5) node[above]{\scriptsize $y$};
+  % ellipse x^2/8 + y^2/2 = 1: semi-axes 2√2 ≈ 2.83 and √2 ≈ 1.41
+  \draw[thick,blue!70!black] (0,0) ellipse (2.828 and 1.414);
+  % point P(2,1)
+  \fill (2,1) circle (1.5pt) node[above right]{\scriptsize $P(2,1)$};
+  % two lines PM, PN through P with opposite slopes, say ±1
+  \draw[thick,red!60!black,dashed] (-0.6,-1.6) -- (2.7,1.7);
+  \draw[thick,red!60!black,dashed] (-0.2,3.2) -- (2.7,0.3);
+  % fake M, N points (illustrative)
+  \fill (-0.5,-1.5) circle (1.3pt) node[below left]{\scriptsize $M$};
+  \fill (2.6,-0.6) circle (1.3pt) node[below right]{\scriptsize $N$};
+  % line MN slope 1/2
+  \draw[thick,green!55!black] (-1.5,-2) -- (3.5,0.5) node[right]{\scriptsize $k_{MN}=\tfrac{1}{2}$};
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{齐次化的关键观察}：椭圆方程 $x'^2 + 4 y'^2 + 4 x' + 8 y' = 0$ 中，$x'^2, y'^2$ 是 2 次齐次，$4 x' + 8 y'$ 是 1 次。直线方程 $m x' + n y' = 1$ 正好"乘上去就能把 1 次升为 2 次"，从而整个方程齐次化为关于 $x', y'$ 的 2 次齐次方程，两边除 $x'^2$ 后变为\textbf{斜率 $k = \tfrac{y'}{x'}$ 的二次方程}——这才是整个技巧的精髓。
+
+    齐次化的\textbf{前提是有定点 $P$}：只有把原点移到定点后，直线 $MN$ 的"常数项"才能被选择性放到分母 1，从而实现齐次化。
+}

@@ -1,0 +1,60 @@
+% !TEX root = ../Main.tex
+\chapter{放缩}
+
+"放缩"是证明不等式的灵魂。核心思路：\textbf{把每一项换成一个"已知易处理"的上界或下界}，使整体不等式的证明变得可行。放缩的难点在于\textbf{"松紧度"}——放太松得不到所需不等式，放太紧又难以找到合适形式。
+
+\section{放缩的两大方向}
+
+\state{放大和缩小}{
+    要证 $\sum a_i \le M$：
+    \begin{itemize}
+        \item \textbf{放大每一项}：寻找 $b_i \ge a_i$ 使得 $\sum b_i \le M$ 易证。$\sum a_i \le \sum b_i \le M$。
+    \end{itemize}
+
+    要证 $\sum a_i \ge m$：
+    \begin{itemize}
+        \item \textbf{缩小每一项}：寻找 $c_i \le a_i$ 使得 $\sum c_i \ge m$ 易证。$\sum a_i \ge \sum c_i \ge m$。
+    \end{itemize}
+
+    \textbf{"松紧度"}的判断：如果放缩后的界与原式相差太大（比如"$a_i \le 2 a_i$"这种放得太松的放缩），可能\textbf{破坏不等式}——要证 $\sum a_i \le 1$，放到 $\sum 2 a_i \le 2$ 就没用了。
+}
+
+\ex[三角绑性：放缩法]{
+    求证：对 $n \ge 2$，
+    \[
+    \frac{1}{2^2} + \frac{1}{3^2} + \cdots + \frac{1}{n^2} < 1.
+    \]
+}
+
+\sol{
+    \textbf{放缩策略}：直接算 $\sum \dfrac{1}{k^2}$ 无闭式，需放大每一项使之变成\textbf{可裂项}的形式。
+    \[
+    \frac{1}{k^2} < \frac{1}{k(k-1)} = \frac{1}{k-1} - \frac{1}{k}\quad (k \ge 2).
+    \]
+    （放大：因 $k^2 > k(k-1)$，故 $\dfrac{1}{k^2} < \dfrac{1}{k(k-1)}$；后者是\textbf{裂项式}。）
+
+    \textbf{累加}：
+    \[
+    \sum_{k=2}^{n} \frac{1}{k^2} < \sum_{k=2}^{n}\!\left(\frac{1}{k-1} - \frac{1}{k}\right) = \left(1 - \frac{1}{2}\right) + \left(\frac{1}{2} - \frac{1}{3}\right) + \cdots + \left(\frac{1}{n-1} - \frac{1}{n}\right) = 1 - \frac{1}{n} < 1.
+    \]
+    得证。$\blacksquare$
+}
+
+\rmkb{
+    \textbf{放缩题的"工具箱"}：
+    \begin{itemize}
+        \item \textbf{基本不等式}：$a + b \ge 2\sqrt{ab}$、$\sqrt{ab} \le \dfrac{a+b}{2}$；
+        \item \textbf{裂项式放缩}：$\dfrac{1}{k^2} < \dfrac{1}{k(k-1)} = \dfrac{1}{k-1} - \dfrac{1}{k}$、$\dfrac{1}{k^2} > \dfrac{1}{k(k+1)} = \dfrac{1}{k} - \dfrac{1}{k+1}$；
+        \item \textbf{等比放缩}：$2^k \ge k + 1$、$(1 + x)^n \ge 1 + n x$（伯努利不等式）；
+        \item \textbf{对数放缩}：$\ln(1 + x) < x$（$x > 0$）、$\ln(1 + x) \ge \dfrac{x}{1+x}$、$e^x \ge 1 + x$；
+        \item \textbf{三角放缩}：$\sin x < x < \tan x$（$0 < x < \dfrac{\pi}{2}$）。
+    \end{itemize}
+
+    \textbf{放缩题的三步思维}：
+    \begin{enumerate}
+        \item 观察要证的上（下）界的 "\textbf{形状}"：是 $1$ 这种简单整数？还是含 $\ln$、根式的形式？
+        \item 倒推：上（下）界是"\textbf{裂项累加}"还是"\textbf{等比求和}"的结果？
+        \item 根据推测的"累加骨架"，为每一项寻找合适的\textbf{放缩上界 / 下界}。
+    \end{enumerate}
+    \textbf{本章的大原则}：放缩要"\textbf{松紧得当、形式可算}"。放得"\textbf{刚好裂成可消项}"是理想情形——这也是裂项放缩在高中考试里最常见的原因。
+}

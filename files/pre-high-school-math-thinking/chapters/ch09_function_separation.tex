@@ -1,0 +1,113 @@
+% !TEX root = ../Main.tex
+\chapter{分离函数法}
+
+与"分离参数"类似，"分离函数"是把一个复杂方程 / 不等式\textbf{拆成两个函数的图象关系}——最常见是 $f(x) = a$ 型（动直线 $y = a$ 与 $y = f(x)$ 的交点个数），或 $f(x) = g(x)$ 型（两条曲线的交点）。然后\textbf{通过图象}判断解的存在性、个数、范围。
+
+\section{动直线与曲线的交点}
+
+\state{$f(x) = a$ 的解 = $y = a$ 与 $y = f(x)$ 的公共点}{
+    把方程 $f(x) = a$（$a$ 为参数）重新解读为：横坐标 $x$ 使 $y = a$（水平线）与 $y = f(x)$ 曲线的交点横坐标。于是：
+    \begin{itemize}
+        \item 作出 $y = f(x)$ 的图象（重点：极值、渐近线、零点）；
+        \item 动水平线 $y = a$ 在不同 $a$ 下，数交点个数。
+    \end{itemize}
+    这把\textbf{方程解的个数问题}转化为\textbf{图象直观判断}——再也不用算判别式。
+}
+
+\ex[动直线法]{
+    设 $f(x) = x^3 - 3 x$，$x \in \mathbb R$。讨论方程 $f(x) = a$ 的实数解的个数（随 $a$ 变化）。
+}
+
+\sol{
+    \textbf{第一步：画 $y = f(x)$ 的大致图象。}
+
+    $f'(x) = 3 x^2 - 3 = 3(x - 1)(x + 1)$。$f'(x) = 0 \iff x = \pm 1$。
+
+    \begin{itemize}
+        \item $x = -1$：$f(-1) = -1 + 3 = 2$（极大值）；
+        \item $x = 1$：$f(1) = 1 - 3 = -2$（极小值）；
+        \item $x \to \pm \infty$：$f \to \pm \infty$。
+    \end{itemize}
+
+    \textbf{第二步：动水平线 $y = a$ 交点数。}
+    \begin{itemize}
+        \item $a > 2$：只与右侧"$\nearrow$"部分交 1 次；解 $1$ 个。
+        \item $a = 2$：在 $x = -1$ 相切 + 右侧 1 交点；解 $2$ 个（一个为重根）。
+        \item $-2 < a < 2$：穿过 "凸 + 凹" 三段，共 $3$ 个交点。
+        \item $a = -2$：在 $x = 1$ 相切 + 左侧 1 交点；解 $2$ 个。
+        \item $a < -2$：只与左侧"$\searrow$ 后 $\nearrow$"最右升段交 1 次；解 $1$ 个。
+    \end{itemize}
+
+    \textbf{汇总}：
+    \begin{itemize}
+        \item $|a| > 2$：$1$ 个解；
+        \item $|a| = 2$：$2$ 个解；
+        \item $|a| < 2$：$3$ 个解。
+    \end{itemize}
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.8]
+  \draw[->] (-2.5,0) -- (2.5,0) node[right]{\scriptsize $x$};
+  \draw[->] (0,-3.5) -- (0,3.5) node[above]{\scriptsize $y$};
+  \draw[thick,blue!70!black,domain=-2:2,samples=80] plot(\x, {\x*\x*\x - 3*\x});
+  % mark extrema
+  \fill (-1,2) circle (1.3pt) node[above left]{\scriptsize $(-1,2)$};
+  \fill (1,-2) circle (1.3pt) node[below right]{\scriptsize $(1,-2)$};
+  % horizontal dashed lines
+  \draw[dashed,red!70!black] (-2.5,2) -- (2.5,2) node[right]{\scriptsize $y = 2$};
+  \draw[dashed,red!70!black] (-2.5,-2) -- (2.5,-2) node[right]{\scriptsize $y = -2$};
+  \draw[dashed,green!60!black] (-2.5,1) -- (2.5,1) node[right]{\scriptsize $|a| < 2$ (3 解)};
+\end{tikzpicture}
+\end{center}
+
+\section{变开口函数}
+
+\state{含参的开口 / 斜率变化的函数}{
+    若函数 $y = f(x; a)$ 的\textbf{斜率 / 开口 / 偏移量}随 $a$ 变化（如 $y = a x + b$、$y = a x^2 + b x + c$），把它想象为\textbf{"绕某一点旋转 / 开口变化的图象"}。交点位置、极值位置也随之变化——通过画出不同 $a$ 下的"函数族"，可以判断某些性质何时成立。
+}
+
+\ex[变斜率]{
+    若 $\forall x \in [0, 1]$，$a x - x^3 \ge 0$ 恒成立，求 $a$ 的取值范围。
+}
+
+\sol{
+    \textbf{情形 1：} $x = 0$ 时，$a \cdot 0 - 0 = 0 \ge 0$，无约束。
+
+    \textbf{情形 2：} $x \in (0, 1]$，不等式 $a x \ge x^3 \iff a \ge x^2$（除以正数 $x$ 不变向）。
+
+    右端 $x^2$ 在 $(0, 1]$ 上的最大值为 $1$（在 $x = 1$ 处），故 $a \ge 1$。
+
+    \textbf{图象直观}：把原不等式 $a x \ge x^3$ 看作直线 $y = a x$ 与曲线 $y = x^3$ 的关系。在 $[0, 1]$ 上\textbf{直线在曲线上方 / 重合} $\iff$ 直线在 $(1, 1)$ 处的斜率 $a \ge$ 曲线在 $(1, 1)$ 处的割线斜率 $\dfrac{1 - 0}{1 - 0} = 1$。故 $a \ge 1$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1.2]
+  \draw[->] (-0.2,0) -- (1.5,0) node[right]{\scriptsize $x$};
+  \draw[->] (0,-0.2) -- (0,1.5) node[above]{\scriptsize $y$};
+  \draw[thick,blue!70!black,domain=0:1.2,samples=40] plot(\x,{\x*\x*\x});
+  \draw[thick,red!70!black] (0,0) -- (1.3,1.3);
+  \node[red!70!black,right] at (1.3,1.3) {\scriptsize $y = x$ ($a = 1$)};
+  \draw[thick,green!60!black,dashed] (0,0) -- (1.3,0.65);
+  \node[green!60!black,right] at (1.3,0.65) {\scriptsize $a < 1$ (不满足)};
+  \node[blue!70!black,right] at (1.2,1.2*1.2*1.2) {\scriptsize $y = x^3$};
+  \fill (1,1) circle (1pt);
+  \node[above left] at (1,1) {\scriptsize $(1,1)$};
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{分离函数与分离参数的关系}：
+    \begin{itemize}
+        \item \textbf{分离参数}：代数上把 $a$ 孤立 → 求 $h(x)$ 的最值；
+        \item \textbf{分离函数}：几何上把方程视为两图象的交点 → 看图象的相对位置。
+    \end{itemize}
+    它们本质上是\textbf{同一件事}——分离参数是代数视角，分离函数是几何视角。若不易代数分离，就用函数的图象关系；若代数分离自然，就用导数 / 基本不等式求极值。两者互为补充。
+
+    \textbf{分离函数的适用场景}：
+    \begin{enumerate}
+        \item 参数与主变量交织，代数分离困难；
+        \item 函数的图象（极值、零点、渐近线）容易刻画；
+        \item 讨论的是\textbf{解的个数}（而非解的具体值）。
+    \end{enumerate}
+}

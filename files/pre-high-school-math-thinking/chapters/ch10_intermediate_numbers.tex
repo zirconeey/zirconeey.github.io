@@ -1,0 +1,57 @@
+% !TEX root = ../Main.tex
+\chapter{引入中介数字}
+
+当两个数 $A$ 和 $B$ 不易直接比较时，\textbf{引入一个"中介数字" $C$}——它介于 $A, B$ 之间，且与两者分别容易比较。如果能证明 $A > C$ 和 $C > B$，就得到 $A > B$（以及反向）。这一思想在指对数、阶乘、不同底幂的大小比较中尤为有效。
+
+\section{中介数字的选择}
+
+\state{什么样的中介数字好用}{
+    引入 $C$ 要\textbf{同时满足}两个条件：
+    \begin{enumerate}
+        \item $A$ 与 $C$ 之间有\textbf{直接可算}的大小关系（如同底、同指、或可代入特殊函数求值）；
+        \item $C$ 与 $B$ 之间同样有直接可算的大小关系。
+    \end{enumerate}
+    常见选择：
+    \begin{itemize}
+        \item \textbf{"整数界"}：比较 $a, b$ 时，考察是否都在某整数两侧（如 $a < 1 < b$ 是一等奇招）；
+        \item \textbf{"对数基准"}：比较底不同的指数（或指数不同的幂），引入 $\ln$；
+        \item \textbf{"常见函数值"}：$\sin x$ 与 $x$ 比较时引入 $\tan x$；指数比较时引入 $e$。
+    \end{itemize}
+}
+
+\ex[中介数字 $1$]{
+    比较 $a = \log_3 2$，$b = \log_2 3$ 的大小。
+}
+
+\sol{
+    \textbf{用中介数字 $1$}：
+    \begin{itemize}
+        \item $a = \log_3 2$：底 $3 > 1$，真数 $2 < 3$，故 $\log_3 2 < \log_3 3 = 1$，即 $a < 1$。
+        \item $b = \log_2 3$：底 $2 > 1$，真数 $3 > 2$，故 $\log_2 3 > \log_2 2 = 1$，即 $b > 1$。
+    \end{itemize}
+    故 $a < 1 < b \Rightarrow a < b$。
+}
+
+\ex[中介数字——对数基准]{
+    比较 $a = \log_2 3$ 与 $b = \log_3 5$ 的大小。
+}
+
+\sol{
+    \textbf{尝试 $\dfrac{3}{2}$ 作中介}：
+    \begin{itemize}
+        \item $a = \log_2 3$ vs $\dfrac{3}{2}$：等价于比较 $3$ 与 $2^{3/2} = 2\sqrt 2 \approx 2.83$。$3 > 2\sqrt 2 \Rightarrow a > \dfrac{3}{2}$。
+        \item $b = \log_3 5$ vs $\dfrac{3}{2}$：等价于比较 $5$ 与 $3^{3/2} = 3\sqrt 3 \approx 5.196$。$5 < 3\sqrt 3 \Rightarrow b < \dfrac{3}{2}$。
+    \end{itemize}
+    故 $b < \dfrac{3}{2} < a \Rightarrow b < a$，即 $\log_3 5 < \log_2 3$。
+}
+
+\rmkb{
+    \textbf{选择中介数字的诊断}：
+    \begin{enumerate}
+        \item \textbf{先看是否有"整数界"}：如两数分居 $0, 1, \tfrac{1}{2}$ 两侧（这是最简单的）。
+        \item \textbf{看是否有"同底"可凑}：比如 $\log_a b$ vs $\log_c d$，中介可以是 $\log_a d$（同底 $a$），或 $\log_c b$（同底 $c$）；
+        \item \textbf{看"估值"的可行性}：中介数字必须能与两边都\textbf{用初等变形}直接比，否则就是"多此一举"。
+    \end{enumerate}
+
+    本章方法看起来简单，但对\textbf{估值直觉}有要求——选对中介一步到位；选错则陷入死循环。积累常见数值的"估值感"（$\sqrt 2 \approx 1.414$，$\sqrt 3 \approx 1.732$，$\ln 2 \approx 0.693$，$e \approx 2.718$）是基本功。
+}

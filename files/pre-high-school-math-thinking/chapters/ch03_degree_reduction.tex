@@ -1,0 +1,100 @@
+% !TEX root = ../Main.tex
+\chapter{消次处理}
+
+"消次"指的是把高次式或混合次式\textbf{经过重新组合 + 换元，降为熟悉的低次结构}——最常见的是二次函数或基本不等式的标准形式。本章两个典型武器：$\left(x \pm \tfrac{1}{x}\right)$ 相关的恒等式、基本不等式的"升次—配凑"。
+
+\section{\texorpdfstring{$\left(x \pm \tfrac{1}{x}\right)$}{x+1/x} 及其衍生式}
+
+\state{"$x \pm \tfrac{1}{x}$ 升平方 = $x^2 + \tfrac{1}{x^2} \pm 2$"}{
+    \[
+    \left(x + \tfrac{1}{x}\right)^2 = x^2 + \tfrac{1}{x^2} + 2,\qquad
+    \left(x - \tfrac{1}{x}\right)^2 = x^2 + \tfrac{1}{x^2} - 2.
+    \]
+    因此，\textbf{若式中同时出现 $x^2 + \tfrac{1}{x^2}$、$x + \tfrac{1}{x}$（或 $x - \tfrac{1}{x}$）这两类结构}，就可以把它们用同一个新元 $t$ 统一起来。常数的配凑即可使式子变为关于 $t$ 的完全平方或二次函数，实现\textbf{形式的统一}。
+}
+
+\ex[点到反比例曲线的距离]{
+    在平面直角坐标系 $xOy$ 中，点 $(a, a)$ 到曲线 $y = \dfrac{1}{x}$ 上的点的距离最小值为 $\sqrt{10}$，其中 $a > 0$。求 $a$ 的值。
+}
+
+\sol{
+    设曲线上一点 $\left(x, \tfrac{1}{x}\right)$（$x > 0$，因为 $(a, a)$ 在第一象限，最近点必在 $x > 0$ 分支上）。距离平方
+    \[
+    d^2 = (x - a)^2 + \left(\tfrac{1}{x} - a\right)^2 = x^2 + \tfrac{1}{x^2} + 2 a^2 - 2 a x - \tfrac{2a}{x}.
+    \]
+
+    \textbf{关键的消次：} 把 $x^2 + \tfrac{1}{x^2}$ 与 $x + \tfrac{1}{x}$ 放到一起看：
+    \[
+    d^2 = \underbrace{\left(x^2 + \tfrac{1}{x^2} + 2\right)}_{=(x+1/x)^2} - 2 - 2a\left(x + \tfrac{1}{x}\right) + 2 a^2 = \left(x + \tfrac{1}{x}\right)^2 - 2 a \left(x + \tfrac{1}{x}\right) + 2 a^2 - 2.
+    \]
+
+    \textbf{换元：} 令 $t = x + \tfrac{1}{x}$。由均值不等式，$x > 0$ 时 $t \ge 2$。则
+    \[
+    d^2 = t^2 - 2 a t + 2 a^2 - 2 = (t - a)^2 + a^2 - 2, \qquad t \ge 2.
+    \]
+
+    \textbf{二次函数分析：} 开口向上，对称轴 $t = a$。
+    \begin{itemize}
+        \item \textbf{情形 I：$a \ge 2$。} 对称轴落在可行域内，$d^2$ 在 $t = a$ 取最小值 $a^2 - 2$。令 $a^2 - 2 = 10$，得 $a = 2\sqrt 3$（满足 $a \ge 2$）。$\checkmark$
+        \item \textbf{情形 II：$0 < a < 2$。} 对称轴在可行域左侧，$d^2$ 在 $t = 2$ 取最小值 $(2 - a)^2 + a^2 - 2 = 2 a^2 - 4 a + 2$。令 $2 a^2 - 4 a + 2 = 10 \Rightarrow a^2 - 2 a - 4 = 0 \Rightarrow a = 1 \pm \sqrt 5$。但 $a > 0$ 且 $a < 2$：$1 - \sqrt 5 < 0$（舍），$1 + \sqrt 5 \approx 3.24 > 2$（不满足 $a < 2$，舍）。
+    \end{itemize}
+    综上，$a = 2\sqrt 3$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.85]
+  \draw[->] (-0.5,0) -- (5,0) node[right]{\scriptsize $t$};
+  \draw[->] (0,-1) -- (0,3.5) node[above]{\scriptsize $d^2$};
+  \draw[thick,blue!70!black,domain=0.5:4.5,samples=60] plot (\x, {(\x - 3)*(\x - 3) + 0.5});
+  \draw[dashed,gray] (2,0) -- (2,3);
+  \draw[dashed,gray] (3,0) -- (3,0.5);
+  \node[below] at (2,0) {\scriptsize $t = 2$};
+  \node[below] at (3,0) {\scriptsize $t = a$};
+  \fill (3,0.5) circle (1.3pt);
+  \node[right] at (3,0.5) {\scriptsize 谷底 $a^2-2$};
+  \node at (1.4,2.5) {\scriptsize 可行域: $t \ge 2$};
+\end{tikzpicture}
+\end{center}
+
+\section{基本不等式}
+
+\state{基本不等式的"一正、二定、三相等"}{
+    基本不等式 $x + y \ge 2\sqrt{xy}$（$x, y > 0$）的三大使用条件：
+    \begin{enumerate}
+        \item \textbf{一正}：$x, y$ 都要是正数；
+        \item \textbf{二定}：乘积 $xy$ 要是常数（\textbf{0 次}），否则和 $x+y$ 的下界会随变量漂移；
+        \item \textbf{三相等}：取等条件 $x = y$ 要能在定义域内达成。
+    \end{enumerate}
+    "二定"这一步常被忽略——它要求\textbf{求和项乘起来的次数为 0}。因此若乘积里仍含变量，需要借助已知条件\textbf{配凑升次 / 降次}，让总次数归零。
+}
+
+\ex[条件下的升次配凑]{
+    已知 $a + 2b = 1$，求 $\dfrac{a^2 + 4b}{a b}$ 的最小值（$a > 0$，$b > 0$）。
+}
+
+\sol{
+    \textbf{先化简：}
+    \[
+    \frac{a^2 + 4b}{a b} = \frac{a}{b} + \frac{4}{a}.
+    \]
+    两项乘起来 $\dfrac{a}{b}\cdot\dfrac{4}{a} = \dfrac{4}{b}$ 含变量 $b$，\textbf{不是常数}——直接用基本不等式失败。
+
+    \textbf{升次：} 利用条件 $a + 2b = 1$ 把 $\dfrac{4}{a}$ 升一次：
+    \[
+    \frac{4}{a} = \frac{4 \cdot 1}{a} = \frac{4(a + 2b)}{a} = 4 + \frac{8 b}{a}.
+    \]
+    则
+    \[
+    \frac{a^2 + 4b}{a b} = \frac{a}{b} + 4 + \frac{8 b}{a} \ge 4 + 2 \sqrt{\frac{a}{b} \cdot \frac{8 b}{a}} = 4 + 2 \sqrt 8 = 4 + 4 \sqrt 2.
+    \]
+    \textbf{取等}：$\dfrac{a}{b} = \dfrac{8 b}{a} \iff a^2 = 8 b^2$，结合 $a + 2b = 1$ 可解出满足 $a, b > 0$ 的解，故等号可达。
+    最小值为 $4 + 4\sqrt 2$。
+}
+
+\rmkb{
+    \textbf{形如 $x + \dfrac{a}{x}$ 的式子使用基本不等式的注意事项：}
+    \begin{enumerate}
+        \item \textbf{看 $a$ 的正负}：若 $a > 0$，则 $\dfrac{a}{x}$ 与 $x$ 同号即可用；若 $a < 0$，要先提出符号——会"翻带"成反向不等式。
+        \item \textbf{看 $x$ 的取值}：$a > 0$ 时，当且仅当 $x = \pm \sqrt{a}$ 时有最值（极值），\textbf{但 $x$ 不一定可以取到 $\pm \sqrt{a}$}——如 $x \in [\sqrt{a}+1, +\infty)$ 或 $x \in \mathbb N^+$，此时需\textbf{用单调性或离散比较}确定最值。
+    \end{enumerate}
+}
