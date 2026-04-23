@@ -1,0 +1,124 @@
+% !TEX root = ../Main.tex
+\chapter{空间直角坐标系与空间向量}
+
+\section{空间向量基本定理}
+
+\state{空间向量基本定理}{
+    若 $\vec e_1, \vec e_2, \vec e_3$ 为\textbf{不共面}的三个向量（即一组空间基），则空间内\textbf{任意}向量 $\vec a$ 都能\textbf{唯一}表示成
+    \[
+    \vec a = \lambda_1 \vec e_1 + \lambda_2 \vec e_2 + \lambda_3 \vec e_3.
+    \]
+}
+
+\rmkb{
+    \textbf{"不共面"}是空间版本关键条件——三条向量构成一个\textbf{三维骨架}；若共面则只能张成一个二维子空间。
+}
+
+\section{四点共面推论}
+
+\state{四点共面的 $\lambda + \mu + \nu = 1$ 推论}{
+    设 $A, B, C, D$ 为空间四点，$O$ 为任意参考点。若
+    \[
+    \vec{OD} = \lambda \vec{OA} + \mu \vec{OB} + \nu \vec{OC},
+    \]
+    则
+    \[
+    \boxed{A, B, C, D \text{ 四点共面} \iff \lambda + \mu + \nu = 1.}
+    \]
+
+    \textbf{证}：四点共面 $\iff \vec{AD}, \vec{AB}, \vec{AC}$ 共面 $\iff \exists s, t$ 使 $\vec{AD} = s \vec{AB} + t \vec{AC}$。化到 $O$ 参考系：$\vec{OD} = (1 - s - t) \vec{OA} + s \vec{OB} + t \vec{OC}$，三系数之和为 $1$。
+}
+
+\rmkb{
+    这是\textbf{平面版本 $\lambda + \mu = 1$ 的直接升维}——从"三点共线"升级到"四点共面"。
+}
+
+\section{空间直角坐标系：右手系}
+
+\state{右手直角坐标系}{
+    取空间中互相\textbf{两两垂直}的三条数轴 $x, y, z$，原点 $O$ 公共，方向满足\textbf{右手法则}：\textbf{右手四指从 $x$ 轴弯向 $y$ 轴，大拇指指向 $z$ 轴正方向}。
+
+    空间中任一点 $P$ 都能\textbf{唯一}对应一个坐标三元组 $(x_P, y_P, z_P)$。
+
+    \textbf{标准基}：
+    \[
+    \vec i = (1, 0, 0),\quad \vec j = (0, 1, 0),\quad \vec k = (0, 0, 1).
+    \]
+    三者两两垂直、模长均为 $1$。
+}
+
+\begin{center}
+\tdplotsetmaincoords{70}{110}
+\begin{tikzpicture}[tdplot_main_coords, scale=1.2]
+    \draw[->, thick] (0,0,0) -- (2.5,0,0) node[anchor=north east] {$x$};
+    \draw[->, thick] (0,0,0) -- (0,2.5,0) node[anchor=north west] {$y$};
+    \draw[->, thick] (0,0,0) -- (0,0,2.5) node[anchor=south] {$z$};
+    \node[below left] at (0,0,0) {$O$};
+    \draw[->, very thick, blue] (0,0,0) -- (1,0,0);
+    \draw[->, very thick, blue] (0,0,0) -- (0,1,0);
+    \draw[->, very thick, blue] (0,0,0) -- (0,0,1);
+    \node[blue, below] at (1,0,0) {$\vec i$};
+    \node[blue, below right] at (0,1,0) {$\vec j$};
+    \node[blue, left] at (0,0,1) {$\vec k$};
+\end{tikzpicture}
+\end{center}
+
+\section{向量的坐标与两点向量}
+
+\state{空间向量坐标}{
+    空间向量 $\vec a$ 按标准基展开 $\vec a = x \vec i + y \vec j + z \vec k$，记 $\vec a = (x, y, z)$。
+
+    \textbf{坐标运算}：
+    \begin{itemize}
+        \item 加法 $\vec a + \vec b = (x_1 + x_2,\ y_1 + y_2,\ z_1 + z_2)$；
+        \item 数乘 $\lambda \vec a = (\lambda x, \lambda y, \lambda z)$；
+        \item 点乘 $\vec a \cdot \vec b = x_1 x_2 + y_1 y_2 + z_1 z_2$；
+        \item 模长 $|\vec a| = \sqrt{x^2 + y^2 + z^2}$；
+        \item 夹角 $\cos \theta = \dfrac{\vec a \cdot \vec b}{|\vec a|\, |\vec b|}$。
+    \end{itemize}
+}
+
+\state{两点间向量坐标}{
+    设 $A = (x_A, y_A, z_A),\ B = (x_B, y_B, z_B)$，则
+    \[
+    \vec{AB} = B - A = (x_B - x_A,\ y_B - y_A,\ z_B - z_A).
+    \]
+    \textbf{两点距离}：
+    \[
+    |AB| = \sqrt{(x_B - x_A)^2 + (y_B - y_A)^2 + (z_B - z_A)^2}.
+    \]
+}
+
+\section{方向单位向量}
+
+\state{方向向量的单位化}{
+    任意非零向量 $\vec a = (x, y, z)$ 对应的\textbf{单位方向向量}
+    \[
+    \hat{\vec a} = \frac{\vec a}{|\vec a|} = \left(\frac{x}{\sqrt{x^2 + y^2 + z^2}},\ \frac{y}{\sqrt{x^2 + y^2 + z^2}},\ \frac{z}{\sqrt{x^2 + y^2 + z^2}}\right).
+    \]
+    \textbf{用途}：
+    \begin{itemize}
+        \item 表达方向而不关心长度；
+        \item 用于\textbf{投影}——若要把 $\vec b$ 投影到 $\vec a$ 方向上，投影长度为 $\vec b \cdot \hat{\vec a}$；
+        \item 表达平面法向——求出法向量后再单位化，便于后续\textbf{距离}计算。
+    \end{itemize}
+}
+
+\ex[坐标化建模流程]{
+    以下是解\textbf{空间几何}题的通用步骤：
+    \begin{enumerate}
+        \item \textbf{选原点}：通常取\textbf{垂直关系最集中}的顶点（如正方体角点、$PA \perp$ 底面的 $A$ 点）；
+        \item \textbf{建三轴}：沿题目中天然的垂直棱建 $x, y, z$ 轴（右手系）；
+        \item \textbf{写出关键点坐标}：所有顶点都用 $(x, y, z)$ 表示；
+        \item \textbf{用向量做题}：证明/计算都转化为向量运算。
+    \end{enumerate}
+}
+
+\rmkb{
+    \textbf{什么时候适合建系？}
+    \begin{itemize}
+        \item 题目有\textbf{明显的三条两两垂直的边}（正方体、直棱柱 + 底面正多边形、$PA \perp$ 底面）；
+        \item 若\textbf{没有现成的垂直关系}，就要先用\textbf{综合法}证出来一组垂直（如"面 $ABCD$ 的中心 $O$，$PO \perp$ 底"）再建系；
+        \item \textbf{强行建不合适的系}会让坐标中出现大量根号，反而失去优势。
+    \end{itemize}
+}

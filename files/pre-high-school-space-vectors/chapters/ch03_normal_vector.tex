@@ -1,0 +1,146 @@
+% !TEX root = ../Main.tex
+\chapter{法向量及其应用}
+
+\textbf{法向量}是坐标法解决空间几何的\textbf{核心工具}——求距离、线面角、面面角、证明线面垂直 / 面面平行，全都要先\textbf{把法向量求出来}。本章先给出"线面垂直原理"（通法）和"叉乘快捷法"，再给出法向量的\textbf{三大应用}。
+
+\section{法向量的定义}
+
+\state{平面的法向量}{
+    若向量 $\vec n$ 与平面 $\alpha$ 内的\textbf{任意}向量都\textbf{垂直}，则称 $\vec n$ 是 $\alpha$ 的\textbf{法向量}。
+
+    \textbf{性质}：
+    \begin{itemize}
+        \item 法向量不唯一——任何 $\lambda \vec n\ (\lambda \ne 0)$ 也是法向量；
+        \item 给定平面，法向量的方向只有\textbf{两种}（互为反向），坐标法中\textbf{取哪一支都可以}，但最终算\textbf{夹角}时要注意\textbf{取绝对值}或修正符号。
+    \end{itemize}
+}
+
+\section{法向量求法一：线面垂直原理（通法）}
+
+\state{解方程组求法向量}{
+    设平面 $\alpha$ 内两条\textbf{不共线}的向量 $\vec u = (u_1, u_2, u_3),\ \vec v = (v_1, v_2, v_3)$。要求 $\vec n = (x, y, z)$ 垂直于 $\alpha$，由\textbf{线面垂直原理}：
+    \[
+    \vec n \perp \alpha \iff \vec n \perp \vec u \text{ 且 } \vec n \perp \vec v.
+    \]
+    写成方程组：
+    \[
+    \begin{cases}
+    \vec n \cdot \vec u = u_1 x + u_2 y + u_3 z = 0, \\
+    \vec n \cdot \vec v = v_1 x + v_2 y + v_3 z = 0.
+    \end{cases}
+    \]
+    两个方程、三个未知数——解出含\textbf{一个自由参数}的解，取一个简洁的具体值（常取 $z = 1$ 或让系数全部为整数）即为一个法向量。
+}
+
+\ex[通法求法向量举例]{
+    设平面内两条向量 $\vec u = (1, 0, 1),\ \vec v = (1, 1, 0)$。求一个法向量。
+}
+
+\sol{
+    设 $\vec n = (x, y, z)$。由 $\vec n \cdot \vec u = 0, \vec n \cdot \vec v = 0$：
+    \[
+    \begin{cases}
+    x + z = 0, \\
+    x + y = 0.
+    \end{cases}
+    \]
+    取 $x = 1$，得 $y = -1,\ z = -1$。即 $\vec n = (1, -1, -1)$。
+}
+
+\section{法向量求法二：叉乘快捷法}
+
+\state{叉乘（外积）公式}{
+    对两个向量 $\vec a = (a_1, a_2, a_3),\ \vec b = (b_1, b_2, b_3)$，定义它们的\textbf{叉乘}
+    \[
+    \boxed{\vec a \times \vec b = (a_2 b_3 - a_3 b_2,\ a_3 b_1 - a_1 b_3,\ a_1 b_2 - a_2 b_1).}
+    \]
+    \textbf{记忆技巧}——用行列式：
+    \[
+    \vec a \times \vec b = \begin{vmatrix} \vec i & \vec j & \vec k \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}.
+    \]
+
+    \textbf{核心性质}：
+    \begin{itemize}
+        \item $\vec a \times \vec b \perp \vec a$ 且 $\vec a \times \vec b \perp \vec b$——即 $\vec a \times \vec b$ \textbf{同时垂直}于 $\vec a, \vec b$；
+        \item $\vec a \times \vec b = - \vec b \times \vec a$（反对易）；
+        \item 方向由\textbf{右手法则}决定（从 $\vec a$ 到 $\vec b$ 四指弯曲，拇指方向即 $\vec a \times \vec b$）。
+    \end{itemize}
+}
+
+\state{用叉乘求法向量}{
+    取平面 $\alpha$ 内两条\textbf{不共线}向量 $\vec u, \vec v$，则
+    \[
+    \boxed{\vec n = \vec u \times \vec v}
+    \]
+    即是 $\alpha$ 的一个法向量。
+
+    \textbf{优势}：相比解方程组，\textbf{一步到位}——直接代公式。
+}
+
+\ex[叉乘法对照通法]{
+    同上例，$\vec u = (1, 0, 1),\ \vec v = (1, 1, 0)$，用叉乘求法向量。
+}
+
+\sol{
+    $\vec n = \vec u \times \vec v = (0 \cdot 0 - 1 \cdot 1,\ 1 \cdot 1 - 1 \cdot 0,\ 1 \cdot 1 - 0 \cdot 1) = (-1, 1, 1)$。
+
+    与通法结果 $(1, -1, -1)$ \textbf{互为反向}——没有矛盾（法向量模长和方向都不唯一）。
+}
+
+\section{法向量的三大应用}
+
+\state{应用一：点到平面的距离}{
+    设 $P$ 为空间内一点，$\alpha$ 为一个平面，$A \in \alpha$，$\vec n$ 是 $\alpha$ 的法向量。则
+    \[
+    \boxed{d(P, \alpha) = \frac{|\vec{AP} \cdot \vec n|}{|\vec n|}.}
+    \]
+
+    \textbf{几何意义}：$\vec{AP}$ 在 $\vec n$ 方向的\textbf{投影绝对值}即点到平面的距离——因为 $\vec n$ 垂直于 $\alpha$，$\vec{AP}$ 沿法向的分量就是 $P$ 距离 $\alpha$ 的\textbf{垂直高度}。
+}
+
+\state{应用二：面面角（二面角）}{
+    设两个半平面（或平面）的法向量分别为 $\vec n_1, \vec n_2$，两平面夹角（二面角）$\theta$：
+    \[
+    \cos \theta = \pm \frac{\vec n_1 \cdot \vec n_2}{|\vec n_1|\, |\vec n_2|}.
+    \]
+    \textbf{正负号}要根据具体情形判断：
+    \begin{itemize}
+        \item 若两个法向量\textbf{指向二面角的同一侧}——则 $\cos \theta$ 与 $\vec n_1 \cdot \vec n_2 / (|\vec n_1|\, |\vec n_2|)$ \textbf{异号}；
+        \item 反之（指向\textbf{两侧}）则\textbf{同号}。
+    \end{itemize}
+    实战中可以\textbf{先算出绝对值}，再\textbf{看图判断锐角或钝角}，给答案加符号。
+}
+
+\state{应用三：线面角}{
+    设直线 $\ell$ 的方向向量 $\vec d$，平面 $\alpha$ 的法向量 $\vec n$，$\ell$ 与 $\alpha$ 的\textbf{线面角} $\varphi$（$\ell$ 与其在 $\alpha$ 内投影的夹角）满足
+    \[
+    \boxed{\sin \varphi = \frac{|\vec d \cdot \vec n|}{|\vec d|\, |\vec n|}.}
+    \]
+
+    \textbf{特别警告}——\textbf{是 $\sin$ 不是 $\cos$！}——这是线面角与面面角\textbf{最容易混}的地方：
+    \begin{itemize}
+        \item \textbf{面面角}：两个法向量的夹角 $\Rightarrow \cos$；
+        \item \textbf{线面角}：方向向量 $\vec d$ 与\textbf{法向量} $\vec n$ 的夹角为 $\frac{\pi}{2} - \varphi$（互余），所以 $\cos(\frac{\pi}{2} - \varphi) = \sin \varphi$。
+    \end{itemize}
+}
+
+\rmkb{
+    \textbf{线面角 vs. 面面角 vs. 异面直线角——速记}：
+    \begin{itemize}
+        \item \textbf{异面直线角}（两条直线的夹角）：$\cos = \dfrac{|\vec d_1 \cdot \vec d_2|}{|\vec d_1|\, |\vec d_2|}$——方向向量的夹角\textbf{取锐角}；
+        \item \textbf{线面角}：$\sin = \dfrac{|\vec d \cdot \vec n|}{|\vec d|\, |\vec n|}$——方向向量与\textbf{法向量}的夹角的\textbf{余角}；
+        \item \textbf{面面角}：$\cos \theta = \pm \dfrac{\vec n_1 \cdot \vec n_2}{|\vec n_1|\, |\vec n_2|}$——两\textbf{法向量}的夹角\textbf{或其补角}。
+    \end{itemize}
+
+    \textbf{检验}：算完后看图估计锐钝，给一个几何答案。
+}
+
+\rmkb{
+    \textbf{建系 → 法向量 → 应用} 三步法是高中空间几何的\textbf{标准流程}：
+    \begin{enumerate}
+        \item 根据垂直关系\textbf{建右手系}、写出关键点坐标；
+        \item 在要求的平面内\textbf{取两条不共线向量}，用\textbf{解方程}或\textbf{叉乘}求法向量；
+        \item 代入\textbf{距离公式} / \textbf{面面角公式} / \textbf{线面角公式}。
+    \end{enumerate}
+    后续两章的例题都将严格按这个流程解答。
+}

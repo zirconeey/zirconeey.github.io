@@ -1,0 +1,146 @@
+% !TEX root = ../Main.tex
+\chapter{基础篇}
+
+本章 4 道题属于\textbf{坐标法入门}——垂直关系现成，直接建系写坐标即可。重点是熟悉流程：\textbf{建系 $\to$ 写点 $\to$ 向量运算 $\to$ 公式}。
+
+\section{基础 1：菱形侧面 + 等腰直角底面}
+
+\ex[菱形侧面 $\perp$ 底面]{
+    已知菱形 $BDEF$ 与 $\triangle ABC$ 所在平面互相垂直，$\angle FBD = 60^\circ$，$AB \perp BC$，$AB = BC = \sqrt 2$，$D$ 是 $AC$ 的中点，$M$ 是 $BE$ 的中点。求：
+    \begin{enumerate}
+        \item[(1)] 求证：$BE \perp$ 平面 $ACM$；
+        \item[(2)] 求二面角 $A$-$EF$-$C$ 的余弦值。
+    \end{enumerate}
+}
+
+\sol{
+    \textbf{建系}：$AB = BC = \sqrt 2$ 且 $AB \perp BC \Rightarrow \triangle ABC$ 是等腰直角，斜边 $AC = 2$；$D$ 是斜边中点，故 $BD \perp AC$、$|BD| = 1$。取 $D$ 为原点，$y$ 轴沿 $DC$，$x$ 轴沿 $DB$，$z$ 轴竖直。菱形 $BDEF \perp$ 底面 $\Rightarrow BDEF$ 在 $xz$ 平面内。
+
+    坐标：
+    \[
+    A = (0, -1, 0),\ B = (1, 0, 0),\ C = (0, 1, 0),\ D = (0, 0, 0).
+    \]
+    菱形 $BDEF$ 所有边长 $= |BD| = 1$。$\angle FBD = 60^\circ$（在 $xz$ 平面内）：
+    \[
+    F = \left(\tfrac{1}{2},\ 0,\ \tfrac{\sqrt 3}{2}\right),\ E = \left(-\tfrac{1}{2},\ 0,\ \tfrac{\sqrt 3}{2}\right),\ M = \left(\tfrac{1}{4},\ 0,\ \tfrac{\sqrt 3}{4}\right).
+    \]
+
+    \textbf{(1)}
+    \[
+    \vec{BE} = \left(-\tfrac{3}{2},\ 0,\ \tfrac{\sqrt 3}{2}\right),\ \vec{AM} = \left(\tfrac{1}{4},\ 1,\ \tfrac{\sqrt 3}{4}\right),\ \vec{CM} = \left(\tfrac{1}{4},\ -1,\ \tfrac{\sqrt 3}{4}\right).
+    \]
+    $\vec{BE} \cdot \vec{AM} = -\tfrac{3}{8} + 0 + \tfrac{3}{8} = 0$；$\vec{BE} \cdot \vec{CM} = -\tfrac{3}{8} + 0 + \tfrac{3}{8} = 0$。
+
+    故 $BE \perp AM$ 且 $BE \perp CM$，$AM, CM$ 不共线 $\Rightarrow BE \perp$ 平面 $ACM$。$\blacksquare$
+
+    \textbf{(2)} $EF$ 沿 $x$ 轴，中点 $P = (0, 0, \tfrac{\sqrt 3}{2})$：
+    \[
+    \vec{PA} = \left(0, -1, -\tfrac{\sqrt 3}{2}\right),\ \vec{PC} = \left(0, 1, -\tfrac{\sqrt 3}{2}\right).
+    \]
+    两向量 $x$ 分量均为 $0$（$\perp EF$），故二面角即其夹角：
+    \[
+    \cos \theta = \frac{\vec{PA} \cdot \vec{PC}}{|\vec{PA}|\,|\vec{PC}|} = \frac{-1 + 3/4}{\sqrt{7/4}\cdot \sqrt{7/4}} = \frac{-1/4}{7/4} = -\frac{1}{7}.
+    \]
+    二面角 $A$-$EF$-$C$ 的余弦值为 $\boxed{-\dfrac{1}{7}}$（钝角）。
+}
+
+\section{基础 2：正三棱柱的平行与垂直}
+
+\ex[各棱长相等的三棱柱]{
+    已知三棱柱 $ABC$-$A_1B_1C_1$ 所有棱长均为 $2$，侧面 $BCC_1B_1 \perp$ 底面 $ABC$，$\angle B_1 BC = 60^\circ$，$M, N$ 分别为 $BC, A_1 C_1$ 的中点。
+    \begin{enumerate}
+        \item[(1)] 求证：$MN \parallel$ 平面 $ABB_1A_1$；
+        \item[(2)] 设 $P$ 在 $A_1C_1$ 上，平面 $B_1 C P \perp$ 平面 $ACC_1A_1$，求 $\dfrac{C_1 P}{P A_1}$。
+    \end{enumerate}
+}
+
+\sol{
+    \textbf{建系}：底面是边长 $2$ 的正三角形。取 $B$ 为原点，$x$ 沿 $BC$，$y$ 沿垂直 $BC$ 指向 $A$，$z$ 竖直向上。$\angle B_1BC = 60^\circ$ 且 $BB_1$ 在 $xz$ 平面（侧面 $\perp$ 底）：
+    \[
+    B = (0, 0, 0),\ C = (2, 0, 0),\ A = (1, \sqrt 3, 0),
+    \]
+    \[
+    B_1 = (1, 0, \sqrt 3),\ C_1 = (3, 0, \sqrt 3),\ A_1 = (2, \sqrt 3, \sqrt 3).
+    \]
+    $M = (1, 0, 0)$，$N = \left(\tfrac{5}{2}, \tfrac{\sqrt 3}{2}, \sqrt 3\right)$。
+
+    \textbf{(1)} 平面 $ABB_1A_1$ 的法向量 $\vec n$：$\vec{BA} = (1, \sqrt 3, 0)$，$\vec{BB_1} = (1, 0, \sqrt 3)$。
+    \[
+    \vec n = \vec{BA} \times \vec{BB_1} = (3, -\sqrt 3, -\sqrt 3).
+    \]
+    $\vec{MN} = \left(\tfrac{3}{2}, \tfrac{\sqrt 3}{2}, \sqrt 3\right)$，$\vec{MN} \cdot \vec n = \tfrac{9}{2} - \tfrac{3}{2} - 3 = 0$。
+
+    又 $\vec{BM} \cdot \vec n = 3 \ne 0$ $\Rightarrow M \notin$ 平面 $ABB_1A_1$。故 $MN \parallel$ 平面 $ABB_1A_1$。$\blacksquare$
+
+    \textbf{(2)} 设 $P = A_1 + t(C_1 - A_1) = \left(2+t,\ \sqrt 3(1-t),\ \sqrt 3\right)$，$t \in [0, 1]$。
+
+    $\vec{B_1 C} = (1, 0, -\sqrt 3)$，$\vec{B_1 P} = (1+t,\ \sqrt 3(1-t),\ 0)$，
+    \[
+    \vec n_1 = \vec{B_1 C} \times \vec{B_1 P} = \left(3(1-t),\ -\sqrt 3(1+t),\ \sqrt 3(1-t)\right).
+    \]
+    $\vec{AC} = (1, -\sqrt 3, 0)$，$\vec{AA_1} = (1, 0, \sqrt 3)$，
+    \[
+    \vec n_2 = \vec{AC} \times \vec{AA_1} = (-3, -\sqrt 3, \sqrt 3).
+    \]
+    $\vec n_1 \cdot \vec n_2 = -9(1-t) + 3(1+t) + 3(1-t) = -3 + 9t = 0 \Rightarrow t = \tfrac{1}{3}$。
+
+    故 $A_1 P : P C_1 = 1 : 2$，即 $\boxed{\dfrac{C_1 P}{P A_1} = 2}$。
+}
+
+\section{基础 3：空间向量求两直线夹角}
+
+\ex[正三棱柱内的异面直线角]{
+    正三棱柱 $ABC$-$A_1B_1C_1$ 底面边长为 $1$，侧棱长为 $2$。$E, F$ 分别为 $AB, AC$ 的三等分点（$AE = \tfrac{1}{3} AB$，$AF = \tfrac{1}{3} AC$）。求直线 $B_1 E$ 与直线 $EF$ 所成角的正弦值。
+}
+
+\sol{
+    \textbf{建系}：$A$ 为原点，$x$ 轴沿 $AB$，$z$ 轴竖直：
+    \[
+    A = (0, 0, 0),\ B = (1, 0, 0),\ C = (\tfrac{1}{2}, \tfrac{\sqrt 3}{2}, 0),\ B_1 = (1, 0, 2).
+    \]
+    \[
+    E = \tfrac{1}{3} \vec{AB} = (\tfrac{1}{3}, 0, 0),\ F = \tfrac{1}{3} \vec{AC} = (\tfrac{1}{6}, \tfrac{\sqrt 3}{6}, 0).
+    \]
+    \[
+    \vec{B_1 E} = (-\tfrac{2}{3}, 0, -2),\ |\vec{B_1 E}| = \sqrt{\tfrac{4}{9} + 4} = \tfrac{2\sqrt{10}}{3}.
+    \]
+    \[
+    \vec{EF} = (-\tfrac{1}{6}, \tfrac{\sqrt 3}{6}, 0),\ |\vec{EF}| = \tfrac{1}{3}.
+    \]
+    \[
+    \vec{B_1 E} \cdot \vec{EF} = \tfrac{1}{9} + 0 + 0 = \tfrac{1}{9}.
+    \]
+    \[
+    \cos \theta = \frac{1/9}{(2\sqrt{10}/3)(1/3)} = \frac{1}{2\sqrt{10}} = \frac{\sqrt{10}}{20}.
+    \]
+    故 $\sin \theta = \sqrt{1 - \tfrac{10}{400}} = \sqrt{\tfrac{390}{400}} = \dfrac{\sqrt{390}}{20}$。
+}
+
+\section{基础 4：四棱锥中的线面角}
+
+\ex[四棱锥中线面角的求解]{
+    四棱锥 $P$-$ABCD$ 中，$PA \perp$ 底面 $ABCD$，底面是边长为 $2$ 的正方形，$PA = 2$。$M$ 是棱 $PC$ 的中点。求直线 $BM$ 与平面 $PAC$ 所成角的正弦值。
+}
+
+\sol{
+    \textbf{建系}：$A$ 为原点，$x$ 轴沿 $AB$，$y$ 轴沿 $AD$，$z$ 轴沿 $AP$。
+    \[
+    A = (0,0,0),\ B = (2,0,0),\ C = (2,2,0),\ D = (0,2,0),\ P = (0,0,2).
+    \]
+    $M$ 是 $PC$ 中点，$M = (1, 1, 1)$。$\vec{BM} = (-1, 1, 1)$，$|\vec{BM}| = \sqrt 3$。
+
+    \textbf{平面 $PAC$ 的法向量}：$PA$ 沿 $z$ 轴，$AC = (2, 2, 0)$——故平面 $PAC$ 含 $z$ 轴和 $\vec{AC}$。取 $\vec n = \vec{AC} \times \vec{AP} = (2, 2, 0) \times (0, 0, 2) = (4, -4, 0)$，取 $\vec n = (1, -1, 0)$，$|\vec n| = \sqrt 2$。
+
+    \[
+    \vec{BM} \cdot \vec n = -1 - 1 + 0 = -2.
+    \]
+    \[
+    \sin \varphi = \frac{|\vec{BM} \cdot \vec n|}{|\vec{BM}|\,|\vec n|} = \frac{2}{\sqrt 3 \cdot \sqrt 2} = \frac{2}{\sqrt 6} = \frac{\sqrt 6}{3}.
+    \]
+
+    故 $BM$ 与平面 $PAC$ 所成角的正弦值为 $\boxed{\dfrac{\sqrt 6}{3}}$。
+}
+
+\rmkb{
+    \textbf{本章小结}：四道题都是\textbf{建系 $\to$ 写坐标 $\to$ 法向量 $\to$ 公式}的直接套路。\textbf{关键是坐标写对}——尤其是"侧面 $\perp$ 底面"或"折叠"类题目，一旦坐标错，后面全错。建议：每写完坐标，\textbf{用已知的距离或角度验证 2-3 个}再继续。
+}
