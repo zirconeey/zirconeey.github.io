@@ -1,0 +1,92 @@
+% !TEX root = ../Main.tex
+\chapter{点、线、面与基本公理}
+
+立体几何在平面几何基础上增加了"第三维"。但推理并\textbf{不}靠新增的几何直觉，而是从几条\textbf{看似显然的公理}出发——所有判定与证明都要最终追溯到这几条。本章梳理公理系统与点、直线、平面三者间的位置关系。
+
+\section{四条基本公理}
+
+\state{公理 1（确定平面）}{
+    \textbf{不共线的三点确定唯一一个平面。}
+
+    \textbf{推论}：
+    \begin{itemize}
+        \item[\textbf{(i)}] 一条直线和直线外一点确定唯一一个平面；
+        \item[\textbf{(ii)}] 两条相交直线确定唯一一个平面；
+        \item[\textbf{(iii)}] 两条平行直线确定唯一一个平面。
+    \end{itemize}
+}
+
+\state{公理 2（直线在平面内）}{
+    \textbf{如果一条直线上的两点在一个平面内，那么这条直线上所有的点都在此平面内。}
+
+    用符号表示：$A \in \alpha, B \in \alpha \implies $ 直线 $AB \subset \alpha$。
+}
+
+\state{公理 3（两平面相交成直线）}{
+    \textbf{如果两个不重合的平面有一个公共点，那么它们有且只有一条过该点的公共直线}（即两平面的\textbf{交线}）。
+
+    用符号：$\alpha \cap \beta = \ell$，$P \in \alpha \cap \beta \implies P \in \ell$。
+}
+
+\state{公理 4（平行传递性）}{
+    \textbf{平行于同一条直线的两条直线互相平行。}
+
+    即 $a \parallel b, b \parallel c \implies a \parallel c$。这条公理是三维空间中\textbf{唯一}能直接"沿用"平面几何平行传递性的依据。
+}
+
+\section{空间中点、线、面的位置关系}
+
+\state{两直线的位置关系}{
+    空间中两条不同直线 $a, b$ 的位置关系有且只有三种：
+    \begin{itemize}
+        \item[\textbf{(i)}] \textbf{相交}——共面且有唯一公共点；
+        \item[\textbf{(ii)}] \textbf{平行}——共面且无公共点；
+        \item[\textbf{(iii)}] \textbf{异面}——\textbf{不共面}（既不相交也不平行）。
+    \end{itemize}
+    只有情形 (i)(ii) 两直线才确定一个平面；异面直线\textbf{不共面}是三维空间特有的情形。
+}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.85]
+    \draw[thick] (-1, 0) -- (1, 0);
+    \draw[thick] (0, -0.8) -- (0, 0.8);
+    \node at (0, -1.3) {\small 相交};
+    \begin{scope}[xshift=3.5cm]
+        \draw[thick] (-1, 0.3) -- (1, 0.3);
+        \draw[thick] (-1, -0.3) -- (1, -0.3);
+        \node at (0, -1.3) {\small 平行};
+    \end{scope}
+    \begin{scope}[xshift=7cm]
+        \draw[thick] (-1, 0.3) -- (1, 0.3);
+        \draw[thick] (-0.5, -0.6) -- (0.8, 0.8);
+        \node at (0, -1.3) {\small 异面};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\state{直线与平面的位置关系}{
+    直线 $\ell$ 与平面 $\alpha$ 的位置关系有三种：
+    \begin{itemize}
+        \item[\textbf{(i)}] $\ell \subset \alpha$——\textbf{直线在平面内}（$\ell$ 上所有点在 $\alpha$ 内）；
+        \item[\textbf{(ii)}] $\ell \cap \alpha = \{P\}$——\textbf{相交}（有唯一公共点）；
+        \item[\textbf{(iii)}] $\ell \parallel \alpha$——\textbf{平行}（$\ell$ 与 $\alpha$ 无公共点）。
+    \end{itemize}
+}
+
+\state{两平面的位置关系}{
+    两个不同平面 $\alpha, \beta$ 的位置关系有两种：
+    \begin{itemize}
+        \item[\textbf{(i)}] $\alpha \cap \beta = \ell$——\textbf{相交于一条直线}；
+        \item[\textbf{(ii)}] $\alpha \parallel \beta$——\textbf{平行}（无公共点）。
+    \end{itemize}
+}
+
+\rmkb{
+    \textbf{全书基本路径}：
+    \begin{enumerate}
+        \item \textbf{平行判定}（第 2 章）——"线线平行 $\Leftrightarrow$ 线面平行 $\Leftrightarrow$ 面面平行"的三层通道；
+        \item \textbf{垂直判定}（第 3 章）——"线线垂直 $\Leftrightarrow$ 线面垂直 $\Leftrightarrow$ 面面垂直"的三层通道；
+        \item \textbf{角与距离}（第 4 章）——异面直线所成角、线面角、二面角的定义与求法；
+        \item \textbf{精选题}（第 5 章）——七道综合题，综合运用判定定理、建系、向量法等。
+    \end{enumerate}
+}

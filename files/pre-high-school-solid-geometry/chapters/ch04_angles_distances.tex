@@ -1,0 +1,101 @@
+% !TEX root = ../Main.tex
+\chapter{空间角与向量法}
+
+立体几何中的"角"有三类：\textbf{异面直线所成角}、\textbf{直线与平面所成角（线面角）}、\textbf{二面角}。它们的取值范围各不相同——这是考试中最容易被忽视的\textbf{约定}。本章整理三类角的定义与计算方法，并介绍统一处理它们的\textbf{空间向量法}。
+
+\section{三类空间角的定义与范围}
+
+\state{异面直线所成角}{
+    两条异面直线 $a, b$ \textbf{平移到相交}（过空间任一点各作 $a, b$ 的平行线）所成锐角或直角。
+
+    \textbf{取值范围}：$\theta \in \left(0^\circ, 90^\circ\right]$（总是取\textbf{锐角或直角}）。
+}
+
+\state{直线与平面所成角（线面角）}{
+    直线 $\ell$ 与其\textbf{在平面 $\alpha$ 内射影} $\ell'$ 所成角。
+    \begin{itemize}
+        \item 若 $\ell \subset \alpha$ 或 $\ell \parallel \alpha$，规定线面角为 $0^\circ$；
+        \item 若 $\ell \perp \alpha$，规定线面角为 $90^\circ$。
+    \end{itemize}
+
+    \textbf{取值范围}：$\theta \in \left[0^\circ, 90^\circ\right]$。
+}
+
+\state{二面角（面面角）}{
+    二面角 $\alpha$-$\ell$-$\beta$ 的\textbf{平面角}——在棱 $\ell$ 上任取一点 $O$，两半平面内各作 $\ell$ 的垂线 $OA, OB$，$\angle AOB$ 即为二面角。
+
+    \textbf{取值范围}：$\theta \in \left[0^\circ, 180^\circ\right]$。\textbf{注意不取锐角}——二面角可以是\textbf{钝角}。
+}
+
+\begin{center}
+\begin{tabular}{lcl}
+    \hline
+    \textbf{类型} & \textbf{取值范围} & \textbf{特点} \\
+    \hline
+    异面直线所成角 & $(0^\circ, 90^\circ]$ & 总取锐角或直角 \\
+    线面角 & $[0^\circ, 90^\circ]$ & 射影角 \\
+    二面角 & $[0^\circ, 180^\circ]$ & 含钝角 \\
+    \hline
+\end{tabular}
+\end{center}
+
+\section{空间向量法}
+
+\state{向量法统一处理三类角}{
+    设 $\vec a, \vec b$ 为两直线的方向向量，$\vec n_1, \vec n_2$ 为两平面的法向量。
+    \begin{itemize}
+        \item[\textbf{(i)}] \textbf{异面直线所成角} $\theta \in (0^\circ, 90^\circ]$：
+        \[
+        \cos \theta = \frac{|\vec a \cdot \vec b|}{|\vec a|\,|\vec b|}.
+        \]
+        \item[\textbf{(ii)}] \textbf{线面角} $\theta \in [0^\circ, 90^\circ]$（直线方向 $\vec a$、平面法向量 $\vec n$）：
+        \[
+        \sin \theta = \frac{|\vec a \cdot \vec n|}{|\vec a|\,|\vec n|}.
+        \]
+        \item[\textbf{(iii)}] \textbf{二面角} $\theta \in [0^\circ, 180^\circ]$：
+        \[
+        \cos \theta = \pm \frac{\vec n_1 \cdot \vec n_2}{|\vec n_1|\,|\vec n_2|},
+        \]
+        符号由图形判断（锐/钝）。\textbf{不能直接取绝对值}！
+    \end{itemize}
+}
+
+\state{法向量的求法}{
+    设平面 $\alpha$ 由两不共线向量 $\vec u, \vec v$ 张成，令 $\vec n = (x, y, z)$，由
+    \[
+    \bc \vec n \cdot \vec u = 0 \\ \vec n \cdot \vec v = 0 \ec
+    \]
+    解出一组非零解即可（通常令某分量为 $1$ 代入求解）。
+}
+
+\section{点到平面的距离}
+
+\state{点到平面距离公式（向量法）}{
+    若平面 $\alpha$ 法向量为 $\vec n$，$A$ 为 $\alpha$ 内一点，$P$ 为空间任一点，则 $P$ 到 $\alpha$ 的距离为
+    \[
+    d = \frac{\left|\vec{AP} \cdot \vec n \right|}{|\vec n|}.
+    \]
+}
+
+\section{体积法与等积变换}
+
+\state{体积法求距离}{
+    若三棱锥 $P$-$ABC$ 的体积 $V$ 可分别用两个不同"底面-高"的组合表示：
+    \[
+    V = \frac{1}{3} S_{\triangle ABC} \cdot h_P = \frac{1}{3} S_{\triangle PBC} \cdot h_A,
+    \]
+    其中 $h_P$ 为 $P$ 到平面 $ABC$ 的距离，$h_A$ 为 $A$ 到平面 $PBC$ 的距离，由此可用已知体积反推任一方向的高。
+
+    \textbf{这是求"点到平面距离"最常用的手段之一}——避免建系、求法向量。
+}
+
+\rmkb{
+    \textbf{建系三原则}：
+    \begin{enumerate}
+        \item \textbf{找"正交三脚架"}——优先选\textbf{三条两两垂直的棱}作为坐标轴；
+        \item \textbf{以特殊点为原点}——常选\textbf{垂直交汇的顶点}，如 $PA \perp$ 底面时选 $A$；
+        \item \textbf{合理定向}——让坐标轴与已知量对齐（长方体的棱沿 $x, y, z$）。
+    \end{enumerate}
+
+    \textbf{找不到正交三脚架时}：先用\textbf{几何判定}证出两两垂直的辅助方向（如三垂线定理、面面垂直交线垂线等）再建系。
+}
