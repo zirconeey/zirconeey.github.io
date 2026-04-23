@@ -1,0 +1,212 @@
+% !TEX root = ../Main.tex
+\chapter{精选题}
+
+本章 $10$ 道典型问题覆盖前面所有模型——\textbf{一侧棱垂直}、\textbf{两面互垂直}、\textbf{墙角模型}、\textbf{正四面体}、\textbf{直径角}、\textbf{球在柱体内最大化}等。每题都标注所用模型，方便复盘。
+
+\section{填空题}
+
+\ex[圆锥的外接球]{
+    已知点 $O$ 为圆锥 $PO$ 底面的圆心，圆锥 $PO$ 的轴截面为边长为 $2$ 的等边三角形 $PAB$，求圆锥 $PO$ 的外接球的表面积。
+}
+
+\sol{
+    轴截面边长 $2$ 的等边三角形：底面半径 $r = 1$、母线 $l = 2$、高 $h = \sqrt 3$。外接球球心在轴 $PO$ 上。设球心在 $O$ 正上方距离 $d$，则
+    \[
+    R^2 = d^2 + 1^2, \qquad R^2 = (h - d)^2 = (\sqrt 3 - d)^2.
+    \]
+    联立：$d^2 + 1 = 3 - 2\sqrt 3 d + d^2 \implies 2 \sqrt 3 d = 2 \implies d = \tfrac{1}{\sqrt 3} = \tfrac{\sqrt 3}{3}$。
+    $R^2 = \tfrac{1}{3} + 1 = \tfrac{4}{3}$。
+    表面积 $= 4 \pi R^2 = \boxed{\dfrac{16 \pi}{3}}$。
+}
+
+\ex[侧棱垂直模型]{
+    三棱锥 $S$-$ABC$ 所有顶点在球 $O$ 面上，$SA \perp$ 平面 $ABC$，$SA = 2\sqrt 3, AB = 1, AC = 2, \angle BAC = \tfrac{\pi}{3}$。求球 $O$ 的表面积。
+}
+
+\sol{
+    （见 Ch5 例1）$BC = \sqrt 3$，$\triangle ABC$ 外接圆 $r = 1$，
+    \[
+    R^2 = r^2 + \left(\frac{SA}{2}\right)^2 = 1 + 3 = 4.
+    \]
+    表面积 $= \boxed{16 \pi}$。
+}
+
+\ex[两平面垂直模型]{
+    点 $A$ 是以 $BC$ 为直径的圆 $O$ 上异于 $B, C$ 的动点，$P$ 为平面 $ABC$ 外一点，平面 $PBC \perp$ 平面 $ABC$，$BC = 3, PB = 2 \sqrt 2, PC = \sqrt 5$。求三棱锥 $P$-$ABC$ 外接球表面积。
+}
+
+\sol{
+    （见 Ch5 例2）$r_1 = \tfrac{3}{2}$（$\triangle ABC$ 内接于以 $BC$ 为直径的圆，所以外接圆即此圆），$r_2 = \tfrac{\sqrt{10}}{2}$，$l = 3$。
+    \[
+    R^2 = r_1^2 + r_2^2 - (l/2)^2 = \frac{9}{4} + \frac{10}{4} - \frac{9}{4} = \frac{10}{4} = \frac{5}{2}.
+    \]
+    表面积 $= \boxed{10 \pi}$。
+}
+
+\ex[正四面体内点到各面距离之和]{
+    棱长为 $1$、各面都为等边三角形的四面体内有一点 $P$，由 $P$ 向各面作垂线，垂线段长度分别为 $d_1, d_2, d_3, d_4$。求 $d_1 + d_2 + d_3 + d_4$。
+}
+
+\sol{
+    正四面体\textbf{各面面积相等}，设为 $S$。$S = \tfrac{\sqrt 3}{4}$。
+    \textbf{体积分割}：$V = \tfrac{1}{3} S d_1 + \tfrac{1}{3} S d_2 + \tfrac{1}{3} S d_3 + \tfrac{1}{3} S d_4 = \tfrac{S}{3}(d_1 + \cdots + d_4)$。
+
+    另一方面，正四面体的高 $h = \tfrac{\sqrt 6}{3}$；以某面为底、对顶点为顶，$V = \tfrac{1}{3} S h$。
+    两式相等：
+    \[
+    d_1 + d_2 + d_3 + d_4 = h = \boxed{\frac{\sqrt 6}{3}}.
+    \]
+
+    \textbf{结论}：对\textbf{各面等面积的多面体}，内部任一点到各面距离之和\textbf{为常数}——等于"以该常面积为底、对应高"的几何量。这是体积分割法的一个漂亮应用。
+}
+
+\ex[正三棱柱的三棱锥体积]{
+    正三棱柱 $ABC$-$A_1 B_1 C_1$ 中 $AB = 4, AA_1 = 6$，$E, F$ 分别是棱 $BB_1, CC_1$ 上的点。求三棱锥 $A$-$A_1 E F$ 的体积。
+}
+
+\sol{
+    \textbf{关键观察}：体积与 $E, F$ 的具体位置\textbf{无关}。
+
+    设 $A = (0, 0, 0), B = (4, 0, 0), C = (2, 2\sqrt 3, 0), A_1 = (0, 0, 6)$，$E = (4, 0, t)$，$F = (2, 2\sqrt 3, s)$。
+    \[
+    V = \frac{1}{6} \bigl|\det[\vec{AA_1}, \vec{AE}, \vec{AF}]\bigr| = \frac{1}{6} \left|\det \begin{pmatrix} 0 & 4 & 2 \\ 0 & 0 & 2\sqrt 3 \\ 6 & t & s \end{pmatrix}\right|.
+    \]
+    沿第 $1$ 行展开（第 $1$ 行是 $AA_1 = (0,0,6)$）：
+    \[
+    \det = 6 \cdot \det \begin{pmatrix} 4 & 2 \\ 0 & 2\sqrt 3 \end{pmatrix} = 6 \cdot 4 \cdot 2 \sqrt 3 = 48 \sqrt 3.
+    \]
+    $V = \dfrac{48 \sqrt 3}{6} = \boxed{8 \sqrt 3}$。
+
+    \textbf{几何直觉}：$E, F$ 在与 $AA_1$ 方向\textbf{平行}的棱上移动；$\vec{AE} = \vec{AB} + t \vec{AA_1}$，$\vec{AF} = \vec{AC} + s \vec{AA_1}$。行列式 $\det[\vec{AA_1}, \vec{AE}, \vec{AF}] = \det[\vec{AA_1}, \vec{AB} + t\vec{AA_1}, \vec{AC} + s\vec{AA_1}] = \det[\vec{AA_1}, \vec{AB}, \vec{AC}]$（向量的线性性质），确实与 $t, s$ 无关。
+}
+
+\ex[直三棱柱内最大球]{
+    底面边长 $3, 4, 5$、高 $6$ 的直三棱柱容器内放置一气球，使气球尽可能膨胀（保持球的形状）。求气球表面积的最大值。
+}
+
+\sol{
+    $3, 4, 5$ 是\textbf{直角三角形}（$3^2 + 4^2 = 5^2$）。其内切圆半径 $r_{\text{底}} = \dfrac{3 + 4 - 5}{2} = 1$。
+
+    球内置直三棱柱：\textbf{半径受两限制}
+    \begin{itemize}
+        \item \textbf{径向}（由底面形状）：$R \le r_{\text{底}} = 1$；
+        \item \textbf{轴向}（由高）：$2 R \le 6 \implies R \le 3$。
+    \end{itemize}
+    取更严的 $R = 1$。
+    表面积最大值 $= 4\pi R^2 = \boxed{4 \pi}$。
+
+    \textbf{直角三角形内切圆半径公式}：若两直角边 $a, b$、斜边 $c$，则 $r = \dfrac{a + b - c}{2}$。
+}
+
+\section{选择题}
+
+\ex[折叠四棱锥的外接球]{
+    圆形纸片的圆心为 $O$，半径 $6$。纸片上的正方形 $ABCD$ 的中心为 $O$。$E, F, G, H$ 为圆 $O$ 上的点，$\triangle ABE, \triangle BCF, \triangle CDG, \triangle ADH$ 分别为以 $AB, BC, CD, DA$ 为底的等腰三角形。沿虚线剪开后，分别以这四条边为折痕向上折起使 $E, F, G, H$ 重合，得一四棱锥。当该四棱锥的侧面积是底面积的 $2$ 倍时，其外接球的表面积为
+    \[(A) \tfrac{16 \pi}{3}, \quad (B) \tfrac{25\pi}{3}, \quad (C) \tfrac{64 \pi}{3}, \quad (D) \tfrac{100 \pi}{3}.\]
+}
+
+\sol{
+    \textbf{设正方形边长 $a$}。$OA = \dfrac{a \sqrt 2}{2}$，故三角形 $\triangle ABE$ 的高 $=$ $6 - \dfrac{a}{2}$（从 $AB$ 中点到 $E$ 沿径向）。
+
+    \textbf{底面积 $= a^2$，侧面积 $= 4 \cdot \tfrac{1}{2} a (6 - \tfrac{a}{2}) = 12 a - a^2$}。
+    \[
+    \text{侧} = 2 \cdot \text{底}: \quad 12 a - a^2 = 2 a^2 \implies a = 4.
+    \]
+
+    \textbf{折叠后的几何量}：底面正方形边长 $4$，半对角线 $2\sqrt 2$；侧面三角形的斜高（从顶 $E$ 到底面边 $AB$）为 $6 - 2 = 4$。顶点到底面的距离 $h$：
+    \[
+    h = \sqrt{4^2 - 2^2} = \sqrt{12} = 2 \sqrt 3.
+    \]
+    （$4$ 是斜高，$2$ 是从底面中心到边 $AB$ 的距离。）
+
+    \textbf{外接球}：球心在锥轴上，距底面 $k$，半径 $R$。
+    \[
+    R^2 = (2\sqrt 3 - k)^2 = k^2 + (2 \sqrt 2)^2 \implies 12 - 4\sqrt 3 k = 8 \implies k = \frac{1}{\sqrt 3} = \frac{\sqrt 3}{3}.
+    \]
+    $R^2 = k^2 + 8 = \tfrac{1}{3} + 8 = \tfrac{25}{3}$。
+    表面积 $= 4 \pi \cdot \tfrac{25}{3} = \dfrac{100 \pi}{3}$——\textbf{答案 (D)}。
+}
+
+\ex[正方体两球 $MN$ 的范围（多选）]{
+    正方体的外接球与内切球上各有一动点 $M, N$，线段 $MN$ 的最小值为 $\sqrt 3 - 1$。下列结论正确的是：
+
+    (A) 外接球表面积为 $12\pi$；\quad (B) 内切球体积为 $\pi / 3$；\quad (C) 棱长为 $1$；\quad (D) $MN$ 最大值为 $\sqrt 3 + 1$。
+}
+
+\sol{
+    设棱长为 $a$。\textbf{两球同心}（均以正方体中心为球心）——内切球半径 $\tfrac{a}{2}$、外接球半径 $\tfrac{\sqrt 3 a}{2}$。$M, N$ 分别在两球面上，到公共球心距离分别为 $\tfrac{\sqrt 3 a}{2}$ 与 $\tfrac{a}{2}$。距离 $|MN|$ 的范围：
+    \[
+    \frac{\sqrt 3 a}{2} - \frac{a}{2} \le |MN| \le \frac{\sqrt 3 a}{2} + \frac{a}{2}.
+    \]
+    即 $\dfrac{(\sqrt 3 - 1) a}{2} \le |MN| \le \dfrac{(\sqrt 3 + 1) a}{2}$。
+
+    由 $\tfrac{(\sqrt 3 - 1) a}{2} = \sqrt 3 - 1$ 得 $a = 2$。
+
+    \textbf{逐项检验}：
+    \begin{itemize}
+        \item (A) 外接球半径 $\sqrt 3$，表面积 $4 \pi \cdot 3 = 12 \pi$ $\checkmark$；
+        \item (B) 内切球半径 $1$，体积 $\tfrac{4 \pi}{3}$ $\ne \tfrac{\pi}{3}$ $\times$；
+        \item (C) 棱长为 $2$ 而非 $1$ $\times$；
+        \item (D) $|MN|$ 最大值 $= \tfrac{(\sqrt 3 + 1) \cdot 2}{2} = \sqrt 3 + 1$ $\checkmark$。
+    \end{itemize}
+    \textbf{正确选项：(A)(D)}。
+}
+
+\ex[直径角模型]{
+    三棱锥 $S$-$ABC$ 所有顶点在球 $O$ 面上，$\triangle ABC$ 是边长为 $1$ 的正三角形，$SC$ 为球 $O$ 的直径，$SC = 2$。求此棱锥的体积。
+    \[(A) \tfrac{\sqrt 2}{6}, \quad (B) \tfrac{\sqrt 3}{6}, \quad (C) \tfrac{\sqrt 2}{3}, \quad (D) \tfrac{\sqrt 2}{2}.\]
+}
+
+\sol{
+    $SC$ 是直径 $\Rightarrow R = 1$。\textbf{球面上任何点 $P$ 对直径 $SC$ 张的角 $\angle SPC = 90^\circ$}（即："\textbf{直径对应圆周角 $90^\circ$}" 的三维推广）。故 $\angle SAC = \angle SBC = 90^\circ$。
+
+    由 $\angle SAC = 90^\circ, AC = 1, SC = 2$：$SA = \sqrt{SC^2 - AC^2} = \sqrt 3$。同理 $SB = \sqrt 3$。
+
+    \textbf{求高 $h$}：$S$ 到平面 $ABC$ 的距离。
+    取 $\triangle ABC$ 外心 $G$——正三角形中心到顶点距离 $\tfrac{1}{\sqrt 3}$。球心 $O$ 在过 $G$ 垂直底面的线上，距离 $\sqrt{1 - \tfrac{1}{3}} = \sqrt{\tfrac{2}{3}}$。$S = 2 O - C$——$S$ 在底面外侧。
+    设 $C$ 在底面内（$z = 0$），$O$ 在 $z = \sqrt{2/3}$ 处且 $xy$-坐标 $= G$。则 $S = 2 \cdot (G, \sqrt{2/3}) - (C, 0) = (2 G - C, 2\sqrt{2/3})$。
+    $S$ 到底面距离 $= 2 \sqrt{2/3} = \tfrac{2 \sqrt 6}{3}$。
+
+    \[
+    V = \frac{1}{3} \cdot \frac{\sqrt 3}{4} \cdot \frac{2\sqrt 6}{3} = \frac{\sqrt{18}}{18} = \frac{3 \sqrt 2}{18} = \frac{\sqrt 2}{6}.
+    \]
+    \textbf{答案 (A)}。
+}
+
+\ex[斜三棱柱的体积]{
+    斜三棱柱底面是边长为 $4$ 的正三角形，侧棱长 $5$。若其中一条侧棱与底面三角形的相邻两边都成 $60^\circ$ 角，求此三棱柱的体积。
+    \[(A) \tfrac{50\sqrt 3}{3}, \quad (B) 20 \sqrt 3, \quad (C) \tfrac{50\sqrt 2}{3}, \quad (D) 20 \sqrt 2.\]
+}
+
+\sol{
+    \textbf{底面积} $= \tfrac{\sqrt 3}{4} \cdot 16 = 4 \sqrt 3$。
+
+    \textbf{求侧棱在底面方向的分解。} 设 $AB, AC$ 为底面正三角形 $A$ 处的两条相邻边（$\angle BAC = 60^\circ$），侧棱 $AA'$ 与 $AB, AC$ 都成 $60^\circ$ 角。取 $AB, AC$ 为单位向量 $\vec u_1, \vec u_2$（$\vec u_1 \cdot \vec u_2 = \cos 60^\circ = \tfrac{1}{2}$）。
+
+    设 $\vec v$ 为侧棱方向的单位向量，分解 $\vec v = p \cdot \dfrac{\vec u_1 + \vec u_2}{|\vec u_1 + \vec u_2|} + q \vec n$（$\vec n$ 为底面单位法向）。由 $\vec v \cdot \vec u_1 = \tfrac{1}{2}$：
+    \[
+    p \cdot \frac{(1 + 1/2)}{\sqrt 3} = \frac{1}{2} \implies p = \frac{\sqrt 3}{3}\cdot 3 \cdot \frac{1}{2} = \text{let's redo:} \ p \cdot \frac{3/2}{\sqrt 3} = \frac{1}{2} \implies p = \frac{\sqrt 3}{3}.
+    \]
+    $p^2 + q^2 = 1$，$p^2 = \tfrac{1}{3}$，$q^2 = \tfrac{2}{3}$，$q = \dfrac{\sqrt 6}{3}$。
+
+    \textbf{棱柱高} $=$ 侧棱在法向的分量 $= 5 q = \dfrac{5 \sqrt 6}{3}$。
+
+    \[
+    V = 4 \sqrt 3 \cdot \frac{5\sqrt 6}{3} = \frac{20 \sqrt{18}}{3} = \frac{20 \cdot 3 \sqrt 2}{3} = 20 \sqrt 2.
+    \]
+    \textbf{答案 (D)}。
+}
+
+\rmkb{
+    \textbf{精选题涵盖的模型与思路}：
+    \begin{itemize}
+        \item \textbf{轴线对称型外接球}（圆锥、正三棱锥、正四面体）——"轴上球心、垂线模型"；
+        \item \textbf{一边垂直型}（侧棱垂直底面、两面垂直共边、两直角共斜边）——三个公式套用即可；
+        \item \textbf{长方体型}（墙角模型、对棱相等、四面体嵌正方体）——补成长方体借"空间对角线"；
+        \item \textbf{直径角模型}（球面上点对直径张 $90^\circ$）——把"过直径"翻译成两直角三角形；
+        \item \textbf{体积分割的两个应用}——求内切球半径、求多面体内点到各面距离之和；
+        \item \textbf{"平移不变"体积}（棱上滑动点的三棱锥）——利用行列式线性性质；
+        \item \textbf{容器内最大球}——多约束下取严者；
+        \item \textbf{斜棱柱体积}（侧棱与底面夹角）——向量分解法。
+    \end{itemize}
+}

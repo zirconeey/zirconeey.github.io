@@ -1,0 +1,103 @@
+% !TEX root = ../Main.tex
+\chapter{正四面体与正三棱锥}
+
+正四面体是最"对称"的立体——四个面都是全等的正三角形。它同时有外接球与内切球，且两球\textbf{同心}。本章通过两种方法求其半径，并推广到一般正三棱锥。
+
+\section{正四面体：外接球与内切球}
+
+\state{正四面体（棱长 $a$）的关键数据}{
+    设正四面体 $ABCD$ 棱长为 $a$。
+    \begin{itemize}
+        \item \textbf{底面外接圆半径}（等边三角形外接圆）：$r_{\triangle} = \dfrac{a}{\sqrt 3} = \dfrac{\sqrt 3}{3} a$；
+        \item \textbf{高}（顶点到对面距离）：$h = \sqrt{a^2 - r_{\triangle}^2} = \sqrt{a^2 - \dfrac{a^2}{3}} = \dfrac{\sqrt 6}{3} a$；
+        \item \textbf{外接球半径}：$R = \dfrac{\sqrt 6}{4} a$；
+        \item \textbf{内切球半径}：$r = \dfrac{\sqrt 6}{12} a$；
+        \item \textbf{重要关系}：$R = 3r$，\quad $R + r = h$。
+    \end{itemize}
+}
+
+\ex[方法一：代数法求外接球半径]{
+    证明正四面体（棱长 $a$）的外接球半径 $R = \dfrac{\sqrt 6}{4} a$。
+}
+
+\sol{
+    由对称性，球心 $O$ 在"顶点到对面中心 $O'$ 的连线"上。设 $O$ 在 $O'$ 上方距离 $d$，则 $O$ 到底面一顶点 $B$ 的距离：$OB^2 = d^2 + r_{\triangle}^2 = d^2 + \tfrac{a^2}{3}$；$O$ 到顶点 $A$（距离底面 $h$）的距离：$OA^2 = (h - d)^2$。令 $OA = OB = R$：
+    \[
+    (h - d)^2 = d^2 + \tfrac{a^2}{3} \implies h^2 - 2hd = \tfrac{a^2}{3} \implies d = \frac{h^2 - a^2/3}{2h}.
+    \]
+    代入 $h = \tfrac{\sqrt 6}{3} a$：$h^2 = \tfrac{2 a^2}{3}$，故 $h^2 - \tfrac{a^2}{3} = \tfrac{a^2}{3}$，于是 $d = \dfrac{a^2/3}{2 \cdot \sqrt 6 a / 3} = \dfrac{a}{2\sqrt 6} = \dfrac{\sqrt 6 a}{12}$。
+    \[
+    R = h - d = \frac{\sqrt 6 a}{3} - \frac{\sqrt 6 a}{12} = \frac{4 \sqrt 6 a - \sqrt 6 a}{12} = \frac{3 \sqrt 6 a}{12} = \frac{\sqrt 6 a}{4}. \qed
+    \]
+
+    \textbf{顺带}：$d = \dfrac{\sqrt 6 a}{12} = r$（\textbf{球心到底面的距离恰好等于内切球半径}）。由球心的对称性，内切球与外接球同心，所以\textbf{内切球半径} $r = \dfrac{\sqrt 6}{12} a$。
+}
+
+\ex[方法二：体积分割法求内切球半径]{
+    利用 $V = \tfrac{1}{3} S_{\text{表}} \cdot r$ 求正四面体内切球半径。
+}
+
+\sol{
+    正四面体四个面都是边长 $a$ 的正三角形，单面面积 $\tfrac{\sqrt 3}{4} a^2$。
+    \[
+    S_{\text{表}} = 4 \cdot \frac{\sqrt 3}{4} a^2 = \sqrt 3 \, a^2.
+    \]
+    体积用底面与高：$V = \tfrac{1}{3} \cdot \tfrac{\sqrt 3}{4} a^2 \cdot \tfrac{\sqrt 6}{3} a = \tfrac{\sqrt{18}}{36} a^3 = \tfrac{\sqrt 2}{12} a^3$。
+
+    由 $V = \tfrac{1}{3} S_{\text{表}} r$：
+    \[
+    \frac{\sqrt 2}{12} a^3 = \frac{1}{3} \cdot \sqrt 3 a^2 \cdot r \implies r = \frac{\sqrt 2 a}{12} \cdot \frac{3}{\sqrt 3} = \frac{\sqrt 2 \cdot \sqrt 3}{12} a = \frac{\sqrt 6}{12} a.
+    \]
+
+    \textbf{妙处}：这等价于 $h = 4r$——对\textbf{等面积四面体}，四个面分别为底、内心为顶的四个小锥体合起来恰是整体，故"内心到某面距离 $= r$"而"顶点到对面距离 $= h$"，由体积守恒得到 $Sh = 4 Sr \implies h = 4r$。
+}
+
+\ex[方法三：嵌入立方体]{
+    把正四面体嵌入一个立方体的四个交错顶点——利用立方体对角线求外接球半径。
+}
+
+\sol{
+    将棱长 $a$ 的正四面体嵌入立方体，使立方体的面对角线恰为正四面体的棱。设立方体棱长为 $s$，则正四面体棱长 $a = s \sqrt 2$，即 $s = \dfrac{a}{\sqrt 2}$。
+
+    立方体与正四面体\textbf{共享外接球}（球心在立方体中心，球面通过立方体八个顶点，当然也通过其中四个——正四面体的顶点）。立方体外接球直径即空间对角线 $\sqrt 3 s$：
+    \[
+    2R = \sqrt 3 s = \sqrt 3 \cdot \frac{a}{\sqrt 2} = \frac{\sqrt 6}{2} a \implies R = \frac{\sqrt 6}{4} a. \qed
+    \]
+    \textbf{与方法一结论一致}。
+}
+
+\rmkb{
+    \textbf{正四面体三件套}：
+    \[
+    h = \frac{\sqrt 6}{3} a, \qquad R = \frac{\sqrt 6}{4} a, \qquad r = \frac{\sqrt 6}{12} a.
+    \]
+    \textbf{关系} $R = 3r$ 和 $R + r = h$。
+
+    \textbf{记忆}：$R : r = 3 : 1$，$R : h = 3 : 4$，$r : h = 1 : 4$。
+}
+
+\section{一般正三棱锥}
+
+\state{正三棱锥的外接球公式}{
+    \textbf{正三棱锥}：顶点 $P$ 在底面（正三角形）中心正上方，底边长 $a$、高（侧棱在底面的投影到底面中心距离 $= 0$；顶点到底面距离 $= h$）。球心在顶点到底面中心的连线上，由 $R^2 = (h - R)^2 + \left(\dfrac{a}{\sqrt 3}\right)^2$ 得：
+    \[
+    R = \frac{h^2 + a^2 / 3}{2 h}.
+    \]
+    等价于一般"垂线模型"公式 $R = \dfrac{h^2 + r^2}{2h}$，取 $r = \dfrac{a}{\sqrt 3}$。
+}
+
+\state{一般"顶点在底面外接圆圆心正上方"的外接球模型}{
+    若立体有一\textbf{"轴"}：顶点 $P$ 在底面（某多边形）外接圆圆心 $O'$ 正上方，距离 $h$。底面外接圆半径 $r$。则外接球球心 $O$ 也在此轴上，由
+    \[
+    R^2 = (R - h)^2 + r^2
+    \]
+    得 $\boxed{R = \dfrac{h^2 + r^2}{2 h}}$。
+
+    \textbf{两种情形}：
+    \begin{itemize}
+        \item $h > R$：球心在 $O'$ 与 $P$ 之间；
+        \item $h < R$：球心在 $O'$ 的"底面另一侧"延长线上——若 $P$ 与 $O'$ 之间夹球心，$h = 2R$ 时 $P$ 在球面上；$h < 2R$ 且 $h < R$ 时球心"下陷"到底面之下。
+    \end{itemize}
+
+    \textbf{公式对这两种情形都适用}——$\dfrac{h^2 + r^2}{2h}$ 自动给出正确的 $R$。
+}

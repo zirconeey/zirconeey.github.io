@@ -1,0 +1,148 @@
+% !TEX root = ../Main.tex
+\chapter{内切球与体积分割法}
+
+\textbf{内切球}是立体几何里的"圆"——球面内切于多面体的所有面。它的核心刻画\textbf{从平面的内切圆平移而来}：\textbf{球心到每个面的距离相等}，这个公共距离就是半径 $r$。本章把二维"内切圆——面积分割"的套路升级到三维"内切球——体积分割"。
+
+\section{内切圆与内切球的类比}
+
+\state{内切圆与内切球的平行刻画}{
+    \begin{itemize}
+        \item \textbf{内切圆}（三角形）：圆心 $O$ 到三边的距离都等于 $r$——关心的是"\textbf{点到直线的距离}"。
+        \item \textbf{内切球}（多面体）：球心 $O$ 到各面的距离都等于 $r$——关心的是"\textbf{点到平面的距离}"。
+    \end{itemize}
+    两者都依靠\textbf{垂直关系}——内切圆的半径沿切点指向垂直于边；内切球的半径沿切点指向垂直于面。这种垂直关系在\textbf{求表面积或体积时非常有用}。
+}
+
+\begin{center}
+\begin{tikzpicture}[scale=1]
+    % left: inscribed circle in triangle
+    \coordinate (A) at (0,2);
+    \coordinate (B) at (-1.8,-0.3);
+    \coordinate (C) at (1.8,0);
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+    % Compute incenter (approximate by averaging for diagram)
+    \coordinate (I) at (0.1, 0.3);
+    \fill (I) circle (1pt) node[above right] {\small $O$};
+    \draw[blue] (I) circle (0.55);
+    \draw[dashed, red] (I) -- ($(A)!(I)!(B)$);
+    \draw[dashed, red] (I) -- ($(A)!(I)!(C)$);
+    \draw[dashed, red] (I) -- ($(B)!(I)!(C)$);
+    \node at (A) [above] {$A$};
+    \node at (B) [below left] {$B$};
+    \node at (C) [below right] {$C$};
+    \node at (-2, -1.2) {\small 内切圆：$O$ 到三边距离 $= r$};
+\end{tikzpicture}
+\qquad
+\begin{tikzpicture}[scale=1]
+    % right: inscribed sphere in tetrahedron (sketch)
+    \coordinate (P) at (0,2.3);
+    \coordinate (A) at (-1.6,-0.2);
+    \coordinate (B) at (1.6,-0.3);
+    \coordinate (C) at (0.3,0.4);
+    \draw[thick] (P) -- (A);
+    \draw[thick] (P) -- (B);
+    \draw[thick] (P) -- (C);
+    \draw[thick] (A) -- (B);
+    \draw[thick, dashed] (A) -- (C);
+    \draw[thick, dashed] (B) -- (C);
+    \coordinate (O) at (0.1, 0.4);
+    \fill (O) circle (1pt) node[above right] {\small $O$};
+    \draw[blue] (O) circle (0.5);
+    \node at (P) [above] {$P$};
+    \node at (A) [below left] {$A$};
+    \node at (B) [below right] {$B$};
+    \node at (C) [right] {$C$};
+    \node at (-2, -1.2) {\small 内切球：$O$ 到四面距离 $= r$};
+\end{tikzpicture}
+\end{center}
+
+\section{分割法：由面积/体积反推半径}
+
+\state{内切圆的面积分割公式}{
+    三角形 $\triangle ABC$ 的内切圆半径为 $r$，周长记作 $C = a + b + c$。把三角形沿内心 $O$ 剖成三个小三角形 $\triangle OAB, \triangle OBC, \triangle OCA$——每个小三角形的高都等于 $r$：
+    \[
+    S = \frac{1}{2} c r + \frac{1}{2} a r + \frac{1}{2} b r = \frac{1}{2}(a+b+c) r = \frac{1}{2} C r.
+    \]
+
+    \textbf{重要公式}：\[\boxed{S_{\triangle} = \frac{1}{2} C r.}\]
+}
+
+\state{内切球的体积分割公式}{
+    多面体有内切球、球心为 $O$、半径为 $r$。把多面体沿 $O$ 剖成若干"以每个面为底、$O$ 为顶"的小棱锥——每个小棱锥的高都等于 $r$：
+    \[
+    V = \sum_{\text{每个面}} \frac{1}{3} \cdot S_i \cdot r = \frac{1}{3} \cdot \left(\sum S_i\right) \cdot r = \frac{1}{3} S_{\text{表}} \cdot r.
+    \]
+
+    \textbf{重要公式}：\[\boxed{V = \frac{1}{3} S_{\text{表}} \cdot r.}\]
+
+    这条公式可以从\textbf{三个方向}用：
+    \begin{enumerate}
+        \item 已知 $V, S_{\text{表}}$ 求 $r$——\textbf{这是中学最常见的用法}；
+        \item 已知 $r, S_{\text{表}}$ 求 $V$；
+        \item 已知 $V, r$ 求 $S_{\text{表}}$。
+    \end{enumerate}
+}
+
+\section{内切球存在性：哪些多面体有内切球？}
+
+\rmkb{
+    \textbf{三种情形的总结}：
+    \begin{itemize}
+        \item \textbf{所有三棱锥都有内切球}。$\checkmark$——四个面的"内角平分面"一定交于一点，这个点到四面距离相等。
+        \item \textbf{并非所有四棱锥都有内切球}。$\times$——五个面的"平分面"一般不共点；需特殊条件（如对称）。
+        \item \textbf{一般棱柱不一定有内切球}。$\times$——比如底面为矩形（非正方形）的直棱柱，上下面与侧面之间距离可能不相等。
+    \end{itemize}
+
+    \textbf{直觉}：三棱锥是"面数最少的立体"——四个平分面必共点；四棱锥及以上，面多了，"一点到所有面都等距"就成了约束方程过多的超定系统，一般无解。
+}
+
+\section{例：特殊四棱锥的内切球}
+
+\ex[存在内切球的条件决定底面尺寸]{
+    已知四棱锥 $P$-$ABCD$，平面 $PAB \perp$ 平面 $ABCD$，底面 $ABCD$ 为矩形，$\triangle PAB$ 是边长为 $2$ 的正三角形。若 $P$-$ABCD$ 存在内切球，求此内切球的半径，以及此四棱锥的体积。
+}
+
+\sol{
+    \textbf{设系建标。} 记 $A = (0, 0, 0)$，$B = (2, 0, 0)$，$D = (0, y, 0)$，$C = (2, y, 0)$（底面在 $xOy$ 平面内，$y > 0$ 待求）。平面 $PAB$ 为 $xOz$ 平面。
+    $\triangle PAB$ 为边长 $2$ 的正三角形，$P$ 在 $AB$ 中点 $M = (1, 0, 0)$ 正上方、高 $\sqrt{3}$，即 $P = (1, 0, \sqrt{3})$。
+
+    \textbf{内切球中心设 $(c_x, c_y, c_z)$、半径 $r$。} 对称考虑：底面关于 $x = 1$ 平面对称，故 $c_x = 1$。球需与底面 $z = 0$ 及侧面 $PAB$（$y = 0$）相切：
+    \[
+    c_z = r,\qquad c_y = r.
+    \]
+
+    \textbf{与面 $PBC$ 相切的方程。} 面 $PBC$ 的方程经计算为 $\sqrt{3} x + z = 2\sqrt{3}$。代入 $c_x = 1, c_z = r$：
+    \[
+    \text{距离} = \frac{|\sqrt{3} + r - 2\sqrt{3}|}{\sqrt{3 + 1}} = \frac{\sqrt{3} - r}{2} = r \implies \sqrt{3} = 3r \implies \boxed{r = \frac{\sqrt{3}}{3}}.
+    \]
+
+    \textbf{与面 $PCD$ 相切定 $y$。} 面 $PCD$ 过 $P(1,0,\sqrt 3), C(2, y, 0), D(0, y, 0)$。法向 $(0, \sqrt{3}, y)$，方程 $\sqrt{3} Y + y Z = \sqrt{3} y$。代入中心 $(1, r, r)$：
+    \[
+    \frac{|\sqrt{3} r + y r - \sqrt{3} y|}{\sqrt{3 + y^2}} = r.
+    \]
+    用 $r = \sqrt{3}/3$ 代入并化简：$3\left(1 - \tfrac{2\sqrt{3} y}{3}\right)^2 = 3 + y^2 \implies 3 y^2 = 4 \sqrt{3} y \implies y = \tfrac{4\sqrt{3}}{3}$。
+
+    \textbf{体积。} 底面 $ABCD$ 面积 $= 2 \cdot \tfrac{4\sqrt 3}{3} = \tfrac{8\sqrt 3}{3}$；高 $= \sqrt 3$（$P$ 在底面的投影为 $M$，$P$ 到底面距离 $= \sqrt 3$）。
+    \[
+    V = \frac{1}{3} \cdot \frac{8\sqrt{3}}{3} \cdot \sqrt{3} = \frac{8}{3}.
+    \]
+
+    \textbf{用体积分割法校验。} $V = \tfrac{1}{3} S_{\text{表}} r$：
+    \begin{itemize}
+        \item 底 $ABCD$：$\tfrac{8\sqrt 3}{3}$；
+        \item $\triangle PAB$（等边边长 $2$）：$\sqrt{3}$；
+        \item $\triangle PBC$：$PB = 2, BC = \tfrac{4\sqrt 3}{3}, PC = \tfrac{2\sqrt{21}}{3}$——直角在 $B$（$PB^2 + BC^2 = PC^2$），面积 $= \tfrac{4\sqrt 3}{3}$；对称 $\triangle PAD$ 同；
+        \item $\triangle PCD$：$CD = 2, PC = PD = \tfrac{2\sqrt{21}}{3}$，到 $CD$ 的高 $= \tfrac{5}{\sqrt 3}$，面积 $= \tfrac{5\sqrt 3}{3}$。
+    \end{itemize}
+    合计 $S_{\text{表}} = \tfrac{8\sqrt 3}{3} + \sqrt 3 + 2\cdot\tfrac{4\sqrt 3}{3} + \tfrac{5\sqrt 3}{3} = \tfrac{24\sqrt 3}{3} = 8\sqrt 3$。
+    $\tfrac{1}{3} \cdot 8\sqrt 3 \cdot \tfrac{\sqrt 3}{3} = \tfrac{24}{9} = \tfrac{8}{3} = V$ $\checkmark$。
+}
+
+\rmkb{
+    \textbf{本题的关键点}：
+    \begin{enumerate}
+        \item \textbf{存在内切球这个条件并非"白给"}——它\textbf{决定了底面的尺寸}。一般条件下，$AD$ 的长是自由参数；要求有内切球，就\textbf{把自由度锁死}。
+        \item \textbf{对称设中心坐标}：利用 $x = 1$ 平面的对称性，把三维问题降到二维。
+        \item \textbf{两边验证}——直接算体积、又用体积分割公式 $V = \tfrac{1}{3} S_\text{表} r$ 再算一遍，是保险的好习惯。
+    \end{enumerate}
+}
