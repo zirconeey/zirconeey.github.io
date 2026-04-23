@@ -289,40 +289,60 @@ The converse---every payoff in $F^*$ can be sustained as an SPE for sufficiently
 }
 
 \begin{thmpf}
-  We prove the result for $n = 2$ and assume that there exists a pure action profile $s$ with $u(s) = u$. (The general case requires public randomization or time-averaging across action profiles; the construction below extends naturally.)
-  
-  Let $m_i$ denote player $i$'s minmaxing action against player $j \neq i$ (i.e., $m_i$ is the action that minmaxes player $j$).
-  
-  Consider the following strategy profile $\sigma^*$ for each player $i$:
+  We prove the result for $n = 2$ and assume that there exists a pure action profile $s$ with $u(s) = u$ and $u_i > v_i$ strictly for each $i$. (The general case uses public randomization over stage profiles or time-averaging; the construction below adapts naturally.)
+
+  Let $m_i$ denote the action that minmaxes player $j \neq i$, and write $u_i(m) := u_i(m_1, m_2)$ for $i$'s payoff when both players execute their minmaxing actions. By the definition of $v_i$ as $\max_{s_i'} u_i(s_i', m_{-i})$, any action $i$ plays against $m_{-i}$ yields at most $v_i$; in particular, $u_i(m) \le v_i$. Let $\bar u_i := \max_{s_i'} u_i(s_i', s_j)$ denote the one-period temptation payoff on the cooperative path.
+
+  Consider the following strategy profile $\sigma^*$ for each player $i$, parametrized by an integer $k \ge 1$:
   \begin{enumerate}
     \item \textbf{Period 1:} Play $s_i$.
-    \item \textbf{On-path play:} Play $s_i$ in period $t$ if the history is $h^{t-1} = (s, s, \ldots, s)$ (i.e., $s$ was played in every previous period).
-    \item \textbf{Punishment phase:} If $s$ was not played in period $t-1$ (i.e., some player deviated), play $m_i$ for $k$ periods.
-    \item \textbf{Resume:} After the $k$-period punishment, return to phases (1)--(2). If any player deviates from the punishment in phase (3), restart phase (3).
+    \item \textbf{Cooperative phase:} In period $t > 1$, play $s_i$ if the history is the all-$s$ path $(s, s, \ldots, s)$.
+    \item \textbf{Punishment phase:} If the history ever shows a period in which $s$ was not played, play $m_i$ for $k$ consecutive periods.
+    \item \textbf{Resume / restart:} After a completed $k$-period punishment, return to (2). \emph{Any deviation from phase (3) restarts the $k$-period punishment from scratch.}
   \end{enumerate}
-  
-  We will show that there exist $k$ and $\bar\delta < 1$ such that for all $\delta > \bar\delta$, the strategy profile $\sigma^*$ is an SPE.
-  
-  By the one-deviation principle, it suffices to check that no player can profit from a one-shot deviation, in either the cooperative phase or the punishment phase.
-  
-  \textbf{Cooperative phase.} On the equilibrium path, player $i$ receives $u_i$ in every period. The best one-shot deviation gives player $i$ a payoff of at most $\bar u_i := \max_{s_i'} u_i(s_i', s_j)$ in the deviation period, followed by $k$ periods of minmax payoff $v_i$, and then a return to $u_i$ forever. The deviation is unprofitable if:
+
+  We will choose $k^*$ and $\bar\delta < 1$ so that $\sigma^*$ is an SPE for every $\delta > \bar\delta$. By the one-deviation principle, it suffices to rule out profitable one-shot deviations at two kinds of information sets: a round on the cooperative path, and a round within a punishment phase.
+
+  \smallskip
+  \emph{Step 1: Deviation from the cooperative path.} Compare the two continuation streams over the $(k+1)$-period window starting at the deviation period; in both, play returns to $s$ from period $k+2$ onward, so the common continuation cancels. Following the prescription yields $(1+\delta+\cdots+\delta^k)\,u_i(s)$ over the window. The best one-shot deviation yields $\bar u_i$ today, then $k$ periods of the minmax payoff $u_i(m)$, contributing $\bar u_i + (\delta+\delta^2+\cdots+\delta^k)\,u_i(m)$. The no-deviation inequality is
   \[
-  u_i \;\ge\; (1-\delta)\bar u_i + (1-\delta)\sum_{\tau=1}^{k} \delta^\tau v_i + \delta^{k+1} u_i.
+    (1+\delta+\cdots+\delta^k)\,u_i(s) \;\ge\; \bar u_i + (\delta+\cdots+\delta^k)\,u_i(m),
   \]
-  Since $u_i > v_i$ (as $u \in F^*$ and we can choose $u$ in the interior; the boundary case requires a small perturbation), one can choose $k$ large enough and $\delta$ close enough to 1 so that this inequality holds.
-  
-  \textbf{Punishment phase.} During punishment, player $i$ plays $m_i$ (the action that minmaxes the other player). This is the incentive-critical step: for $\sigma^*$ to be an SPE, $m_i$ must be \emph{optimal} for $i$ during the punishment, not merely harsh on $j$.
-
-  The mechanism that makes this work is the \textbf{``delay the recovery''} structure of phase (4). Suppose the group is in period $\tau$ of a $k$-period punishment, with $k - \tau$ periods of min-maxing still to go before cooperation resumes. Player $i$'s continuation is a finite string of low per-period payoffs (at most $v_i$, since $j$ is minmaxing) followed by a permanent return to the cooperative payoff $u_i > v_i$. If $i$ deviates from $m_i$ now, phase (4) restarts the full $k$-period punishment: the $k - \tau$ remaining periods of this punishment are replaced by a fresh $k$ periods. The sole effect of the deviation is to \emph{delay} the recovery by $\tau$ periods---and since the cooperative payoff $u_i$ strictly exceeds the punishment payoff $v_i$, delay is costly. As long as the one-period gain from deviating during punishment (bounded by $\bar u_i - v_i$) is dominated by the discounted loss of $\tau$ extra periods of $v_i$ instead of $u_i$, $i$ prefers to carry out the prescribed min-max.
-
-  Formally, letting $V^P$ and $V^C$ denote the continuation values of the punishment and cooperative phases, the one-shot deviation condition during punishment is
+  which rearranges to
   \[
-  V^P \;\ge\; (1-\delta)\, \bar u_i + \delta\, V^P,
+    (\delta+\delta^2+\cdots+\delta^k)\,\bigl[\,u_i(s) - u_i(m)\,\bigr] \;\ge\; \bar u_i - u_i(s). \tag{S1}
   \]
-  where the right-hand side reflects the gain from deviating today ($\bar u_i$ at most) plus restarting the punishment from tomorrow on. Because $V^P \le V^C$, this inequality eventually holds for $\delta$ close enough to $1$. The self-referential restart---``any deviation from punishment triggers another punishment''---is what makes min-maxing credible, and it is precisely what elevates the construction from a Nash equilibrium of $G^\delta(\infty)$ to a \emph{subgame-perfect} one.
+  The bracket is strictly positive (since $u_i(s) = u_i > v_i \ge u_i(m)$). As $\delta \uparrow 1$ the LHS tends to $k\,[u_i(s) - u_i(m)]$, while the RHS is a fixed finite number. Hence (S1) binds on $k$: one must pick $k$ large enough to outrun the temptation.
 
-  Choosing $k$ and $\bar\delta$ appropriately yields an SPE with average payoff $u$.
+  \smallskip
+  \emph{Step 2: Deviation within a punishment round.} Consider any round of an ongoing punishment (the one-deviation principle lets us check only one). Let $V^{\text{P}}$ denote the continuation value from that round onward if the prescription is followed: $k$ more periods of $u_i(m)$, then permanent return to $u_i(s)$:
+  \[
+    V^{\text{P}} \;=\; (1+\delta+\cdots+\delta^{k-1})\,u_i(m) \;+\; \frac{\delta^k}{1-\delta}\,u_i(s).
+  \]
+  A one-shot deviation to the best response against $m_{-i}$ yields at most $v_i$ today, after which phase (4) restarts a fresh $k$-period punishment---whose continuation value from tomorrow is again $V^{\text{P}}$. So the deviation continuation is bounded by $v_i + \delta\,V^{\text{P}}$. The no-deviation inequality $V^{\text{P}} \ge v_i + \delta\,V^{\text{P}}$ reduces to $(1-\delta)\,V^{\text{P}} \ge v_i$, i.e.
+  \[
+    (1-\delta^k)\,u_i(m) + \delta^k\,u_i(s) \;\ge\; v_i,
+  \]
+  equivalently
+  \[
+    \delta^k\,\bigl[\,u_i(s) - u_i(m)\,\bigr] \;\ge\; v_i - u_i(m). \tag{S2}
+  \]
+  At $\delta = 1$ this becomes $u_i(s) - u_i(m) \ge v_i - u_i(m)$, i.e.\ $u_i(s) \ge v_i$, which holds strictly since $u_i(s) = u_i > v_i$. By continuity, (S2) holds for all $\delta$ sufficiently close to $1$ \emph{for any fixed $k$}.
+
+  \smallskip
+  \emph{Choosing $k^*$ and $\bar\delta$.} The binding constraint is (S1), because the RHS $\bar u_i - u_i(s) \ge 0$ is a fixed positive quantity that the finite geometric sum on the LHS must overcome. Pick any integer $k^*$ satisfying
+  \[
+    k^*\,\bigl[\,u_i(s) - u_i(m)\,\bigr] \;>\; \bar u_i - u_i(s) \qquad \text{for each } i \in \{1,2\};
+  \]
+  such a $k^*$ exists because the bracket is strictly positive. At $\delta = 1$, (S1) holds at $k = k^*$ with strict slack, so there is $\bar\delta_1 < 1$ such that (S1) holds for every $\delta \in (\bar\delta_1, 1)$. Similarly (S2) gives a threshold $\bar\delta_2 < 1$. Setting $\bar\delta := \max\{\bar\delta_1, \bar\delta_2\} < 1$ delivers an SPE of $G^\delta(\infty)$ with average payoff $u$ for every $\delta > \bar\delta$.
 \end{thmpf}
+
+\rmkb[The Punishment-Phase Intuition: ``Delay the Recovery'']{
+  The substantive content of Step 2 is that \emph{minmaxing is itself incentive-compatible}: why does player $i$ obey the prescription to play $m_i$, which is chosen to hurt $j$ and is not generally $i$'s best response to $m_{-i}$? Inequality (S2) answers cleanly---the only effect of a one-shot deviation during punishment is to \emph{restart the clock on recovery}. Since $u_i(s) > u_i(m)$ strictly, any such delay is costly; with $\delta$ close to $1$, the $\delta^k$-weighted loss from postponing cooperation dominates the bounded one-period gain of $v_i - u_i(m) \ge 0$ from deviating. The self-referential restart in phase (4)---``a deviation from phase (3) is met with a fresh phase (3)''---is precisely what elevates the construction from a Nash equilibrium of $G^\delta(\infty)$ to a \emph{subgame-perfect} one. Without it, minmaxing during punishment would itself be a profitable one-shot deviation to skip.
+
+  \smallskip
+  Two further points are worth underlining. First, the binding constraint on patience is (S1), not (S2): (S2) has strict slack at $\delta = 1$ for \emph{any} $k$, so it is Step 1 that forces $k$ large and in turn forces $\delta$ close to $1$. Second, the role of $k$ is asymmetric across the two steps---larger $k$ strengthens (S1) by extending the punishment, but \emph{weakens} (S2) slightly because $\delta^k$ shrinks. Both tensions resolve in the limit $\delta \to 1$; the finite-$\delta$ threshold $\bar\delta$ depends on the specific stage game through $\bar u_i - u_i(s)$ and $v_i - u_i(m)$.
+}
 
 \rmkb[The Folk Theorem in Words]{
   The Folk Theorem states that \textit{anything that is feasible and individually rational can be sustained as an SPE}, provided players are patient enough. This is both a celebration and a caution: while cooperation, fair sharing, and many other socially desirable outcomes can be supported, so can a vast multitude of other outcomes---including very inefficient or asymmetric ones. The theorem highlights the fundamental \textbf{indeterminacy} of repeated games: the equilibrium concept alone does not pin down a unique prediction, and selection among the many SPE requires additional considerations (such as renegotiation-proofness, evolutionary stability, or focal points).
