@@ -101,6 +101,13 @@ layout: default
                margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--color-border);">
       做法
     </h2>
+    <style>
+      .step-list li > p:first-child { margin-top: 0; }
+      .step-list li > p:last-child  { margin-bottom: 0; }
+      .step-list li p { margin: 0.5rem 0; }
+      .step-list li ul, .step-list li ol { margin: 0.4rem 0 0.4rem 1.2rem; }
+      .step-list li li { padding: 0.1rem 0; }
+    </style>
     <ol class="step-list" style="list-style: none; padding: 0; margin: 0;
                                  counter-reset: step;">
       {% for step in page.steps %}
@@ -112,7 +119,7 @@ layout: default
                      font-weight: 600; font-size: 1.05rem; border-radius: 50%;">
           {{ forloop.index }}
         </span>
-        {{ step }}
+        {{ step | markdownify }}
       </li>
       {% endfor %}
     </ol>
