@@ -448,6 +448,10 @@ The construction allocates the $T$ periods into three phases: a long ``main'' ph
 
 Proposition 11.2---that a finitely repeated game with a unique stage-game NE has a unique SPE in which the stage NE is played every period---leaves a puzzle in its wake. Consider a monopolist chain store facing a sequence of $K$ potential entrants, one per market. Intuitively, the store should \emph{fight} early entrants to build a reputation for fighting, deterring later entrants from entering at all. Yet if fighting is dominated in each stage game taken in isolation, Proposition 11.2 rules this out: the unique SPE has every entrant entering and the store accommodating every time. Selten (1978) sharpened this tension into the \textbf{chain store paradox}, paradoxical because real-world chain stores manifestly \emph{do} fight entrants and real-world entrants often stay out. Kreps and Wilson (1982), along with Milgrom and Roberts (1982), resolved the paradox by introducing a vanishingly small amount of incomplete information: a tiny probability that the store is ``crazy'' and enjoys fighting is enough to sustain reputation-building as a sequential equilibrium.
 
+\rmkb[Reputation Needs Uncertainty]{
+  Before the formal construction, it is worth pausing on why the repaired model needs incomplete information at all. Reputation, as an economic concept, only comes alive when the audience is unsure about the type of the agent they face. If the store's payoffs were perfectly known, there would be nothing for entrants to ``learn'' from past fights---the fight would just be an irrational flinch that no forward-looking calculation would read as evidence of future behavior. The central question the resolution asks is: \emph{can a normal store sustain a reputation for being crazy?}---equivalently, can it, by acting crazy, generate enough doubt in later entrants' minds that they stay out? The answer turns out to be yes, and it works even when the prior probability of the crazy type is arbitrarily small.
+}
+
 \subsection{The Stage Game}
 
 A single long-lived \textbf{store} $S$ faces $K$ short-lived \textbf{entrants} $E_1, E_2, \ldots, E_K$ in sequence. In period $k$, $E_k$ decides whether to enter (IN) or stay out (OUT). Conditional on entry, the store decides whether to accommodate ($A$) or fight ($F$). The stage tree is:
@@ -533,6 +537,10 @@ So the entrant's equilibrium rule is
 \end{tabular}
 \end{center}
 The mixing weight $\tfrac{a-1}{a}$ is pinned down by a requirement one period earlier: it makes the normal store's continuation value from the next period equal exactly $1$, which is what the normal store needs to be indifferent between $F$ (paying $-1$ now for a continuation of $+1$) and $A$ (paying $0$ now, then revealed).
+
+\rmkb[The Duality of Mixing Weights]{
+  Two probabilities are being set. The entrant's mix $\tfrac{a-1}{a}$ over IN is the weight that keeps \emph{the normal store} exactly indifferent between $F$ and $A$: the ``$a$ factor'' controls the store's incentive. The normal store's mix $\sigma_k$ over $F$ is the weight that keeps \emph{the next entrant} exactly indifferent between IN and OUT: the ``$b$ factor'' controls the entrant's incentive. Each player randomizes not for its own benefit, but to fix the opponent's indifference. This is the standard structure of mixed-strategy equilibrium, playing out here across an entire sequence of threshold beliefs.
+}
 
 \subsubsection*{Normal store's strategy at an on-path IN}
 
@@ -632,6 +640,8 @@ The dynamics split into two phases. Let $k^*$ be defined implicitly by $\varepsi
 \end{itemize}
 
 The length of the reputation phase is $k^* = K + 1 - \log \varepsilon / \log b$. As $\varepsilon \to 0$ with $K$ fixed, $k^* \to K + 1$: the reputation phase swallows \emph{the entire game} and all entrants stay out. As $K \to \infty$ with $\varepsilon$ fixed, $K - k^* = (\log \varepsilon)/(\log b) - 1$ is a \emph{constant}, so the endgame takes up only a fixed number of periods regardless of horizon---the reputation phase takes up the proportion $(K - k^*)/K \to 0$ of a long horizon.
+
+Contrast this with the complete-information equilibrium, in which every entrant enters and the store accommodates every period. The reputation equilibrium inverts this: \emph{nobody} enters in the long opening phase, the store harvests monopoly rent without ever being tested, and only in the final handful of periods does any entry occur---gradually, through mixing, and only because the finite horizon makes the rent from further reputation-building smaller than the cost of fighting. The interpretive one-liner is that the normal store is \emph{taking advantage of the fact that the entrant thinks he might be crazy, by slightly mimicking what the crazy store would do}. Randomized fighting is the cheapest way to refuse to reveal one's type.
 
 \rmkb[What the Chain Store Paradox Teaches]{
   Three lessons. First, the backward-induction prediction of Proposition 11.2 is \emph{fragile}: a vanishingly small perturbation of the information structure changes the equilibrium qualitatively, not just quantitatively. The prediction discontinuity at $\varepsilon = 0$ is what earned the result the word ``paradox''---the limit of the reputation equilibrium as $\varepsilon \to 0$ is not the complete-information equilibrium.
