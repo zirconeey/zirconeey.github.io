@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="45%" r="65%">
+      <stop offset="0%" stop-color="#c7552c"/>
+      <stop offset="55%" stop-color="#8b2e15"/>
+      <stop offset="100%" stop-color="#3a140a"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <g opacity="0.55" fill="#2a0f06">
+    <circle cx="190" cy="220" r="58"/>
+    <circle cx="330" cy="310" r="74"/>
+    <circle cx="500" cy="235" r="62"/>
+    <circle cx="640" cy="340" r="70"/>
+    <circle cx="250" cy="420" r="66"/>
+    <circle cx="420" cy="460" r="60"/>
+    <circle cx="560" cy="430" r="72"/>
+  </g>
+  <g opacity="0.35" fill="#f6c88a">
+    <circle cx="190" cy="205" r="18"/>
+    <circle cx="335" cy="290" r="22"/>
+    <circle cx="500" cy="218" r="20"/>
+    <circle cx="643" cy="320" r="22"/>
+    <circle cx="253" cy="402" r="20"/>
+    <circle cx="422" cy="442" r="18"/>
+    <circle cx="562" cy="412" r="22"/>
+  </g>
+  <text x="400" y="545" font-family="'Noto Serif SC', serif" font-size="46" font-weight="700"
+        fill="#f5e6c8" text-anchor="middle" letter-spacing="8">红 烧 肉</text>
+</svg>
