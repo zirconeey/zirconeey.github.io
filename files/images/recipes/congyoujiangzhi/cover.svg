@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#f8e8c8"/>
+      <stop offset="55%" stop-color="#8a5020"/>
+      <stop offset="100%" stop-color="#1a0a02"/>
+    </radialGradient>
+    <linearGradient id="oil" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f8d868"/>
+      <stop offset="50%" stop-color="#d8a030"/>
+      <stop offset="100%" stop-color="#8a5810"/>
+    </linearGradient>
+    <linearGradient id="sauce" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#5a2808"/>
+      <stop offset="100%" stop-color="#1a0802"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fafaf6" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#fafaf6" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#fafaf6" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- countertop surface -->
+  <rect x="0" y="465" width="800" height="100" fill="#2a1a08" opacity="0.5"/>
+  <!-- shadow jars -->
+  <ellipse cx="260" cy="468" rx="110" ry="12" fill="#0a0402" opacity="0.5"/>
+  <ellipse cx="540" cy="468" rx="110" ry="12" fill="#0a0402" opacity="0.5"/>
+  <!-- JAR 1: scallion oil -->
+  <g>
+    <!-- jar body -->
+    <rect x="165" y="200" width="190" height="260" rx="10" fill="#f0d888" stroke="#3a2008" stroke-width="2" opacity="0.85"/>
+    <!-- oil level -->
+    <rect x="170" y="260" width="180" height="195" fill="url(#oil)"/>
+    <!-- glass highlight -->
+    <rect x="170" y="205" width="180" height="250" fill="url(#glass)"/>
+    <!-- scallion bits floating -->
+    <g fill="#3a5020" opacity="0.8">
+      <ellipse cx="210" cy="300" rx="8" ry="2" transform="rotate(20 210 300)"/>
+      <ellipse cx="260" cy="340" rx="10" ry="2" transform="rotate(-15 260 340)"/>
+      <ellipse cx="300" cy="380" rx="9" ry="2" transform="rotate(10 300 380)"/>
+      <ellipse cx="230" cy="420" rx="8" ry="2" transform="rotate(-20 230 420)"/>
+      <ellipse cx="290" cy="310" rx="7" ry="2" transform="rotate(15 290 310)"/>
+      <ellipse cx="220" cy="360" rx="9" ry="2" transform="rotate(-10 220 360)"/>
+    </g>
+    <!-- oil shimmer -->
+    <g fill="#fffbe8" opacity="0.4">
+      <ellipse cx="250" cy="280" rx="40" ry="3"/>
+    </g>
+    <!-- lid -->
+    <rect x="155" y="180" width="210" height="35" rx="5" fill="#3a2008"/>
+    <rect x="158" y="183" width="204" height="10" fill="#5a3818"/>
+    <!-- label -->
+    <rect x="185" y="340" width="150" height="55" rx="3" fill="#f8f0d8" stroke="#5a3818" stroke-width="1"/>
+    <text x="260" y="370" font-family="'Noto Serif SC', serif" font-size="17" font-weight="700" fill="#3a2008" text-anchor="middle">葱 油</text>
+    <text x="260" y="388" font-family="'Cormorant Garamond', serif" font-size="11" fill="#5a3818" text-anchor="middle">Scallion Oil</text>
+  </g>
+  <!-- JAR 2: sauce -->
+  <g>
+    <rect x="445" y="200" width="190" height="260" rx="10" fill="#c8b488" stroke="#3a2008" stroke-width="2" opacity="0.85"/>
+    <!-- sauce level -->
+    <rect x="450" y="270" width="180" height="185" fill="url(#sauce)"/>
+    <!-- glass highlight -->
+    <rect x="450" y="205" width="180" height="250" fill="url(#glass)"/>
+    <!-- oil floating on top of sauce -->
+    <rect x="450" y="270" width="180" height="18" fill="url(#oil)" opacity="0.8"/>
+    <!-- scallion bits in sauce -->
+    <g fill="#68a03a" opacity="0.7">
+      <ellipse cx="500" cy="275" rx="6" ry="1.5" transform="rotate(10 500 275)"/>
+      <ellipse cx="560" cy="278" rx="7" ry="1.5" transform="rotate(-10 560 278)"/>
+      <ellipse cx="530" cy="280" rx="6" ry="1.5" transform="rotate(15 530 280)"/>
+    </g>
+    <!-- lid -->
+    <rect x="435" y="180" width="210" height="35" rx="5" fill="#3a2008"/>
+    <rect x="438" y="183" width="204" height="10" fill="#5a3818"/>
+    <!-- label -->
+    <rect x="465" y="340" width="150" height="55" rx="3" fill="#f8f0d8" stroke="#5a3818" stroke-width="1"/>
+    <text x="540" y="370" font-family="'Noto Serif SC', serif" font-size="16" font-weight="700" fill="#3a2008" text-anchor="middle">拌面酱汁</text>
+    <text x="540" y="388" font-family="'Cormorant Garamond', serif" font-size="11" fill="#5a3818" text-anchor="middle">Noodle Sauce</text>
+  </g>
+  <!-- scattered scallion rings (garnish around jars) -->
+  <g fill="#68a03a" stroke="#3a5818" stroke-width="0.5">
+    <circle cx="100" cy="440" r="6" fill="none" stroke-width="2"/>
+    <circle cx="115" cy="460" r="5" fill="none" stroke-width="2"/>
+    <circle cx="700" cy="430" r="6" fill="none" stroke-width="2"/>
+    <circle cx="685" cy="455" r="5" fill="none" stroke-width="2"/>
+    <circle cx="400" cy="470" r="5" fill="none" stroke-width="2"/>
+  </g>
+  <!-- crispy fried scallion dust -->
+  <g fill="#5a3818" opacity="0.6">
+    <circle cx="130" cy="425" r="2"/>
+    <circle cx="380" cy="455" r="2"/>
+    <circle cx="420" cy="460" r="2"/>
+    <circle cx="720" cy="440" r="2"/>
+    <circle cx="670" cy="470" r="2"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="32" font-weight="700"
+        fill="#1a0a02" text-anchor="middle" letter-spacing="3">葱 油 · 拌 面 酱 汁</text>
+</svg>

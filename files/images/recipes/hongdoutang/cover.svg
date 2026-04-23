@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#f8c0a0"/>
+      <stop offset="55%" stop-color="#6a2010"/>
+      <stop offset="100%" stop-color="#1a0402"/>
+    </radialGradient>
+    <radialGradient id="soup" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#b84830"/>
+      <stop offset="50%" stop-color="#8a2818"/>
+      <stop offset="100%" stop-color="#3a0a02"/>
+    </radialGradient>
+    <linearGradient id="bowl" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fafaf6"/>
+      <stop offset="100%" stop-color="#b0a890"/>
+    </linearGradient>
+    <radialGradient id="bean" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#c84030"/>
+      <stop offset="50%" stop-color="#8a2010"/>
+      <stop offset="100%" stop-color="#3a0a02"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- bowl shadow -->
+  <ellipse cx="400" cy="480" rx="285" ry="32" fill="#0a0402" opacity="0.4"/>
+  <!-- bowl body -->
+  <path d="M125,290 Q125,465 400,470 Q675,465 675,290 Z" fill="url(#bowl)" stroke="#6a5838" stroke-width="2"/>
+  <!-- bowl rim -->
+  <ellipse cx="400" cy="290" rx="275" ry="55" fill="url(#bowl)" stroke="#6a5838" stroke-width="2"/>
+  <!-- soup surface -->
+  <ellipse cx="400" cy="290" rx="260" ry="48" fill="url(#soup)"/>
+  <!-- beans (many, random sizes, clustered more in center) -->
+  <g stroke="#3a0a02" stroke-width="0.6">
+    <ellipse cx="200" cy="288" rx="11" ry="8" fill="url(#bean)"/>
+    <ellipse cx="245" cy="305" rx="10" ry="8" fill="url(#bean)"/>
+    <ellipse cx="280" cy="283" rx="12" ry="9" fill="url(#bean)"/>
+    <ellipse cx="325" cy="298" rx="11" ry="8" fill="url(#bean)"/>
+    <ellipse cx="360" cy="282" rx="10" ry="7" fill="url(#bean)"/>
+    <ellipse cx="395" cy="300" rx="12" ry="9" fill="url(#bean)"/>
+    <ellipse cx="430" cy="285" rx="11" ry="8" fill="url(#bean)"/>
+    <ellipse cx="465" cy="305" rx="10" ry="8" fill="url(#bean)"/>
+    <ellipse cx="505" cy="290" rx="12" ry="9" fill="url(#bean)"/>
+    <ellipse cx="540" cy="300" rx="11" ry="8" fill="url(#bean)"/>
+    <ellipse cx="575" cy="285" rx="10" ry="7" fill="url(#bean)"/>
+    <ellipse cx="225" cy="275" rx="9" ry="7" fill="url(#bean)"/>
+    <ellipse cx="300" cy="315" rx="10" ry="7" fill="url(#bean)"/>
+    <ellipse cx="380" cy="320" rx="11" ry="8" fill="url(#bean)"/>
+    <ellipse cx="450" cy="275" rx="10" ry="7" fill="url(#bean)"/>
+    <ellipse cx="490" cy="270" rx="9" ry="7" fill="url(#bean)"/>
+    <ellipse cx="560" cy="320" rx="10" ry="7" fill="url(#bean)"/>
+    <ellipse cx="340" cy="268" rx="9" ry="7" fill="url(#bean)"/>
+    <ellipse cx="185" cy="310" rx="9" ry="7" fill="url(#bean)"/>
+    <ellipse cx="260" cy="328" rx="10" ry="7" fill="url(#bean)"/>
+    <ellipse cx="605" cy="302" rx="10" ry="7" fill="url(#bean)"/>
+    <ellipse cx="415" cy="315" rx="10" ry="8" fill="url(#bean)"/>
+    <ellipse cx="215" cy="332" rx="9" ry="7" fill="url(#bean)"/>
+    <ellipse cx="355" cy="335" rx="10" ry="8" fill="url(#bean)"/>
+    <ellipse cx="505" cy="335" rx="10" ry="8" fill="url(#bean)"/>
+  </g>
+  <!-- bean sheen highlights -->
+  <g fill="#e86040" opacity="0.6">
+    <ellipse cx="198" cy="285" rx="3" ry="1.5"/>
+    <ellipse cx="278" cy="280" rx="3" ry="1.5"/>
+    <ellipse cx="393" cy="297" rx="3" ry="1.5"/>
+    <ellipse cx="503" cy="287" rx="3" ry="1.5"/>
+    <ellipse cx="573" cy="282" rx="3" ry="1.5"/>
+    <ellipse cx="413" cy="312" rx="3" ry="1.5"/>
+  </g>
+  <!-- starch sand texture (broken beans showing starchiness) -->
+  <g fill="#f8c088" opacity="0.35">
+    <circle cx="260" cy="295" r="2"/>
+    <circle cx="340" cy="305" r="2.5"/>
+    <circle cx="420" cy="295" r="2"/>
+    <circle cx="490" cy="310" r="2"/>
+    <circle cx="550" cy="295" r="2"/>
+    <circle cx="300" cy="315" r="1.5"/>
+    <circle cx="380" cy="300" r="1.5"/>
+    <circle cx="460" cy="320" r="2"/>
+    <circle cx="240" cy="310" r="1.5"/>
+    <circle cx="520" cy="318" r="1.5"/>
+  </g>
+  <!-- steam -->
+  <g stroke="#faf4e0" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round">
+    <path d="M320,230 Q310,200 320,170 Q335,145 320,115"/>
+    <path d="M400,225 Q390,195 405,165 Q420,135 405,105"/>
+    <path d="M480,230 Q470,200 485,170 Q500,145 485,115"/>
+  </g>
+  <!-- decorative osmanthus dots (optional garnish) -->
+  <g fill="#f8d838" opacity="0.7">
+    <circle cx="360" cy="272" r="1.5"/>
+    <circle cx="440" cy="272" r="1.5"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="48" font-weight="700"
+        fill="#1a0402" text-anchor="middle" letter-spacing="10">红 豆 汤</text>
+</svg>

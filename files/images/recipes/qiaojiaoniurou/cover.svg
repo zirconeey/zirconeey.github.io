@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#f8dca8"/>
+      <stop offset="55%" stop-color="#6a3818"/>
+      <stop offset="100%" stop-color="#1a0602"/>
+    </radialGradient>
+    <radialGradient id="broth" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#e8d090"/>
+      <stop offset="60%" stop-color="#a87030"/>
+      <stop offset="100%" stop-color="#4a2808"/>
+    </radialGradient>
+    <linearGradient id="beef" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c84838"/>
+      <stop offset="100%" stop-color="#6a1808"/>
+    </linearGradient>
+    <linearGradient id="radish" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fafaf6"/>
+      <stop offset="100%" stop-color="#d8d4c0"/>
+    </linearGradient>
+    <linearGradient id="bowl" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0e8d0"/>
+      <stop offset="100%" stop-color="#a89878"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- bowl shadow -->
+  <ellipse cx="400" cy="485" rx="300" ry="35" fill="#0a0402" opacity="0.45"/>
+  <!-- bowl body -->
+  <path d="M100,290 Q100,470 400,475 Q700,470 700,290 Z" fill="url(#bowl)" stroke="#5a3818" stroke-width="2"/>
+  <!-- bowl rim -->
+  <ellipse cx="400" cy="290" rx="300" ry="60" fill="url(#bowl)" stroke="#5a3818" stroke-width="2"/>
+  <!-- broth surface -->
+  <ellipse cx="400" cy="290" rx="285" ry="55" fill="url(#broth)"/>
+  <!-- radish pieces (translucent white) at bottom visible through soup -->
+  <g fill="url(#radish)" opacity="0.88" stroke="#8a7850" stroke-width="0.8">
+    <path d="M180,290 Q210,275 235,285 L240,315 Q215,325 180,320 Z"/>
+    <path d="M250,295 Q285,280 310,290 L315,320 Q290,330 255,325 Z"/>
+    <path d="M500,292 Q530,278 560,287 L565,318 Q538,328 505,322 Z"/>
+    <path d="M580,296 Q610,282 640,292 L645,322 Q615,330 585,325 Z"/>
+    <path d="M325,280 Q355,270 380,280 L385,305 Q360,313 330,310 Z"/>
+    <path d="M425,280 Q455,270 480,280 L485,305 Q460,313 430,310 Z"/>
+  </g>
+  <!-- beef slices (thin, sheer, pinkish-red, many layers) -->
+  <g stroke="#3a0802" stroke-width="0.8" fill="url(#beef)">
+    <path d="M190,265 Q230,258 275,262 Q310,268 290,288 Q245,295 200,290 Q175,280 190,265 Z"/>
+    <path d="M270,252 Q320,245 365,252 Q395,260 380,278 Q330,288 285,282 Q255,272 270,252 Z"/>
+    <path d="M360,245 Q410,238 455,245 Q490,254 475,275 Q425,288 380,280 Q345,268 360,245 Z"/>
+    <path d="M450,248 Q500,240 545,248 Q580,258 560,278 Q510,290 465,282 Q435,270 450,248 Z"/>
+    <path d="M535,255 Q585,248 625,260 Q650,270 625,285 Q580,295 545,288 Q520,275 535,255 Z"/>
+    <path d="M225,290 Q275,282 315,290 Q340,300 320,318 Q275,325 235,318 Q210,305 225,290 Z" opacity="0.88"/>
+    <path d="M380,295 Q430,288 470,298 Q495,308 470,322 Q425,328 390,320 Q365,310 380,295 Z" opacity="0.88"/>
+    <path d="M515,300 Q560,292 595,302 Q615,315 590,325 Q550,330 520,322 Q500,315 515,300 Z" opacity="0.85"/>
+  </g>
+  <!-- beef marbling (cross-grain texture lines) -->
+  <g stroke="#f0a888" stroke-width="1" fill="none" opacity="0.5">
+    <path d="M200,275 Q235,272 275,276"/>
+    <path d="M280,265 Q320,262 360,267"/>
+    <path d="M370,260 Q410,257 450,262"/>
+    <path d="M460,265 Q500,262 540,268"/>
+    <path d="M240,305 Q280,302 310,306"/>
+    <path d="M390,308 Q430,305 465,310"/>
+  </g>
+  <!-- chili oil red dots (spicy) -->
+  <g fill="#d82010" opacity="0.6">
+    <circle cx="220" cy="270" r="2"/>
+    <circle cx="300" cy="260" r="2"/>
+    <circle cx="400" cy="255" r="2"/>
+    <circle cx="500" cy="265" r="2"/>
+    <circle cx="580" cy="275" r="2"/>
+    <circle cx="250" cy="300" r="2"/>
+    <circle cx="410" cy="305" r="2"/>
+    <circle cx="540" cy="310" r="2"/>
+    <circle cx="350" cy="320" r="2"/>
+    <circle cx="470" cy="320" r="2"/>
+  </g>
+  <!-- Sichuan peppercorns floating -->
+  <g fill="#8a3808" opacity="0.7">
+    <circle cx="185" cy="280" r="2.5"/>
+    <circle cx="620" cy="285" r="2.5"/>
+    <circle cx="380" cy="330" r="2.5"/>
+    <circle cx="280" cy="325" r="2"/>
+    <circle cx="490" cy="335" r="2"/>
+    <circle cx="330" cy="273" r="2"/>
+  </g>
+  <!-- cilantro + celery green scatter -->
+  <g fill="#4a8028">
+    <ellipse cx="260" cy="267" rx="5" ry="2" transform="rotate(15 260 267)"/>
+    <ellipse cx="340" cy="275" rx="4" ry="2" transform="rotate(-10 340 275)"/>
+    <ellipse cx="425" cy="265" rx="5" ry="2" transform="rotate(20 425 265)"/>
+    <ellipse cx="510" cy="278" rx="4" ry="2" transform="rotate(-15 510 278)"/>
+    <ellipse cx="580" cy="268" rx="5" ry="2" transform="rotate(10 580 268)"/>
+    <ellipse cx="300" cy="305" rx="4" ry="2" transform="rotate(-5 300 305)"/>
+    <ellipse cx="450" cy="300" rx="5" ry="2" transform="rotate(15 450 300)"/>
+    <ellipse cx="530" cy="292" rx="4" ry="2" transform="rotate(-20 530 292)"/>
+  </g>
+  <!-- steam -->
+  <g stroke="#faf4e0" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round">
+    <path d="M320,225 Q310,195 320,165 Q335,140 320,110"/>
+    <path d="M400,220 Q390,190 405,160 Q420,130 405,100"/>
+    <path d="M480,225 Q470,195 485,165 Q500,140 485,110"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#1a0602" text-anchor="middle" letter-spacing="5">翘 脚 牛 肉</text>
+</svg>

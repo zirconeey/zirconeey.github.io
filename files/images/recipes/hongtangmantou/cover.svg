@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#f8d0a0"/>
+      <stop offset="55%" stop-color="#8a4820"/>
+      <stop offset="100%" stop-color="#1a0802"/>
+    </radialGradient>
+    <radialGradient id="mantou" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#d88858"/>
+      <stop offset="50%" stop-color="#8a4820"/>
+      <stop offset="100%" stop-color="#3a1808"/>
+    </radialGradient>
+    <linearGradient id="steamer" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#b87838"/>
+      <stop offset="100%" stop-color="#5a3810"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- bamboo steamer shadow -->
+  <ellipse cx="400" cy="490" rx="290" ry="30" fill="#0a0402" opacity="0.45"/>
+  <!-- bamboo steamer outer ring -->
+  <ellipse cx="400" cy="250" rx="300" ry="60" fill="url(#steamer)"/>
+  <path d="M100,250 Q100,470 400,475 Q700,470 700,250 Z" fill="url(#steamer)"/>
+  <!-- bamboo slat horizontal lines -->
+  <g stroke="#3a1e08" stroke-width="1.5" fill="none" opacity="0.6">
+    <path d="M110,290 Q400,295 690,290"/>
+    <path d="M110,340 Q400,345 690,340"/>
+    <path d="M110,390 Q400,395 690,390"/>
+    <path d="M110,440 Q400,445 690,440"/>
+  </g>
+  <!-- inner steamer surface (paper lining) -->
+  <ellipse cx="400" cy="250" rx="280" ry="52" fill="#f8e4c0"/>
+  <!-- mantou 1 -->
+  <g stroke="#3a1808" stroke-width="1.5">
+    <ellipse cx="250" cy="240" rx="70" ry="50" fill="url(#mantou)"/>
+    <!-- top highlight -->
+    <ellipse cx="235" cy="215" rx="30" ry="15" fill="#f0a868" opacity="0.5"/>
+    <!-- bottom curvature -->
+    <path d="M195,255 Q250,290 305,255" stroke-width="1" fill="none" opacity="0.6"/>
+  </g>
+  <!-- mantou 2 -->
+  <g stroke="#3a1808" stroke-width="1.5">
+    <ellipse cx="400" cy="232" rx="75" ry="52" fill="url(#mantou)"/>
+    <ellipse cx="385" cy="207" rx="32" ry="15" fill="#f0a868" opacity="0.5"/>
+    <path d="M340,250 Q400,285 460,250" stroke-width="1" fill="none" opacity="0.6"/>
+  </g>
+  <!-- mantou 3 -->
+  <g stroke="#3a1808" stroke-width="1.5">
+    <ellipse cx="550" cy="240" rx="70" ry="50" fill="url(#mantou)"/>
+    <ellipse cx="535" cy="215" rx="30" ry="15" fill="#f0a868" opacity="0.5"/>
+    <path d="M495,255 Q550,290 605,255" stroke-width="1" fill="none" opacity="0.6"/>
+  </g>
+  <!-- molasses speckles on mantou -->
+  <g fill="#2a0e02" opacity="0.4">
+    <circle cx="230" cy="225" r="1.5"/>
+    <circle cx="265" cy="240" r="1.5"/>
+    <circle cx="290" cy="225" r="1.5"/>
+    <circle cx="380" cy="215" r="1.5"/>
+    <circle cx="420" cy="235" r="1.5"/>
+    <circle cx="440" cy="222" r="1.5"/>
+    <circle cx="530" cy="228" r="1.5"/>
+    <circle cx="565" cy="240" r="1.5"/>
+    <circle cx="585" cy="220" r="1.5"/>
+  </g>
+  <!-- glossy highlight on mantou tops -->
+  <g fill="#fae0b0" opacity="0.35">
+    <ellipse cx="240" cy="205" rx="20" ry="5"/>
+    <ellipse cx="390" cy="197" rx="22" ry="5"/>
+    <ellipse cx="540" cy="205" rx="20" ry="5"/>
+  </g>
+  <!-- second row smaller mantou (depth) -->
+  <g stroke="#3a1808" stroke-width="1.2">
+    <ellipse cx="180" cy="285" rx="45" ry="30" fill="url(#mantou)" opacity="0.85"/>
+    <ellipse cx="620" cy="285" rx="45" ry="30" fill="url(#mantou)" opacity="0.85"/>
+    <ellipse cx="320" cy="300" rx="48" ry="32" fill="url(#mantou)" opacity="0.9"/>
+    <ellipse cx="480" cy="298" rx="48" ry="32" fill="url(#mantou)" opacity="0.9"/>
+  </g>
+  <!-- steam above mantou -->
+  <g stroke="#fafaf6" stroke-width="4" fill="none" opacity="0.45" stroke-linecap="round">
+    <path d="M240,175 Q230,140 245,105 Q260,75 245,45"/>
+    <path d="M400,170 Q390,135 405,100 Q420,70 405,40"/>
+    <path d="M560,175 Q550,140 565,105 Q580,75 565,45"/>
+    <path d="M320,180 Q315,150 325,120" opacity="0.3"/>
+    <path d="M475,180 Q470,150 480,120" opacity="0.3"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="44" font-weight="700"
+        fill="#1a0802" text-anchor="middle" letter-spacing="6">红 糖 馒 头</text>
+</svg>

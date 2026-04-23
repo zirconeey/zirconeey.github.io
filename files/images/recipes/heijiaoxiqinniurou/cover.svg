@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#e8d098"/>
+      <stop offset="55%" stop-color="#4a2810"/>
+      <stop offset="100%" stop-color="#0a0402"/>
+    </radialGradient>
+    <linearGradient id="beef" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8a3010"/>
+      <stop offset="50%" stop-color="#5a1808"/>
+      <stop offset="100%" stop-color="#2a0602"/>
+    </linearGradient>
+    <linearGradient id="celery" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#a8c858"/>
+      <stop offset="100%" stop-color="#5a8028"/>
+    </linearGradient>
+    <linearGradient id="plate" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fafaf6"/>
+      <stop offset="100%" stop-color="#d0c8b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate shadow -->
+  <ellipse cx="400" cy="460" rx="310" ry="40" fill="#0a0402" opacity="0.45"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="410" rx="310" ry="50" fill="url(#plate)" stroke="#5a4828" stroke-width="2"/>
+  <ellipse cx="400" cy="408" rx="290" ry="42" fill="#fafaf6"/>
+  <!-- sauce puddle on plate (black pepper glaze) -->
+  <ellipse cx="400" cy="408" rx="260" ry="35" fill="#2a1408" opacity="0.5"/>
+  <!-- celery sticks (3cm segments) -->
+  <g stroke="#2a3810" stroke-width="1.5">
+    <path d="M170,395 L175,340 L195,338 L200,395 Z" fill="url(#celery)"/>
+    <path d="M230,420 L235,365 L255,363 L260,420 Z" fill="url(#celery)"/>
+    <path d="M330,380 L335,325 L355,323 L360,380 Z" fill="url(#celery)" transform="rotate(-15 345 355)"/>
+    <path d="M420,395 L425,345 L445,343 L450,395 Z" fill="url(#celery)" transform="rotate(10 435 370)"/>
+    <path d="M510,400 L515,345 L535,343 L540,400 Z" fill="url(#celery)"/>
+    <path d="M590,390 L595,335 L615,333 L620,390 Z" fill="url(#celery)" transform="rotate(-8 605 362)"/>
+    <path d="M280,430 L285,385 L305,383 L310,430 Z" fill="url(#celery)" transform="rotate(20 295 407)"/>
+    <path d="M460,425 L465,380 L485,378 L490,425 Z" fill="url(#celery)" transform="rotate(-12 475 402)"/>
+  </g>
+  <!-- celery stringy texture -->
+  <g stroke="#3a5818" stroke-width="0.8" fill="none" opacity="0.6">
+    <path d="M182,350 L187,390"/>
+    <path d="M245,370 L250,415"/>
+    <path d="M345,335 L350,375"/>
+    <path d="M525,355 L530,395"/>
+  </g>
+  <!-- beef slices (brown, glossy, stir-fried) -->
+  <g stroke="#0a0402" stroke-width="1" fill="url(#beef)">
+    <path d="M210,360 Q260,348 300,360 Q320,380 295,395 Q255,405 215,395 Q195,378 210,360 Z"/>
+    <path d="M290,385 Q340,373 385,388 Q405,405 380,420 Q335,428 295,418 Q275,403 290,385 Z"/>
+    <path d="M380,355 Q430,345 470,358 Q490,378 465,392 Q425,400 385,390 Q365,375 380,355 Z"/>
+    <path d="M455,388 Q505,378 545,390 Q565,408 540,422 Q500,430 465,420 Q440,405 455,388 Z"/>
+    <path d="M540,360 Q585,350 620,362 Q640,382 618,395 Q580,403 550,395 Q528,380 540,360 Z"/>
+    <path d="M250,415 Q300,405 335,418 Q355,432 330,443 Q295,448 260,440 Q240,428 250,415 Z"/>
+  </g>
+  <!-- beef glossy highlights -->
+  <g fill="#c8682a" opacity="0.5">
+    <ellipse cx="250" cy="370" rx="20" ry="4"/>
+    <ellipse cx="340" cy="395" rx="22" ry="4"/>
+    <ellipse cx="420" cy="368" rx="22" ry="4"/>
+    <ellipse cx="500" cy="398" rx="20" ry="4"/>
+    <ellipse cx="580" cy="370" rx="18" ry="4"/>
+  </g>
+  <!-- black pepper coarse grains (scattered heavily) -->
+  <g fill="#0a0402">
+    <circle cx="230" cy="368" r="2.5"/>
+    <circle cx="265" cy="378" r="2.5"/>
+    <circle cx="295" cy="365" r="2"/>
+    <circle cx="315" cy="392" r="2.5"/>
+    <circle cx="355" cy="400" r="2"/>
+    <circle cx="380" cy="378" r="2.5"/>
+    <circle cx="415" cy="368" r="2"/>
+    <circle cx="445" cy="382" r="2.5"/>
+    <circle cx="475" cy="395" r="2"/>
+    <circle cx="505" cy="405" r="2.5"/>
+    <circle cx="540" cy="385" r="2"/>
+    <circle cx="575" cy="395" r="2.5"/>
+    <circle cx="605" cy="378" r="2"/>
+    <circle cx="210" cy="385" r="2"/>
+    <circle cx="290" cy="420" r="2.5"/>
+    <circle cx="400" cy="420" r="2"/>
+    <circle cx="490" cy="425" r="2.5"/>
+    <circle cx="180" cy="412" r="2"/>
+    <circle cx="350" cy="375" r="1.5"/>
+    <circle cx="560" cy="370" r="1.5"/>
+  </g>
+  <!-- garlic slice bits -->
+  <g fill="#fafaf0" stroke="#a89848" stroke-width="0.6">
+    <ellipse cx="270" cy="395" rx="4" ry="3"/>
+    <ellipse cx="430" cy="405" rx="4" ry="3"/>
+    <ellipse cx="560" cy="408" rx="4" ry="3"/>
+  </g>
+  <!-- sauce drip shine -->
+  <g fill="#6a3818" opacity="0.7">
+    <ellipse cx="200" cy="400" rx="8" ry="3"/>
+    <ellipse cx="620" cy="400" rx="8" ry="3"/>
+    <ellipse cx="400" cy="435" rx="30" ry="5" opacity="0.5"/>
+  </g>
+  <!-- steam -->
+  <g stroke="#faf4e0" stroke-width="3" fill="none" opacity="0.4" stroke-linecap="round">
+    <path d="M320,300 Q310,270 320,240 Q335,215 320,185"/>
+    <path d="M400,295 Q390,265 405,235 Q420,205 405,175"/>
+    <path d="M480,300 Q470,270 485,240 Q500,215 485,185"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="34" font-weight="700"
+        fill="#0a0402" text-anchor="middle" letter-spacing="4">黑 椒 西 芹 炒 牛 肉</text>
+</svg>
