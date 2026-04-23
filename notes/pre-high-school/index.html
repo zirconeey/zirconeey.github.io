@@ -47,7 +47,7 @@ permalink: /notes/pre-high-school/
   </header>
 
   <div class="knowledge-base">
-    {% assign course_order = "数学|物理" | split: "|" %}
+    {% assign course_order = "数学|物理|经验" | split: "|" %}
     {% assign phs_notes = site.notes | where: "discipline", "初升高" %}
 
     {% for cname in course_order %}
