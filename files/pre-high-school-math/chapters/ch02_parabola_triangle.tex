@@ -1,0 +1,70 @@
+% !TEX root = ../Main.tex
+\chapter{二次函数内接三角形}
+
+本章围绕一个典型问题：在一条给定抛物线 $y = ax^2 + bx + c$ 上任取三点 $A, B, C$ 构成三角形 $\triangle ABC$，当其中两点固定、第三点在抛物线上移动时，何时三角形面积最大？答案看似几何，本质却是\textbf{用导数刻画切线斜率}。
+
+\prop{抛物线内接三角形最大面积判据}{
+    设 $A, B$ 为抛物线 $\Gamma: y = f(x)$ 上的两个固定点（$f$ 可微），$C$ 为 $\Gamma$ 上动点。则 $\triangle ABC$ 面积取最大值时，
+    \[
+    \text{抛物线在 $C$ 处的切线} \parallel AB.
+    \]
+}
+
+\pf{
+    设 $A(x_A, y_A)$，$B(x_B, y_B)$。弦 $AB$ 为定直线，记其所在直线为 $\ell_{AB}$。三角形面积
+    \[
+    S = \tfrac{1}{2} \cdot |AB| \cdot d(C, \ell_{AB}),
+    \]
+    其中 $|AB|$ 为定值，故 $S$ 最大 $\iff$ $C$ 到 $\ell_{AB}$ 的距离 $d(C, \ell_{AB})$ 最大。
+
+    考虑与 $\ell_{AB}$ 平行的直线族。在抛物线上找到这样的点 $C^*$：抛物线在 $C^*$ 处的切线恰与 $\ell_{AB}$ 平行。几何上，把 $\ell_{AB}$ 向外平移直至"刚好"与抛物线相切，切点就是 $C^*$，此时 $d(C^*, \ell_{AB})$ 达到极值。
+
+    代数上，记 $\ell_{AB}$ 斜率为 $k_{AB}$。$C$ 到 $\ell_{AB}$ 的距离 $d(C, \ell_{AB})$ 关于 $C$ 的横坐标可微，令其导数为零，恰得 $f'(x_{C}) = k_{AB}$，即切线 $\parallel AB$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  \draw[->] (-3.2,0) -- (3.2,0) node[right]{$x$};
+  \draw[->] (0,-0.4) -- (0,4.3) node[above]{$y$};
+  \draw[thick,blue!70!black,domain=-2.3:2.3,smooth,samples=80] plot (\x,{0.7*\x*\x+0.4});
+  \coordinate (A) at (-2.1, {0.7*2.1*2.1+0.4});
+  \coordinate (B) at (1.8, {0.7*1.8*1.8+0.4});
+  \coordinate (C) at (-0.15, {0.7*0.15*0.15+0.4});
+  \draw[thick] (A) -- (B) -- (C) -- cycle;
+  \fill (A) circle (1.6pt) node[above left]{$A$};
+  \fill (B) circle (1.6pt) node[above right]{$B$};
+  \fill (C) circle (1.6pt) node[below]{$C^*$};
+  % tangent at C*
+  \draw[dashed,red!70!black] ($(C)+(-1.4,{-1.4*(2*0.7*(-0.15))})$) -- ($(C)+(1.4,{1.4*(2*0.7*(-0.15))})$);
+  \node[red!70!black] at (1.7,0.1) {切线 $\parallel AB$};
+\end{tikzpicture}
+\end{center}
+
+\ex[最大面积的三角形]{
+    已知 $A(-2, 4)$，$B(1, 1)$ 在抛物线 $y = x^2$ 上。点 $C$ 在抛物线上且位于 $A, B$ 之间。求 $\triangle ABC$ 面积的最大值及对应的 $C$ 点坐标。
+}
+
+\sol{
+    弦 $AB$ 的斜率
+    \[
+    k_{AB} = \frac{1-4}{1-(-2)} = -1.
+    \]
+    抛物线 $y = x^2$ 的导函数为 $y' = 2x$。由上述命题，$C$ 处切线斜率等于 $k_{AB}$：
+    \[
+    2 x_C = -1 \implies x_C = -\tfrac{1}{2},\ y_C = \tfrac{1}{4}.
+    \]
+    故 $C\left(-\tfrac{1}{2},\ \tfrac{1}{4}\right)$。
+
+    接下来算面积。$AB$ 所在直线：$y = -x + 2$，即 $x + y - 2 = 0$。点 $C$ 到此直线距离
+    \[
+    d = \frac{|(-\tfrac{1}{2}) + \tfrac{1}{4} - 2|}{\sqrt{2}} = \frac{|-2.25|}{\sqrt{2}} = \frac{9}{4\sqrt{2}}.
+    \]
+    $|AB| = \sqrt{3^2 + 3^2} = 3\sqrt{2}$。于是
+    \[
+    S_{\max} = \tfrac{1}{2} \cdot 3\sqrt{2} \cdot \frac{9}{4\sqrt{2}} = \frac{27}{8}.
+    \]
+}
+
+\rmkb{
+    这个"切线 $\parallel$ 弦"的洞察可以拓展：在任意凸曲线上取两点 $A, B$，若第三点 $C$ 让 $\triangle ABC$ 面积最大，则曲线在 $C$ 处切线平行于 $AB$。这正是\textbf{拉格朗日中值定理}的几何直观——弦的斜率等于中间某点切线斜率。
+}

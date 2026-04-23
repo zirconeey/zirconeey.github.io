@@ -1,0 +1,73 @@
+% !TEX root = ../Main.tex
+\chapter{三角换元}
+
+凡是题目里出现 $x^2 + y^2 = r^2$、$\sqrt{1 - x^2}$、$\sqrt{a^2 - x^2}$ 这类"圆的方程"或"根号减平方"，都可以考虑用三角函数换元，把\textbf{二元约束}变成\textbf{单参数}，从而把"在圆周上求最值"这类几何题压缩为"关于一个角 $\theta$ 的三角函数题"。
+
+\section{基本换元}
+
+\prop{圆周参数化}{
+    点 $(x, y)$ 在圆 $x^2 + y^2 = r^2$ 上 $\iff$ 存在 $\theta \in [0, 2\pi)$ 使得
+    \[
+    x = r\cos\theta,\qquad y = r\sin\theta.
+    \]
+}
+
+\prop{根号平方型}{
+    若出现 $\sqrt{a^2 - x^2}$（$|x| \le a$），可令 $x = a\sin\theta$，$\theta \in [-\tfrac{\pi}{2}, \tfrac{\pi}{2}]$，则 $\sqrt{a^2 - x^2} = a\cos\theta \ge 0$，根号自然消去。
+
+    类似地，$\sqrt{a^2 + x^2}$ 可令 $x = a\tan\theta$，$\sqrt{x^2 - a^2}$ 可令 $x = a\sec\theta$。
+}
+
+\section{最值题套路}
+
+\ex[圆周上求线性函数最值]{
+    点 $(x, y)$ 满足 $x^2 + y^2 = 4$，求 $3x + 4y$ 的最大值与最小值。
+}
+
+\sol{
+    令 $x = 2\cos\theta$，$y = 2\sin\theta$。则
+    \[
+    3x + 4y = 6\cos\theta + 8\sin\theta = 10 \sin(\theta + \varphi),
+    \]
+    其中 $\tan\varphi = \tfrac{6}{8} = \tfrac{3}{4}$（辅助角公式）。因 $\sin(\cdot) \in [-1, 1]$，最大值 $10$，最小值 $-10$。
+}
+
+\rmkb{
+    几何上，$3x + 4y = c$ 是一族平行直线。让它扫过圆，与圆相切时 $|c|$ 最大。圆心 $(0,0)$ 到直线 $3x + 4y = c$ 的距离 $\tfrac{|c|}{5} \le 2$，即 $|c| \le 10$。两种方法殊途同归。
+}
+
+\ex[带根号的最值]{
+    求 $f(x) = x + \sqrt{1 - x^2}$ 在 $x \in [-1, 1]$ 上的最大值。
+}
+
+\sol{
+    令 $x = \sin\theta$，$\theta \in [-\tfrac{\pi}{2}, \tfrac{\pi}{2}]$，则 $\sqrt{1-x^2} = \cos\theta$，故
+    \[
+    f = \sin\theta + \cos\theta = \sqrt{2} \sin\!\left(\theta + \tfrac{\pi}{4}\right).
+    \]
+    当 $\theta + \tfrac{\pi}{4} = \tfrac{\pi}{2}$ 即 $\theta = \tfrac{\pi}{4}$，$\sin = 1$，$f_{\max} = \sqrt{2}$。此时 $x = \tfrac{\sqrt{2}}{2}$。
+}
+
+\ex[圆上两点距离]{
+    已知 $A(1, 0)$，$P$ 在单位圆 $x^2 + y^2 = 1$ 上。求 $|AP|$ 的取值范围。
+}
+
+\sol{
+    令 $P = (\cos\theta, \sin\theta)$。
+    \[
+    |AP|^2 = (\cos\theta - 1)^2 + \sin^2\theta = 2 - 2\cos\theta.
+    \]
+    $\cos\theta \in [-1, 1]$，故 $|AP|^2 \in [0, 4]$，即 $|AP| \in [0, 2]$。
+}
+
+\section{何时该用三角换元}
+
+\rmkb{
+    题目具备如下特征之一，考虑三角换元：
+    \begin{itemize}
+        \item 变量满足形如 $x^2 + y^2 = r^2$ 的平方和约束；
+        \item 表达式含 $\sqrt{a^2 - x^2}$、$\sqrt{a^2 + x^2}$ 或 $\sqrt{x^2 - a^2}$；
+        \item 要求的是\textbf{带约束的最值}或\textbf{轨迹}。
+    \end{itemize}
+    核心思想：把 $k$ 元约束变量通过三角函数压缩到 $k-1$ 个自由参数。
+}

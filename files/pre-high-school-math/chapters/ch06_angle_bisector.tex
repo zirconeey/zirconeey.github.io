@@ -1,0 +1,84 @@
+% !TEX root = ../Main.tex
+\chapter{角平分线}
+
+角平分线定理在初中就学过结论，但它的\textbf{证法}（特别是用面积比证）体现了"同一个量用两种方式算"的思想——这正是许多几何证明的底色。
+
+\section{角平分线定理}
+
+\thm{角平分线定理}{
+    在 $\triangle ABC$ 中，设 $AD$ 是 $\angle BAC$ 的角平分线，$D$ 在 $BC$ 上。则
+    \[
+    \frac{BD}{DC} = \frac{AB}{AC}.
+    \]
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1.0]
+  \coordinate (A) at (0, 2.8);
+  \coordinate (B) at (-2.2, 0);
+  \coordinate (C) at (2.6, 0);
+  \coordinate (D) at ($(B)!{2.2/(2.2+3.1)}!(C)$);
+
+  \draw[thick] (A) -- (B) -- (C) -- cycle;
+  \draw[thick,red!70!black] (A) -- (D);
+
+  \fill (A) circle (1.5pt) node[above]{$A$};
+  \fill (B) circle (1.5pt) node[below left]{$B$};
+  \fill (C) circle (1.5pt) node[below right]{$C$};
+  \fill (D) circle (1.5pt) node[below]{$D$};
+
+  % arc marks for equal angles at A
+  \draw (A) ++ (-68:0.55) arc (-68:-85:0.55);
+  \draw (A) ++ (-85:0.65) arc (-85:-100:0.65);
+  \node[below] at ($(A)+(-85:0.9)$) {\scriptsize$\alpha\ \alpha$};
+
+  % show distances
+  \node[left] at ($(A)!0.5!(B)$) {$c$};
+  \node[right] at ($(A)!0.5!(C)$) {$b$};
+  \node[below] at ($(B)!0.5!(D)$) {$BD$};
+  \node[below] at ($(D)!0.5!(C)$) {$DC$};
+\end{tikzpicture}
+\end{center}
+
+\pf[面积比法]{
+    记 $\angle BAD = \angle CAD = \alpha$，$AB = c$，$AC = b$，$AD = d$。
+
+    \textbf{思路：} 用两种方式计算 $\triangle ABD$ 与 $\triangle ACD$ 的面积比。
+
+    \textbf{方式一（共顶点 $A$、夹角为 $\alpha$）：}
+    \[
+    \frac{S_{\triangle ABD}}{S_{\triangle ACD}} = \frac{\tfrac{1}{2} \cdot AB \cdot AD \cdot \sin\alpha}{\tfrac{1}{2} \cdot AC \cdot AD \cdot \sin\alpha} = \frac{AB}{AC} = \frac{c}{b}.
+    \]
+
+    \textbf{方式二（共顶点 $A$、$D$ 到底边 $BC$ 的高相同）：} 两个小三角形公用从 $A$ 到 $BC$ 的同一条高 $h_A$，故
+    \[
+    \frac{S_{\triangle ABD}}{S_{\triangle ACD}} = \frac{\tfrac{1}{2} \cdot BD \cdot h_A}{\tfrac{1}{2} \cdot DC \cdot h_A} = \frac{BD}{DC}.
+    \]
+
+    两式左端相同，故
+    \[
+    \frac{BD}{DC} = \frac{c}{b} = \frac{AB}{AC}.
+    \]
+}
+
+\rmkb{
+    证法的核心是"\textbf{同一个量，两种数法}"。面积比既可以按边长和夹角算，又可以按底和高算。这个双重观点在许多比例型定理里都有效（如 Ceva、Menelaus、Stewart 等）。
+}
+
+\section{逆定理与应用}
+
+\thm{角平分线定理的逆定理}{
+    若 $D \in BC$ 使 $\dfrac{BD}{DC} = \dfrac{AB}{AC}$，则 $AD$ 平分 $\angle BAC$。
+}
+
+\ex[角平分线切 $BC$]{
+    在 $\triangle ABC$ 中，$AB = 7$，$AC = 5$，$BC = 9$。$\angle BAC$ 的角平分线交 $BC$ 于 $D$。求 $BD$ 和 $DC$。
+}
+
+\sol{
+    由角平分线定理，$\tfrac{BD}{DC} = \tfrac{7}{5}$，且 $BD + DC = 9$。
+    \[
+    BD = 9 \cdot \tfrac{7}{12} = \tfrac{63}{12} = \tfrac{21}{4},\quad
+    DC = 9 \cdot \tfrac{5}{12} = \tfrac{45}{12} = \tfrac{15}{4}.
+    \]
+}

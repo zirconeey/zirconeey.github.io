@@ -1,0 +1,83 @@
+% !TEX root = ../Main.tex
+\chapter{倒序相加法}
+
+高斯在小学时期的传说：老师让学生算 $1 + 2 + \cdots + 100$，高斯几秒钟就给出答案 $5050$。他用的就是倒序相加法——本章的主角。这个技巧的核心思想是\textbf{利用对称性把一个求和变成"翻倍后每一项都相同"}。
+
+\section{高斯求和}
+
+\thm{高斯求和}{
+    $\displaystyle \sum_{k=1}^n k = \frac{n(n+1)}{2}$。
+}
+
+\pf[倒序相加]{
+    设 $S = 1 + 2 + 3 + \cdots + n$。把它倒过来写：$S = n + (n-1) + \cdots + 2 + 1$。两式对应相加：
+
+    \[
+    \begin{array}{cccccccc}
+      S = & 1 & + & 2 & + & \cdots & + & n \\
+      S = & n & + & (n-1) & + & \cdots & + & 1 \\
+      \hline
+      2S = & (n+1) & + & (n+1) & + & \cdots & + & (n+1)
+    \end{array}
+    \]
+
+    一共 $n$ 项，每项都是 $n+1$。故 $2S = n(n+1)$，即 $S = \dfrac{n(n+1)}{2}$。
+}
+
+\rmkb{
+    "倒序相加"本质是：一个长度为 $n$ 的序列 $a_1, a_2, \ldots, a_n$ 若满足对称性 $a_k + a_{n+1-k} = \text{常数 } C$，则 $\sum a_k = \dfrac{nC}{2}$。
+}
+
+\section{等差数列求和}
+
+\thm{等差数列求和}{
+    设 $\{a_n\}$ 是首项 $a_1$、公差 $d$ 的等差数列，$a_n = a_1 + (n-1)d$。则
+    \[
+    S_n = \sum_{k=1}^n a_k = \frac{n(a_1 + a_n)}{2}.
+    \]
+}
+
+\pf[倒序相加]{
+    $S_n = a_1 + a_2 + \cdots + a_n$；倒序 $S_n = a_n + a_{n-1} + \cdots + a_1$。对应相加：第 $k$ 项之和为
+    \[
+    a_k + a_{n+1-k} = [a_1 + (k-1)d] + [a_1 + (n-k)d] = 2a_1 + (n-1)d = a_1 + a_n.
+    \]
+    共 $n$ 对，故 $2 S_n = n(a_1 + a_n)$，即得证。
+}
+
+\ex[高斯秒算]{
+    求 $7 + 10 + 13 + \cdots + 100$。
+}
+
+\sol{
+    这是首项 $7$、公差 $3$、末项 $100$ 的等差数列。项数
+    \[
+    n = \frac{100 - 7}{3} + 1 = 32.
+    \]
+    和 $S = \dfrac{32 \cdot (7 + 100)}{2} = 16 \cdot 107 = 1712$。
+}
+
+\section{应用：对称性的另一个例子}
+
+\ex[对称积分式求值]{
+    求 $\displaystyle S = \sum_{k=0}^n \binom{n}{k}$。
+}
+
+\sol{
+    这不用倒序相加，但体现了同样的"双重表达"精神。注意 $\binom{n}{k} = \binom{n}{n-k}$（组合数的对称性）。但最快的解法是二项式定理：
+    \[
+    (1+1)^n = \sum_{k=0}^n \binom{n}{k} \cdot 1^k \cdot 1^{n-k} = S \implies S = 2^n.
+    \]
+    \textbf{对称性}的用法在这里与倒序相加殊途同归：都是发现"两个看似不同的表达式相等"。
+}
+
+\ex[三角数列]{
+    求 $\sin^2 1^\circ + \sin^2 2^\circ + \cdots + \sin^2 89^\circ$。
+}
+
+\sol{
+    记 $S = \sum_{k=1}^{89} \sin^2 k^\circ$。倒序写一份：$S = \sum_{k=1}^{89} \sin^2 (90^\circ - k^\circ) = \sum_{k=1}^{89} \cos^2 k^\circ$。两式相加：
+    \[
+    2S = \sum_{k=1}^{89}(\sin^2 k^\circ + \cos^2 k^\circ) = 89 \implies S = \tfrac{89}{2}.
+    \]
+}

@@ -1,0 +1,124 @@
+% !TEX root = ../Main.tex
+\chapter{数形结合}
+
+"数"与"形"是数学的两只眼睛：代数让你能精确计算，几何让你能直观理解。\textbf{数形结合}的核心能力，是\textbf{把一个代数表达式翻译成几何图形}，进而借助图形的直观优势快速读出结论。
+
+\section{几何解读 1：$|x - a|$ 作 1 维距离}
+
+在数轴上，$|x - a|$ 恰好是点 $x$ 到点 $a$ 的距离。这把\textbf{绝对值的代数运算}转成\textbf{点在数轴上的位置运动}。
+
+\ex[绝对值不等式]{
+    求解 $|x - 1| + |x + 2| \le 5$。
+}
+
+\sol{
+    几何翻译：$|x - 1|$ 是 $x$ 到 $1$ 的距离，$|x + 2| = |x - (-2)|$ 是 $x$ 到 $-2$ 的距离。题目即
+    \[
+    d(x, 1) + d(x, -2) \le 5.
+    \]
+    在数轴上，点 $1$ 与点 $-2$ 相距 $3$。若 $x$ 夹在 $[-2, 1]$ 之间，两段距离之和恰为 $3 \le 5$，必然成立。若 $x$ 在 $[-2, 1]$ 之外，距离和超过 $3$。设 $x$ 到最近端点的距离为 $d_\text{out}$，则两段距离之和 $= 3 + 2 d_\text{out}$。要求
+    \[
+    3 + 2 d_\text{out} \le 5 \iff d_\text{out} \le 1.
+    \]
+    故 $x$ 最多可以在 $[-2, 1]$ 左右各延伸 $1$ 个单位：$x \in [-3, 2]$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1.0]
+  \draw[thick,->] (-4.5,0) -- (3.5,0) node[right]{$x$};
+  \foreach \x in {-3,-2,-1,0,1,2} {
+    \draw (\x,0.12) -- (\x,-0.12) node[below] {\scriptsize$\x$};
+  }
+  \draw[thick,red!70!black] (-3,0.35) -- (2,0.35);
+  \fill[red!70!black] (-3,0.35) circle (1.5pt);
+  \fill[red!70!black] (2,0.35) circle (1.5pt);
+  \node[above] at (-0.5,0.4) {\scriptsize 解集 $[-3, 2]$};
+  \fill[black] (-2,0) circle (1.2pt);
+  \fill[black] (1,0) circle (1.2pt);
+\end{tikzpicture}
+\end{center}
+
+\section{几何解读 2：$\sqrt{(x-a)^2 + (y-b)^2}$ 作 2 维距离}
+
+在平面上，$\sqrt{(x-a)^2 + (y-b)^2}$ 是点 $(x, y)$ 到点 $(a, b)$ 的距离。凡含"两个平方开根号"的表达式，都应尝试翻译成平面距离。
+
+\ex[带根号的最值]{
+    求 $f(x) = \sqrt{(x-1)^2 + 4} + \sqrt{(x-5)^2 + 9}$ 在 $x \in \RR$ 上的最小值。
+}
+
+\sol{
+    \textbf{几何翻译：} 把 $f(x)$ 读作：在平面上，点 $P(x, 0)$ 在 $x$ 轴上移动；$f(x) = |PA| + |PB|$，其中
+    \[
+    A = (1, 2),\qquad B = (5, 3).
+    \]
+    （因为 $\sqrt{(x-1)^2 + 2^2} = |PA|$，$\sqrt{(x-5)^2 + 3^2} = |PB|$。）
+
+    所求即"点 $P$ 在 $x$ 轴上，$|PA| + |PB|$ 的最小值"。\textbf{镜像反射法：} 把 $B$ 关于 $x$ 轴对称得 $B' = (5, -3)$。则对 $x$ 轴上任意 $P$，$|PB| = |PB'|$。故
+    \[
+    f(x) = |PA| + |PB'| \ge |AB'|.
+    \]
+    等号当 $P$ 在线段 $AB'$ 上（即 $P$ 是 $AB'$ 与 $x$ 轴交点）时成立。
+    \[
+    |AB'| = \sqrt{(5-1)^2 + (-3-2)^2} = \sqrt{16 + 25} = \sqrt{41}.
+    \]
+    故 $f_{\min} = \sqrt{41}$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.7]
+  \draw[->] (-1,0) -- (7,0) node[right]{$x$};
+  \draw[->] (0,-3.5) -- (0,3.5) node[above]{$y$};
+  \foreach \x in {1,2,3,4,5} \draw (\x,0.1) -- (\x,-0.1) node[below]{\scriptsize$\x$};
+  \fill (1,2) circle (2pt) node[above right]{$A(1,2)$};
+  \fill (5,3) circle (2pt) node[above right]{$B(5,3)$};
+  \fill (5,-3) circle (2pt) node[below right]{$B'(5,-3)$};
+  \draw[dashed,gray] (5,3) -- (5,-3);
+  \draw[red!70!black,thick] (1,2) -- (5,-3);
+  % intersection of AB' with x-axis
+  \coordinate (P) at ({1 + 4*(2/5)}, 0);
+  \fill (P) circle (2pt) node[above]{$P$};
+\end{tikzpicture}
+\end{center}
+
+\section{几何解读 3：直接"画出来"}
+
+许多不等式题只要把左右两边\textbf{画成图像}，答案就一目了然。
+
+\ex[函数图像比较]{
+    设 $f(x) = x^2$，$g(x) = 2^x$，比较 $f(4)$ 与 $g(4)$；$f(5)$ 与 $g(5)$。一般地，讨论方程 $x^2 = 2^x$ 的实根个数。
+}
+
+\sol{
+    $f(4) = 16$，$g(4) = 16$：相等。$f(5) = 25$，$g(5) = 32$：$g > f$。
+
+    画图：$f, g$ 都过 $(2, 4)$（$2^2 = 2^2$）与 $(4, 16)$。还有一个负实根（当 $x < 0$ 时 $x^2 > 0$，$2^x \in (0, 1)$，易见两图在 $x \approx -0.77$ 处相交）。因此 $x^2 = 2^x$ 共有 \textbf{3 个实根}。
+
+    \textbf{一般原则：} 用\textbf{代数计算}验证几何直观——直觉可能误导，最终要用导数或精细估计来闭合论证。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.5]
+  \draw[->] (-3,0) -- (6,0) node[right]{$x$};
+  \draw[->] (0,-1) -- (0,20) node[above]{$y$};
+  \draw[thick,blue!70!black,domain=-2.5:4.5,smooth,samples=60] plot (\x,{\x*\x}) node[right]{$y = x^2$};
+  \draw[thick,red!70!black,domain=-2.5:4.2,smooth,samples=60] plot (\x,{2^\x}) node[above left]{$y = 2^x$};
+  \fill (2,4) circle (2pt);
+  \fill (4,16) circle (2pt);
+  \fill (-0.77, 0.59) circle (2pt);
+\end{tikzpicture}
+\end{center}
+
+\section{结语}
+
+\rmkb{
+    数形结合不是万能钥匙，但它是\textbf{考场上最能"救命"的思维方式}——当你觉得代数路径越算越乱时，停下来画张图，常常会得到意想不到的简洁思路。
+
+    关键口诀：
+    \begin{itemize}
+        \item 看到\textbf{平方和开根号}，想\textbf{距离}；
+        \item 看到\textbf{绝对值}，想\textbf{数轴上的点与距离}；
+        \item 看到\textbf{比较}或\textbf{方程根的个数}，把函数图像画出来；
+        \item 看到\textbf{圆、椭圆、抛物线}，记得它们的定义是一种"距离约束"。
+    \end{itemize}
+    代数与几何，互为彼此的"翻译"。能自由切换，才是真正掌握数学的入门之匙。
+}

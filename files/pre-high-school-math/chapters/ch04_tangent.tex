@@ -1,0 +1,76 @@
+% !TEX root = ../Main.tex
+\chapter{切线}
+
+切线是"曲线在某点的最好线性逼近"。它把微观的"变化率"与宏观的"几何位置"连接起来，是整个解析几何 \& 微积分桥梁的骨架。
+
+\section{切线的两种刻画}
+
+\defn{切线（几何刻画）}{
+    设 $P$ 是曲线 $\Gamma$ 上一点。若直线 $\ell$ 过 $P$ 且"仅与 $\Gamma$ 在 $P$ 附近有一个重合的交点"（即 $\ell$ 与 $\Gamma$ 在 $P$ 处相切），则称 $\ell$ 为 $\Gamma$ 在 $P$ 处的\textbf{切线}。
+}
+
+\defn{切线（变化率刻画）}{
+    若 $\Gamma: y = f(x)$ 在 $x = x_0$ 可导，则 $\Gamma$ 在 $P(x_0, f(x_0))$ 处的切线斜率为
+    \[
+    k = f'(x_0) = \lim_{\Delta x \to 0} \frac{f(x_0 + \Delta x) - f(x_0)}{\Delta x}.
+    \]
+    切线方程为 $y - f(x_0) = f'(x_0)(x - x_0)$。
+}
+
+这两种定义在"好"的曲线上等价。\textbf{"导数是切线斜率"}——这是高中阶段最重要的一句话。
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  \draw[->] (-0.5,0) -- (4.5,0) node[right]{$x$};
+  \draw[->] (0,-0.5) -- (0,3.5) node[above]{$y$};
+  \draw[thick,blue!70!black,domain=0:4,smooth,samples=80] plot (\x,{0.3*\x*\x});
+  \coordinate (P) at (2,1.2);
+  \fill (P) circle (1.6pt);
+  \node[above left] at (P) {$P$};
+  % tangent with slope 0.6*2 = 1.2
+  \draw[red!70!black,thick] (0.5, {1.2 - 1.5*1.2}) -- (3.8, {1.2 + 1.8*1.2}) node[right]{切线};
+\end{tikzpicture}
+\end{center}
+
+\section{切线条数：方程组解数 = 几何交点数}
+
+一个经典问题：过一个外点 $P_0$ 向曲线引切线，能引出几条？这等价于问一个方程的解的个数。
+
+\ex[外点向抛物线引切线]{
+    过点 $P_0(1, -3)$ 向抛物线 $\Gamma: y = x^2$ 引切线，能引出几条？分别求切线方程。
+}
+
+\sol{
+    设切点为 $P(t, t^2)$。抛物线在 $P$ 处切线斜率为 $y'|_{x=t} = 2t$，切线方程
+    \[
+    y - t^2 = 2t (x - t) \implies y = 2t x - t^2.
+    \]
+    切线须过 $P_0(1, -3)$：
+    \[
+    -3 = 2t \cdot 1 - t^2 \implies t^2 - 2t - 3 = 0 \implies (t-3)(t+1) = 0.
+    \]
+    故 $t = 3$ 或 $t = -1$，共两条切线：
+    \[
+    \ell_1: y = 6x - 9,\qquad \ell_2: y = -2x - 1.
+    \]
+}
+
+\rmkb{
+    一般规则：若外点 $P_0$ 在二次曲线\textbf{外部}，可引两条切线；在\textbf{曲线上}，一条；在\textbf{内部}，零条。这完全对应"关于 $t$ 的二次方程有 $0 / 1 / 2$ 个实根"。
+}
+
+\section{与极限思想的联动}
+
+上一章讲"$x \to \infty$ 时表达式行为"，本章讲"$\Delta x \to 0$ 时比值行为"。看似方向相反，其实都是\textbf{让某个量"逼近特殊值"，观察表达式被压缩到什么}——这是所有分析学的共同底色。
+
+\ex[用极限算导数]{
+    用极限定义求 $f(x) = x^2$ 的导数。
+}
+
+\sol{
+    \[
+    f'(x) = \lim_{\Delta x \to 0} \frac{(x + \Delta x)^2 - x^2}{\Delta x}
+    = \lim_{\Delta x \to 0} \frac{2x \Delta x + (\Delta x)^2}{\Delta x}
+    = \lim_{\Delta x \to 0}(2x + \Delta x) = 2x.
+    \]
+}

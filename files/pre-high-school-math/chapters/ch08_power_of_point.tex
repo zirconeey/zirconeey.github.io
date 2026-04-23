@@ -1,0 +1,142 @@
+% !TEX root = ../Main.tex
+\chapter{圆幂定理}
+
+圆幂定理（Power of a Point）是一族由相似三角形推出的乘积等式。它把"点对圆的位置关系"统一成一个数——\textbf{圆幂}，把三类常见几何构型（相交弦、割线、切割线）归约到同一个公式。
+
+\section{圆幂：一个统一的量}
+
+\defn{点对圆的圆幂}{
+    设 $\odot O$ 半径为 $r$，$P$ 为平面上一点。定义 $P$ 对 $\odot O$ 的\textbf{圆幂}为
+    \[
+    \operatorname{pow}(P, \odot O) = |PO|^2 - r^2.
+    \]
+    符号：$P$ 在圆外时为正，在圆上为 $0$，在圆内为负。
+}
+
+圆幂在几何上的精妙之处：对任意过 $P$ 的直线 $\ell$，若 $\ell$ 与圆交于 $A, B$ 两点（按"有向"理解：$P$ 在内则 $A, B$ 异侧，$P$ 在外则同侧），有
+\[
+\vec{PA} \cdot \vec{PB} = \operatorname{pow}(P, \odot O).
+\]
+这意味着\textbf{$PA \cdot PB$ 只依赖于 $P$ 和圆，与所选直线无关}。下面的三条定理都是这条元事实的具体表述。
+
+\section{相交弦定理}
+
+\thm{相交弦定理}{
+    若两条弦 $AB, CD$ 在圆内交于 $P$，则
+    \[
+    PA \cdot PB = PC \cdot PD.
+    \]
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1.0]
+  \draw[thick] (0,0) circle (2);
+  \coordinate (P) at (0.4, 0.2);
+  \coordinate (A) at ({-2*cos(40)}, {-2*sin(40)});
+  \coordinate (B) at ({2*cos(10)}, {2*sin(10)});
+  \coordinate (C) at ({-2*cos(-70)}, {2*sin(-70)});
+  \coordinate (D) at ({2*cos(60)}, {2*sin(60)});
+  % draw chords: we'll just place simple chords through P
+  \draw (-1.95,-0.6) -- (1.95,0.8);
+  \draw (-0.9,-1.8) -- (1.3,1.8);
+  \fill (P) circle (1.5pt) node[below right]{$P$};
+  \node[left] at (-1.95,-0.6) {$A$};
+  \node[right] at (1.95,0.8) {$B$};
+  \node[below] at (-0.9,-1.8) {$C$};
+  \node[above] at (1.3,1.8) {$D$};
+\end{tikzpicture}
+\end{center}
+
+\pf[相似三角形]{
+    连 $AC, BD$。在 $\triangle PAC$ 与 $\triangle PDB$ 中，
+    \begin{itemize}
+        \item $\angle APC = \angle DPB$（对顶角）；
+        \item $\angle PAC = \angle PDB$（同弧 $BC$ 所对圆周角相等）。
+    \end{itemize}
+    故 $\triangle PAC \sim \triangle PDB$，得 $\tfrac{PA}{PD} = \tfrac{PC}{PB}$，即 $PA \cdot PB = PC \cdot PD$。
+}
+
+\section{割线定理（外部）}
+
+\thm{割线定理}{
+    若 $P$ 在 $\odot O$ 外，过 $P$ 的两条割线分别交圆于 $A, B$ 与 $C, D$（$PA < PB$），则
+    \[
+    PA \cdot PB = PC \cdot PD.
+    \]
+}
+
+证明类似：用 $\triangle PAC \sim \triangle PDB$（圆内接四边形 $ACBD$ 外角 = 内对角）即可。
+
+\section{切割线定理}
+
+\thm{切割线定理}{
+    若 $P$ 在 $\odot O$ 外，$PT$ 是圆的切线（$T$ 为切点），$PAB$ 是过 $P$ 的割线，则
+    \[
+    PT^2 = PA \cdot PB.
+    \]
+}
+
+\pf{
+    连 $TA, TB$。弦切角 $\angle PTA =$ 弦 $TA$ 所对的圆周角 $\angle TBA = \angle PBT$。又 $\angle TPA = \angle BPT$（公共角），故 $\triangle PTA \sim \triangle PBT$，得
+    \[
+    \frac{PT}{PB} = \frac{PA}{PT} \implies PT^2 = PA \cdot PB.
+    \]
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1.0]
+  \draw[thick] (0,0) circle (1.8);
+  \coordinate (P) at (3.2, 0);
+  % tangent from P
+  \coordinate (T) at ({1.8*1.8/3.2}, {1.8*sqrt(1 - (1.8/3.2)^2)});
+  \coordinate (A) at ({-0.5}, {1.8*sqrt(1-0.5^2/1.8^2)*0.6});
+  \coordinate (B) at ({2.5}, {-1.0});
+  \draw (P) -- (T);
+  % secant through P hitting circle twice
+  \draw (P) -- ($(P) + (170:3.8)$);
+  % compute intersections by param
+  \fill (P) circle (1.5pt) node[right]{$P$};
+  \fill (T) circle (1.5pt) node[above right]{$T$};
+  \node[left] at ($(P) + (170:3.8)$) {};
+  % Mark rough A, B (illustrative)
+  \node[above] at (-1.2, 0.45) {$B$};
+  \node[above] at (0.9, 0.18) {$A$};
+  \draw[dashed] (0,0) -- (T);
+  \node[below] at (0,0) {$O$};
+\end{tikzpicture}
+\end{center}
+
+\ex[切割线计算]{
+    $P$ 在圆外，$PT = 6$ 切圆于 $T$，$P$ 向圆作割线 $PAB$ 且 $PA = 4$。求 $AB$。
+}
+
+\sol{
+    $PT^2 = PA \cdot PB \implies 36 = 4 \cdot PB \implies PB = 9$。故 $AB = PB - PA = 5$。
+}
+
+\section{托勒密定理（Ptolemy）}
+
+\thm{托勒密定理}{
+    若四边形 $ABCD$ 内接于圆（圆内接四边形），则
+    \[
+    AC \cdot BD = AB \cdot CD + AD \cdot BC.
+    \]
+    （两条对角线之积 = 两组对边之积之和。）
+    对于任意凸四边形，$\ge$ 号成立：$AC \cdot BD \le AB \cdot CD + AD \cdot BC$（托勒密不等式）。
+}
+
+\rmkb{
+    托勒密定理的经典应用之一是导出\textbf{正弦/余弦和差公式}。取单位圆上四点构造等腰梯形并套用托勒密，即可导出 $\sin(\alpha + \beta) = \sin\alpha\cos\beta + \cos\alpha\sin\beta$。有兴趣的读者可以自行推导。
+}
+
+\ex[用托勒密求对角线]{
+    已知圆内接四边形 $ABCD$ 中 $AB = 3$，$BC = 5$，$CD = 6$，$DA = 4$，$AC = 7$。求 $BD$。
+}
+
+\sol{
+    由托勒密，
+    \[
+    AC \cdot BD = AB \cdot CD + AD \cdot BC
+    \implies 7 \cdot BD = 3 \cdot 6 + 4 \cdot 5 = 38 \implies BD = \tfrac{38}{7}.
+    \]
+}

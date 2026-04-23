@@ -1,0 +1,95 @@
+% !TEX root = ../Main.tex
+\chapter{极限思想}
+
+"极限"在高中阶段是一种\textbf{思维方式}——当某个变量趋于无穷（或趋于某个特殊值）时，表达式的行为会"坍缩"到一个更简单的形式。本章聚焦两类最常用的情形：有理函数在无穷处的极限，和几种常见函数的增长速率比较。
+
+\section{有理函数在无穷处的极限：三种技巧}
+
+\defn{$x \to \infty$ 型极限}{
+    若 $f(x)$ 是两个多项式的商 $\displaystyle f(x) = \frac{P(x)}{Q(x)}$，记 $P, Q$ 次数分别为 $p, q$。我们关心
+    \[
+    \lim_{x \to \infty} \frac{P(x)}{Q(x)}.
+    \]
+}
+
+\state{技巧一：变量代换 $t = 1/x$}{
+    令 $t = 1/x$，则 $x \to \infty \iff t \to 0^+$。把所有 $x$ 换成 $1/t$，问题就转化为 $t \to 0$ 的极限。适用于分子分母同次或低次多于高次的情形。
+}
+
+\ex[代换法]{
+    求 $\displaystyle \lim_{x\to\infty} \frac{3x^2 - x + 5}{2x^2 + 7}$。
+}
+
+\sol{
+    令 $t = 1/x$，则
+    \[
+    \frac{3x^2 - x + 5}{2x^2 + 7}
+    = \frac{3 - t + 5t^2}{2 + 7t^2} \xrightarrow{t \to 0} \frac{3}{2}.
+    \]
+}
+
+\state{技巧二：分离常数（多项式长除法）}{
+    当 $\deg P \ge \deg Q$ 时，作长除法把 $P/Q$ 写成"多项式 + 真分式"。剩下的真分式当 $x \to \infty$ 时趋于 $0$，只看多项式部分的行为。
+}
+
+\ex[分离常数]{
+    求 $\displaystyle \lim_{x\to\infty} \frac{x^3 + 2x + 1}{x^2 - 3}$。
+}
+
+\sol{
+    $\dfrac{x^3 + 2x + 1}{x^2 - 3} = x + \dfrac{5x + 1}{x^2 - 3}$。
+
+    当 $x \to +\infty$，真分式 $\to 0$，故结果 $= +\infty$。当 $x \to -\infty$，结果 $= -\infty$。
+}
+
+\state{技巧三：次数比较}{
+    对 $\displaystyle \lim_{x\to\infty} \frac{P(x)}{Q(x)}$（$p = \deg P$，$q = \deg Q$，最高次系数分别为 $a_p, b_q$）：
+    \[
+    \lim_{x\to\infty} \frac{P(x)}{Q(x)} =
+    \begin{cases}
+      \dfrac{a_p}{b_q}, & p = q, \\[4pt]
+      0, & p < q, \\[4pt]
+      \pm\infty, & p > q\ (\text{符号由 $a_p/b_q$ 与 $x$ 的符号决定}).
+    \end{cases}
+    \]
+    这条其实是前两个技巧的"秒杀"结论。
+}
+
+\ex[次数比较]{
+    求：
+    (1) $\displaystyle \lim_{x\to\infty} \frac{5x - 7}{2x^2 + 3}$；
+    (2) $\displaystyle \lim_{x\to\infty} \frac{4x^2 + 1}{3x^2 - x}$；
+    (3) $\displaystyle \lim_{x\to+\infty} \frac{-2x^3 + x}{x^2 + 1}$。
+}
+
+\sol{
+    (1) 分母次数更高，极限为 $0$。
+
+    (2) 同次，最高次系数比 $= \tfrac{4}{3}$，故极限为 $\tfrac{4}{3}$。
+
+    (3) 分子次数更高，最高次系数为 $-2$，又 $x \to +\infty$，故极限为 $-\infty$。
+}
+
+\section{增长速率的直觉比较}
+
+当 $x \to +\infty$，对 $a > 1,\ k > 0$，
+\[
+\boxed{\log_a x\ \ \ll\ \ x^k\ \ \ll\ \ a^x\ \ \ll\ \ x!\ \ \ll\ \ x^x}.
+\]
+这里 $f \ll g$ 表示 $\lim_{x\to\infty} f(x)/g(x) = 0$，即 $g$ "压倒" $f$。
+
+\rmkb{
+    \begin{itemize}
+        \item 多项式被指数压倒：$x^{100}$ 看上去很大，但只要 $x$ 够大，$2^x$ 就甩开它几个数量级。
+        \item 对数被多项式压倒：$\log x$ 增长奇慢，任何正幂 $x^{0.0001}$ 都能最终超过它。
+        \item 在算法分析、渐近估计中，这张排序表就是大 $O$ 记号的骨架。
+    \end{itemize}
+}
+
+\ex[混合比较]{
+    判断 $\displaystyle \lim_{x\to+\infty} \frac{x^{10}\log x}{2^x}$。
+}
+
+\sol{
+    分子的增长速率由主导项 $2^x$ 压倒（$2^x \gg x^{10} \gg \log x$，故 $2^x \gg x^{10}\log x$），极限为 $0$。
+}
