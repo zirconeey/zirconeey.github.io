@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#fff4dd"/>
+      <stop offset="60%" stop-color="#d8a868"/>
+      <stop offset="100%" stop-color="#6a3d18"/>
+    </radialGradient>
+    <linearGradient id="chx" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f9dca0"/>
+      <stop offset="50%" stop-color="#d89a50"/>
+      <stop offset="100%" stop-color="#8d5020"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="360" rx="290" ry="65" fill="#3a1e0a" opacity="0.3"/>
+  <ellipse cx="400" cy="350" rx="290" ry="65" fill="#f3e6cb"/>
+  <ellipse cx="400" cy="350" rx="260" ry="50" fill="#eedaba"/>
+  <!-- chicken breast (2 pieces) -->
+  <path d="M240,320 Q240,270 320,265 Q420,265 440,310 Q430,360 330,365 Q250,360 240,320 Z"
+        fill="url(#chx)" stroke="#8d5020" stroke-width="2"/>
+  <path d="M430,345 Q440,300 510,295 Q580,300 560,340 Q530,370 470,368 Q430,365 430,345 Z"
+        fill="url(#chx)" stroke="#8d5020" stroke-width="2"/>
+  <!-- searing marks -->
+  <g stroke="#6a3410" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M270,300 Q290,295 310,298"/>
+    <path d="M320,295 Q350,290 380,295"/>
+    <path d="M280,330 Q320,328 360,332"/>
+    <path d="M470,320 Q500,315 530,320"/>
+    <path d="M460,345 Q510,343 550,347"/>
+  </g>
+  <!-- pepper -->
+  <circle cx="320" cy="310" r="2" fill="#1a0f05"/>
+  <circle cx="380" cy="340" r="1.5" fill="#1a0f05"/>
+  <circle cx="500" cy="330" r="2" fill="#1a0f05"/>
+  <text x="400" y="545" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#3e1a08" text-anchor="middle" letter-spacing="6">香 煎 鸡 胸 肉</text>
+</svg>

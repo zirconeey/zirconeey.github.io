@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#fff4d9"/>
+      <stop offset="55%" stop-color="#d49050"/>
+      <stop offset="100%" stop-color="#5a2a10"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="360" rx="280" ry="70" fill="#3a1e0a" opacity="0.35"/>
+  <ellipse cx="400" cy="350" rx="280" ry="70" fill="#f2e4ca"/>
+  <ellipse cx="400" cy="350" rx="250" ry="55" fill="#eddabb"/>
+  <!-- beef cubes -->
+  <g>
+    <rect x="310" y="295" width="40" height="30" rx="4" fill="#7a2f18" transform="rotate(-5 330 310)"/>
+    <rect x="365" y="280" width="42" height="32" rx="4" fill="#8a3820" transform="rotate(8 386 296)"/>
+    <rect x="420" y="290" width="40" height="30" rx="4" fill="#7a2f18" transform="rotate(-3 440 305)"/>
+    <rect x="280" y="330" width="38" height="28" rx="4" fill="#8a3820" transform="rotate(12 299 344)"/>
+    <rect x="460" y="320" width="40" height="30" rx="4" fill="#7a2f18" transform="rotate(-8 480 335)"/>
+    <rect x="340" y="325" width="42" height="30" rx="4" fill="#913c21" transform="rotate(4 361 340)"/>
+  </g>
+  <!-- potato cubes (lighter) -->
+  <g>
+    <rect x="255" y="295" width="36" height="28" rx="4" fill="#e8b85a" transform="rotate(-12 273 309)"/>
+    <rect x="400" y="325" width="38" height="28" rx="4" fill="#dca844" transform="rotate(7 419 339)"/>
+    <rect x="500" y="285" width="36" height="28" rx="4" fill="#e8b85a" transform="rotate(-4 518 299)"/>
+    <rect x="360" y="358" width="36" height="28" rx="4" fill="#dca844" transform="rotate(15 378 372)"/>
+    <rect x="430" y="360" width="38" height="28" rx="4" fill="#e8b85a" transform="rotate(-6 449 374)"/>
+  </g>
+  <!-- cumin / sesame specks -->
+  <g fill="#3a1b08">
+    <circle cx="330" cy="290" r="1.5"/>
+    <circle cx="380" cy="300" r="1.5"/>
+    <circle cx="420" cy="310" r="1.5"/>
+    <circle cx="460" cy="300" r="1.5"/>
+    <circle cx="300" cy="340" r="1.5"/>
+    <circle cx="350" cy="340" r="1.5"/>
+    <circle cx="400" cy="350" r="1.5"/>
+  </g>
+  <!-- white sesame -->
+  <g fill="#fff8dc">
+    <circle cx="345" cy="315" r="1.5"/>
+    <circle cx="395" cy="320" r="1.5"/>
+    <circle cx="440" cy="335" r="1.5"/>
+    <circle cx="370" cy="350" r="1.5"/>
+  </g>
+  <text x="400" y="545" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#3e1a08" text-anchor="middle" letter-spacing="6">孜 然 土 豆 牛 肉</text>
+</svg>

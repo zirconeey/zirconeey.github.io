@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#fff0c0"/>
+      <stop offset="60%" stop-color="#e8a040"/>
+      <stop offset="100%" stop-color="#6a3a10"/>
+    </radialGradient>
+    <linearGradient id="fry" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde08a"/>
+      <stop offset="55%" stop-color="#e8a33a"/>
+      <stop offset="100%" stop-color="#8a4e15"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- paper cone background -->
+  <path d="M260,460 L540,460 L500,180 L300,180 Z" fill="#f3e3c2" stroke="#8d6a38" stroke-width="3"/>
+  <!-- fries -->
+  <g stroke="#8a4e15" stroke-width="1.5">
+    <rect x="320" y="150" width="22" height="280" rx="4" fill="url(#fry)" transform="rotate(-8 331 290)"/>
+    <rect x="355" y="130" width="22" height="310" rx="4" fill="url(#fry)" transform="rotate(-2 366 285)"/>
+    <rect x="395" y="120" width="22" height="330" rx="4" fill="url(#fry)" transform="rotate(3 406 285)"/>
+    <rect x="435" y="135" width="22" height="310" rx="4" fill="url(#fry)" transform="rotate(6 446 290)"/>
+    <rect x="470" y="160" width="22" height="285" rx="4" fill="url(#fry)" transform="rotate(12 481 302)"/>
+    <rect x="300" y="200" width="20" height="235" rx="4" fill="url(#fry)" transform="rotate(-14 310 317)"/>
+  </g>
+  <!-- salt dots -->
+  <circle cx="340" cy="200" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="400" cy="180" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="460" cy="210" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="380" cy="260" r="1.5" fill="#ffffff" opacity="0.8"/>
+  <circle cx="430" cy="280" r="1.5" fill="#ffffff" opacity="0.8"/>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="44" font-weight="700"
+        fill="#4a2408" text-anchor="middle" letter-spacing="8">炸 薯 条</text>
+</svg>

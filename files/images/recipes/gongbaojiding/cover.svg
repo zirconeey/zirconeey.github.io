@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ffe6b5"/>
+      <stop offset="55%" stop-color="#c84420"/>
+      <stop offset="100%" stop-color="#3a0a04"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="360" rx="290" ry="70" fill="#1a0503" opacity="0.4"/>
+  <ellipse cx="400" cy="350" rx="290" ry="70" fill="#f3e5c6"/>
+  <ellipse cx="400" cy="350" rx="260" ry="55" fill="#a82814" opacity="0.75"/>
+  <!-- chicken cubes -->
+  <g stroke="#5a1608" stroke-width="1.5">
+    <rect x="290" y="310" width="30" height="24" rx="3" fill="#e0a040" transform="rotate(-8 305 322)"/>
+    <rect x="340" y="300" width="30" height="24" rx="3" fill="#e8ad4a" transform="rotate(5 355 312)"/>
+    <rect x="395" y="315" width="30" height="24" rx="3" fill="#e0a040" transform="rotate(-5 410 327)"/>
+    <rect x="450" y="305" width="30" height="24" rx="3" fill="#e8ad4a" transform="rotate(10 465 317)"/>
+    <rect x="310" y="355" width="30" height="24" rx="3" fill="#e0a040" transform="rotate(12 325 367)"/>
+    <rect x="370" y="360" width="30" height="24" rx="3" fill="#e8ad4a" transform="rotate(-6 385 372)"/>
+    <rect x="430" y="358" width="30" height="24" rx="3" fill="#e0a040" transform="rotate(4 445 370)"/>
+    <rect x="490" y="340" width="30" height="24" rx="3" fill="#e8ad4a" transform="rotate(-10 505 352)"/>
+  </g>
+  <!-- dried chilies -->
+  <g>
+    <path d="M260,330 Q250,335 245,345 Q260,345 275,340 Z" fill="#8a1c08"/>
+    <path d="M520,310 Q530,315 540,325 Q525,328 510,322 Z" fill="#8a1c08"/>
+    <path d="M510,370 Q520,380 535,385 Q535,370 525,360 Z" fill="#8a1c08"/>
+    <path d="M260,370 Q250,375 240,380 Q250,360 270,360 Z" fill="#8a1c08"/>
+  </g>
+  <!-- peanuts -->
+  <g fill="#f4c06a" stroke="#8a5820" stroke-width="1">
+    <ellipse cx="280" cy="345" rx="10" ry="7"/>
+    <ellipse cx="420" cy="345" rx="10" ry="7"/>
+    <ellipse cx="360" cy="330" rx="10" ry="7"/>
+    <ellipse cx="460" cy="345" rx="10" ry="7"/>
+    <ellipse cx="340" cy="370" rx="10" ry="7"/>
+    <ellipse cx="400" cy="380" rx="10" ry="7"/>
+  </g>
+  <!-- Sichuan peppercorn hint -->
+  <circle cx="310" cy="340" r="2" fill="#6a3a20"/>
+  <circle cx="480" cy="330" r="2" fill="#6a3a20"/>
+  <circle cx="380" cy="350" r="2" fill="#6a3a20"/>
+  <text x="400" y="545" font-family="'Noto Serif SC', serif" font-size="42" font-weight="700"
+        fill="#2a0604" text-anchor="middle" letter-spacing="6">宫 保 鸡 丁</text>
+</svg>

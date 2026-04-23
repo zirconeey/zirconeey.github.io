@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#fff0c8"/>
+      <stop offset="55%" stop-color="#e66b35"/>
+      <stop offset="100%" stop-color="#4a1405"/>
+    </radialGradient>
+    <linearGradient id="nug" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbd58a"/>
+      <stop offset="55%" stop-color="#e08a30"/>
+      <stop offset="100%" stop-color="#7a3810"/>
+    </linearGradient>
+    <radialGradient id="sauce" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#f85a28"/>
+      <stop offset="100%" stop-color="#a83014"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="360" rx="280" ry="65" fill="#2a0a04" opacity="0.35"/>
+  <ellipse cx="400" cy="350" rx="280" ry="65" fill="#f3e5c6"/>
+  <!-- sauce pool -->
+  <ellipse cx="400" cy="350" rx="220" ry="45" fill="url(#sauce)" opacity="0.85"/>
+  <!-- nuggets -->
+  <g stroke="#5e2608" stroke-width="1.5">
+    <ellipse cx="310" cy="330" rx="32" ry="22" fill="url(#nug)" transform="rotate(-15 310 330)"/>
+    <ellipse cx="370" cy="320" rx="34" ry="22" fill="url(#nug)" transform="rotate(8 370 320)"/>
+    <ellipse cx="430" cy="335" rx="32" ry="22" fill="url(#nug)" transform="rotate(-5 430 335)"/>
+    <ellipse cx="490" cy="325" rx="34" ry="22" fill="url(#nug)" transform="rotate(12 490 325)"/>
+    <ellipse cx="340" cy="365" rx="30" ry="20" fill="url(#nug)" transform="rotate(6 340 365)"/>
+    <ellipse cx="410" cy="370" rx="32" ry="20" fill="url(#nug)" transform="rotate(-10 410 370)"/>
+    <ellipse cx="470" cy="365" rx="30" ry="20" fill="url(#nug)" transform="rotate(4 470 365)"/>
+  </g>
+  <!-- sesame -->
+  <g fill="#fff8dc">
+    <ellipse cx="325" cy="325" rx="2" ry="1.2"/>
+    <ellipse cx="380" cy="315" rx="2" ry="1.2"/>
+    <ellipse cx="440" cy="330" rx="2" ry="1.2"/>
+    <ellipse cx="485" cy="320" rx="2" ry="1.2"/>
+    <ellipse cx="355" cy="360" rx="2" ry="1.2"/>
+    <ellipse cx="415" cy="365" rx="2" ry="1.2"/>
+    <ellipse cx="465" cy="360" rx="2" ry="1.2"/>
+  </g>
+  <text x="400" y="545" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#2a0a04" text-anchor="middle" letter-spacing="6">糖 醋 鸡 胸 肉</text>
+</svg>
