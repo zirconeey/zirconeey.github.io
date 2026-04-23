@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#fff4d0"/>
+      <stop offset="55%" stop-color="#e09530"/>
+      <stop offset="100%" stop-color="#4e1e04"/>
+    </radialGradient>
+    <linearGradient id="egg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff1b0"/>
+      <stop offset="100%" stop-color="#edb638"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="360" rx="290" ry="65" fill="#2a140a" opacity="0.4"/>
+  <ellipse cx="400" cy="350" rx="290" ry="65" fill="#f3e6ca"/>
+  <!-- silky egg curds -->
+  <g stroke="#b8831e" stroke-width="1.5" opacity="0.95">
+    <path d="M180,340 Q220,290 280,300 Q340,315 380,295 Q440,270 500,290 Q560,310 610,340 Q610,385 550,395 Q460,400 380,385 Q300,395 230,385 Q180,375 180,340 Z" fill="url(#egg)"/>
+  </g>
+  <!-- curd ridges -->
+  <g stroke="#c49020" stroke-width="1" fill="none" opacity="0.6">
+    <path d="M230,330 Q260,310 290,325"/>
+    <path d="M310,340 Q360,325 400,340"/>
+    <path d="M420,335 Q470,310 510,325"/>
+    <path d="M530,340 Q570,330 590,345"/>
+    <path d="M240,370 Q280,360 320,370"/>
+    <path d="M370,370 Q420,360 460,370"/>
+    <path d="M480,375 Q520,365 560,375"/>
+  </g>
+  <!-- beef slices -->
+  <g stroke="#5a1e08" stroke-width="1.5">
+    <path d="M270,310 Q300,295 340,302 Q355,315 345,330 Q310,335 270,325 Q255,318 270,310 Z" fill="#8e3418"/>
+    <path d="M380,320 Q415,305 450,315 Q465,330 450,345 Q410,348 378,336 Q370,325 380,320 Z" fill="#a03a20"/>
+    <path d="M470,340 Q500,325 540,335 Q555,345 540,358 Q510,362 478,355 Q465,348 470,340 Z" fill="#8e3418"/>
+    <path d="M250,355 Q280,345 315,352 Q330,362 318,373 Q290,378 258,370 Q245,362 250,355 Z" fill="#a03a20"/>
+  </g>
+  <!-- scallion -->
+  <g fill="#68a03a">
+    <ellipse cx="330" cy="280" rx="14" ry="2" transform="rotate(-15 330 280)"/>
+    <ellipse cx="490" cy="295" rx="14" ry="2" transform="rotate(10 490 295)"/>
+    <ellipse cx="420" cy="390" rx="14" ry="2" transform="rotate(-5 420 390)"/>
+  </g>
+  <text x="400" y="545" font-family="'Noto Serif SC', serif" font-size="42" font-weight="700"
+        fill="#2e0e02" text-anchor="middle" letter-spacing="6">滑 蛋 牛 肉</text>
+</svg>

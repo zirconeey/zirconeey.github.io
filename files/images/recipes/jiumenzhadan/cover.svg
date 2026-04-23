@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ffe8b0"/>
+      <stop offset="55%" stop-color="#a8501c"/>
+      <stop offset="100%" stop-color="#2a0a02"/>
+    </radialGradient>
+    <radialGradient id="egg" cx="45%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#f8cc60"/>
+      <stop offset="55%" stop-color="#b06a20"/>
+      <stop offset="100%" stop-color="#5a2e08"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="360" rx="290" ry="65" fill="#150502" opacity="0.5"/>
+  <ellipse cx="400" cy="350" rx="290" ry="65" fill="#eedaba"/>
+  <!-- sauce pool -->
+  <ellipse cx="400" cy="350" rx="260" ry="55" fill="#3e1608" opacity="0.9"/>
+  <!-- tiger skin eggs -->
+  <g stroke="#3a0e02" stroke-width="2">
+    <ellipse cx="290" cy="340" rx="58" ry="45" fill="url(#egg)"/>
+    <ellipse cx="400" cy="330" rx="60" ry="46" fill="url(#egg)"/>
+    <ellipse cx="510" cy="340" rx="58" ry="45" fill="url(#egg)"/>
+  </g>
+  <!-- tiger wrinkles -->
+  <g stroke="#4e1e04" stroke-width="1.5" fill="none" opacity="0.75">
+    <path d="M260,325 Q280,315 300,320"/>
+    <path d="M265,345 Q290,350 315,343"/>
+    <path d="M275,365 Q295,370 310,362"/>
+    <path d="M370,315 Q395,307 420,315"/>
+    <path d="M375,340 Q400,348 430,340"/>
+    <path d="M380,360 Q405,365 425,355"/>
+    <path d="M480,325 Q500,318 520,325"/>
+    <path d="M485,345 Q510,352 530,343"/>
+    <path d="M490,365 Q510,367 525,358"/>
+  </g>
+  <!-- dried chili -->
+  <path d="M220,330 Q205,335 195,345 Q210,345 225,340 Z" fill="#8a1c08" stroke="#5a0e04" stroke-width="1"/>
+  <path d="M580,340 Q595,345 605,355 Q590,355 575,350 Z" fill="#8a1c08" stroke="#5a0e04" stroke-width="1"/>
+  <!-- star anise hint -->
+  <circle cx="230" cy="370" r="8" fill="#6a3010" stroke="#3e1a05" stroke-width="1"/>
+  <circle cx="570" cy="370" r="8" fill="#6a3010" stroke="#3e1a05" stroke-width="1"/>
+  <!-- scallion -->
+  <g fill="#68a03a">
+    <ellipse cx="330" cy="300" rx="12" ry="2" transform="rotate(15 330 300)"/>
+    <ellipse cx="450" cy="305" rx="12" ry="2" transform="rotate(-10 450 305)"/>
+  </g>
+  <text x="400" y="545" font-family="'Noto Serif SC', serif" font-size="42" font-weight="700"
+        fill="#1a0602" text-anchor="middle" letter-spacing="6">酒 焖 虎 皮 蛋</text>
+</svg>

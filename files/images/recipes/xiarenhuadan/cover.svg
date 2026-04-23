@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#fff5d8"/>
+      <stop offset="55%" stop-color="#f0c06a"/>
+      <stop offset="100%" stop-color="#724014"/>
+    </radialGradient>
+    <linearGradient id="egg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff3b8"/>
+      <stop offset="100%" stop-color="#f2c24a"/>
+    </linearGradient>
+    <linearGradient id="shrimp" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff8a7a"/>
+      <stop offset="100%" stop-color="#d84828"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="360" rx="290" ry="65" fill="#2a140a" opacity="0.35"/>
+  <ellipse cx="400" cy="350" rx="290" ry="65" fill="#f3e6ca"/>
+  <!-- soft egg pile -->
+  <path d="M200,350 Q230,280 320,270 Q430,255 500,275 Q580,290 590,340 Q570,385 450,395 Q300,400 220,385 Q195,370 200,350 Z"
+        fill="url(#egg)" stroke="#b8831e" stroke-width="2"/>
+  <!-- egg highlights -->
+  <ellipse cx="350" cy="310" rx="80" ry="20" fill="#fff0a8" opacity="0.5"/>
+  <ellipse cx="480" cy="320" rx="55" ry="16" fill="#fff0a8" opacity="0.5"/>
+  <!-- shrimp -->
+  <g stroke="#7a1c0a" stroke-width="1.5">
+    <path d="M280,310 Q290,290 320,290 Q345,295 350,315 Q345,335 315,335 Q290,335 280,310 Z" fill="url(#shrimp)"/>
+    <path d="M390,295 Q410,280 440,285 Q465,295 460,315 Q455,330 430,330 Q400,325 390,295 Z" fill="url(#shrimp)"/>
+    <path d="M340,345 Q360,335 385,345 Q400,355 390,370 Q370,378 350,370 Q335,360 340,345 Z" fill="url(#shrimp)"/>
+    <path d="M470,355 Q495,345 515,355 Q525,370 510,380 Q485,382 470,370 Q460,360 470,355 Z" fill="url(#shrimp)"/>
+  </g>
+  <!-- tails -->
+  <path d="M350,315 L365,305 L368,320 Z" fill="#d84828"/>
+  <path d="M460,315 L478,305 L478,322 Z" fill="#d84828"/>
+  <!-- green onion -->
+  <g fill="#68a03a">
+    <ellipse cx="250" cy="330" rx="12" ry="2" transform="rotate(20 250 330)"/>
+    <ellipse cx="380" cy="280" rx="12" ry="2" transform="rotate(-15 380 280)"/>
+    <ellipse cx="520" cy="300" rx="12" ry="2" transform="rotate(25 520 300)"/>
+    <ellipse cx="560" cy="360" rx="10" ry="2" transform="rotate(-10 560 360)"/>
+  </g>
+  <text x="400" y="545" font-family="'Noto Serif SC', serif" font-size="42" font-weight="700"
+        fill="#3a1a08" text-anchor="middle" letter-spacing="6">虾 仁 滑 蛋</text>
+</svg>
