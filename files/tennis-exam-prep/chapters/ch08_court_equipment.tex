@@ -1,0 +1,110 @@
+% !TEX root = ../Main.tex
+\chapter{场地与器材}
+
+\section{网球场地规格}
+
+\state{场地尺寸}{
+    \begin{itemize}
+        \item \textbf{长度}：\textbf{23.77 米}（全场）；
+        \item \textbf{宽度}：
+            \begin{itemize}
+                \item \textbf{单打}：\textbf{8.23 米}；
+                \item \textbf{双打}：\textbf{10.97 米}。
+            \end{itemize}
+        \item 球场\textbf{四周应留有一定的缓冲区}以供运动员跑动。
+    \end{itemize}
+}
+
+\state{发球线与中线}{
+    \begin{itemize}
+        \item \textbf{发球线}与球网\textbf{平行}，\textbf{距离球网 6.40 米}；
+        \item 发球线与球网之间的区域，被\textbf{中线}分为\textbf{左、右两个发球区}；
+        \item 中线与两条底线的中点，用一条短的\textbf{"中界点"}线连接，用于指示发球手发球站位的中点。
+    \end{itemize}
+}
+
+\state{球网规格}{
+    \begin{itemize}
+        \item 球网\textbf{中央}（由白色中央吊带向下压到）的高度为 \textbf{0.914 米}（即 \textbf{91.4 厘米}，3 英尺）；
+        \item 球网\textbf{两端网柱处}的高度为 \textbf{1.07 米}（3 英尺 6 英寸）；
+        \item 在单打比赛中，网柱中心应在\textbf{单打边线外 0.914 米}（即 91.4 厘米）处。
+    \end{itemize}
+}
+
+\section{网球场地示意图}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.45,>=Stealth]
+    % 外侧双打场地
+    \draw[thick] (-5.485,-11.885) rectangle (5.485,11.885);
+    % 单打边线
+    \draw[thick] (-4.115,-11.885) -- (-4.115,11.885);
+    \draw[thick] (4.115,-11.885) -- (4.115,11.885);
+    % 球网
+    \draw[very thick] (-5.485,0) -- (5.485,0);
+    \node[above right] at (5.485,0) {\small 球网};
+    % 发球线
+    \draw[thick] (-4.115,-6.40) -- (4.115,-6.40);
+    \draw[thick] (-4.115,6.40) -- (4.115,6.40);
+    % 中线
+    \draw[thick] (0,-6.40) -- (0,6.40);
+    % 中界点
+    \draw[thick] (-0.15,-11.885) -- (0.15,-11.885);
+    \draw[thick] (-0.15,11.885) -- (0.15,11.885);
+    \draw[thick] (0,-11.885) -- (0,-11.735);
+    \draw[thick] (0,11.885) -- (0,11.735);
+
+    % 标注长度
+    \draw[<->] (-6.2,-11.885) -- (-6.2,11.885);
+    \node[rotate=90] at (-6.7,0) {\small 23.77 m};
+
+    \draw[<->] (-4.115,-13) -- (4.115,-13);
+    \node[below] at (0,-13) {\small 单打 8.23 m};
+
+    \draw[<->] (-5.485,13.5) -- (5.485,13.5);
+    \node[above] at (0,13.5) {\small 双打 10.97 m};
+
+    \draw[<->] (4.4,0) -- (4.4,-6.40);
+    \node[right] at (4.4,-3.2) {\small 6.40 m};
+
+    % 单打发球区标注
+    \node at (-2.05,3.2) {\small 发球区};
+    \node at (2.05,3.2) {\small 发球区};
+    \node at (-2.05,-3.2) {\small 发球区};
+    \node at (2.05,-3.2) {\small 发球区};
+\end{tikzpicture}
+\end{center}
+
+\section{网球规格}
+
+\state{球的规格}{
+    \begin{itemize}
+        \item \textbf{颜色}：\textbf{白色或黄色}（国际比赛多为\textbf{荧光黄}）；
+        \item \textbf{质量}：\textbf{56.7--58.5 克}；
+        \item \textbf{直径}：约 \textbf{6.54--6.86 厘米}；
+        \item \textbf{回弹高度}：从 254 cm 高处自由落到水泥地上，回弹高度应在 \textbf{135--147 cm} 之间。
+    \end{itemize}
+}
+
+\section{球拍规格}
+
+\state{球拍的限制}{
+    \begin{itemize}
+        \item \textbf{球拍全长}：\textbf{不超过 73.66 厘米}（即 29 英寸）——职业比赛\textbf{不超过 73.66 厘米}；
+        \item \textbf{拍面最大宽度}：不超过 \textbf{31.75 厘米}（12.5 英寸）；
+        \item \textbf{拍弦区域的尺寸}：长不超过 39.37 cm（15.5 英寸），宽不超过 29.21 cm（11.5 英寸）；
+        \item 球拍整体由\textbf{拍头、拍颈、拍柄}三部分构成，拍弦上不得带有能改变飞行性能的附加物。
+    \end{itemize}
+}
+
+\rmkb{
+    \textbf{易考点}：
+    \begin{itemize}
+        \item 场地长 \textbf{23.77 m}；单打宽 \textbf{8.23 m}；双打宽 \textbf{10.97 m}；
+        \item 发球线距球网 \textbf{6.40 m}；
+        \item 球网中央高 \textbf{0.914 m}（91.4 cm），两端高 \textbf{1.07 m}；
+        \item 网柱中心距单打边线 \textbf{0.914 m}（91.4 cm）；
+        \item 球质量 \textbf{56.7--58.5 g}，颜色\textbf{白色或黄色}；
+        \item 球拍全长 $\le$ \textbf{73.66 cm}（29 英寸）。
+    \end{itemize}
+}

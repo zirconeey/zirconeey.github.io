@@ -1,0 +1,100 @@
+% !TEX root = ../Main.tex
+\chapter{记分制度}
+
+\section{比赛结构概览}
+
+\state{比赛 / 盘 / 局 / 分}{
+    一场网球比赛由若干\textbf{盘}（Set）组成；每盘由若干\textbf{局}（Game）组成；每局由若干\textbf{分}（Point）组成。
+    \begin{itemize}
+        \item \textbf{分}：局内的最小得分单位；
+        \item \textbf{局}：一方先拿到足够的分数即胜该局；
+        \item \textbf{盘}：一方先赢到足够的局数（通常 6 局）即胜该盘；
+        \item \textbf{比赛}：一方先赢到规定的盘数（一般 3 盘 2 胜或 5 盘 3 胜）即胜。
+    \end{itemize}
+}
+
+\section{局（Game）的记分}
+
+\state{局内记分方式}{
+    \begin{itemize}
+        \item 0 分 —— \textbf{Love}（爱）
+        \item 1 分 —— \textbf{15}（Fifteen）
+        \item 2 分 —— \textbf{30}（Thirty）
+        \item 3 分 —— \textbf{40}（Forty）
+        \item 4 分 —— \textbf{胜该局}（Game）
+        \item \textbf{裁判报分时，先报发球手的分}。
+    \end{itemize}
+}
+
+\state{平分与占先}{
+    \begin{itemize}
+        \item 当双方都为 40 分（\textbf{即 3 平}）时，称为 \textbf{Deuce（平分）}；
+        \item Deuce 之后一方得分，称为 \textbf{Advantage（占先）}——发球方占先叫 Ad-in，接球方占先叫 Ad-out；
+        \item 占先方再得 1 分 $\to$ \textbf{胜该局}；若被对方追平 $\to$ 回到 Deuce；
+        \item \textbf{结论}：Deuce 之后必须\textbf{连胜 2 分}才能赢下该局。
+    \end{itemize}
+}
+
+\state{常见"点"的术语}{
+    \begin{itemize}
+        \item \textbf{Game Point（局点）}——再得 1 分即可赢下该局；
+        \item \textbf{Break Point（破发点）}——\textbf{接球方}再得 1 分即可赢下该局（即"破了对方的发球局"）；
+        \item \textbf{Set Point（盘点）}——再得 1 分即可赢下该盘；
+        \item \textbf{Match Point（赛点）}——再得 1 分即可赢下整场比赛；
+        \item \textbf{Championship Point（冠军点）}——在决赛中再得 1 分即可夺冠。
+    \end{itemize}
+}
+
+\rmkb{
+    \textbf{历史典故}：15 / 30 / 40 的记分方式来源说法众多，一种较流行的说法是源自中世纪欧洲的\textbf{六分仪（Sextant）}/\textbf{钟表刻度}——将钟面分为 4 等分（15、30、45、60），后将 45 简化为 40。
+}
+
+\section{盘（Set）的记分}
+
+\state{常规盘规则}{
+    \begin{itemize}
+        \item 一方\textbf{先赢 6 局}，且\textbf{领先对方 2 局及以上}，即胜该盘（如 6--0、6--1、\ldots、6--4）；
+        \item 若比分来到 \textbf{5--5}，则需要一方连胜 2 局（即 7--5）才能赢下该盘；
+        \item 若比分来到 \textbf{6--6}，则通常进入\textbf{抢七决胜局（Tiebreak）}。
+    \end{itemize}
+}
+
+\state{抢七（Tiebreak）规则}{
+    \begin{itemize}
+        \item \textbf{先得 7 分}且\textbf{领先 2 分}者胜抢七局，同时胜该盘（记为 7--6）；
+        \item 若 6--6 平，则继续比拼直到一方领先 2 分为止（如 8--6、10--8）；
+        \item \textbf{发球轮换}：抢七局首先由\textbf{原本该发球的一方先发 1 球}，然后对方\textbf{连发 2 球}，之后双方轮流\textbf{每人连发 2 球}；
+        \item \textbf{交换场地}：每得 \textbf{6 分的倍数}（即累计 6 分、12 分\ldots）交换一次场地；
+        \item 抢七局结束后\textbf{交换场地}，并开始下一盘。
+    \end{itemize}
+}
+
+\state{四大满贯决胜盘规则}{
+    \begin{itemize}
+        \item \textbf{澳网 / 法网}：决胜盘 6--6 时打\textbf{抢十}（先到 10 分且领先 2 分）；
+        \item \textbf{温网}：决胜盘 \textbf{12--12} 时才打\textbf{抢七}（在此之前一直打长盘）；
+        \item \textbf{美网}：决胜盘 6--6 时与其他盘一样打\textbf{常规抢七}。
+    \end{itemize}
+}
+
+\section{比赛（Match）的胜负}
+
+\state{三盘两胜 / 五盘三胜}{
+    \begin{itemize}
+        \item 一般采用\textbf{三盘两胜制}（Best of 3）——先胜 2 盘者胜；
+        \item \textbf{四大满贯男单}采用\textbf{五盘三胜制}（Best of 5）——先胜 3 盘者胜；
+        \item \textbf{一局比赛结束之后交换发球权}，每盘开始时也重新确认发球方。
+    \end{itemize}
+}
+
+\rmkb{
+    \textbf{易考点}：
+    \begin{itemize}
+        \item 局内记分：\textbf{0 / 15 / 30 / 40}；0 分叫 \textbf{Love}；报分\textbf{先报发球方}；
+        \item Deuce 之后要\textbf{连胜 2 分}才能赢得该局；
+        \item 盘：\textbf{先到 6 局且净胜 2 局}；5--5 要打到 7--5；\textbf{6--6 进入抢七}；
+        \item 抢七：\textbf{先到 7 分且领先 2 分}；\textbf{先发 1 球 $\to$ 对方 2 球 $\to$ 轮流 2 球}；\textbf{6 分倍数换边}；
+        \item \textbf{温网决胜盘 12--12 抢七}，\textbf{澳法决胜盘 6--6 抢十}，\textbf{美网决胜盘 6--6 常规抢七}；
+        \item 大满贯\textbf{男单 5 盘 3 胜}，其余通常 3 盘 2 胜。
+    \end{itemize}
+}
