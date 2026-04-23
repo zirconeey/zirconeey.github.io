@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#fff7dc"/>
+      <stop offset="55%" stop-color="#f2c377"/>
+      <stop offset="100%" stop-color="#7b4418"/>
+    </radialGradient>
+    <linearGradient id="ramekin" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"  stop-color="#f8f3ee"/>
+      <stop offset="60%" stop-color="#d9cdbe"/>
+      <stop offset="100%" stop-color="#8a7458"/>
+    </linearGradient>
+    <linearGradient id="top" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fde2a3"/>
+      <stop offset="100%" stop-color="#c88634"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="430" rx="280" ry="40" fill="#5a3410" opacity="0.35"/>
+  <ellipse cx="400" cy="420" rx="280" ry="40" fill="#e9d9c4"/>
+  <!-- ramekin body -->
+  <path d="M260,420 L270,220 L530,220 L540,420 Z" fill="url(#ramekin)" stroke="#6b5334" stroke-width="2"/>
+  <!-- ramekin ridges -->
+  <line x1="275" y1="260" x2="525" y2="260" stroke="#8a7458" stroke-width="1" opacity="0.5"/>
+  <line x1="275" y1="300" x2="525" y2="300" stroke="#8a7458" stroke-width="1" opacity="0.5"/>
+  <line x1="275" y1="340" x2="525" y2="340" stroke="#8a7458" stroke-width="1" opacity="0.5"/>
+  <line x1="275" y1="380" x2="525" y2="380" stroke="#8a7458" stroke-width="1" opacity="0.5"/>
+  <!-- soufflé puff rising above rim -->
+  <path d="M270,220 Q270,120 400,90 Q530,120 530,220 Z" fill="url(#top)" stroke="#a8702c" stroke-width="2"/>
+  <!-- center dome highlight -->
+  <ellipse cx="400" cy="140" rx="90" ry="28" fill="#fff0c4" opacity="0.55"/>
+  <!-- dusting of powdered sugar -->
+  <circle cx="350" cy="120" r="3" fill="#ffffff" opacity="0.8"/>
+  <circle cx="420" cy="105" r="2.5" fill="#ffffff" opacity="0.8"/>
+  <circle cx="460" cy="135" r="3" fill="#ffffff" opacity="0.8"/>
+  <circle cx="380" cy="155" r="2" fill="#ffffff" opacity="0.8"/>
+  <circle cx="320" cy="160" r="2" fill="#ffffff" opacity="0.8"/>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="44" font-weight="700"
+        fill="#4a2c0f" text-anchor="middle" letter-spacing="8">舒 芙 蕾</text>
+</svg>

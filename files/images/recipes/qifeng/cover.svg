@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#fdf2d4"/>
+      <stop offset="60%" stop-color="#e8c68a"/>
+      <stop offset="100%" stop-color="#8d5a2a"/>
+    </radialGradient>
+    <linearGradient id="cake" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"  stop-color="#d89a58"/>
+      <stop offset="40%" stop-color="#f6d497"/>
+      <stop offset="100%" stop-color="#b27737"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- tube pan outer ellipse -->
+  <ellipse cx="400" cy="360" rx="260" ry="90" fill="#6b4220" opacity="0.35"/>
+  <ellipse cx="400" cy="340" rx="260" ry="90" fill="url(#cake)"/>
+  <!-- side -->
+  <path d="M140,340 L140,390 Q140,480 400,480 Q660,480 660,390 L660,340 Z"
+        fill="url(#cake)" stroke="#8d5a2a" stroke-width="2" opacity="0.95"/>
+  <!-- tube hole -->
+  <ellipse cx="400" cy="340" rx="50" ry="18" fill="#3f2712"/>
+  <ellipse cx="400" cy="340" rx="45" ry="14" fill="#5a3618"/>
+  <!-- crack on top to suggest chiffon -->
+  <path d="M240,340 Q320,320 400,338 T560,340" stroke="#a86c2f" stroke-width="4"
+        stroke-linecap="round" fill="none" opacity="0.7"/>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="44" font-weight="700"
+        fill="#5a3618" text-anchor="middle" letter-spacing="8">戚 风 蛋 糕</text>
+</svg>
