@@ -1,0 +1,155 @@
+% !TEX root = ../Main.tex
+\chapter{压强与力}
+
+初中物理引入"压强"之后，常见困惑是：\textbf{压强（强度量）和力（作用量）到底怎么换算？} 本章从最基本的关系 $F = pS$ 出发，逐步搭建水中物体的受力分析方法，直到能处理"半球沉底"这种综合题。
+
+\section{压力与压强的关系}
+
+\defn{压强与力}{
+    压强 $p$（Pa）定义为单位面积上受到的压力：
+    \[
+    p = \frac{F}{S} \iff F = p S.
+    \]
+    即：\textbf{压力 = 压强 $\times$ 受力面积}。
+}
+
+\state{大气压的"左右手互搏"}{
+    人站在地面上时，除了自身的重力 $G$ 向下作用于脚，还有大气从头顶施加的压力——但我们并不会被"压扁"。原因是：从整体看，人头顶的受力面积 $S_\text{上}$ 与脚底（或身体在水平面的投影）面积 $S_\text{下}$ 相等，大气压 $p_0$ 对上下两面施加的力
+    \[
+    F_\text{上} = p_0 S_\text{上},\qquad F_\text{下} = p_0 S_\text{下}
+    \]
+    大小相等方向相反，恰好抵消。所以在力学分析中，地面对人的支持力 $N$ 仅需平衡重力 $G$，即 $N = G$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.85]
+  % stick figure
+  \draw (0,1.2) circle (0.35);
+  \draw (0,0.85) -- (0,-0.5);
+  \draw (-0.6,0.3) -- (0.6,0.3);
+  \draw (0,-0.5) -- (-0.4,-1.3);
+  \draw (0,-0.5) -- (0.4,-1.3);
+  % ground
+  \draw[thick] (-1.6,-1.3) -- (1.6,-1.3);
+  \foreach \x in {-1.4,-0.8,...,1.4} \draw[thin] (\x,-1.3) -- (\x-0.2,-1.55);
+  % N arrow up (from ground)
+  \draw[->,red!70!black,thick] (0,-1.3) -- (0,-0.6) node[right,pos=0.5]{$N$};
+  % G arrow down
+  \draw[->,blue!70!black,thick] (0,0.5) -- (0,-1.2) node[right,pos=0.7]{$G$};
+  % label atmosphere
+  \node[above] at (0,1.7) {\small 大气};
+  \draw[->,gray,thick] (0.8,1.8) -- (0.3,1.5);
+\end{tikzpicture}
+\hspace{1.2cm}
+\begin{tikzpicture}[>=Stealth,scale=0.8]
+  \draw (0,0) rectangle (4,2.6);
+  \node[above] at (2,2.7) {\small 俯视图};
+  \draw (2,1.3) circle (0.85);
+  \draw[->,thick] (2,1.7) -- (2,1.1) node[right,pos=0.5]{$pS$};
+  \draw[->,thick] (0.9,1.0) -- (1.4,1.25) node[right,pos=1]{\small $pS$};
+\end{tikzpicture}
+\end{center}
+
+\section{水中物体的受力}
+
+对于完全浸没在液体里的物体，液体会对它施加\textbf{上、下两个面的压力差}——这就是\textbf{浮力}的起源。
+
+\thm{阿基米德原理}{
+    浸在液体中的物体所受浮力 $F_\text{浮}$ 等于它排开液体的重力：
+    \[
+    F_\text{浮} = G_\text{排} = \rho_\text{液}\, V_\text{排}\, g.
+    \]
+    方向竖直向上。
+}
+
+\pf[压力差推导]{
+    考虑一个长方体完全浸没，底面积 $S$，上表面深度 $h_1$，下表面深度 $h_2 = h_1 + h$（$h$ 为物体高度）。则
+    \[
+    F_\text{上} = \rho g h_1 \cdot S,\qquad F_\text{下} = \rho g h_2 \cdot S = \rho g (h_1 + h) S.
+    \]
+    下表面压力向上、上表面压力向下，合力
+    \[
+    F_\text{浮} = F_\text{下} - F_\text{上} = \rho g h S = \rho g V_\text{物} = G_\text{排}.
+    \]
+    完毕。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.85]
+  % container
+  \draw[thick] (-0.2,0) -- (-0.2,3.5) -- (4.2,3.5) -- (4.2,0) -- cycle;
+  % water surface lines
+  \foreach \y in {0.3,0.7,1.1,1.5,1.9,2.3,2.7,3.1,3.4} {
+    \draw[gray!60] (-0.2,\y) -- (4.2,\y);
+  }
+  % object
+  \draw[fill=white] (1.3,1.1) rectangle (2.7,2.1);
+  % force arrows: F_up from top (pressure pushes down on top surface)
+  \draw[->,red!70!black,thick] (1.6,2.6) -- (1.6,2.2) node[left,pos=0]{\scriptsize$F_\text{上}$};
+  \draw[->,red!70!black,thick] (2.0,2.6) -- (2.0,2.2);
+  \draw[->,red!70!black,thick] (2.4,2.6) -- (2.4,2.2);
+  % F_down from bottom (pushes up)
+  \draw[->,blue!70!black,thick] (1.6,0.6) -- (1.6,1.0) node[left,pos=0]{\scriptsize$F_\text{下}$};
+  \draw[->,blue!70!black,thick] (2.0,0.6) -- (2.0,1.0);
+  \draw[->,blue!70!black,thick] (2.4,0.6) -- (2.4,1.0);
+  % G arrow
+  \draw[->,violet!70!black,thick] (3.0,1.6) -- (3.0,0.2) node[right,pos=0.5]{$G$};
+  \node[below] at (2,-0.1) {\small 悬浮物体受力};
+\end{tikzpicture}
+\hspace{0.6cm}
+\begin{tikzpicture}[>=Stealth,scale=0.85]
+  % container
+  \draw[thick] (-0.2,0) -- (-0.2,3.5) -- (4.2,3.5) -- (4.2,0) -- cycle;
+  \foreach \y in {0.3,0.7,1.1,1.5,1.9,2.3,2.7,3.1,3.4} {
+    \draw[gray!60] (-0.2,\y) -- (4.2,\y);
+  }
+  % object at bottom
+  \draw[fill=white] (1.3,0) rectangle (2.7,1.0);
+  % F_up on top
+  \draw[->,red!70!black,thick] (1.8,1.5) -- (1.8,1.1) node[left,pos=0]{\scriptsize$F$};
+  \draw[->,red!70!black,thick] (2.2,1.5) -- (2.2,1.1);
+  % N from container
+  \draw[->,green!60!black,thick] (2.0,-0.4) -- (2.0,-0.02) node[right,pos=0]{$N$};
+  % G
+  \draw[->,violet!70!black,thick] (3.0,1.0) -- (3.0,-0.3) node[right,pos=0.5]{$G$};
+  % height h
+  \draw[<->] (4.4,0) -- (4.4,1.0) node[midway,right]{\scriptsize$h$};
+  \node[below] at (2,-0.55) {\small 沉底物体受力};
+\end{tikzpicture}
+\end{center}
+
+\section{综合：半球沉底的支持力问题}
+
+\ex[半球形物体的支持力]{
+    一个半径为 $R$ 的半球（平面朝下）沉在水底，平面与容器底部紧密贴合（中间无水层）。容器中水深 $h$（$h > R$）。求容器底部对半球的支持力 $N$。
+}
+
+\sol{
+    \textbf{核心思路：假设法。} 直接用 $F_\text{浮} = G_\text{排}$ 不能套用——因为半球底面紧贴容器底，液体\textbf{没有从下方包住}这个半球。但我们可以\textbf{假设}半球下方有一层薄水，把它"包起来"，然后再扣回这层水的贡献。
+
+    \textbf{步骤 1（假设法）：} 若半球下方有水，则它完全浸没在水中，此时浮力
+    \[
+    F_\text{浮} = \rho g V_\text{半球} = \rho g \cdot \tfrac{2}{3}\pi R^3.
+    \]
+    这个浮力来源于"整个半球表面上液体压力的合力"——即 $F_\text{浮} = F_\text{下} - F_\text{上球面}$，其中 $F_\text{上球面}$ 是作用在球面（曲面部分）上的液体向下的净压力。
+
+    \textbf{步骤 2（实际情况）：} 实际上半球下方没有水，所以不存在"从下方向上托"的 $F_\text{下}$。但\textbf{作用在曲面（上半球面）上的液体压力 $F_\text{上球面}$ 仍然存在}——这部分由水面上方的水柱施加，不受下方是否有水影响。
+
+    设"假想的 $F_\text{下}$"（若下方有水）= 液体在半球平面深度处对面积 $\pi R^2$ 施加的力：
+    \[
+    F_\text{下} = \rho g h \cdot \pi R^2.
+    \]
+    由步骤 1 的关系 $F_\text{浮} = F_\text{下} - F_\text{上球面}$：
+    \[
+    F_\text{上球面} = F_\text{下} - F_\text{浮} = \rho g h \pi R^2 - \tfrac{2}{3}\pi R^3 \rho g = \pi \rho g R^2 \left(h - \tfrac{2}{3} R\right).
+    \]
+
+    \textbf{步骤 3（支持力）：} 半球实际受力有三个：重力 $G$、液体压曲面部分 $F_\text{上球面}$（向下）、容器底部支持力 $N$（向上）。平衡：
+    \[
+    N = G + F_\text{上球面} = mg + \pi \rho g R^2 \left(h - \tfrac{2}{3} R\right).
+    \]
+}
+
+\rmkb{
+    "假设法"的本质是\textbf{虚构一个对称完美的参照场景}（如下方充水的半球），在其中直接套用阿基米德公式，再把"多算出来的部分"减掉。这类技巧在电磁学、热学综合题中也很常见。
+}

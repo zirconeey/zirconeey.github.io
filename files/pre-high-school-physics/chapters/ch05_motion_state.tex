@@ -1,0 +1,137 @@
+% !TEX root = ../Main.tex
+\chapter{运动状态：速度的"大小 + 方向"}
+
+\textbf{速度}这个矢量，它的"改变"可以来自两方面：
+\begin{itemize}
+    \item \textbf{大小}改变（加速、减速）；
+    \item \textbf{方向}改变（转弯）。
+\end{itemize}
+高中刚开始接触两种"看似匀速、实则加速"的经典运动：匀速圆周运动、竖直上抛。本章借这两个例子讲清楚"运动状态改变"到底意味着什么。
+
+\section{匀速圆周运动：方向时刻在变}
+
+\state{"匀速"不等于"恒速度"}{
+    \textbf{匀速圆周运动}：速度\textbf{大小}不变，但\textbf{方向}时刻沿切线变化。所以：
+    \begin{itemize}
+        \item 速率 $|\vec v|$ 恒定；
+        \item 速度矢量 $\vec v$ \textbf{不恒定}；
+        \item 质点受\textbf{非零合力}——\textbf{向心力} $F = m v^2/r$，方向始终指向圆心。
+    \end{itemize}
+    "匀速"只约束了速率，没约束方向。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1.1]
+  \draw[dashed,gray!60] (0,0) circle (1.8);
+  \fill[black] (0,0) circle (1.2pt) node[below right]{\small $O$};
+  % 4 positions
+  \foreach \ang/\col in {0/blue,90/red,180/green!60!black,270/orange!70!black} {
+    \pgfmathsetmacro{\x}{1.8*cos(\ang)}
+    \pgfmathsetmacro{\y}{1.8*sin(\ang)}
+    \pgfmathsetmacro{\vx}{-0.9*sin(\ang)}
+    \pgfmathsetmacro{\vy}{0.9*cos(\ang)}
+    \fill[\col] (\x,\y) circle (1.4pt);
+    \draw[->,thick,\col] (\x,\y) -- ++(\vx,\vy);
+    % radius arrow (centripetal)
+    \pgfmathsetmacro{\rx}{-0.55*cos(\ang)}
+    \pgfmathsetmacro{\ry}{-0.55*sin(\ang)}
+    \draw[->,thin,gray!70!black] (\x,\y) -- ++(\rx,\ry);
+  }
+  \node[blue] at (2.3,0.5) {\small $\vec v$};
+  \node at (0.7,-0.3) {\scriptsize $F_c$ 向心};
+\end{tikzpicture}
+\end{center}
+
+\ex[最小合力方向]{
+    一质点做匀速圆周运动。问：合外力的方向、大小在哪些时刻最大？
+}
+
+\sol{
+    合外力即\textbf{向心力}：大小 $F_c = m v^2 / r$，在匀速圆周中\textbf{恒定不变}，方向\textbf{始终指向圆心}（随质点位置转动）。
+
+    所以"哪些时刻最大"是陷阱题：\textbf{任何时刻大小都相等}——但方向每时每刻都在变。这恰恰凸显了"速度矢量在变 $\to$ 必有合外力 $\to$ 向心力"的逻辑链。
+}
+
+\section{竖直上抛：两段运动一体两面}
+
+\state{竖直上抛的两段性}{
+    以初速度 $v_0$ 向上抛出一物体，空气阻力忽略。整个过程\textbf{加速度始终为 $g$，方向向下}。从运动状态看可分为：
+    \begin{itemize}
+        \item \textbf{上升段}：速度向上且\textbf{减小}（$\vec v$ 与 $\vec g$ 反向）$\Rightarrow$ 减速；
+        \item \textbf{最高点}：$\vec v = \vec 0$，但加速度\textbf{仍为 $\vec g \ne \vec 0$}；
+        \item \textbf{下降段}：速度向下且\textbf{增大}（$\vec v$ 与 $\vec g$ 同向）$\Rightarrow$ 加速。
+    \end{itemize}
+    整个过程遵从同一套方程，不需要分段：$v(t) = v_0 - g t$，$y(t) = v_0 t - \tfrac{1}{2} g t^2$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.85]
+  % vertical trajectory
+  \draw[very thick,->] (0,-0.5) -- (0,6) node[above]{\small 方向 $y$};
+  % ascent and descent arrows at same position
+  \foreach \y/\lab in {1.0/{$\vec v$ (升)}, 3.5/{最高点 $\vec v = 0$}, 1.8/{$\vec v$ (降)}} {
+    % skip: drawn separately below
+  }
+  % ball positions on left (ascent) and right (descent) staggered upward
+  % Show 5 snapshots
+  % ascent
+  \fill[blue!70!black] (-1.5,0.5) circle (3pt);
+  \draw[->,thick,blue!70!black] (-1.5,0.5) -- (-1.5,1.5) node[left,midway]{$\vec v$};
+  \draw[->,thick,red!70!black] (-1.5,0.8) -- (-1.5,0.1) node[right,pos=1]{$\vec g$};
+  \node[blue!70!black] at (-1.5,-0.2) {\scriptsize 上升};
+
+  \fill[blue!70!black] (-0.8,3.2) circle (3pt);
+  \draw[->,thick,blue!70!black] (-0.8,3.2) -- (-0.8,3.8) node[left,midway]{$\vec v$};
+  \draw[->,thick,red!70!black] (-0.8,3.5) -- (-0.8,2.8) node[right,pos=1]{$\vec g$};
+
+  % top
+  \fill[violet!70!black] (0.5,5.3) circle (3pt);
+  \draw[->,thick,red!70!black] (0.5,5.5) -- (0.5,4.8) node[right,pos=1]{$\vec g$};
+  \node[violet!70!black] at (0.5,5.75) {\scriptsize $v = 0$};
+
+  % descent
+  \fill[orange!70!black] (1.7,3.2) circle (3pt);
+  \draw[->,thick,orange!70!black] (1.7,3.2) -- (1.7,2.5) node[right,midway]{$\vec v$};
+  \draw[->,thick,red!70!black] (1.7,3.0) -- (1.7,2.3) node[left,pos=1]{$\vec g$};
+
+  \fill[orange!70!black] (2.4,1.0) circle (3pt);
+  \draw[->,thick,orange!70!black] (2.4,1.0) -- (2.4,0.1) node[right,midway]{$\vec v$};
+  \draw[->,thick,red!70!black] (2.4,0.8) -- (2.4,0.1) node[left,pos=1]{$\vec g$};
+  \node[orange!70!black] at (2.4,-0.2) {\scriptsize 下降};
+\end{tikzpicture}
+\end{center}
+
+\ex[最高点的加速度]{
+    小球竖直上抛达到最高点，此时瞬时速度 $v = 0$。有同学说"速度为零则加速度也为零"，对吗？
+}
+
+\sol{
+    \textbf{不对}。速度与加速度是两个独立的矢量：
+    \[
+    \begin{aligned}
+    \vec v \text{ (速度)} &= \text{运动状态"此刻多快、朝哪"} \\
+    \vec a \text{ (加速度)} &= \text{速度的变化率"下一瞬要变多快"}
+    \end{aligned}
+    \]
+    最高点之所以 $v = 0$，正是因为 $\vec v$ 被恒定的 $\vec g$ 从 $+v_0$ "减"到 $0$。接下来 $\vec g$ 仍然把它从 $0$ "减"到 $-v$——也就是\textbf{反向加速下降}。
+
+    所以最高点 $\vec v = 0$ 但 $\vec a = \vec g \ne 0$，\textbf{速度为零不代表加速度为零}。
+}
+
+\ex[上升时间与总飞行时间]{
+    竖直上抛初速度 $v_0$。求上升时间 $t_1$、最大高度 $H$、在地面被接回的总时间 $t_\text{总}$（落点即抛出点，同高度）。
+}
+
+\sol{
+    \textbf{上升时间}：最高点 $v = v_0 - g t_1 = 0 \Rightarrow t_1 = v_0/g$。
+
+    \textbf{最大高度}：$H = v_0 t_1 - \tfrac{1}{2} g t_1^2 = \tfrac{v_0^2}{g} - \tfrac{v_0^2}{2g} = \tfrac{v_0^2}{2g}$。
+
+    \textbf{总飞行时间}：回到 $y = 0$，方程 $v_0 t - \tfrac{1}{2} g t^2 = 0 \Rightarrow t(v_0 - \tfrac{1}{2}g t) = 0$，取非零解 $t_\text{总} = 2 v_0 / g = 2 t_1$。
+
+    结论：\textbf{上升时间 = 下降时间}（抛体运动的对称性）。同理，\textbf{同一高度上升时和下降时的速率相等，方向相反}。
+}
+
+\rmkb{
+    "速度 = 大小 + 方向"这句话，并不是多出一维的装饰，而是决定了\textbf{运动状态是否改变}的唯一标准。只要速度的\textbf{大小或方向}有一个在变，质点就在\textbf{加速}——必有合外力。这是牛顿第二定律 $\vec F = m \vec a$ 的直接推论。
+}

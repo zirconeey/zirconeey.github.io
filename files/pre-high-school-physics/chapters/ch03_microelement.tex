@@ -1,0 +1,118 @@
+% !TEX root = ../Main.tex
+\chapter{微元法：把复杂过程切成无穷小}
+
+上一章我们用极限把"平均"细化成"瞬时"。本章反过来：把一段有变化的过程"切成无穷小段"，每段上近似为简单量（匀速、匀力……），\textbf{累加}得到复杂量。这就是\textbf{微元法}，贯穿高中物理（变加速运动、变力做功、非均匀电场下的电势能等）始终。
+
+\section{从匀速到变速：$v$-$t$ 图下的面积}
+
+\state{匀速运动中的位移}{
+    匀速运动 $v = \text{const}$ 时，位移 $x = v \cdot t$ 正是 $v$-$t$ 图的\textbf{矩形面积}。这是"距离 = 速度 $\times$ 时间"的几何版本。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  \draw[->] (0,0) -- (5.2,0) node[right]{$t$};
+  \draw[->] (0,0) -- (0,3.5) node[above]{$v$};
+  \draw[thick,blue!70!black] (0,2) -- (4.5,2);
+  \draw[fill=blue!15,draw=blue!70!black,thick] (0,0) -- (0,2) -- (4.5,2) -- (4.5,0) -- cycle;
+  \node at (2.2,1) {\small $x = v \cdot t$};
+  \node[left] at (0,2) {\small $v$};
+  \node[below] at (4.5,0) {\small $t$};
+\end{tikzpicture}
+\end{center}
+
+那\textbf{变速}呢？$v = v(t)$ 随时间变化时，位移已经不再是一个矩形，而是 $v$-$t$ 曲线下的\textbf{曲边梯形}。怎么算？
+
+\section{微元法的核心：切片 + 累加 + 取极限}
+
+\thm{微元法}{
+    若物理量 $Q$ 可以表达为某种"连续变化的乘积"（比如位移 = 速度 $\times$ 时间），则可以：
+    \begin{enumerate}
+        \item \textbf{分割}：把区间 $[a, b]$ 均分成 $n$ 小段，每段宽 $\Delta t = (b-a)/n$。
+        \item \textbf{近似}：在每小段内把变量视为常数（取左端点、右端点或中点值）。
+        \item \textbf{累加}：得到近似值 $Q_n = \sum_{i=1}^{n} v(t_i) \Delta t$。
+        \item \textbf{取极限}：$Q = \lim_{n\to\infty} Q_n$（对应的几何图形 = 曲线下面积）。
+    \end{enumerate}
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.95]
+  \draw[->] (0,0) -- (5.5,0) node[right]{$t$};
+  \draw[->] (0,0) -- (0,3.5) node[above]{$v$};
+  % increasing curve v(t)
+  \draw[thick,blue!70!black,domain=0:4.5,samples=50] plot(\x, {0.15*\x*\x + 0.5});
+  % rectangles (left endpoint)
+  \foreach \x in {0,0.5,1,1.5,2,2.5,3,3.5,4} {
+    \pgfmathsetmacro{\y}{0.15*\x*\x + 0.5}
+    \draw[fill=orange!20,draw=orange!70!black,thin] (\x,0) rectangle (\x+0.5,\y);
+  }
+  \draw[thick,blue!70!black,domain=0:4.5,samples=50] plot(\x, {0.15*\x*\x + 0.5});
+  \node at (2.5,-0.4) {\small 把曲边梯形切成窄矩形};
+\end{tikzpicture}
+\end{center}
+
+\state{位移就是 $v$-$t$ 图下的面积}{
+    对 $n \to \infty$，每个小矩形越来越细，总面积趋于曲线 $v = v(t)$ 与时间轴围成的\textbf{曲边梯形面积}。而每个小矩形 $v(t_i) \Delta t$ 就是该小段时间内（近似匀速）走过的位移。所以：
+    \[
+    \boxed{\ x = \lim_{n \to \infty} \sum_{i=1}^{n} v(t_i) \Delta t = \text{($v$-$t$ 图下的面积)}\ }
+    \]
+}
+
+\section{匀加速运动的位移公式}
+
+\ex[从微元法推出 $x = v_0 t + \tfrac{1}{2} a t^2$]{
+    物体从初速度 $v_0$ 开始做匀加速运动，加速度恒为 $a$。用微元法求 $t$ 时刻的位移 $x$。
+}
+
+\sol{
+    \textbf{方法一：$v$-$t$ 图几何面积。}\\
+    $v$-$t$ 图是一条直线 $v(\tau) = v_0 + a\tau$，$0 \le \tau \le t$。图形是一个\textbf{直角梯形}，上底 $v_0$、下底 $v_0 + at$、高 $t$：
+    \[
+    x = \frac{(v_0) + (v_0 + at)}{2} \cdot t = v_0 t + \tfrac{1}{2} a t^2. \qed
+    \]
+
+    \textbf{方法二：分段求和 + 取极限（规范微元法）。}\\
+    把 $[0, t]$ 均分 $n$ 段，宽 $\Delta \tau = t/n$，取左端点 $\tau_i = (i-1)\Delta\tau$（$i = 1, \dots, n$），则
+    \[
+    \begin{aligned}
+    x_n &= \sum_{i=1}^{n} v(\tau_i) \Delta \tau = \sum_{i=1}^{n} \left[v_0 + a(i-1)\Delta\tau\right] \Delta \tau \\
+    &= v_0 \cdot n \Delta\tau + a (\Delta\tau)^2 \sum_{i=1}^{n} (i-1) \\
+    &= v_0 t + a (\Delta\tau)^2 \cdot \tfrac{n(n-1)}{2}.
+    \end{aligned}
+    \]
+    代入 $\Delta\tau = t/n$：
+    \[
+    x_n = v_0 t + a \cdot \tfrac{t^2}{n^2} \cdot \tfrac{n(n-1)}{2} = v_0 t + \tfrac{1}{2} a t^2 \cdot \left(1 - \tfrac{1}{n}\right).
+    \]
+    取 $n \to \infty$：$x = v_0 t + \tfrac{1}{2} a t^2$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.95]
+  \draw[->] (0,0) -- (5.5,0) node[right]{$\tau$};
+  \draw[->] (0,0) -- (0,3.7) node[above]{$v$};
+  % v = v0 + a tau; v0 = 0.6, a=0.5
+  \draw[thick,blue!70!black] (0,0.6) -- (4.8,3);
+  \draw[dashed] (0,0.6) -- (4.8,0.6);
+  \draw[dashed] (4.8,0) -- (4.8,3);
+  \fill[blue!15] (0,0) -- (0,0.6) -- (4.8,3) -- (4.8,0) -- cycle;
+  \draw[thick,blue!70!black] (0,0.6) -- (4.8,3);
+  \node[left] at (0,0.6) {\small $v_0$};
+  \node[below] at (4.8,0) {\small $t$};
+  \node[right] at (4.8,3) {\small $v_0 + at$};
+  \node at (2.3,1.3) {\small 直角梯形面积 $= v_0 t + \tfrac{1}{2} a t^2$};
+\end{tikzpicture}
+\end{center}
+
+\section{微元法的更多用途}
+
+\rmkb{
+    微元法一旦掌握，处理以下问题都成了模板化的"切+算+加+取极限"：
+    \begin{itemize}
+        \item \textbf{变力做功}：$W = \sum F(x_i) \Delta x_i \to$ $F$-$x$ 图下的面积。
+        \item \textbf{非匀强电场中的电势能}：把路径切成小段，每段当作匀强电场处理。
+        \item \textbf{转动体的转动惯量}：把刚体切成小质元 $\Delta m_i$，每元按 $\Delta I_i = r_i^2 \Delta m_i$ 累加。
+        \item \textbf{柱体所受液体压力}：把液体压强变化的部分分层、分段累加。
+    \end{itemize}
+    它也是后面学"积分"时最自然的引入——\textbf{积分就是"微元法取极限"的代号}。
+}

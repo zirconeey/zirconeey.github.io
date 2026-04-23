@@ -1,0 +1,130 @@
+% !TEX root = ../Main.tex
+\chapter{电表内阻与两种接法}
+
+"用电压表、电流表测电阻"是高中电学实验的入门题，也是\textbf{测量误差}这一思维的直接应用：电压表和电流表都\textbf{不是理想仪器}——它们有自己的内阻，会干扰电路，从而带来系统误差。本章讨论两种接法及其误差。
+
+\section{两种理想假设之间的真相}
+
+\state{电表的内阻}{
+    \begin{itemize}
+        \item \textbf{电压表}（$V$）：理想情形电阻无穷大（相当于开路），实际有有限的内阻 $R_V$，通常\textbf{很大}（几千 $\text{k}\Omega$ 至 $\text{M}\Omega$）。
+        \item \textbf{电流表}（$A$）：理想情形电阻为零（相当于短路），实际有有限的内阻 $R_A$，通常\textbf{很小}（$\sim 0.1 \Omega$ 量级）。
+    \end{itemize}
+    只要接入电路，电表就\textbf{既是测量者、又是参与者}——这是系统误差的根源。
+}
+
+\section{安外接法：电压表"外接" }
+
+\defn{安外接法（电压表外接）}{
+    电压表并联在\textbf{被测电阻 $R_x$} 两端，电流表串联在\textbf{电压表与电源之间}。此时：
+    \begin{itemize}
+        \item 电压表读数 $U$ = $R_x$ 两端真实电压；
+        \item 电流表读数 $I$ = 通过\textbf{$R_x$ 和电压表合并}的总电流。
+    \end{itemize}
+}
+
+\begin{center}
+\begin{circuitikz}[american,scale=1]
+  \draw (0,0) to[battery1,l=$\varepsilon$] (0,2.5);
+  \draw (0,2.5) to[short] (1,2.5);
+  \draw (1,2.5) to[ammeter,l=$A$] (3,2.5);
+  \draw (3,2.5) to[short] (5,2.5);
+  \draw (5,2.5) to[R,l=$R_x$] (5,0);
+  \draw (5,0) to[short] (0,0);
+  % voltmeter in parallel with R_x
+  \draw (4,2.5) to[short] (4,3.2);
+  \draw (4,3.2) to[voltmeter,l=$V$] (6,3.2);
+  \draw (6,3.2) to[short] (6,0);
+  \draw (6,0) to[short] (5,0);
+  \node at (3,-0.7) {\small 安外接法：$V$ 在 $R_x$ 外侧并联};
+\end{circuitikz}
+\end{center}
+
+\state{安外接法的系统误差}{
+    测得电阻 $R_\text{测} = U/I$。由于 $I$ 包含了流过电压表的部分电流，
+    \[
+    I = I_x + I_V,\quad I_V = U/R_V.
+    \]
+    因此 $R_\text{测} = U/I < U/I_x = R_x$，即\textbf{测量值偏小}。相对误差
+    \[
+    \frac{R_x - R_\text{测}}{R_x} = \frac{R_x}{R_x + R_V} \to \text{越小越好当} \ R_V \gg R_x.
+    \]
+    \textbf{结论}：安外接法适合测\textbf{小电阻}（$R_x \ll R_V$）。
+}
+
+\section{安内接法：电压表"内接"}
+
+\defn{安内接法（电压表内接）}{
+    电流表串联在电路主干上，电压表测\textbf{"$R_x$ + 电流表"这一整段}的电压。即：
+    \begin{itemize}
+        \item 电流表读数 $I$ = 流过 $R_x$ 的真实电流；
+        \item 电压表读数 $U$ = $R_x$ 电压 + 电流表上的分压。
+    \end{itemize}
+}
+
+\begin{center}
+\begin{circuitikz}[american,scale=1]
+  \draw (0,0) to[battery1,l=$\varepsilon$] (0,2.5);
+  \draw (0,2.5) to[short] (1.5,2.5);
+  % outer: voltmeter across (ammeter + Rx)
+  \draw (1.5,2.5) to[short] (1.5,3.2);
+  \draw (1.5,3.2) to[voltmeter,l=$V$] (5,3.2);
+  \draw (5,3.2) to[short] (5,2.5);
+  % inner: ammeter then Rx
+  \draw (1.5,2.5) to[ammeter,l=$A$] (3,2.5);
+  \draw (3,2.5) to[R,l=$R_x$] (5,2.5);
+  \draw (5,2.5) to[short] (5,0);
+  \draw (5,0) to[short] (0,0);
+  \node at (3,-0.7) {\small 安内接法：$V$ 把 $A$ 和 $R_x$ 都包进去};
+\end{circuitikz}
+\end{center}
+
+\state{安内接法的系统误差}{
+    $R_\text{测} = U/I$，其中 $U = U_x + I R_A$，所以
+    \[
+    R_\text{测} = \frac{U_x + I R_A}{I} = R_x + R_A > R_x.
+    \]
+    即\textbf{测量值偏大}，多出来的正好是电流表内阻 $R_A$。\\
+    \textbf{结论}：安内接法适合测\textbf{大电阻}（$R_x \gg R_A$）。
+}
+
+\section{如何快速判断选哪种接法}
+
+\thm{选择接法的判据}{
+    比较临界电阻 $R_\text{临} = \sqrt{R_A R_V}$：
+    \begin{itemize}
+        \item $R_x > R_\text{临}$：选\textbf{安内接}（把小的 $R_A$"误差吸收"相对更小）。
+        \item $R_x < R_\text{临}$：选\textbf{安外接}（把大的 $R_V$"分流"相对更小）。
+    \end{itemize}
+}
+
+\pf{
+    两种接法的相对误差分别为
+    \[
+    \delta_\text{外接} = \frac{R_x}{R_V + R_x} \approx \frac{R_x}{R_V}, \qquad
+    \delta_\text{内接} = \frac{R_A}{R_x}.
+    \]
+    令 $\delta_\text{外接} = \delta_\text{内接}$：$\frac{R_x}{R_V} = \frac{R_A}{R_x} \Rightarrow R_x^2 = R_A R_V \Rightarrow R_x = \sqrt{R_A R_V}$。这即是判据的来源。
+}
+
+\ex[选接法]{
+    测一个约 $500\ \Omega$ 的电阻。已知电压表内阻 $R_V = 3\ \text{k}\Omega$，电流表内阻 $R_A = 0.1\ \Omega$。应采用哪种接法？估算误差。
+}
+
+\sol{
+    临界 $R_\text{临} = \sqrt{0.1 \times 3000} = \sqrt{300} \approx 17.3\ \Omega$。
+
+    $R_x = 500\ \Omega \gg R_\text{临}$——选\textbf{安内接}。
+
+    相对误差 $\delta_\text{内接} = R_A/R_x = 0.1/500 = 0.02\%$（非常小）。
+
+    若错用安外接，则 $\delta_\text{外接} = R_x/R_V = 500/3000 \approx 16.7\%$（大得多）。
+}
+
+\rmkb{
+    实验题的"\textbf{先判断再接线}"至关重要。口诀：
+    \begin{itemize}
+        \item \textbf{"大内小外"}：大电阻用安内接，小电阻用安外接。
+        \item 如果已知 $R_A, R_V$，比较 $R_x$ 与 $\sqrt{R_A R_V}$ 即可精确判断。
+    \end{itemize}
+}

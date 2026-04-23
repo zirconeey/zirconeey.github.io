@@ -1,0 +1,145 @@
+% !TEX root = ../Main.tex
+\chapter{电动势与内阻：$U = \varepsilon - Ir$}
+
+初中我们把电池当成"恒定电压源"，用欧姆定律 $U = IR$ 解题。但高中发现\textbf{电池两端电压会随负载变化}——电流越大、端电压越低。这个现象的机理就是\textbf{电源内阻}。
+
+\section{电源的等效电路}
+
+\defn{电动势与内阻}{
+    \textbf{电动势} $\varepsilon$：非静电力（化学能、光能等）把单位正电荷从负极搬到正极所做的功，即电源"把电荷泵起来"的能力。单位伏特 $V$。\\
+    \textbf{内阻} $r$：电源内部的电阻，把化学能转化为电能的过程中电池内部本身消耗的电阻。\\
+    真实电源可以\textbf{等效}为"恒定电动势 $\varepsilon$ 串联内阻 $r$"的组合——外电路看到的端电压 $U$ 就是扣除了内阻压降后的"表观"电压。
+}
+
+\begin{center}
+\begin{circuitikz}[american,scale=1]
+  % dashed box around EMF + r
+  \draw[dashed,gray!60!black] (-0.5,-0.3) rectangle (4.5,3.3);
+  \node[gray!60!black] at (2,3.6) {\small 真实电源};
+  \draw (0,0) to[battery1,l=$\varepsilon$] (0,3);
+  \draw (0,3) to[R,l=$r$] (4,3);
+  % output terminals
+  \draw (4,3) to[short,-o] (5,3);
+  \draw (0,0) to[short,-o] (5,0);
+  \node[right] at (5.2,3) {$+$};
+  \node[right] at (5.2,0) {$-$};
+  % external
+  \draw (5,3) -- (6,3) to[R,l=$R$] (6,0) -- (5,0);
+  % voltmeter across terminals
+  \draw (5,3) to[short] (5,3.7);
+  \draw (5,3.7) to[voltmeter,l=$V$] (7.5,3.7);
+  \draw (7.5,3.7) to[short] (7.5,0) to[short] (5,0);
+  % ammeter in series
+  \draw (6,1.5) node[circle,draw,inner sep=0pt,minimum size=0.6cm]{$A$};
+\end{circuitikz}
+\end{center}
+
+\section{闭合电路欧姆定律}
+
+\thm{闭合电路欧姆定律}{
+    设电源电动势 $\varepsilon$、内阻 $r$、外接电阻 $R$，则电路电流
+    \[
+    I = \frac{\varepsilon}{R + r},
+    \]
+    端电压（即外电路两端电压 / 电池端电压）
+    \[
+    U = IR = \varepsilon - Ir.
+    \]
+}
+
+\pf{
+    把电池视为"$\varepsilon$ 串 $r$"等效电路，再串外阻 $R$，总电阻 $R + r$。按普通欧姆定律
+    \[
+    I = \frac{\varepsilon}{R + r}.
+    \]
+    外电路电压 $U = IR = \varepsilon - Ir$。
+}
+
+\state{$U$-$I$ 直线的几何意义}{
+    固定电源、改变外阻，记录 $(I, U)$ 画图：得到一条斜率为 $-r$、纵截距为 $\varepsilon$ 的直线
+    \[
+    U = \varepsilon - r I.
+    \]
+    \begin{itemize}
+        \item \textbf{横截距} ($U=0$)：短路电流 $I_\text{短} = \varepsilon/r$；
+        \item \textbf{纵截距} ($I=0$)：开路端电压 $U_\text{开} = \varepsilon$。
+    \end{itemize}
+    这条直线的\textbf{斜率告诉你电池的内阻}。实验时画 $U$-$I$ 图，量一下斜率就能测 $r$——这是高中电学实验的经典套路。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  \draw[->] (0,0) -- (5.5,0) node[right]{$I$};
+  \draw[->] (0,0) -- (0,4) node[above]{$U$};
+  \draw[thick,blue!70!black] (0,3.4) -- (4.8,0.4);
+  \draw[dashed] (0,3.4) -- (0.4,3.4);
+  \draw[dashed] (4.8,0) -- (4.8,0.4);
+  \fill (0,3.4) circle (1.5pt);
+  \fill (4.8,0.4) circle (1.5pt);
+  \node[left] at (0,3.4) {\small $\varepsilon$};
+  \node[below right] at (4.8,0.4) {\small $I_\text{短}$};
+  \node[blue!70!black] at (3.5,2.4) {\small $U = \varepsilon - rI$};
+  \node at (1.2,1.6) {\small 斜率 $= -r$};
+\end{tikzpicture}
+\end{center}
+
+\section{典型例题}
+
+\ex[测电池电动势与内阻]{
+    实验中接入不同外阻，测得下列 $(I, U)$ 数据：
+    \begin{center}
+    \begin{tabular}{c|cccc}
+    $I\ /\ \text{A}$ & $0.20$ & $0.40$ & $0.60$ & $0.80$ \\ \hline
+    $U\ /\ \text{V}$ & $1.40$ & $1.20$ & $1.00$ & $0.80$
+    \end{tabular}
+    \end{center}
+    求该电池的电动势 $\varepsilon$ 与内阻 $r$。
+}
+
+\sol{
+    $U$ 随 $I$ 线性下降。取两端点：
+    \[
+    r = -\frac{\Delta U}{\Delta I} = -\frac{0.80 - 1.40}{0.80 - 0.20} = -\frac{-0.60}{0.60} = 1.0\ \Omega.
+    \]
+    代入任一组（如 $I=0.20, U=1.40$）：
+    \[
+    \varepsilon = U + I r = 1.40 + 0.20 \times 1.0 = 1.60\ \text{V}.
+    \]
+    \textbf{验证}：$I = 0.80$ 时 $U = 1.60 - 0.80 \times 1.0 = 0.80\ \text{V}$ $\checkmark$。
+}
+
+\ex[短路与开路]{
+    一节干电池电动势 $\varepsilon = 1.5\ \text{V}$，内阻 $r = 0.5\ \Omega$。
+    \begin{enumerate}
+        \item 外接 $R = 2.5\ \Omega$，求电流 $I$ 和端电压 $U$。
+        \item 若不慎短路（$R = 0$），求短路电流 $I_\text{短}$。
+        \item 若电路开路（$R = \infty$），电压表读数多少？
+    \end{enumerate}
+}
+
+\sol{
+    \textbf{(1)} $I = \varepsilon / (R + r) = 1.5/(2.5 + 0.5) = 0.5\ \text{A}$，\\
+    $U = IR = 0.5 \times 2.5 = 1.25\ \text{V}$，或 $U = \varepsilon - Ir = 1.5 - 0.5\times 0.5 = 1.25\ \text{V}$。$\checkmark$
+
+    \textbf{(2)} $I_\text{短} = \varepsilon/r = 1.5/0.5 = 3\ \text{A}$。此时端电压 $U = 0$——电池的全部电动势都降在内阻上。这也是为什么\textbf{短路会烧电池}：内部大量发热、电能全被 $r$ 消耗。
+
+    \textbf{(3)} 开路时 $I = 0$，由 $U = \varepsilon - Ir = \varepsilon = 1.5\ \text{V}$。\textbf{开路端电压就是电动势}——这是测 $\varepsilon$ 的原理。
+}
+
+\state{端电压随负载变化的物理直觉}{
+    想象电池像有\textbf{内阻的水龙头}：$\varepsilon$ 是水压的源头，$r$ 是水龙头内部的阀门摩擦。
+    \begin{itemize}
+        \item 外阻 $R$ 很大（闸门关得紧）$\Rightarrow$ 流量 $I$ 很小 $\Rightarrow$ 内部损耗 $Ir$ 小 $\Rightarrow$ 端电压 $U$ 接近 $\varepsilon$；
+        \item 外阻 $R$ 很小（闸门开得大）$\Rightarrow$ $I$ 大 $\Rightarrow$ 内部损耗 $Ir$ 大 $\Rightarrow$ 端电压 $U$ 小；
+        \item 短路（$R = 0$）$\Rightarrow$ $U = 0$，所有 $\varepsilon$ 都耗在 $r$ 上。
+    \end{itemize}
+}
+
+\rmkb{
+    在高中物理后续学习里：
+    \begin{itemize}
+        \item \textbf{功率最大化}：外电路功率 $P_R = I^2 R = \varepsilon^2 R/(R+r)^2$ 在 $R = r$ 时取最大 $\varepsilon^2/(4r)$——"内外阻匹配"定理，是电源设计的核心。
+        \item \textbf{等效电源的戴维南定理}：任何复杂线性电路都能等效成"一个 $\varepsilon$ 串一个 $r$"——进一步抽象的起点。
+    \end{itemize}
+    理解了 $U = \varepsilon - Ir$，就算正式迈进了高中电学的大门。
+}

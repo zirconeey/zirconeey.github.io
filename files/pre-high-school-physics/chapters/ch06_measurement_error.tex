@@ -1,0 +1,131 @@
+% !TEX root = ../Main.tex
+\chapter{测量误差：系统误差与偶然误差}
+
+物理实验无法得到"绝对真值"，每一次测量都带有\textbf{误差}。理解误差的来源与分类，是高中物理实验题的必备思维。
+
+\section{误差的定义}
+
+\defn{误差}{
+    设被测量的\textbf{真值}（或约定值）为 $x_0$，某次测量结果为 $x$。则定义：
+    \begin{itemize}
+        \item \textbf{绝对误差} $\Delta x = x - x_0$（有正负号，反映偏离方向）。
+        \item \textbf{相对误差} $\delta = |\Delta x| / x_0$，常以百分数表示，是衡量测量"精度"的核心指标。
+    \end{itemize}
+}
+
+\state{误差 $\neq$ 错误}{
+    \textbf{误差}是测量本身的客观特性，无法彻底消除，只能尽量减小。\\
+    \textbf{错误}是操作失误（读数方法不对、仪器调零没做、单位混淆等），是\textbf{可以避免的}——这类应直接剔除，而不是当成误差一并处理。
+}
+
+\section{两类误差：系统误差与偶然误差}
+
+\defn{系统误差}{
+    在\textbf{同一条件}下多次测量中，误差的\textbf{符号与大小固定}（或呈现规律性偏差）。典型来源：
+    \begin{itemize}
+        \item 仪器本身不准（秒表跑快 $1\%$、尺子在低温下收缩）。
+        \item 实验原理的近似性（忽略了空气阻力、摩擦）。
+        \item 实验者的个人习惯（读数总从斜上方看 $\to$ 系统性偏大）。
+    \end{itemize}
+    \textbf{特征}：多次重复\textbf{不会消除}，反而会把错误方向固化。\\
+    \textbf{减小方法}：换更准的仪器、修正实验原理、请另一人复核。
+}
+
+\defn{偶然误差 (随机误差)}{
+    多次测量中误差的\textbf{符号和大小都随机波动}。典型来源：
+    \begin{itemize}
+        \item 读数估读的最后一位判断（人眼对刻度位置的主观判断）。
+        \item 环境微小扰动（风、温度的瞬时起伏）。
+        \item 被测对象本身的随机涨落（热运动、放射性计数）。
+    \end{itemize}
+    \textbf{特征}：分布\textbf{围绕真值}、\textbf{正负误差出现概率相近}。\\
+    \textbf{减小方法}：\textbf{多次测量后取平均}——正负误差相互抵消，平均值逼近真值（大数定律）。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.9]
+  % target 1: systematic error (cluster off-center)
+  \draw[thick] (0,0) circle (1.5);
+  \draw[thick] (0,0) circle (1);
+  \draw[thick] (0,0) circle (0.5);
+  \fill[red!70!black] (0.9,0.5) circle (2pt);
+  \fill[red!70!black] (0.8,0.7) circle (2pt);
+  \fill[red!70!black] (1.1,0.6) circle (2pt);
+  \fill[red!70!black] (0.95,0.4) circle (2pt);
+  \fill[red!70!black] (1.0,0.8) circle (2pt);
+  \node[below] at (0,-1.8) {\small 系统误差（准不准）};
+
+  \begin{scope}[xshift=4.5cm]
+    \draw[thick] (0,0) circle (1.5);
+    \draw[thick] (0,0) circle (1);
+    \draw[thick] (0,0) circle (0.5);
+    \fill[blue!70!black] (0.4,-0.3) circle (2pt);
+    \fill[blue!70!black] (-0.5,0.3) circle (2pt);
+    \fill[blue!70!black] (0.1,0.7) circle (2pt);
+    \fill[blue!70!black] (-0.2,-0.5) circle (2pt);
+    \fill[blue!70!black] (0.5,0.1) circle (2pt);
+    \fill[blue!70!black] (-0.6,-0.1) circle (2pt);
+    \node[below] at (0,-1.8) {\small 偶然误差（精不精）};
+  \end{scope}
+
+  \begin{scope}[xshift=9cm]
+    \draw[thick] (0,0) circle (1.5);
+    \draw[thick] (0,0) circle (1);
+    \draw[thick] (0,0) circle (0.5);
+    \fill[violet!70!black] (0.1,0.05) circle (2pt);
+    \fill[violet!70!black] (-0.12,0.08) circle (2pt);
+    \fill[violet!70!black] (0.08,-0.1) circle (2pt);
+    \fill[violet!70!black] (-0.05,-0.05) circle (2pt);
+    \fill[violet!70!black] (0.02,0.13) circle (2pt);
+    \node[below] at (0,-1.8) {\small 又准又精（理想）};
+  \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\state{用"打靶"记住两类误差的区别}{
+    把测量比作打靶：
+    \begin{itemize}
+        \item \textbf{系统误差大、偶然误差小}：弹孔聚成一簇，但整体偏离靶心——\textbf{稳定地错}。
+        \item \textbf{系统误差小、偶然误差大}：弹孔围绕靶心、但散得很开——\textbf{围绕真值瞎抖}。
+        \item \textbf{两者都小}：弹孔密集地落在靶心——理想状态。
+    \end{itemize}
+    \textbf{多次取平均}能让散点"缩小"但不会让整个分布"平移"——所以它只抵抗偶然误差，无法纠正系统误差。
+}
+
+\section{减小误差的实验策略}
+
+\ex[判断主要误差来源]{
+    用游标卡尺（分度值 $0.02\ \text{mm}$）测一个小钢球直径 $10$ 次，结果分别为：
+    $12.02, 12.04, 12.02, 12.04, 12.02, 12.04, 12.02, 12.04, 12.02, 12.04\ \text{mm}$。
+    （真值经高精度仪器测定为 $11.99\ \text{mm}$。）
+    这些测量的主要误差来源是什么？
+}
+
+\sol{
+    \textbf{观察}：测量值几乎只有 $12.02$ 与 $12.04$ 两种，分散范围极小（仅 $0.02\ \text{mm}$，等于仪器分度值）——偶然误差\textbf{很小}。
+
+    \textbf{与真值比较}：所有测量值都系统性偏大 $\approx 0.04\ \text{mm}$——明显的\textbf{系统误差}。
+
+    \textbf{结论}：主要误差来源是\textbf{系统误差}（可能是卡尺零点没调准、或钢球表面有油膜）。取平均值为 $12.03\ \text{mm}$，与真值仍差 $0.04\ \text{mm}$——说明再多测几次也救不了。正确的补救方式是\textbf{重新校零 / 擦净钢球}。
+}
+
+\ex[取平均减小偶然误差]{
+    用秒表测单摆周期，10 次测量结果（秒）：$1.98, 2.02, 1.96, 2.03, 2.01, 1.99, 2.04, 1.97, 2.02, 1.98$。用平均值作为周期估值，并估算相对误差。
+}
+
+\sol{
+    平均 $\bar T = \dfrac{1.98 + 2.02 + \cdots + 1.98}{10} = 2.00\ \text{s}$（逐一累加为 $20.00$）。
+
+    偏差 $|T_i - \bar T|$ 的最大值约 $0.04\ \text{s}$，所以单次测量的相对误差约 $\tfrac{0.04}{2.00} = 2\%$。
+
+    \textbf{多次平均的妙处}：若 $n$ 次独立测量的偶然误差同分布，则平均值的标准差约为单次的 $1/\sqrt{n}$。$n=10$ 时，平均值的相对误差约 $2\%/\sqrt{10} \approx 0.6\%$，远小于单次。
+}
+
+\rmkb{
+    考试里"减小误差"通常只问两招：
+    \begin{itemize}
+        \item \textbf{换更准的仪器}——对付系统误差。
+        \item \textbf{多次测量取平均}——对付偶然误差。
+    \end{itemize}
+    能\textbf{区分两类误差}，就能选对"招式"——这是阅卷人最在意的点。
+}

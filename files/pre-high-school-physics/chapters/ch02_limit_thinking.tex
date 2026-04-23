@@ -1,0 +1,106 @@
+% !TEX root = ../Main.tex
+\chapter{极限思想：从平均到瞬时}
+
+初中物理里，\textbf{平均速度}的定义 $\bar v = \dfrac{\Delta x}{\Delta t}$ 清楚又实用。但要问"\textbf{某一瞬间的速度}是多少"，就会陷入两难：一瞬间 $\Delta t = 0$，那 $\Delta x$ 也是 $0$，$\frac{0}{0}$ 没法算。本章介绍怎么用"极限"这一思维把这个矛盾化解。
+
+\section{从割线到切线：几何的极限}
+
+\defn{割线与切线}{
+    设函数 $y = f(x)$ 在 $x_0$ 附近可画出图像。
+    \begin{itemize}
+        \item 取 $x_0 + \Delta x$，连接 $(x_0, f(x_0))$ 与 $(x_0 + \Delta x, f(x_0+\Delta x))$ 的直线，称为该曲线在 $[x_0, x_0+\Delta x]$ 上的\textbf{割线}。
+        \item 当 $\Delta x \to 0$ 时，割线的极限位置称为曲线在 $x_0$ 处的\textbf{切线}。
+    \end{itemize}
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1.05]
+  \draw[->] (-0.3,0) -- (5.2,0) node[right]{$x$};
+  \draw[->] (0,-0.3) -- (0,3.5) node[above]{$y$};
+  % parabola y = 0.3 x^2
+  \draw[thick,blue!70!black,domain=0:4.2,samples=60] plot(\x, {0.15*\x*\x + 0.3});
+  % point A at x=1
+  \coordinate (A) at (1, 0.45);
+  \coordinate (B1) at (3.5, 2.1375);  % x=3.5
+  \coordinate (B2) at (2.7, 1.3935);  % x=2.7
+  \coordinate (B3) at (2, 0.9);       % x=2
+  % secants
+  \draw[gray!50,thin] ($(A)!-0.2!(B1)$) -- ($(A)!1.15!(B1)$);
+  \draw[gray!60,thin] ($(A)!-0.25!(B2)$) -- ($(A)!1.2!(B2)$);
+  \draw[gray!70,thin] ($(A)!-0.3!(B3)$) -- ($(A)!1.25!(B3)$);
+  % tangent at A: slope = 2*0.15*1 = 0.3
+  \draw[red!70!black,thick] (-0.2,{0.45 - 0.3*1.2}) -- (3.2,{0.45 + 0.3*2.2});
+  % points
+  \fill (A) circle (1.5pt) node[below left]{\scriptsize$A$};
+  \fill (B1) circle (1.2pt) node[right]{\scriptsize$B_1$};
+  \fill (B2) circle (1.2pt) node[right]{\scriptsize$B_2$};
+  \fill (B3) circle (1.2pt) node[right]{\scriptsize$B_3$};
+  \node[red!70!black] at (3.5,1.25) {\small 切线};
+  \node[gray!70!black] at (4.5,2.8) {\small 割线};
+\end{tikzpicture}
+\end{center}
+
+\state{平均速度 $\Leftrightarrow$ 割线斜率}{
+    把"位移 $x$-时间 $t$"图像画出来，则 $[t_0, t_0+\Delta t]$ 上的\textbf{平均速度}就是对应割线的\textbf{斜率}：
+    \[
+    \bar v = \frac{x(t_0 + \Delta t) - x(t_0)}{\Delta t} = k_\text{割}.
+    \]
+    相应地，\textbf{瞬时速度} $v(t_0)$ 就是 $t_0$ 处的\textbf{切线斜率}。这就把物理量"速度"翻译成了几何量"斜率"。
+}
+
+\section{切线为何只有一个交点？反证法}
+
+很多人凭直觉"画切线"画的是"与曲线只有一个交点的直线"——这对圆是对的，对一般曲线却不对（高次曲线的切线可以再和曲线交于别处）。但\textbf{在局部}，切线确实\textbf{只能跟曲线有一个交点}，否则会出矛盾。
+
+\prop{切线在切点附近唯一相交}{
+    设 $\ell$ 是曲线 $y = f(x)$ 在 $x_0$ 处的切线。则存在 $x_0$ 附近的一个小邻域，在该邻域内 $\ell$ 与曲线只相交于 $(x_0, f(x_0))$ 一点。
+}
+
+\pf[反证]{
+    假设在任意小的邻域内，切线 $\ell$ 还与曲线有第二个交点 $P = (x_0+\Delta x, f(x_0+\Delta x))$（$\Delta x$ 可任意小）。那么
+    \[
+    k_\text{割 }(A \to P) = \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x} = k_\ell \quad(\text{因为 } A, P \text{ 都在 } \ell \text{ 上}).
+    \]
+    但 $A \to P$ 的割线斜率，在 $\Delta x \to 0$ 时的极限才是 $k_\ell$；若在任何 $\Delta x$ 处都等于 $k_\ell$，就意味着曲线在 $A$ 的局部就是一条直线，与"$f$ 是弯曲曲线"矛盾。完毕。
+}
+
+\rmk{
+    这个论证的"物理味道"在于：\textbf{切线斜率捕捉的是曲线在那一点的"瞬时倾向"}，而割线斜率是"两端连线"的平均倾向。当端点逐渐靠近，平均倾向逼近瞬时倾向——这正是极限的核心。
+}
+
+\section{瞬时速度的操作定义}
+
+\defn{瞬时速度}{
+    设质点位置 $x(t)$ 随时间变化。在 $t_0$ 时刻的瞬时速度定义为
+    \[
+    v(t_0) = \lim_{\Delta t \to 0} \frac{x(t_0+\Delta t) - x(t_0)}{\Delta t}.
+    \]
+    几何上：即曲线 $x$-$t$ 图在 $t_0$ 处的\textbf{切线斜率}。
+}
+
+\ex[自由落体的瞬时速度]{
+    物体从静止自由下落（重力加速度 $g$），位置方程 $x(t) = \tfrac{1}{2} g t^2$（向下为正）。求 $t_0$ 时刻的瞬时速度。
+}
+
+\sol{
+    按定义：
+    \[
+    \begin{aligned}
+    v(t_0) &= \lim_{\Delta t \to 0} \frac{\tfrac{1}{2}g(t_0+\Delta t)^2 - \tfrac{1}{2}g t_0^2}{\Delta t} \\
+    &= \lim_{\Delta t \to 0} \frac{\tfrac{1}{2}g\left(2 t_0 \Delta t + (\Delta t)^2\right)}{\Delta t} \\
+    &= \lim_{\Delta t \to 0} \left( g t_0 + \tfrac{1}{2} g \Delta t \right) = g t_0.
+    \end{aligned}
+    \]
+    这正是熟悉的 $v = g t$。\textbf{极限把 $(\Delta t)^2$ 这一"高阶小量"吸收掉了}——这是我们反复要用的技巧。
+}
+
+\rmkb{
+    "平均 $\to$ 瞬时"是物理里一条普适的思路：
+    \begin{itemize}
+        \item 平均速度 $\to$ 瞬时速度
+        \item 平均加速度 $\to$ 瞬时加速度
+        \item 平均功率 $\to$ 瞬时功率 $P = Fv$
+        \item 平均电流 $\to$ 瞬时电流 $i = \mathrm{d}q / \mathrm{d}t$
+    \end{itemize}
+    几何上全是"割线 $\to$ 切线"，分析上全是"比值取 $\Delta \to 0$ 的极限"。
+}

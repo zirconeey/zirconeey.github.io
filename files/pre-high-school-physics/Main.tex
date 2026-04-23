@@ -1,0 +1,88 @@
+\documentclass[oneside]{book}
+
+% 必须在 ctex/tcolorbox 加载 xcolor 之前传递 dvipsnames 选项
+\PassOptionsToPackage{dvipsnames}{xcolor}
+
+% 中文（macOS 系统字体）
+\usepackage[UTF8,scheme=plain,fontset=macnew]{ctex}
+
+% 数学
+\usepackage{amsmath,amsthm,amssymb,amsfonts,mathtools}
+\usepackage{thmtools}
+
+% 排版
+\usepackage{geometry}
+\geometry{
+    textheight=9in,
+    textwidth=5.5in,
+    top=1in,
+    headheight=12pt,
+    headsep=25pt,
+    footskip=30pt
+}
+\usepackage{setspace}
+\setstretch{1.2}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+
+% 图形
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{positioning,arrows.meta,patterns,calc,intersections,decorations.markings,decorations.pathmorphing}
+
+% 电路图
+\usepackage[american,siunitx]{circuitikz}
+\ctikzset{bipoles/length=0.8cm}
+
+% 颜色与环境
+\usepackage{environ}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins,breakable}
+
+% 列表
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=*,labelindent=0pt}
+\setlist[enumerate]{leftmargin=*,labelindent=0pt}
+
+% 页眉页脚
+\usepackage{fancyhdr}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{\textit{\leftmark}}
+\fancyhead[R]{\thepage}
+\fancyfoot[R]{\tiny \copyright\ Rui Zhou \the\year.\ Do not redistribute without permission.}
+
+\input{theorems.tex}
+\input{commands.tex}
+
+\def\notetitle{初升高物理思维提升}
+\def\noteauthor{Zircon}
+\def\notedate{}
+
+\begin{document}
+
+\title{\heiti \LARGE \notetitle \vspace*{8\baselineskip}}
+\author{\noteauthor}
+\date{\notedate}
+
+\maketitle
+\newpage
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+\newpage
+
+\include{chapters/ch01_pressure_force}
+\include{chapters/ch02_limit_thinking}
+\include{chapters/ch03_microelement}
+\include{chapters/ch04_scalar_vector}
+\include{chapters/ch05_motion_state}
+\include{chapters/ch06_measurement_error}
+\include{chapters/ch07_meter_resistance}
+\include{chapters/ch08_emf_internal}
+
+\end{document}

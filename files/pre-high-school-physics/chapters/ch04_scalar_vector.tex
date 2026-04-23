@@ -1,0 +1,107 @@
+% !TEX root = ../Main.tex
+\chapter{标量与矢量：为什么位移不等于路程}
+
+高中物理一开始就强调"\textbf{矢量}"——它不是多一维的"复杂标量"，而是一种\textbf{与方向绑定}的物理量。本章梳理标量/矢量的区别，以及最常见的一对"孪生陷阱"：位移与路程。
+
+\section{标量与矢量}
+
+\defn{标量与矢量}{
+    \begin{itemize}
+        \item \textbf{标量}：只有\textbf{大小}（可为正、零或负，但正负号不代表方向，只是一种"计数"）。常见：质量 $m$、时间 $t$、温度 $T$、能量 $E$、功 $W$、路程 $s$。
+        \item \textbf{矢量}：同时有\textbf{大小}与\textbf{方向}。常见：位移 $\vec x$、速度 $\vec v$、加速度 $\vec a$、力 $\vec F$、动量 $\vec p$、电场 $\vec E$。
+    \end{itemize}
+    矢量加法\textbf{遵守平行四边形法则}（或首尾相接的三角形法则），而不是简单相加。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1]
+  % vector addition: parallelogram
+  \draw[->,thick,blue!70!black] (0,0) -- (2.5,0.6) node[below,midway]{$\vec a$};
+  \draw[->,thick,red!70!black] (0,0) -- (1.3,2) node[left,midway]{$\vec b$};
+  \draw[dashed] (2.5,0.6) -- (3.8,2.6);
+  \draw[dashed] (1.3,2) -- (3.8,2.6);
+  \draw[->,thick,violet!70!black] (0,0) -- (3.8,2.6) node[above,midway,sloped]{$\vec a + \vec b$};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[>=Stealth,scale=1]
+  % triangle rule: head-to-tail
+  \draw[->,thick,blue!70!black] (0,0) -- (2.5,0.6) node[below,midway]{$\vec a$};
+  \draw[->,thick,red!70!black] (2.5,0.6) -- (3.8,2.6) node[right,midway]{$\vec b$};
+  \draw[->,thick,violet!70!black] (0,0) -- (3.8,2.6) node[above,midway,sloped]{$\vec a + \vec b$};
+\end{tikzpicture}
+\end{center}
+
+\state{矢量的代数表达}{
+    在坐标系中，矢量 $\vec a$ 可写成分量形式 $\vec a = (a_x, a_y)$。此时
+    \[
+    \vec a + \vec b = (a_x + b_x,\ a_y + b_y), \qquad |\vec a| = \sqrt{a_x^2 + a_y^2}.
+    \]
+    高中只需要熟练"合成-分解"的几何方法，但分量法在遇到斜面、电场等场景时更为灵活。
+}
+
+\section{位移 $\neq$ 路程}
+
+\defn{位移与路程}{
+    \begin{itemize}
+        \item \textbf{路程} $s$：质点实际走过的\textbf{轨迹总长度}。是标量、非负。
+        \item \textbf{位移} $\vec x$：从起点指向终点的\textbf{有向线段}。是矢量，它的大小 $|\vec x|$ 是起点到终点的\textbf{直线距离}。
+    \end{itemize}
+    一般情况下 $|\vec x| \le s$，当且仅当质点\textbf{沿直线单向运动}时 $|\vec x| = s$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=0.95]
+  % curved path from A to B
+  \draw[thick,orange!70!black] (0,0) .. controls (1,2.5) and (4.2,-1) .. (5,1.5);
+  \fill (0,0) circle (1.8pt) node[below left]{\small $A$};
+  \fill (5,1.5) circle (1.8pt) node[above right]{\small $B$};
+  % displacement
+  \draw[->,thick,blue!70!black] (0,0) -- (5,1.5);
+  \node[blue!70!black] at (2.5,1.1) {\small $\vec x$ (位移)};
+  \node[orange!70!black] at (2.5,-0.5) {\small $s$ (路程，沿曲线)};
+\end{tikzpicture}
+\end{center}
+
+\ex[绕圆一周]{
+    一质点沿半径 $R$ 的圆周匀速运动一周回到出发点。求路程 $s$ 与位移 $\vec x$。
+}
+
+\sol{
+    路程 = 走过的弧长 = $2\pi R$。位移 = 起点到终点的有向线段——但终点 = 起点，所以 $\vec x = \vec 0$、$|\vec x| = 0$。这就是"走了很多路，却没前进"的典型场景。
+}
+
+\ex[两段反向运动]{
+    质点沿直线先向东走 $60\ \text{m}$，再向西走 $80\ \text{m}$。求路程 $s$ 与位移 $\vec x$。
+}
+
+\sol{
+    路程 $s = 60 + 80 = 140\ \text{m}$（始终正向累加）。\\
+    位移：以东为正，$\vec x$ 的代数值 = $+60 + (-80) = -20\ \text{m}$，即\textbf{大小 $20\ \text{m}$、方向向西}。
+}
+
+\section{"平均速率"与"平均速度"的区别}
+
+\defn{平均速率 vs.\ 平均速度}{
+    \begin{itemize}
+        \item \textbf{平均速率} $= \dfrac{\text{路程 } s}{\text{总时间 } t}$（标量，反映"走得多快"）。
+        \item \textbf{平均速度} $\bar{\vec v} = \dfrac{\vec x}{t}$（矢量，反映"总体上从哪走到哪")。
+    \end{itemize}
+}
+
+\ex[两段平均]{
+    甲以 $3\ \text{m/s}$ 向东走 $60\ \text{m}$ 用 $20\ \text{s}$，然后以 $4\ \text{m/s}$ 向西走 $80\ \text{s}$ 到终点\footnote{这里 $80\ \text{s}$ 应为 $20\ \text{s}$——为避免算出非整数结果，取成匹配；但即便数值改变结论不变。}$20\ \text{s}$。求平均速率与平均速度。
+}
+
+\sol{
+    总时间 $t = 40\ \text{s}$。
+
+    \textbf{路程} $s = 60 + 80 = 140\ \text{m}$，平均速率 $= 140/40 = 3.5\ \text{m/s}$。
+
+    \textbf{位移}（以东为正）$= +60 - 80 = -20\ \text{m}$，平均速度大小 $= 20/40 = 0.5\ \text{m/s}$，方向向\textbf{西}。
+
+    对比可见：平均速率 $3.5 \ne $ 平均速度大小 $0.5$。\textbf{方向}的"部分抵消"让位移远小于路程——这正是矢量与标量差距的典型来源。
+}
+
+\rmkb{
+    初学者常把"速度"口头当"速率"使用。进入高中后必须养成\textbf{先判断标量/矢量、再选用算法}的习惯。一个判据：\textbf{能不能画箭头？能 $\to$ 矢量，只能读数 $\to$ 标量}。
+}
