@@ -1,0 +1,78 @@
+% !TEX root = ../Main.tex
+\chapter{分式不等式}
+
+\textbf{分式不等式}含未知数于分母。核心思路：\textbf{转化成多项式不等式}——但要留神两件事：
+\begin{enumerate}
+    \item \textbf{分母 $\ne 0$}（禁止取值）；
+    \item \textbf{不能直接"两边乘分母"}——因为分母正负未知，乘了之后不等号方向不定。
+\end{enumerate}
+正确的变形是\textbf{利用同号 / 异号}：$\dfrac{f}{g} > 0 \iff fg > 0$（且 $g \ne 0$），$\dfrac{f}{g} < 0 \iff fg < 0$。
+
+\section{分式不等式 $\to$ 多项式不等式}
+
+\state{分式不等式的等价变形}{
+    对 $g(x) \ne 0$：
+    \begin{itemize}
+        \item $\dfrac{f(x)}{g(x)} > 0 \iff f(x) g(x) > 0$；
+        \item $\dfrac{f(x)}{g(x)} < 0 \iff f(x) g(x) < 0$；
+        \item $\dfrac{f(x)}{g(x)} \ge 0 \iff f(x) g(x) \ge 0$ \textbf{且} $g(x) \ne 0$；
+        \item $\dfrac{f(x)}{g(x)} \le 0 \iff f(x) g(x) \le 0$ \textbf{且} $g(x) \ne 0$。
+    \end{itemize}
+
+    \textbf{含等号时必须额外排除} $g = 0$——否则得 $\tfrac{0}{0}$ 或 $\tfrac{\ne 0}{0}$，无意义。
+}
+
+\ex[严格不等式]{
+    解不等式 $\dfrac{x - 1}{x + 1} < 0$。
+}
+
+\sol{
+    等价于 $(x - 1)(x + 1) < 0$ 且 $x + 1 \ne 0$（\textbf{严格不等式自动包含} $x + 1 \ne 0$，因为 $(x+1)(x-1) < 0 \Rightarrow x + 1 \ne 0$）。
+
+    $(x + 1)(x - 1) < 0$：两根 $-1, 1$，开口向上，"小于取中间"——$-1 < x < 1$。
+
+    \textbf{解集}：$(-1, 1)$。
+}
+
+\ex[含等号]{
+    解不等式 $\dfrac{x + 3}{x - 2} \le 0$。
+}
+
+\sol{
+    等价于 $(x + 3)(x - 2) \le 0$ \textbf{且} $x - 2 \ne 0$。
+
+    $(x + 3)(x - 2) \le 0$：两根 $-3, 2$，"小于等于取中间"——$-3 \le x \le 2$。再去掉 $x = 2$：
+
+    \textbf{解集}：$[-3, 2)$。
+
+    \textbf{关键}：等号那一侧只对\textbf{分子为零}成立（$x = -3$ 时分子 $0$，分式值为 $0$ 满足 $\le 0$）；分母为零（$x = 2$）\textbf{绝对不能取}。
+}
+
+\ex[需要先通分]{
+    解不等式 $\dfrac{x - 5}{x + 4} \ge 1$。
+}
+
+\sol{
+    \textbf{不能直接两边乘} $x + 4$（因符号未知）。先\textbf{移项通分使一侧为零}：
+    \[
+    \frac{x - 5}{x + 4} - 1 \ge 0 \iff \frac{x - 5 - (x + 4)}{x + 4} \ge 0 \iff \frac{-9}{x + 4} \ge 0.
+    \]
+
+    分子 $-9 < 0$ 为\textbf{常数}，故 $\dfrac{-9}{x + 4} \ge 0 \iff x + 4 < 0$（分母为负才能让负除以负为正；$x + 4$ 不能为零）。
+
+    \textbf{解集}：$(-\infty, -4)$。
+
+    \textbf{验证}：取 $x = -5$，原式 $\tfrac{-5 - 5}{-5 + 4} = \tfrac{-10}{-1} = 10 \ge 1$ $\checkmark$。
+    取 $x = 0$（不在解集），原式 $\tfrac{-5}{4} = -1.25 < 1$——确实不满足。
+}
+
+\rmkb{
+    \textbf{分式不等式通用步骤}：
+    \begin{enumerate}
+        \item \textbf{移项通分}：使不等式一侧为 $0$、另一侧为\textbf{单个分式}；
+        \item \textbf{"消去分母"}：$\dfrac{f}{g}$ 与 $g \ne 0$ 条件下的 $fg$ \textbf{同号}——把分式不等式换成多项式不等式（含等号时保留 $g \ne 0$）；
+        \item \textbf{解多项式不等式}：用图像法或穿根法。
+    \end{enumerate}
+
+    \textbf{最易错处}：\textbf{直接两边乘分母}——这是错的，因为分母正负未知，相当于"乘以未知符号的数"，不等号方向不定。\textbf{必须先通分再化简}。
+}

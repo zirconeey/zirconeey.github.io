@@ -1,0 +1,149 @@
+% !TEX root = ../Main.tex
+\chapter{高次不等式的穿根法}
+
+当不等式形如 $f(x) = a(x - x_1)(x - x_2) \cdots (x - x_n) > 0$（或 $< 0$）时，\textbf{穿根法}（也叫符号法、数轴标根法）能在\textbf{一个数轴上}快速读出解集——比逐段讨论要省力得多。
+
+\section{二次不等式的因式分解}
+
+\ex[首项系数非 $1$ 的情形]{
+    解不等式 $12x^2 + x - 1 > 0$。
+}
+
+\sol{
+    \textbf{方法一：直接因式分解。} 对 $12x^2 + x - 1$，寻找两个整数 $p, q$ 使 $pq = 12 \cdot (-1) = -12$ 且 $p + q = 1$——得 $p = 4, q = -3$：
+    \[
+    12x^2 + x - 1 = 12x^2 + 4x - 3x - 1 = 4x(3x + 1) - (3x + 1) = (3x + 1)(4x - 1).
+    \]
+    两根 $x_1 = -\tfrac{1}{3}, x_2 = \tfrac{1}{4}$，$a = 12 > 0$。"大于取两边"：
+    \[
+    \text{解集} = \left(-\infty, -\tfrac{1}{3}\right) \cup \left(\tfrac{1}{4}, +\infty\right).
+    \]
+
+    \textbf{方法二：系数逆写 / 换元法。} 令 $t = \tfrac{1}{x}$（$x \ne 0$），则
+    \[
+    12x^2 + x - 1 > 0 \iff \frac{12}{t^2} + \frac{1}{t} - 1 > 0 \iff \frac{12 + t - t^2}{t^2} > 0.
+    \]
+    $t^2 > 0$（只要 $t \ne 0$）故等价于 $-t^2 + t + 12 > 0 \iff t^2 - t - 12 < 0 \iff (t-4)(t+3) < 0 \iff -3 < t < 4$。
+    回代 $t = 1/x$：
+    \begin{itemize}
+        \item 若 $x > 0$：$\tfrac{1}{x} < 4 \iff x > \tfrac{1}{4}$；
+        \item 若 $x < 0$：$\tfrac{1}{x} > -3 \iff -3x < 1 \iff x > -\tfrac{1}{3}$，合并得 $-\tfrac{1}{3} < x < 0$；结合 $x < 0$ 得 $x < -\tfrac{1}{3}$ 的补集——要再小心反向处理。
+    \end{itemize}
+    （这里直接因式分解显然更快。）
+}
+
+\rmkb{
+    \textbf{系数逆写法}的思想：\textbf{把大系数 "换} $t = 1/x$ \textbf{" 变成小系数}。适用场合：
+    \begin{itemize}
+        \item 首项系数绝对值很大、常数项绝对值较小；
+        \item 两根式形式 $(ax + b)(cx + d)$ 难直接看出的情形。
+    \end{itemize}
+    但若\textbf{能直接十字相乘}就不必绕——方法二只是思想拓展，实际解题以方法一为主。
+}
+
+\section{穿根法}
+
+\state{穿根法（数轴标根法）}{
+    设 $f(x) = a(x - x_1)(x - x_2) \cdots (x - x_n)$，$x_1 < x_2 < \cdots < x_n$（\textbf{所有根都化为 $x - x_i$ 的形式}，即每个因式的 $x$ 系数为正）。则：
+    \begin{enumerate}
+        \item 将 $x_1, x_2, \ldots, x_n$ 由小到大\textbf{标在数轴上}；
+        \item 从最右侧开始：$a > 0$ 则从\textbf{右上方}穿入，$a < 0$ 则从\textbf{右下方}穿入；
+        \item \textbf{奇次重根穿过}、\textbf{偶次重根不穿过}（到根处反弹回去）；
+        \item 图象在 $x$ 轴\textbf{上方} $\iff f(x) > 0$、\textbf{下方} $\iff f(x) < 0$——按需读解集。
+    \end{enumerate}
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=0.9]
+    \draw[->] (-0.5,0) -- (6.5,0) node[right] {$x$};
+    \foreach \x/\l in {1/x_1, 2.5/x_2, 4/x_3, 5.5/x_4} {
+        \filldraw (\x,0) circle (1.5pt);
+        \node[below] at (\x, -0.1) {$\l$};
+    }
+    \draw[thick, blue, smooth] plot coordinates {(0.2,1.5) (1,0) (1.75,-0.8) (2.5,0) (3.25,0.8) (4,0) (4.75,-0.8) (5.5,0) (6.3,1.5)};
+    \node[blue] at (3.5, 1.5) {\small $a > 0$: 从右上穿入，左右交替};
+\end{tikzpicture}
+\end{center}
+
+\ex[三个单根]{
+    解不等式 $(x - 2)(x - 3)(x - 5) > 0$。
+}
+
+\sol{
+    三个单根 $2, 3, 5$，首项系数 $1 > 0$（展开后 $x^3$ 系数）。从右上穿入、奇穿：
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth, scale=1]
+        \draw[->] (0.5,0) -- (6.5,0) node[right] {$x$};
+        \foreach \x/\l in {2/2, 3/3, 5/5} {
+            \filldraw (\x,0) circle (1.5pt);
+            \node[below] at (\x, -0.1) {$\l$};
+        }
+        \draw[thick, blue, smooth] plot coordinates {(0.8,-0.6) (2,0) (2.5,0.5) (3,0) (4,-0.6) (5,0) (6.2,0.9)};
+    \end{tikzpicture}
+    \end{center}
+
+    曲线在 $x$ 轴\textbf{上方}的区间：$(2, 3)$ 与 $(5, +\infty)$。
+
+    \textbf{解集}：$(2, 3) \cup (5, +\infty)$。
+}
+
+\ex[含偶次重根]{
+    解不等式 $(x - 2)^2 (x - 5) > 0$。
+}
+
+\sol{
+    根 $x = 2$（\textbf{二重}，偶次不穿）、$x = 5$（单根）。首项系数 $1 > 0$：
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth, scale=1]
+        \draw[->] (0.5,0) -- (6.5,0) node[right] {$x$};
+        \foreach \x/\l in {2/2, 5/5} {
+            \filldraw (\x,0) circle (1.5pt);
+            \node[below] at (\x, -0.1) {$\l$};
+        }
+        \draw[thick, blue, smooth] plot coordinates {(0.8,-0.8) (1.5,-0.2) (2,0) (2.5,-0.2) (3.5,-0.8) (5,0) (6.2,0.8)};
+    \end{tikzpicture}
+    \end{center}
+
+    $x = 2$ 处"\textbf{反弹}"（不穿过）——两侧同号（均在 $x$ 轴下方）。
+
+    曲线在 $x$ 轴上方的区间：$(5, +\infty)$。注意 $x = 2$ 时 $y = 0$\textbf{不满足严格不等式}。
+
+    \textbf{解集}：$(5, +\infty)$。
+}
+
+\ex[首项系数为负]{
+    解不等式 $(1 - x)(x - 3)(x - 7) > 0$。
+}
+
+\sol{
+    先\textbf{统一每个因式 $x$ 的系数为正}：$(1 - x) = -(x - 1)$，故
+    \[
+    (1 - x)(x - 3)(x - 7) = -(x - 1)(x - 3)(x - 7).
+    \]
+    等价于 $(x - 1)(x - 3)(x - 7) < 0$。三个单根 $1, 3, 7$，首项系数 $1 > 0$：
+    \begin{center}
+    \begin{tikzpicture}[>=Stealth, scale=0.9]
+        \draw[->] (-0.5,0) -- (8.5,0) node[right] {$x$};
+        \foreach \x/\l in {1/1, 3/3, 7/7} {
+            \filldraw (\x,0) circle (1.5pt);
+            \node[below] at (\x, -0.1) {$\l$};
+        }
+        \draw[thick, blue, smooth] plot coordinates {(-0.2,-0.8) (1,0) (2,0.6) (3,0) (5,-0.8) (7,0) (8.3,0.9)};
+    \end{tikzpicture}
+    \end{center}
+
+    曲线在 $x$ 轴\textbf{下方}的区间：$(-\infty, 1)$ 与 $(3, 7)$。
+
+    \textbf{解集}：$(-\infty, 1) \cup (3, 7)$。
+}
+
+\rmkb{
+    \textbf{穿根法使用前的预处理三件事}：
+    \begin{enumerate}
+        \item \textbf{移项}：不等式一侧化为 $0$；
+        \item \textbf{因式分解}：把多项式写成 $a(x - x_1)^{m_1}(x - x_2)^{m_2} \cdots$ 的\textbf{标准形式}——每个因式 $x$ 的系数为 $+1$，否则需把负号提出来\textbf{翻转不等号方向}；
+        \item \textbf{判 $a$ 正负}：决定从右上还是右下穿入（$a > 0$ 右上、$a < 0$ 右下）。
+    \end{enumerate}
+
+    \textbf{奇穿偶不穿}口诀：\textbf{重根次数为奇 $\to$ 曲线穿过 $x$ 轴；为偶 $\to$ 曲线切到 $x$ 轴后弹回去（两侧同号）}。这条是穿根法的灵魂——因为因式 $(x - x_0)^k$ 在 $x_0$ 左右的符号取决于 $k$ 的奇偶。
+}
