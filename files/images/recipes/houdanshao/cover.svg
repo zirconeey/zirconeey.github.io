@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#fae8c0"/>
+      <stop offset="55%" stop-color="#c88848"/>
+      <stop offset="100%" stop-color="#2a1408"/>
+    </radialGradient>
+    <linearGradient id="egg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fae460"/>
+      <stop offset="50%" stop-color="#f0b838"/>
+      <stop offset="100%" stop-color="#a86818"/>
+    </linearGradient>
+    <linearGradient id="egglayer" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fae460" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#e89820" stop-opacity="0.8"/>
+    </linearGradient>
+    <linearGradient id="board" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8a5a28"/>
+      <stop offset="100%" stop-color="#5a3818"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- wooden board -->
+  <rect x="80" y="200" width="640" height="280" rx="15" fill="#4a2a10" stroke="#2a1408" stroke-width="3"/>
+  <rect x="90" y="210" width="620" height="260" rx="10" fill="url(#board)"/>
+  <!-- wood grain -->
+  <g stroke="#4a2a10" stroke-width="1" fill="none" opacity="0.5">
+    <path d="M90,240 Q200,238 300,240 T710,240"/>
+    <path d="M90,280 Q200,282 300,280 T710,280"/>
+    <path d="M90,330 Q200,328 300,330 T710,330"/>
+    <path d="M90,380 Q200,382 300,380 T710,380"/>
+    <path d="M90,430 Q200,428 300,430 T710,430"/>
+    <path d="M90,460 Q200,462 300,460 T710,460"/>
+  </g>
+  <!-- tamagoyaki slice 1 -->
+  <g stroke="#6a3810" stroke-width="1.5" fill="url(#egg)">
+    <rect x="150" y="280" width="90" height="130" rx="4"/>
+  </g>
+  <!-- visible layers on slice 1 -->
+  <g stroke="#d89828" stroke-width="1" fill="none" opacity="0.6">
+    <line x1="155" y1="310" x2="235" y2="310"/>
+    <line x1="155" y1="340" x2="235" y2="340"/>
+    <line x1="155" y1="370" x2="235" y2="370"/>
+  </g>
+  <!-- tamagoyaki slice 2 -->
+  <g stroke="#6a3810" stroke-width="1.5" fill="url(#egg)">
+    <rect x="260" y="275" width="95" height="135" rx="4"/>
+  </g>
+  <g stroke="#d89828" stroke-width="1" fill="none" opacity="0.6">
+    <line x1="265" y1="305" x2="350" y2="305"/>
+    <line x1="265" y1="337" x2="350" y2="337"/>
+    <line x1="265" y1="368" x2="350" y2="368"/>
+  </g>
+  <!-- tamagoyaki slice 3 (main/larger) -->
+  <g stroke="#6a3810" stroke-width="1.5" fill="url(#egg)">
+    <rect x="375" y="270" width="100" height="140" rx="4"/>
+  </g>
+  <g stroke="#d89828" stroke-width="1" fill="none" opacity="0.6">
+    <line x1="380" y1="300" x2="470" y2="300"/>
+    <line x1="380" y1="332" x2="470" y2="332"/>
+    <line x1="380" y1="365" x2="470" y2="365"/>
+    <line x1="380" y1="395" x2="470" y2="395"/>
+  </g>
+  <!-- tamagoyaki slice 4 -->
+  <g stroke="#6a3810" stroke-width="1.5" fill="url(#egg)">
+    <rect x="495" y="278" width="92" height="132" rx="4"/>
+  </g>
+  <g stroke="#d89828" stroke-width="1" fill="none" opacity="0.6">
+    <line x1="500" y1="308" x2="583" y2="308"/>
+    <line x1="500" y1="340" x2="583" y2="340"/>
+    <line x1="500" y1="372" x2="583" y2="372"/>
+  </g>
+  <!-- tamagoyaki slice 5 -->
+  <g stroke="#6a3810" stroke-width="1.5" fill="url(#egg)">
+    <rect x="610" y="282" width="88" height="128" rx="4"/>
+  </g>
+  <g stroke="#d89828" stroke-width="1" fill="none" opacity="0.6">
+    <line x1="615" y1="312" x2="695" y2="312"/>
+    <line x1="615" y1="344" x2="695" y2="344"/>
+    <line x1="615" y1="376" x2="695" y2="376"/>
+  </g>
+  <!-- charred edge highlights -->
+  <g fill="#a86818" opacity="0.7">
+    <circle cx="165" cy="290" r="2"/>
+    <circle cx="220" cy="295" r="2"/>
+    <circle cx="280" cy="285" r="2"/>
+    <circle cx="335" cy="288" r="2"/>
+    <circle cx="390" cy="280" r="2"/>
+    <circle cx="455" cy="285" r="2"/>
+    <circle cx="510" cy="288" r="2"/>
+    <circle cx="565" cy="290" r="2"/>
+    <circle cx="625" cy="292" r="2"/>
+    <circle cx="680" cy="295" r="2"/>
+  </g>
+  <!-- glossy highlights (fresh moist surface) -->
+  <g fill="#fff8d0" opacity="0.4">
+    <ellipse cx="175" cy="300" rx="12" ry="4"/>
+    <ellipse cx="285" cy="295" rx="13" ry="4"/>
+    <ellipse cx="400" cy="290" rx="14" ry="4"/>
+    <ellipse cx="520" cy="298" rx="12" ry="4"/>
+    <ellipse cx="635" cy="302" rx="11" ry="4"/>
+  </g>
+  <!-- grated radish garnish (daikon oroshi) -->
+  <g fill="#fafaf0" opacity="0.85" stroke="#d8d8c8" stroke-width="0.8">
+    <ellipse cx="155" cy="440" rx="35" ry="15"/>
+    <path d="M125,438 Q140,433 150,442" stroke-width="0.6" fill="none"/>
+    <path d="M150,435 Q165,430 180,440" stroke-width="0.6" fill="none"/>
+  </g>
+  <!-- soy sauce drizzle dots -->
+  <g fill="#2a0a02" opacity="0.7">
+    <ellipse cx="145" cy="442" rx="3" ry="1.5"/>
+    <ellipse cx="170" cy="445" rx="2" ry="1"/>
+  </g>
+  <!-- scallion garnish -->
+  <g fill="#68a03a">
+    <ellipse cx="600" cy="440" rx="15" ry="2" transform="rotate(20 600 440)"/>
+    <ellipse cx="620" cy="445" rx="12" ry="2" transform="rotate(-10 620 445)"/>
+    <ellipse cx="640" cy="435" rx="14" ry="2" transform="rotate(15 640 435)"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="44" font-weight="700"
+        fill="#1a0a02" text-anchor="middle" letter-spacing="8">厚 蛋 烧</text>
+</svg>

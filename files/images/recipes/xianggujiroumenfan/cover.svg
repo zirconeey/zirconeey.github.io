@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#f8dca8"/>
+      <stop offset="55%" stop-color="#8a5830"/>
+      <stop offset="100%" stop-color="#1a0a02"/>
+    </radialGradient>
+    <linearGradient id="rice" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#faf4e0"/>
+      <stop offset="100%" stop-color="#d8c89a"/>
+    </linearGradient>
+    <linearGradient id="chicken" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d89838"/>
+      <stop offset="100%" stop-color="#6a3010"/>
+    </linearGradient>
+    <linearGradient id="mushroom" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a2810"/>
+      <stop offset="100%" stop-color="#1a0a02"/>
+    </linearGradient>
+    <linearGradient id="pot" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- rice cooker inner pot shadow -->
+  <ellipse cx="400" cy="490" rx="300" ry="30" fill="#0a0a02" opacity="0.4"/>
+  <!-- pot rim -->
+  <ellipse cx="400" cy="250" rx="290" ry="50" fill="url(#pot)"/>
+  <!-- pot body -->
+  <path d="M110,250 Q110,475 400,480 Q690,475 690,250 Z" fill="url(#pot)"/>
+  <!-- rice inside -->
+  <ellipse cx="400" cy="250" rx="270" ry="42" fill="url(#rice)"/>
+  <!-- rice grain texture -->
+  <g fill="#fafaf0" opacity="0.8">
+    <ellipse cx="220" cy="245" rx="3" ry="1.5"/>
+    <ellipse cx="250" cy="255" rx="3" ry="1.5"/>
+    <ellipse cx="290" cy="245" rx="3" ry="1.5"/>
+    <ellipse cx="340" cy="258" rx="3" ry="1.5"/>
+    <ellipse cx="380" cy="248" rx="3" ry="1.5"/>
+    <ellipse cx="420" cy="258" rx="3" ry="1.5"/>
+    <ellipse cx="460" cy="245" rx="3" ry="1.5"/>
+    <ellipse cx="500" cy="258" rx="3" ry="1.5"/>
+    <ellipse cx="540" cy="248" rx="3" ry="1.5"/>
+    <ellipse cx="580" cy="255" rx="3" ry="1.5"/>
+    <ellipse cx="200" cy="258" rx="3" ry="1.5"/>
+    <ellipse cx="270" cy="238" rx="3" ry="1.5"/>
+    <ellipse cx="315" cy="265" rx="3" ry="1.5"/>
+    <ellipse cx="400" cy="238" rx="3" ry="1.5"/>
+    <ellipse cx="480" cy="268" rx="3" ry="1.5"/>
+    <ellipse cx="560" cy="238" rx="3" ry="1.5"/>
+  </g>
+  <!-- shiitake mushroom slices (dark half-moons) -->
+  <g stroke="#0a0502" stroke-width="1" fill="url(#mushroom)">
+    <ellipse cx="270" cy="243" rx="30" ry="8"/>
+    <ellipse cx="360" cy="250" rx="32" ry="9"/>
+    <ellipse cx="450" cy="242" rx="30" ry="8"/>
+    <ellipse cx="530" cy="248" rx="28" ry="8"/>
+  </g>
+  <!-- mushroom cap texture radial lines -->
+  <g stroke="#2a1a08" stroke-width="1" fill="none" opacity="0.6">
+    <path d="M265,240 L275,245"/>
+    <path d="M355,247 L365,252"/>
+    <path d="M445,240 L455,244"/>
+  </g>
+  <!-- chicken cubes (glossy caramel brown) -->
+  <g stroke="#3a1608" stroke-width="1.2" fill="url(#chicken)">
+    <rect x="220" y="220" width="28" height="22" rx="4" transform="rotate(-5 234 231)"/>
+    <rect x="300" y="215" width="30" height="24" rx="4" transform="rotate(8 315 227)"/>
+    <rect x="390" y="218" width="28" height="22" rx="4" transform="rotate(-3 404 229)"/>
+    <rect x="475" y="222" width="28" height="23" rx="4" transform="rotate(6 489 233)"/>
+    <rect x="555" y="218" width="28" height="22" rx="4" transform="rotate(-4 569 229)"/>
+    <rect x="260" y="258" width="28" height="22" rx="4" transform="rotate(4 274 269)"/>
+    <rect x="350" y="262" width="28" height="22" rx="4" transform="rotate(-6 364 273)"/>
+    <rect x="430" y="258" width="28" height="23" rx="4" transform="rotate(3 444 269)"/>
+    <rect x="515" y="263" width="28" height="22" rx="4" transform="rotate(-5 529 274)"/>
+  </g>
+  <!-- glossy highlight on chicken -->
+  <g fill="#fae088" opacity="0.5">
+    <ellipse cx="232" cy="226" rx="6" ry="2"/>
+    <ellipse cx="312" cy="220" rx="6" ry="2"/>
+    <ellipse cx="402" cy="224" rx="6" ry="2"/>
+    <ellipse cx="487" cy="228" rx="6" ry="2"/>
+  </g>
+  <!-- crispy fried shallots (golden crispy specks) -->
+  <g fill="#e8a838" opacity="0.9">
+    <ellipse cx="310" cy="240" rx="4" ry="2" transform="rotate(20 310 240)"/>
+    <ellipse cx="400" cy="250" rx="4" ry="2" transform="rotate(-15 400 250)"/>
+    <ellipse cx="480" cy="240" rx="4" ry="2" transform="rotate(25 480 240)"/>
+    <ellipse cx="360" cy="230" rx="4" ry="2" transform="rotate(-20 360 230)"/>
+    <ellipse cx="550" cy="245" rx="4" ry="2" transform="rotate(10 550 245)"/>
+  </g>
+  <!-- scallion green scatter -->
+  <g fill="#68a03a">
+    <ellipse cx="285" cy="235" rx="7" ry="2" transform="rotate(15 285 235)"/>
+    <ellipse cx="340" cy="245" rx="6" ry="2" transform="rotate(-25 340 245)"/>
+    <ellipse cx="420" cy="235" rx="7" ry="2" transform="rotate(10 420 235)"/>
+    <ellipse cx="505" cy="248" rx="6" ry="2" transform="rotate(-15 505 248)"/>
+    <ellipse cx="570" cy="238" rx="6" ry="2" transform="rotate(20 570 238)"/>
+  </g>
+  <!-- steam -->
+  <g stroke="#faf4e0" stroke-width="3" fill="none" opacity="0.35" stroke-linecap="round">
+    <path d="M320,190 Q310,160 320,130 Q335,105 320,80"/>
+    <path d="M400,185 Q390,155 405,125 Q420,95 405,65"/>
+    <path d="M480,190 Q470,160 485,130 Q500,105 485,80"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#1a0a02" text-anchor="middle" letter-spacing="5">香 菇 鸡 肉 焖 饭</text>
+</svg>

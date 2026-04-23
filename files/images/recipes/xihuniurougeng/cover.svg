@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#f0ead0"/>
+      <stop offset="55%" stop-color="#4a6858"/>
+      <stop offset="100%" stop-color="#0a1a18"/>
+    </radialGradient>
+    <radialGradient id="soup" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#e8c888"/>
+      <stop offset="60%" stop-color="#b8944a"/>
+      <stop offset="100%" stop-color="#6a4a20"/>
+    </radialGradient>
+    <linearGradient id="bowl" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fafaf6"/>
+      <stop offset="100%" stop-color="#c8c4b0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- bowl outer shadow -->
+  <ellipse cx="400" cy="475" rx="280" ry="35" fill="#0a0a02" opacity="0.35"/>
+  <!-- bowl rim -->
+  <ellipse cx="400" cy="280" rx="275" ry="55" fill="url(#bowl)" stroke="#6a6248" stroke-width="2"/>
+  <!-- bowl body -->
+  <path d="M125,280 Q125,460 400,465 Q675,460 675,280 Z" fill="url(#bowl)" stroke="#6a6248" stroke-width="2"/>
+  <!-- soup surface -->
+  <ellipse cx="400" cy="280" rx="260" ry="48" fill="url(#soup)"/>
+  <!-- beef mince specks -->
+  <g fill="#6a3a1a" opacity="0.85">
+    <circle cx="250" cy="275" r="4"/>
+    <circle cx="285" cy="290" r="3.5"/>
+    <circle cx="320" cy="278" r="4"/>
+    <circle cx="360" cy="295" r="4.5"/>
+    <circle cx="410" cy="282" r="4"/>
+    <circle cx="460" cy="293" r="4"/>
+    <circle cx="500" cy="278" r="3.5"/>
+    <circle cx="545" cy="288" r="4"/>
+    <circle cx="235" cy="295" r="3"/>
+    <circle cx="390" cy="302" r="3.5"/>
+    <circle cx="480" cy="302" r="3"/>
+    <circle cx="555" cy="275" r="3.5"/>
+  </g>
+  <!-- shiitake dice -->
+  <g fill="#3a2810" opacity="0.9">
+    <rect x="200" y="285" width="10" height="8" rx="1"/>
+    <rect x="340" y="270" width="9" height="7" rx="1"/>
+    <rect x="440" y="275" width="10" height="8" rx="1"/>
+    <rect x="300" y="302" width="8" height="7" rx="1"/>
+    <rect x="520" y="298" width="10" height="7" rx="1"/>
+    <rect x="575" y="290" width="9" height="8" rx="1"/>
+  </g>
+  <!-- egg white silk ribbons (swirled) -->
+  <g stroke="#fafaf6" stroke-width="3" fill="none" opacity="0.9" stroke-linecap="round">
+    <path d="M220,275 Q280,268 340,280 Q400,290 460,278 Q520,268 580,282"/>
+    <path d="M240,295 Q300,290 360,300 Q420,308 480,296 Q540,290 590,302" opacity="0.7"/>
+    <path d="M260,265 Q310,260 360,268 Q410,273 460,265" opacity="0.6"/>
+    <path d="M190,285 Q230,280 270,286" opacity="0.8"/>
+    <path d="M530,268 Q560,265 590,272" opacity="0.7"/>
+  </g>
+  <!-- cilantro green specks -->
+  <g fill="#4a8028">
+    <circle cx="280" cy="268" r="2.5"/>
+    <circle cx="350" cy="265" r="2"/>
+    <circle cx="405" cy="268" r="2.5"/>
+    <circle cx="470" cy="265" r="2"/>
+    <circle cx="525" cy="272" r="2.5"/>
+    <circle cx="310" cy="310" r="2"/>
+    <circle cx="425" cy="315" r="2.5"/>
+    <circle cx="495" cy="312" r="2"/>
+    <circle cx="370" cy="255" r="2"/>
+  </g>
+  <!-- white pepper specks -->
+  <g fill="#f8f0d8" opacity="0.5">
+    <circle cx="330" cy="285" r="1"/>
+    <circle cx="430" cy="290" r="1"/>
+    <circle cx="380" cy="278" r="1"/>
+    <circle cx="510" cy="285" r="1"/>
+  </g>
+  <!-- oil dots (sesame/scallion oil shine) -->
+  <g fill="#f8d878" opacity="0.6">
+    <ellipse cx="355" cy="272" rx="5" ry="2"/>
+    <ellipse cx="440" cy="280" rx="4" ry="1.5"/>
+    <ellipse cx="290" cy="285" rx="4" ry="1.5"/>
+  </g>
+  <!-- steam -->
+  <g stroke="#fafaf6" stroke-width="3" fill="none" opacity="0.35" stroke-linecap="round">
+    <path d="M320,230 Q310,200 320,170 Q335,145 320,115"/>
+    <path d="M400,225 Q390,195 405,165 Q420,135 405,105"/>
+    <path d="M480,230 Q470,200 485,170 Q500,145 485,115"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#0a1a18" text-anchor="middle" letter-spacing="5">西 湖 牛 肉 羹</text>
+</svg>
