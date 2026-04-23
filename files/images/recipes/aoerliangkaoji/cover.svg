@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ffe0a8"/>
+      <stop offset="55%" stop-color="#a84418"/>
+      <stop offset="100%" stop-color="#2a0a02"/>
+    </radialGradient>
+    <linearGradient id="drum" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e88838"/>
+      <stop offset="55%" stop-color="#a84010"/>
+      <stop offset="100%" stop-color="#5a1e04"/>
+    </linearGradient>
+    <linearGradient id="wing" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0a048"/>
+      <stop offset="100%" stop-color="#8a3008"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- plate -->
+  <ellipse cx="400" cy="430" rx="290" ry="45" fill="#150302" opacity="0.5"/>
+  <ellipse cx="400" cy="420" rx="290" ry="45" fill="#f0e4ca"/>
+  <!-- drumstick 1 -->
+  <g stroke="#3a0e02" stroke-width="1.5">
+    <path d="M190,380 Q180,340 210,310 Q260,275 320,290 Q370,310 350,380 Q340,410 280,410 Q210,410 190,380 Z"
+          fill="url(#drum)"/>
+    <!-- bone -->
+    <path d="M165,400 L145,420 L135,425 Q130,430 145,430 L160,425 L175,415 Z" fill="#f8e8c8" stroke="#8a6028" stroke-width="1"/>
+  </g>
+  <!-- drumstick 2 -->
+  <g stroke="#3a0e02" stroke-width="1.5">
+    <path d="M460,370 Q450,330 485,300 Q535,270 595,285 Q640,305 620,380 Q600,410 540,408 Q470,402 460,370 Z"
+          fill="url(#drum)"/>
+    <path d="M435,390 L410,405 L400,415 Q395,420 410,420 L430,410 L445,405 Z" fill="#f8e8c8" stroke="#8a6028" stroke-width="1"/>
+  </g>
+  <!-- wing in middle -->
+  <g stroke="#3a0e02" stroke-width="1.5">
+    <path d="M350,405 Q340,370 375,360 Q410,355 420,385 Q415,415 385,418 Q355,415 350,405 Z"
+          fill="url(#wing)"/>
+  </g>
+  <!-- charred specks -->
+  <g fill="#2a0602" opacity="0.7">
+    <circle cx="240" cy="340" r="2"/>
+    <circle cx="280" cy="360" r="2"/>
+    <circle cx="320" cy="345" r="2"/>
+    <circle cx="510" cy="335" r="2"/>
+    <circle cx="560" cy="355" r="2"/>
+    <circle cx="590" cy="340" r="2"/>
+  </g>
+  <!-- paprika/spice dust -->
+  <g fill="#d82810" opacity="0.4">
+    <circle cx="220" cy="310" r="2.5"/>
+    <circle cx="290" cy="320" r="2.5"/>
+    <circle cx="340" cy="325" r="2"/>
+    <circle cx="490" cy="315" r="2.5"/>
+    <circle cx="570" cy="300" r="2.5"/>
+    <circle cx="605" cy="320" r="2"/>
+  </g>
+  <!-- white sesame -->
+  <g fill="#fffbe8">
+    <circle cx="260" cy="335" r="1.5"/>
+    <circle cx="310" cy="335" r="1.5"/>
+    <circle cx="530" cy="325" r="1.5"/>
+    <circle cx="580" cy="335" r="1.5"/>
+    <circle cx="390" cy="390" r="1.5"/>
+  </g>
+  <!-- scallion garnish -->
+  <g fill="#68a03a">
+    <ellipse cx="280" cy="300" rx="10" ry="2" transform="rotate(15 280 300)"/>
+    <ellipse cx="550" cy="285" rx="10" ry="2" transform="rotate(-10 550 285)"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#1a0502" text-anchor="middle" letter-spacing="5">奥 尔 良 烤 鸡</text>
+</svg>

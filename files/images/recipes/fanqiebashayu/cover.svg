@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#ffe8c8"/>
+      <stop offset="55%" stop-color="#d44020"/>
+      <stop offset="100%" stop-color="#380804"/>
+    </radialGradient>
+    <radialGradient id="soup" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#f06030"/>
+      <stop offset="100%" stop-color="#982010"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- bowl shadow -->
+  <ellipse cx="400" cy="450" rx="290" ry="30" fill="#180402" opacity="0.55"/>
+  <!-- bowl outer -->
+  <path d="M110,250 Q110,450 400,450 Q690,450 690,250 Z" fill="#f2e8d0" stroke="#6a3418" stroke-width="3"/>
+  <!-- soup surface -->
+  <ellipse cx="400" cy="250" rx="280" ry="55" fill="url(#soup)"/>
+  <!-- tomato chunks floating -->
+  <g stroke="#8a1808" stroke-width="1.5">
+    <circle cx="260" cy="235" r="22" fill="#e83820"/>
+    <circle cx="540" cy="240" r="24" fill="#e83820"/>
+    <circle cx="600" cy="270" r="20" fill="#f05028"/>
+    <circle cx="200" cy="270" r="20" fill="#f05028"/>
+  </g>
+  <!-- fish slices arranged -->
+  <g stroke="#a89880" stroke-width="1.2" fill="#f8f0dc">
+    <ellipse cx="320" cy="245" rx="40" ry="16"/>
+    <ellipse cx="400" cy="255" rx="42" ry="16"/>
+    <ellipse cx="480" cy="245" rx="40" ry="16"/>
+    <ellipse cx="350" cy="278" rx="42" ry="14"/>
+    <ellipse cx="435" cy="280" rx="40" ry="14"/>
+  </g>
+  <!-- fish striations -->
+  <g stroke="#d8c8a8" stroke-width="0.8" fill="none" opacity="0.6">
+    <path d="M290,242 Q320,244 350,242"/>
+    <path d="M380,252 Q400,254 420,252"/>
+    <path d="M460,242 Q490,244 510,242"/>
+  </g>
+  <!-- garlic + scallion + sesame on top -->
+  <g fill="#f8f0c8">
+    <circle cx="310" cy="220" r="3"/>
+    <circle cx="380" cy="218" r="3"/>
+    <circle cx="450" cy="222" r="3"/>
+  </g>
+  <g fill="#68a03a">
+    <ellipse cx="340" cy="228" rx="8" ry="1.8"/>
+    <ellipse cx="420" cy="226" rx="8" ry="1.8"/>
+    <ellipse cx="490" cy="230" rx="8" ry="1.8"/>
+  </g>
+  <!-- white sesame -->
+  <g fill="#fffbe8">
+    <circle cx="300" cy="232" r="1.5"/>
+    <circle cx="360" cy="235" r="1.5"/>
+    <circle cx="420" cy="238" r="1.5"/>
+    <circle cx="470" cy="235" r="1.5"/>
+  </g>
+  <!-- oil drops glistening -->
+  <g fill="#ffd48a" opacity="0.7">
+    <circle cx="280" cy="250" r="4"/>
+    <circle cx="380" cy="268" r="3"/>
+    <circle cx="480" cy="252" r="4"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="40" font-weight="700"
+        fill="#2a0604" text-anchor="middle" letter-spacing="6">番 茄 巴 沙 鱼</text>
+</svg>

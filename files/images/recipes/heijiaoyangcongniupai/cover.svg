@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="45%" r="70%">
+      <stop offset="0%" stop-color="#e8d0a0"/>
+      <stop offset="55%" stop-color="#5a2e10"/>
+      <stop offset="100%" stop-color="#150502"/>
+    </radialGradient>
+    <linearGradient id="steak" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8a3010"/>
+      <stop offset="50%" stop-color="#c04020"/>
+      <stop offset="100%" stop-color="#3a0e02"/>
+    </linearGradient>
+    <linearGradient id="onion" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f0d0a0"/>
+      <stop offset="100%" stop-color="#a86838"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <!-- wooden board -->
+  <rect x="90" y="200" width="620" height="280" rx="15" fill="#6a4218" stroke="#3a1e08" stroke-width="3"/>
+  <rect x="100" y="210" width="600" height="260" rx="10" fill="#8a5a28"/>
+  <!-- wood grain -->
+  <g stroke="#6a4018" stroke-width="1" fill="none" opacity="0.5">
+    <path d="M100,230 Q200,228 300,230 T700,230"/>
+    <path d="M100,260 Q200,262 300,260 T700,260"/>
+    <path d="M100,300 Q200,298 300,300 T700,300"/>
+    <path d="M100,340 Q200,342 300,340 T700,340"/>
+    <path d="M100,380 Q200,378 300,380 T700,380"/>
+    <path d="M100,420 Q200,422 300,420 T700,420"/>
+    <path d="M100,450 Q200,448 300,450 T700,450"/>
+  </g>
+  <!-- caramelized onion bed -->
+  <g stroke="#6a3818" stroke-width="1" fill="url(#onion)">
+    <ellipse cx="300" cy="420" rx="60" ry="12"/>
+    <ellipse cx="380" cy="425" rx="70" ry="13"/>
+    <ellipse cx="470" cy="420" rx="60" ry="12"/>
+    <ellipse cx="550" cy="425" rx="55" ry="12"/>
+  </g>
+  <!-- onion strips texture -->
+  <g stroke="#8a5028" stroke-width="1" fill="none" opacity="0.6">
+    <path d="M260,418 Q280,415 300,420"/>
+    <path d="M340,423 Q360,420 380,425"/>
+    <path d="M440,418 Q460,415 480,422"/>
+  </g>
+  <!-- steak slices (sliced strips) -->
+  <g stroke="#2a0604" stroke-width="1.5">
+    <path d="M200,330 Q240,315 280,325 L285,410 Q240,418 200,405 Z" fill="url(#steak)"/>
+    <path d="M290,325 Q330,312 370,322 L375,410 Q330,417 290,405 Z" fill="url(#steak)"/>
+    <path d="M380,322 Q420,310 460,320 L465,410 Q420,418 380,405 Z" fill="url(#steak)"/>
+    <path d="M470,320 Q510,310 550,318 L555,408 Q510,415 470,403 Z" fill="url(#steak)"/>
+    <path d="M560,318 Q595,310 625,318 L625,405 Q590,412 560,400 Z" fill="url(#steak)"/>
+  </g>
+  <!-- pink interior line (medium rare) -->
+  <g stroke="#f08060" stroke-width="3" fill="none" opacity="0.85">
+    <path d="M205,365 Q240,358 280,362"/>
+    <path d="M290,362 Q330,356 370,360"/>
+    <path d="M380,362 Q420,355 460,358"/>
+    <path d="M470,360 Q510,353 550,356"/>
+    <path d="M560,358 Q590,353 620,355"/>
+  </g>
+  <!-- charred crust specks -->
+  <g fill="#1a0302">
+    <circle cx="230" cy="325" r="1.5"/>
+    <circle cx="310" cy="322" r="1.5"/>
+    <circle cx="400" cy="320" r="1.5"/>
+    <circle cx="490" cy="318" r="1.5"/>
+    <circle cx="580" cy="318" r="1.5"/>
+  </g>
+  <!-- black pepper specks -->
+  <g fill="#1a0302">
+    <circle cx="260" cy="340" r="1.8"/>
+    <circle cx="350" cy="345" r="1.8"/>
+    <circle cx="440" cy="340" r="1.8"/>
+    <circle cx="530" cy="342" r="1.8"/>
+    <circle cx="220" cy="390" r="1.8"/>
+    <circle cx="390" cy="395" r="1.8"/>
+    <circle cx="510" cy="390" r="1.8"/>
+  </g>
+  <!-- rosemary sprig -->
+  <g stroke="#2a5a1a" stroke-width="2" fill="none">
+    <path d="M600,260 L640,240"/>
+    <path d="M605,258 L600,250"/>
+    <path d="M612,254 L608,246"/>
+    <path d="M620,250 L616,242"/>
+    <path d="M628,246 L624,238"/>
+    <path d="M636,242 L632,234"/>
+  </g>
+  <text x="400" y="555" font-family="'Noto Serif SC', serif" font-size="36" font-weight="700"
+        fill="#0a0202" text-anchor="middle" letter-spacing="4">黑 椒 洋 葱 牛 排</text>
+</svg>
