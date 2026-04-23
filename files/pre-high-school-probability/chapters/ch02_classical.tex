@@ -1,0 +1,61 @@
+% !TEX root = ../Main.tex
+\chapter{古典概型}
+
+古典概型是所有概率的\textbf{起点}：所有基本事件\textbf{等可能}发生、事件总数\textbf{有限}。这两条假设使"概率"成为\textbf{"数数"}的问题——计数即解题。
+
+\section{样本空间与事件}
+
+\defn{样本空间与样本点}{
+    随机试验的\textbf{全部可能结果}构成的集合，称为\textbf{样本空间}，记为 $\Omega$。$\Omega$ 中的每个元素称为\textbf{样本点}。$\Omega$ 的任一子集 $A$ 称为\textbf{事件}——"$A$ 发生" $\iff$ "试验结果属于 $A$"。
+}
+
+\defn{古典概型}{
+    若随机试验满足：
+    \begin{enumerate}
+        \item 样本空间 $\Omega$ 是\textbf{有限}的；
+        \item 每个样本点\textbf{等可能}发生。
+    \end{enumerate}
+    称之为\textbf{古典概型}。事件 $A$ 的概率
+    \[
+    P(A) = \frac{|A|}{|\Omega|} = \frac{A \text{ 中样本点个数}}{\Omega \text{ 中样本点总数}}.
+    \]
+}
+
+\section{事件间的运算}
+
+\state{互斥、对立、和事件、积事件}{
+    \begin{itemize}
+        \item \textbf{和事件} $A \cup B$（也写作 $A + B$）：$A$ 或 $B$ 至少一个发生；
+        \item \textbf{积事件} $A \cap B$（也写作 $AB$）：$A$ 与 $B$ 同时发生；
+        \item \textbf{互斥}：$A \cap B = \varnothing$——不可能同时发生；
+        \item \textbf{对立}：$A \cup B = \Omega$ 且 $A \cap B = \varnothing$——\textbf{必有一个且仅有一个}发生，记 $\bar A = B$。
+    \end{itemize}
+}
+
+\state{概率的加法公式}{
+    对任意事件 $A, B$：
+    \[
+    P(A \cup B) = P(A) + P(B) - P(A \cap B).
+    \]
+
+    \textbf{若 $A, B$ 互斥}：$P(A \cup B) = P(A) + P(B)$。
+
+    \textbf{对立事件}：$P(\bar A) = 1 - P(A)$。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=1]
+  % Venn diagram
+  \draw[thick] (-2,-1.3) rectangle (2,1.3);
+  \node[above right] at (-2,1.3) {\scriptsize $\Omega$};
+  \draw[thick,fill=red!20,fill opacity=0.6] (-0.6,0) circle (0.9);
+  \draw[thick,fill=blue!20,fill opacity=0.6] (0.6,0) circle (0.9);
+  \node at (-1.1,0) {\scriptsize $A$};
+  \node at (1.1,0) {\scriptsize $B$};
+  \node at (0,0) {\scriptsize $A \cap B$};
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{"至少"类问题}优先考虑\textbf{对立事件}——如"至少有一件次品"，其对立"全是正品"通常远比正面枚举简单。\textbf{正面难算时走反面}，这是概率题的通用策略。
+}

@@ -1,0 +1,78 @@
+% !TEX root = ../Main.tex
+\chapter{方差}
+
+方差是\textbf{刻画数据离散程度}的核心指标——不仅用于统计，也用于衡量随机变量的\textbf{波动性}。本章给出方差的\textbf{两种等价形式}（定义式与计算式），并示范如何通过\textbf{算式恒等变形}把"偏差平方和"变为"平方均值减均值平方"。
+
+\section{方差的定义与计算公式}
+
+\defn{样本均值与方差}{
+    设数据 $x_1, x_2, \ldots, x_n$ 的\textbf{均值}为
+    \[
+    \bar x = \frac{1}{n} \sum_{i=1}^n x_i.
+    \]
+    其\textbf{方差}定义为
+    \[
+    S^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \bar x)^2,
+    \]
+    即"每个数与均值的偏差平方的平均"。
+}
+
+\state{方差的计算公式：$S^2 = \overline{x^2} - \bar x^2$}{
+    由定义展开：
+    \begin{align*}
+    S^2 &= \frac{1}{n} \sum_{i=1}^n (x_i - \bar x)^2 = \frac{1}{n} \sum_{i=1}^n (x_i^2 - 2 x_i \bar x + \bar x^2) \\
+    &= \frac{1}{n} \sum x_i^2 - 2 \bar x \cdot \frac{1}{n} \sum x_i + \bar x^2 \\
+    &= \overline{x^2} - 2 \bar x \cdot \bar x + \bar x^2 = \overline{x^2} - \bar x^2,
+    \end{align*}
+    其中 $\overline{x^2} = \dfrac{1}{n} \sum x_i^2$ 是"\textbf{平方的均值}"，$\bar x^2$ 是"\textbf{均值的平方}"。
+
+    \textbf{口诀}：\textbf{方差 = 平方的均值 $-$ 均值的平方}。
+}
+
+\ex[方差不变的约束]{
+    数据 $x_1, x_2, \ldots, x_8$ 的均值为 $\dfrac{5}{2}$、方差为 $2$。现增加一个数据 $x_9$ 后方差仍为 $2$，求 $x_9$ 的可能取值。
+}
+
+\sol{
+    \textbf{记号}：原均值 $\bar x = \tfrac{5}{2}$，原方差 $S_1^2 = 2$（故 $\sum_{i=1}^8 (x_i - \bar x)^2 = 8 \cdot 2 = 16$）。设新均值 $\bar x'$、新方差 $S_2^2$。
+
+    \textbf{第 1 步：均值的变化。} 令 $u = x_9 - \bar x$（$x_9$ 与原均值的偏差）。新均值
+    \[
+    \bar x' = \frac{8 \bar x + x_9}{9} = \bar x + \frac{x_9 - \bar x}{9} = \bar x + \frac{u}{9}.
+    \]
+    记 $\delta = \bar x' - \bar x = \tfrac{u}{9}$。
+
+    \textbf{第 2 步：分解新方差。} 展开 $(x_i - \bar x')^2 = ((x_i - \bar x) - \delta)^2$。
+    对 $i = 1, \ldots, 8$：
+    \[
+    \sum_{i=1}^8 (x_i - \bar x')^2 = \sum_{i=1}^8 (x_i - \bar x)^2 - 2 \delta \!\underbrace{\sum_{i=1}^8 (x_i - \bar x)}_{= 0} + 8 \delta^2 = 16 + 8 \delta^2.
+    \]
+    （利用了\textbf{偏差之和为零}这一基本恒等式。）
+
+    对 $i = 9$：
+    \[
+    (x_9 - \bar x')^2 = (u - \delta)^2 = \left(u - \frac{u}{9}\right)^2 = \left(\frac{8 u}{9}\right)^2 = \frac{64 u^2}{81}.
+    \]
+
+    \textbf{合并：}
+    \[
+    9 S_2^2 = \sum_{i=1}^9 (x_i - \bar x')^2 = 16 + 8 \delta^2 + \frac{64 u^2}{81} = 16 + \frac{8 u^2}{81} + \frac{64 u^2}{81} = 16 + \frac{8 u^2}{9}.
+    \]
+
+    \textbf{第 3 步：令 $S_2^2 = 2$。}
+    \[
+    9 \cdot 2 = 16 + \frac{8 u^2}{9} \implies \frac{8 u^2}{9} = 2 \implies u^2 = \frac{9}{4} \implies u = \pm \frac{3}{2}.
+    \]
+
+    故 $x_9 = \bar x \pm \tfrac{3}{2} = \tfrac{5}{2} \pm \tfrac{3}{2}$，即 $x_9 = 1$ 或 $x_9 = 4$。
+}
+
+\rmkb{
+    \textbf{方差的两种公式各自的场景}：
+    \begin{itemize}
+        \item \textbf{定义式} $\tfrac{1}{n} \sum (x_i - \bar x)^2$——用于\textbf{概念理解}：方差 = 偏差平方的平均；
+        \item \textbf{计算式} $\overline{x^2} - \bar x^2$——用于\textbf{实际计算}：避免先算 $\bar x$ 再逐项减法。
+    \end{itemize}
+
+    \textbf{本题的技巧}：利用 $\sum_{i=1}^8 (x_i - \bar x) = 0$ 消去交叉项，把新方差的表达式简化为只关于 $x_9$ 偏差 $u$ 的二次表达——直接解方程即可。这一招\textbf{凡涉及"加一个数据后均值 / 方差变化"类问题都适用}。
+}

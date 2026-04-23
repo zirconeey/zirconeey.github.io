@@ -1,0 +1,123 @@
+% !TEX root = ../Main.tex
+\chapter{事件的独立性}
+
+"独立"的直观：\textbf{一个事件发生与否不影响另一个事件的概率}。这条直觉落实为一条\textbf{乘积公式}——$P(AB) = P(A) P(B)$。本章学会\textbf{用公式判断独立}，而不是仅靠直觉。
+
+\section{独立性的定义与判定}
+
+\defn{两事件的相互独立}{
+    事件 $A, B$ 称为\textbf{相互独立}，当且仅当
+    \[
+    P(A \cap B) = P(A) \cdot P(B).
+    \]
+    这一定义对称：$A$ 独立于 $B$ $\iff$ $B$ 独立于 $A$。
+}
+
+\state{独立 $\ne$ 互斥：别搞混}{
+    \begin{itemize}
+        \item \textbf{互斥}：$A \cap B = \varnothing$，\textbf{结果层面}的不相容——"不能同时发生"；
+        \item \textbf{独立}：$P(A \cap B) = P(A) P(B)$，\textbf{概率层面}的互不影响——"发生与否互不干扰"。
+    \end{itemize}
+
+    \textbf{若 $P(A), P(B) > 0$，互斥与独立不可兼得}：互斥 $\Rightarrow P(A \cap B) = 0$，但独立要求 $P(A) P(B) > 0$——矛盾。故\textbf{互斥 $\Rightarrow$ 不独立}。
+}
+
+\state{多事件的乘积公式}{
+    若 $A_1, A_2, \ldots, A_n$ \textbf{相互独立}，则对任意子集 $\{i_1, \ldots, i_k\}$：
+    \[
+    P(A_{i_1} \cap A_{i_2} \cap \cdots \cap A_{i_k}) = P(A_{i_1}) P(A_{i_2}) \cdots P(A_{i_k}).
+    \]
+
+    \textbf{警示}：\textbf{两两独立 $\not\Rightarrow$ 相互独立}——后者要求\textbf{任何子集}的乘积公式都成立。中学阶段默认"独立"为"相互独立"。
+}
+
+\section{$n$ 重独立重复试验}
+
+\state{二项分布}{
+    同一试验重复 $n$ 次，每次\textbf{独立}、每次"成功"概率固定为 $p$。则\textbf{成功次数 $X$}服从\textbf{二项分布}：
+    \[
+    P(X = k) = C_n^k p^k (1-p)^{n-k},\qquad k = 0, 1, \ldots, n.
+    \]
+    记作 $X \sim B(n, p)$。
+}
+
+\ex[二项 + 多组独立]{
+    $A, B$ 是治疗同一疾病的两种药。用若干试验组进行对比——每个试验组由 $4$ 只小白鼠组成，其中 $2$ 只服用 $A$、$2$ 只服用 $B$。若组内"服 $A$ 有效的白鼠数"\textbf{大于}"服 $B$ 有效的白鼠数"，称该组为\textbf{甲类组}。设每只小白鼠服 $A$ 有效的概率为 $\tfrac{2}{3}$，服 $B$ 有效的概率为 $\tfrac{1}{2}$，且所有白鼠的反应相互独立。
+    \begin{enumerate}
+        \item 求一个试验组为甲类组的概率；
+        \item 观察 $3$ 个试验组，求这 $3$ 组中\textbf{至少有一个}甲类组的概率。
+    \end{enumerate}
+}
+
+\sol{
+    \textbf{(1) 单组甲类概率。} 设 $X$ 为"组内 $2$ 只服 $A$ 白鼠的有效数"，$Y$ 为"组内 $2$ 只服 $B$ 白鼠的有效数"。由独立性，$X \sim B(2, \tfrac{2}{3})$，$Y \sim B(2, \tfrac{1}{2})$，且 $X, Y$ 独立。
+
+    \[
+    \begin{array}{c|c|c}
+    k & P(X = k) & P(Y = k) \\ \hline
+    0 & 1/9 & 1/4 \\
+    1 & 4/9 & 1/2 \\
+    2 & 4/9 & 1/4
+    \end{array}
+    \]
+
+    甲类组 $\iff X > Y$。由 $X, Y$ 独立：
+    \begin{align*}
+    P(X > Y) &= P(X{=}1, Y{=}0) + P(X{=}2, Y{=}0) + P(X{=}2, Y{=}1) \\
+    &= \frac{4}{9} \cdot \frac{1}{4} + \frac{4}{9} \cdot \frac{1}{4} + \frac{4}{9} \cdot \frac{1}{2} \\
+    &= \frac{1}{9} + \frac{1}{9} + \frac{2}{9} = \frac{4}{9}.
+    \end{align*}
+
+    \textbf{(2) $3$ 组至少一个甲类。} 用\textbf{对立事件}——"$3$ 组无甲类" = 每组都不是甲类。各组独立，单组"不是甲类"概率 $1 - \tfrac{4}{9} = \tfrac{5}{9}$。
+    \[
+    P(\text{至少一个甲类}) = 1 - \left(\frac{5}{9}\right)^3 = 1 - \frac{125}{729} = \frac{604}{729}.
+    \]
+}
+
+\section{独立性判定的陷阱}
+
+\ex[独立性判定]{
+    有 $6$ 个相同的球，分别标有数字 $1, 2, 3, 4, 5, 6$。\textbf{有放回}地随机取两次，每次取 $1$ 个。记：
+    \begin{itemize}
+        \item 甲：第一次取出的球的数字是 $1$；
+        \item 乙：第二次取出的球的数字是 $2$；
+        \item 丙：两次取出的球的数字之\textbf{和}是 $8$；
+        \item 丁：两次取出的球的数字之\textbf{和}是 $7$。
+    \end{itemize}
+    下列哪一对是相互独立的事件？
+    \begin{enumerate}[label=(\Alph*)]
+        \item 甲、丙；\item 甲、丁；\item 乙、丙；\item 丙、丁。
+    \end{enumerate}
+}
+
+\sol{
+    样本空间 $|\Omega| = 6^2 = 36$（有序对）。
+
+    \textbf{单事件概率：}
+    \begin{align*}
+    &P(\text{甲}) = \frac{6}{36} = \frac{1}{6},\qquad P(\text{乙}) = \frac{6}{36} = \frac{1}{6},\\
+    &P(\text{丙}) = \frac{5}{36}\ \bigl((2,6),(3,5),(4,4),(5,3),(6,2)\bigr),\\
+    &P(\text{丁}) = \frac{6}{36} = \frac{1}{6}\ \bigl((1,6),(2,5),(3,4),(4,3),(5,2),(6,1)\bigr).
+    \end{align*}
+
+    \textbf{各组交事件：}
+    \begin{itemize}
+        \item \textbf{(A) 甲、丙}：甲 $\cap$ 丙 = "第一次 $1$ 且和为 $8$" $\Rightarrow$ 第二次 $7$——不可能。$P(\text{甲} \cap \text{丙}) = 0 \ne \tfrac{1}{6} \cdot \tfrac{5}{36}$。\textbf{不独立}。
+        \item \textbf{(B) 甲、丁}：甲 $\cap$ 丁 = "第一次 $1$，第二次 $6$"——$1$ 种。$P = \tfrac{1}{36} = \tfrac{1}{6} \cdot \tfrac{1}{6} = P(\text{甲})P(\text{丁})$。\textbf{独立}。$\checkmark$
+        \item \textbf{(C) 乙、丙}：乙 $\cap$ 丙 = "第二次 $2$，第一次 $6$"——$1$ 种。$P = \tfrac{1}{36}$，而 $P(\text{乙}) P(\text{丙}) = \tfrac{1}{6} \cdot \tfrac{5}{36} = \tfrac{5}{216}$。$\tfrac{1}{36} = \tfrac{6}{216} \ne \tfrac{5}{216}$。\textbf{不独立}。
+        \item \textbf{(D) 丙、丁}：和不能既为 $8$ 又为 $7$。$P(\text{丙} \cap \text{丁}) = 0 \ne P(\text{丙}) P(\text{丁})$。\textbf{不独立}。
+    \end{itemize}
+
+    答：\textbf{(B)}。
+}
+
+\rmkb{
+    \textbf{判独立的算法}：\textbf{别靠"看起来像"}——严格走三步：
+    \begin{enumerate}
+        \item 算 $P(A)$；
+        \item 算 $P(B)$；
+        \item 算 $P(A \cap B)$ 并验证是否 $= P(A) P(B)$。
+    \end{enumerate}
+
+    \textbf{直觉陷阱}：本题中 "甲" 涉及第一次抽取、"乙" 涉及第二次抽取，\textbf{看似独立}。但 "丙""丁" 涉及两次结果的\textbf{和}——把两次"捏合"成一个量，这种\textbf{聚合量}可能与单次事件产生出人意料的关联或独立性。判断必须看公式，不能看描述。
+}

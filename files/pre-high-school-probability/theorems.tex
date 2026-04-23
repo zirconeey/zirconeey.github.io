@@ -1,0 +1,219 @@
+% 定理盒系统（中文版，复刻 adv-micro-psu 的 tcolorbox 配色）
+% 提供环境：\defn \thm \prop \lem \cor \ex \sol \rmk \rmkb \state
+
+% Definition（定义：绿色）
+\newtcbtheorem[number within=chapter]{mydefinition}{定义}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=black,
+    colbacktitle=green!20!white,
+    colback=green!10!white,
+}{defn}
+
+\NewDocumentCommand{\defn}{m+m}{
+    \begin{mydefinition}{#1}{}
+        #2
+    \end{mydefinition}
+}
+
+% Theorem（定理：青色）
+\newtcbtheorem[use counter from=mydefinition]{mytheorem}{定理}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=black,
+    colbacktitle=cyan!20!white,
+    colback=cyan!10!white,
+}{thm}
+
+\NewDocumentCommand{\thm}{m+m}{
+    \begin{mytheorem}{#1}{}
+        #2
+    \end{mytheorem}
+}
+
+% Proposition（命题：黄色）
+\newtcbtheorem[use counter from=mydefinition]{myproposition}{命题}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=black,
+    colbacktitle=yellow!30!white,
+    colback=yellow!20!white,
+}{prop}
+
+\NewDocumentCommand{\prop}{m+m}{
+    \begin{myproposition}{#1}{}
+        #2
+    \end{myproposition}
+}
+
+% Lemma（引理：紫色）
+\newtcbtheorem[use counter from=mydefinition]{mylemma}{引理}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=black,
+    colbacktitle=violet!20!white,
+    colback=violet!10!white,
+}{lem}
+
+\NewDocumentCommand{\lem}{m+m}{
+    \begin{mylemma}{#1}{}
+        #2
+    \end{mylemma}
+}
+
+% Corollary（推论：橙色）
+\newtcbtheorem[use counter from=mydefinition]{mycorollary}{推论}
+{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=black,
+    colbacktitle=orange!20!white,
+    colback=orange!10!white,
+}{cor}
+
+\NewDocumentCommand{\cor}{m+m}{
+    \begin{mycorollary}{#1}{}
+        #2
+    \end{mycorollary}
+}
+
+% Example（例题：蓝色竖线侧栏）
+\newenvironment{example}[1]{%
+    \par
+    \vspace{5pt}
+    \ifx&#1&
+        \noindent\textbf{例.}
+    \else
+        \noindent\textbf{例（#1）.}
+    \fi
+    \tcolorbox[blanker,breakable,left=5mm,parbox=false,top=8pt,
+        before upper={\parindent15pt},
+        after skip=10pt,
+        borderline west={1mm}{0pt}{cyan!20!white}]
+}{%
+    \endtcolorbox
+    \vspace{5pt}
+}
+
+\NewDocumentCommand{\ex}{O{}+m}{
+    \begin{example}{#1}
+        #2
+    \end{example}
+}
+
+% Solution（解答：红蓝竖线侧栏）
+\newenvironment{solution}{%
+    \par
+    \vspace{5pt}
+    \noindent\textbf{解.}
+    \tcolorbox[blanker,breakable,left=5mm,parbox=false,
+        before upper={\parindent15pt},
+        after skip=10pt,
+        borderline west={1mm}{0pt}{red!20!blue!60!white}]
+}{%
+    \endtcolorbox
+    \vspace{5pt}
+}
+
+\NewDocumentCommand{\sol}{+m}{
+    \begin{solution}
+        #1
+    \end{solution}
+}
+
+% Proof（证明）
+\newenvironment{proofbox}[1]{%
+    \par\vspace{3pt}
+    \ifx&#1&
+        \noindent\textbf{证.}
+    \else
+        \noindent\textbf{证（#1）.}
+    \fi
+    \tcolorbox[blanker,breakable,left=5mm,parbox=false,top=8pt,
+        before upper={\parindent15pt},
+        after skip=10pt,
+        borderline west={1mm}{0pt}{gray!40!white}]
+}{%
+    \textcolor{gray!50!white}{\hbox{}\nobreak\hfill$\blacksquare$}
+    \endtcolorbox
+    \vspace{5pt}
+}
+
+\NewDocumentCommand{\pf}{O{}+m}{%
+    \begin{proofbox}{#1}
+        #2
+    \end{proofbox}
+}
+
+% Remark 行内 & 块
+\NewDocumentCommand{\rmk}{+m}{%
+    {\it \color{blue!50!white}#1}
+}
+
+\newenvironment{remark}[1]{
+    \par
+    \vspace{5pt}
+    \ifx&#1&
+        \noindent\textbf{注.}
+    \else
+        \noindent\textbf{注（#1）.}
+    \fi
+    \tcolorbox[blanker,breakable,left=5mm,parbox=false,top=8pt,
+        before upper={\parindent15pt},
+        after skip=10pt,
+        borderline west={1mm}{0pt}{cyan!10!white}]
+}{
+    \endtcolorbox
+    \vspace{5pt}
+}
+
+\NewDocumentCommand{\rmkb}{O{}+m}{
+    \begin{remark}{#1}
+        #2
+    \end{remark}
+}
+
+% 强调框（浅紫无编号）
+\newtcolorbox{statebox}[1]{
+    enhanced,
+    frame hidden,
+    titlerule=0mm,
+    toptitle=1mm,
+    bottomtitle=1mm,
+    fonttitle=\bfseries\large,
+    coltitle=black,
+    colbacktitle=violet!15!white,
+    colback=violet!5!white,
+    breakable,
+    title={#1}
+}
+
+\NewDocumentCommand{\state}{m+m}{
+    \begin{statebox}{#1}
+        #2
+    \end{statebox}
+}

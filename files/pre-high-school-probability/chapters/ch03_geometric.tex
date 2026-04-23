@@ -1,0 +1,54 @@
+% !TEX root = ../Main.tex
+\chapter{几何概型}
+
+当样本空间\textbf{无限}（即样本点不可数）但\textbf{均匀分布}于某几何区域时，古典概型的"数数"失效。\textbf{几何概型}把"有利情况数"替换为"有利区域的几何度量"——长度、面积、体积。
+
+\section{几何概型的定义}
+
+\defn{几何概型}{
+    若样本空间 $\Omega$ 对应一个几何区域（长度 / 面积 / 体积），每个样本点\textbf{均匀分布}，则事件 $A$（$A \subseteq \Omega$）的概率为
+    \[
+    P(A) = \frac{\mu(A)}{\mu(\Omega)},
+    \]
+    其中 $\mu$ 表示\textbf{几何度量}（长度 / 面积 / 体积）。
+}
+
+\ex[长度型]{
+    在区间 $[0, 3]$ 上随机取一点 $x$。求 $x > 1$ 的概率。
+}
+
+\sol{
+    样本空间 $\Omega = [0, 3]$，长度 $3$；事件 $A = (1, 3]$，长度 $2$。
+    \[
+    P(A) = \frac{2}{3}.
+    \]
+}
+
+\ex[面积型]{
+    在边长为 $1$ 的正方形 $ABCD$ 内随机取一点 $P$。求 $|PA| < 1$ 的概率（其中 $A$ 为正方形的一个顶点）。
+}
+
+\sol{
+    $|PA| < 1$ 的区域 = 以 $A$ 为圆心、$1$ 为半径的圆与正方形的交集——这是一个\textbf{四分之一圆}（圆心在顶点，半径等于边长），面积 $\dfrac{\pi}{4}$。正方形面积 $1$。
+    \[
+    P = \frac{\pi/4}{1} = \frac{\pi}{4}.
+    \]
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth,scale=2]
+  \draw[thick] (0,0) rectangle (1,1);
+  \draw[thick,fill=blue!20,fill opacity=0.5] (0,0) -- (1,0) arc (0:90:1) -- cycle;
+  \node[below left] at (0,0) {\scriptsize $A$};
+  \node[below right] at (1,0) {\scriptsize $B$};
+  \node[above right] at (1,1) {\scriptsize $C$};
+  \node[above left] at (0,1) {\scriptsize $D$};
+  \node at (0.3,0.3) {\scriptsize $|PA|<1$};
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{"均匀分布"的重要性}：几何概型的关键假设是样本点\textbf{均匀地}散落在区域内。若分布不均匀（如靠近某中心密度更大），上述公式失效——需用更一般的概率密度。
+
+    \textbf{转化技巧}：许多看似"数不清"的题目可以放到坐标平面用面积处理。例如"两人在 $[0,1]$ 小时内随机到达，等待不超过 $15$ 分钟"类的"会面问题"——把两人到达时间 $(x, y)$ 看成单位正方形上一点，事件 $|x - y| \le \tfrac{1}{4}$ 对应正方形中的一条带状区域，用面积比即得概率。
+}
