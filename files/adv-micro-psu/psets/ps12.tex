@@ -1,0 +1,147 @@
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{setspace}
+
+\setstretch{1.15}
+\setlength{\parskip}{4pt}
+
+\title{Econ 521 --- Problem Set 12}
+\author{Rui Zhou}
+\date{Spring 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Problem 1}
+
+Under tit-for-tat, the continuation strategy depends only on last period's action pair, so play is governed by an automaton with four states:
+\[
+s_1=(C,C),\quad s_2=(C,D),\quad s_3=(D,C),\quad s_4=(D,D),
+\]
+with prescriptions $f(s_1)=(C,C)$, $f(s_2)=(D,C)$, $f(s_3)=(C,D)$, $f(s_4)=(D,D)$. The first period is treated as state $s_1$. By the one-deviation principle, tit-for-tat is an SPE iff no player has a profitable one-period deviation at any of these four states.
+
+\smallskip
+\emph{State $s_1$ (on-path).} Following gives $2/(1-\delta)$. If player 1 deviates to $D$, play enters $s_3$ and then cycles $(D,C),(C,D),(D,C),\ldots$; the deviator's payoff stream from the deviation period onward is $3,0,3,0,\ldots$, with present value $3/(1-\delta^2)$. No profitable deviation requires
+\[
+\frac{2}{1-\delta}\ \ge\ \frac{3}{1-\delta^2}
+\quad\Longleftrightarrow\quad \delta\ \ge\ \tfrac{1}{2}.
+\]
+
+\emph{State $s_4$.} Following gives $(D,D)$ forever, worth $1/(1-\delta)$. Deviating to $C$ gives $(C,D)$ this period and then play cycles $(D,C),(C,D),\ldots$: the stream is $0,3,0,3,\ldots$, worth $3\delta/(1-\delta^2)$. No-deviation:
+\[
+\frac{1}{1-\delta}\ \ge\ \frac{3\delta}{1-\delta^2}
+\quad\Longleftrightarrow\quad \delta\ \le\ \tfrac{1}{2}.
+\]
+
+\emph{State $s_2$ (state $s_3$ symmetric).} Prescription is $(D,C)$.
+
+Player~1 (prescribed $D$): following yields the stream $3,0,3,0,\ldots$, worth $3/(1-\delta^2)$; deviating to $C$ gives $(C,C)$ today, after which both players play $C$ forever, worth $2/(1-\delta)$. No-deviation:
+\[
+\frac{3}{1-\delta^2}\ \ge\ \frac{2}{1-\delta}
+\quad\Longleftrightarrow\quad \delta\ \le\ \tfrac{1}{2}.
+\]
+
+Player~2 (prescribed $C$): following yields $0,3,0,3,\ldots$, worth $3\delta/(1-\delta^2)$; deviating to $D$ gives $(D,D)$ this period and then $(D,D)$ forever, worth $1/(1-\delta)$. No-deviation:
+\[
+\frac{3\delta}{1-\delta^2}\ \ge\ \frac{1}{1-\delta}
+\quad\Longleftrightarrow\quad \delta\ \ge\ \tfrac{1}{2}.
+\]
+
+\smallskip
+The four constraints together force $\delta = \tfrac{1}{2}$. Tit-for-tat sustains $(C,C)$ every period as an SPE only at this single value. If $\delta<1/2$, the on-path deviation to $D$ is profitable. If $\delta>1/2$, a player sitting at the mutual-defection state $s_4$ (or at $s_2$ with prescription $C$) profitably unilaterally switches to $C$: the one-period sucker payoff is outweighed by the permanent cooperation that follows.
+
+\section*{Problem 2}
+
+The stage game has a unique pure-strategy Nash equilibrium at $(M,M)$ with payoff $(2,2)$: given $M$, each player's payoffs across $H,M,L$ are $1,2,1$, so $M$ is optimal.
+
+\subsection*{(a) Trigger strategy}
+
+Because $(M,M)$ is a stage Nash equilibrium, the punishment phase is automatically incentive-compatible and only the cooperative phase needs checking. Facing $H$, a player's payoffs across rows are $3,1,5$, so the best one-period deviation is $L$, yielding $5$ today and $(M,M)$ forever after. No-deviation requires
+\[
+\frac{3}{1-\delta}\ \ge\ 5 + \delta\cdot\frac{2}{1-\delta}.
+\]
+Multiplying by $1-\delta$ gives $3 \ge 5 - 3\delta$, so $\delta \ge 2/3$.
+
+\subsection*{(b) Forgiving strategy}
+
+Label phase (i) as the cooperative path (both play $H$) and phase (ii) as the one-period punishment $(L,L)$ followed by permanent return to $(H,H)$. A deviation in phase (i) starts (ii); a deviation within (ii) restarts (ii) from the beginning.
+
+Three information sets need checking.
+
+\smallskip
+\emph{On-path $(H,H)$.} Following gives $3/(1-\delta)$. Deviating to $L$ gives $5$ today and starts phase (ii) next period, worth
+\[
+5 + \delta\Bigl[-1+\tfrac{3\delta}{1-\delta}\Bigr].
+\]
+No-deviation reduces to $2\delta^2 - 3\delta + 1 \le 0$, i.e.\ $(2\delta-1)(\delta-1)\le 0$, so $\delta \ge 1/2$.
+
+\smallskip
+\emph{Phase (ii), punishment round $(L,L)$.} With the opponent playing $L$, the player's payoffs across $H,M,L$ are $0,0,-1$, so the best deviation is to $H$ or $M$, paying $0$ rather than $-1$. Following gives
+\[
+-1+\frac{3\delta}{1-\delta}=\frac{4\delta-1}{1-\delta}.
+\]
+Deviating gives $0$ today and then a restart of (ii):
+\[
+0+\delta\cdot\frac{4\delta-1}{1-\delta}.
+\]
+The no-deviation inequality reduces to $4\delta-1 \ge 0$, i.e.\ $\delta \ge 1/4$.
+
+\smallskip
+\emph{Phase (ii), recovery round $(H,H)$.} A deviation here restarts (ii), which delivers the same continuation as an on-path deviation. So the condition reproduces the on-path one: $\delta \ge 1/2$.
+
+\smallskip
+The binding constraint is $\delta \ge 1/2$. Because the punishment is finite rather than permanent, the required patience is weaker than in part (a).
+
+\section*{Problem 3}
+
+With zero marginal cost, firm $i$'s profit is $\pi_i = p_i q_i = p_i(a - p_i + b p_{-i})$.
+
+\subsection*{(a) Static Nash}
+
+The FOC $a - 2p_i + b p_{-i} = 0$ gives the best response $p_i = (a + bp_{-i})/2$. Imposing symmetry,
+\[
+p^N = \frac{a}{2-b},\qquad q^N = \frac{a}{2-b},\qquad \pi^N = \frac{a^2}{(2-b)^2}.
+\]
+
+\subsection*{(b) Joint monopoly}
+
+The merged firm maximizes
+\[
+\pi_1 + \pi_2 = a(p_1 + p_2) - p_1^2 - p_2^2 + 2b p_1 p_2.
+\]
+The FOC in $p_i$ is $a - 2p_i + 2b p_{-i} = 0$, giving the symmetric solution
+\[
+p^M = \frac{a}{2(1-b)},\qquad q^M = \frac{a}{2},\qquad \pi^M = \frac{a^2}{4(1-b)}.
+\]
+The ratio $p^M/p^N = (2-b)/[2(1-b)]$ exceeds $1$ for all $b\in(0,1)$: by merging, the firm internalizes the positive cross-price externality and raises both prices.
+
+\subsection*{(c) Sustaining collusion}
+
+Given opponent price $p^M$, firm $i$'s one-period best response solves $a - 2p_i + b p^M = 0$, giving
+\[
+p^D = \frac{a(2-b)}{4(1-b)},\qquad \pi^D = \frac{a^2(2-b)^2}{16(1-b)^2}.
+\]
+Since the reversion $p^N$ is the static Nash equilibrium, the punishment phase is credible and only the collusive phase needs checking. Grim-trigger sustains $p^M$ if
+\[
+\frac{\pi^M}{1-\delta}\ \ge\ \pi^D + \frac{\delta \pi^N}{1-\delta},
+\]
+i.e., $\delta \ge \bar\delta := (\pi^D - \pi^M)/(\pi^D - \pi^N)$. Using the identity $(2-b)^2 - 4(1-b) = b^2$,
+\[
+\pi^D - \pi^M = \frac{a^2 b^2}{16(1-b)^2},
+\]
+and, by the same identity applied inside the difference of squares $(2-b)^4 - 16(1-b)^2$,
+\[
+\pi^D - \pi^N = \frac{a^2 b^2 (b^2 - 8b + 8)}{16(1-b)^2 (2-b)^2}.
+\]
+The ratio simplifies to
+\[
+\bar\delta \;=\; \frac{(2-b)^2}{b^2 - 8b + 8}.
+\]
+Collusion is sustainable iff $\delta \ge \bar\delta$.
+
+The threshold rises with $b$. As $b \to 0$ the two products become independent, each firm's static best response already coincides with the joint-monopoly price, and collusion is self-enforcing (the formula approaches $1/2$ as an artifact of a $0/0$ limit, while the underlying payoff differences all vanish). As $b \to 1$ the goods approach perfect substitutes; static profits collapse while the monopoly prize stays bounded above zero, so $\bar\delta \to 1$. At $b = 1/2$, $\bar\delta = 9/17 \approx 0.529$, numerically the same threshold that arises for linear Cournot duopoly.
+
+\end{document}
