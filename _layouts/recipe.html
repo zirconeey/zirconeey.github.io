@@ -83,6 +83,18 @@ layout: default
   </section>
   {% endif %}
 
+  {% if page.prep and page.prep != "" %}
+  <section class="recipe-section" style="margin-bottom: 2.5rem;">
+    <h2 style="font-size: 1.35rem; color: var(--color-accent); font-family: var(--font-display);
+               margin-bottom: 1rem; padding-bottom: 0.3rem; border-bottom: 1px solid var(--color-border);">
+      备菜
+    </h2>
+    <div class="recipe-prep markdown-content" style="line-height: 1.8;">
+      {{ page.prep | markdownify }}
+    </div>
+  </section>
+  {% endif %}
+
   {% if page.steps and page.steps.size > 0 %}
   <section class="recipe-section" style="margin-bottom: 2.5rem;">
     <h2 style="font-size: 1.35rem; color: var(--color-accent); font-family: var(--font-display);
