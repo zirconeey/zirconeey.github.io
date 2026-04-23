@@ -1,0 +1,90 @@
+% !TEX root = ../Main.tex
+\chapter{游泳池与器材规格}
+
+\section{国际标准游泳池}
+
+\state{泳池主体尺寸}{
+    \begin{itemize}
+        \item \textbf{长度}：\textbf{50 米}；
+        \item \textbf{宽度}：\textbf{至少 21 米}；
+        \item \textbf{深度}：\textbf{1.80 米以上}；
+        \item \textbf{泳道}：设\textbf{ 8 条}泳道，每条泳道宽 \textbf{2.50 米}；
+        \item \textbf{分道线}：由\textbf{直径 5--10 厘米}的\textbf{单个浮标}连接而成。
+    \end{itemize}
+}
+
+\state{出发台}{
+    \begin{itemize}
+        \item 除\textbf{仰泳}外，运动员比赛时必须站在\textbf{出发台}上出发；
+        \item 出发台\textbf{高出水面 50--75 厘米}；
+        \item 台面面积为 \textbf{50 $\times$ 50 厘米}。
+    \end{itemize}
+}
+
+\section{两条重要的横贯旗绳}
+
+\state{仰泳转身标志旗（旗绳）}{
+    \begin{itemize}
+        \item 横穿泳池的\textbf{仰泳转身标志旗}，应悬挂在\textbf{水面以上不低于 1.8 米、不高于 2.5 米}的位置；
+        \item \textbf{距离每端池壁 5.0 米}。
+    \end{itemize}
+}
+
+\state{出发犯规召回线}{
+    \begin{itemize}
+        \item 出发犯规召回线应悬挂在\textbf{水面以上不低于 1.2 米}的位置；
+        \item \textbf{距离每端池壁 15.0 米}。
+    \end{itemize}
+}
+
+\section{泳池示意图}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5,>=Stealth]
+    % 泳池主体
+    \draw[thick] (0,0) rectangle (12,4.2);
+    % 8 条泳道（分道线）
+    \foreach \y in {0.525,1.05,1.575,2.1,2.625,3.15,3.675} {
+        \draw[dashed,gray] (0,\y) -- (12,\y);
+    }
+    % 出发台一端 / 另一端
+    \draw[very thick] (0,0) -- (0,4.2);
+    \draw[very thick] (12,0) -- (12,4.2);
+
+    % 仰泳旗绳（距池壁 5 米，缩放后 1.2）
+    \draw[red,thick,dashed] (1.2,-0.3) -- (1.2,4.5);
+    \draw[red,thick,dashed] (10.8,-0.3) -- (10.8,4.5);
+    \node[red,above] at (1.2,4.5) {\scriptsize 5 m};
+    \node[red,above] at (10.8,4.5) {\scriptsize 5 m};
+
+    % 召回线（距池壁 15 米，缩放后 3.6）
+    \draw[blue,thick,dotted] (3.6,-0.3) -- (3.6,4.5);
+    \draw[blue,thick,dotted] (8.4,-0.3) -- (8.4,4.5);
+    \node[blue,below] at (3.6,-0.3) {\scriptsize 15 m};
+    \node[blue,below] at (8.4,-0.3) {\scriptsize 15 m};
+
+    % 标注长度
+    \draw[<->] (0,-1.2) -- (12,-1.2);
+    \node[below] at (6,-1.2) {\small 50 m};
+
+    \draw[<->] (13,0) -- (13,4.2);
+    \node[right] at (13,2.1) {\small $\ge$ 21 m};
+
+    \node at (6,4.8) {\small 8 条泳道 $\times$ 2.50 m};
+
+    % 图例
+    \node[red,right] at (-0.5,-2.2) {\scriptsize --- 仰泳转身旗绳（距壁 5 m）};
+    \node[blue,right] at (-0.5,-2.8) {\scriptsize \ldots\ldots 出发犯规召回线（距壁 15 m）};
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{易考点}：
+    \begin{itemize}
+        \item 泳池长 \textbf{50 m}、宽 \textbf{$\ge$ 21 m}、深 \textbf{$\ge$ 1.80 m}；
+        \item \textbf{8 条}泳道，每道宽 \textbf{2.50 m}；分道线浮标直径 \textbf{5--10 cm}；
+        \item 出发台高出水面 \textbf{50--75 cm}，台面 \textbf{50 $\times$ 50 cm}（仰泳\textbf{不用}出发台）；
+        \item \textbf{仰泳转身旗绳}：水面以上 \textbf{1.8--2.5 m}，\textbf{距池壁 5 m}；
+        \item \textbf{出发犯规召回线}：水面以上 \textbf{$\ge$ 1.2 m}，\textbf{距池壁 15 m}。
+    \end{itemize}
+}
