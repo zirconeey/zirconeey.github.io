@@ -1,0 +1,113 @@
+% !TEX root = ../Main.tex
+\chapter{斜面上的平衡与自锁}
+
+\textbf{斜面}是高一力学最"朴素"的情境——但它引出了\textbf{自锁、临界角、沙堆倾角}这一串互相等价的概念。本章用一个临界条件 $\mu = \tan \theta$ 把它们\textbf{统一成一件事}。
+
+\section{斜面上的静止临界}
+
+\state{物块静止于斜面上的条件}{
+    设斜面倾角 $\theta$、物块质量 $m$、物块与斜面的静摩擦因数 $\mu_s$（动摩擦因数 $\mu$，通常 $\mu_s \approx \mu$，取两者相等简化）。
+
+    受力分析（以斜面方向为坐标）：
+    \begin{itemize}
+        \item 重力沿斜面分量（下滑方向）：$mg \sin \theta$；
+        \item 重力垂直斜面分量：$mg \cos \theta$；
+        \item 支持力 $N = mg \cos \theta$（垂直方向平衡）；
+        \item 最大静摩擦力 $f_{\max} = \mu_s N = \mu_s mg \cos \theta$。
+    \end{itemize}
+    \textbf{不下滑条件}：$mg \sin \theta \le \mu_s mg \cos \theta$，即
+    \[
+    \boxed{\mu_s \ge \tan \theta.}
+    \]
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=1]
+    \draw[thick] (0, 0) -- (5, 2.5);
+    \draw[thick] (0, 0) -- (5, 0);
+    \node at (0.4, 0.15) {\small $\theta$};
+    \draw (0.7, 0) arc (0:27:0.7);
+    \draw[thick, fill=gray!20] ({2.5+0.25*cos(27)-0.4*sin(27)}, {1.25+0.25*sin(27)+0.4*cos(27)}) -- ({2.5+0.25*cos(27)}, {1.25+0.25*sin(27)}) -- ({2.5-0.25*cos(27)}, {1.25-0.25*sin(27)}) -- ({2.5-0.25*cos(27)-0.4*sin(27)}, {1.25-0.25*sin(27)+0.4*cos(27)}) -- cycle;
+    \draw[->, thick] (2.5, 1.4) -- (2.5, 0.4) node[right] {\small $mg$};
+\end{tikzpicture}
+\end{center}
+
+\state{临界角与自锁现象}{
+    记\textbf{临界角} $\theta_0 = \arctan \mu_s$，即 $\tan \theta_0 = \mu_s$：
+    \begin{itemize}
+        \item 当 $\theta < \theta_0$（即 $\tan \theta < \mu_s$）：静摩擦\textbf{有余}，物块\textbf{自动静止}，不需要任何外力保持——即\textbf{自锁}；
+        \item 当 $\theta = \theta_0$：临界状态（刚好不下滑）；
+        \item 当 $\theta > \theta_0$：静摩擦不足以支撑，物块\textbf{下滑}。
+    \end{itemize}
+    这个临界角就是"\textbf{自锁角}"——小于它时斜面和物块"自己锁住"，不动。
+}
+
+\section{沙堆倾角——自锁的自然体现}
+
+\state{沙堆堆积的极限倾角}{
+    一堆干沙落到地面后会自然形成一个\textbf{圆锥形沙堆}，其侧面与水平面的夹角\textbf{有极限}——即沙堆倾角（\textbf{静态休止角}）$\theta_r$。每粒沙可看作"斜面上的物块"，斜面即沙堆的侧面。
+    \begin{itemize}
+        \item 若当前倾角 $\theta < \theta_r$：表层沙粒自锁，堆稳定；
+        \item 若 $\theta > \theta_r$：表层沙粒滑下，直至倾角降到 $\theta_r$。
+    \end{itemize}
+    故沙堆倾角恰等于\textbf{沙粒与沙之间的内摩擦临界角}：
+    \[
+    \tan \theta_r = \mu_s.
+    \]
+    \textbf{理解要点}：沙堆倾角不是由"沙堆多重"或"怎么倒"决定，而是\textbf{只由摩擦因数}决定。
+}
+
+\section{斜面上加沿斜面外力}
+
+\state{斜面上施加沿斜面的力 $F$}{
+    若在斜面上对物块施加沿斜面向上的外力 $F$（与斜面平行）：
+    \begin{itemize}
+        \item \textbf{刚好不下滑}：$F \ge mg \sin \theta - \mu mg \cos \theta$（要求右边为正，即 $\mu < \tan \theta$ 时才需 $F$，否则自锁无需外力）；
+        \item \textbf{刚好不上滑}：$F \le mg \sin \theta + \mu mg \cos \theta$；
+        \item \textbf{静止的 $F$ 范围}：
+        \[
+        mg (\sin \theta - \mu \cos \theta) \le F \le mg (\sin \theta + \mu \cos \theta).
+        \]
+    \end{itemize}
+    \textbf{$F$ 的上下限之差}$= 2 \mu mg \cos \theta = 2 f_{\max}$——恰是\textbf{摩擦力可变范围的两倍}。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=1]
+    \draw[thick] (0, 0) -- (5, 2.5);
+    \draw[thick] (0, 0) -- (5, 0);
+    \node at (0.4, 0.15) {\small $\theta$};
+    \draw (0.7, 0) arc (0:27:0.7);
+    \draw[thick, fill=gray!20] ({2.5+0.25*cos(27)-0.4*sin(27)}, {1.25+0.25*sin(27)+0.4*cos(27)}) -- ({2.5+0.25*cos(27)}, {1.25+0.25*sin(27)}) -- ({2.5-0.25*cos(27)}, {1.25-0.25*sin(27)}) -- ({2.5-0.25*cos(27)-0.4*sin(27)}, {1.25-0.25*sin(27)+0.4*cos(27)}) -- cycle;
+    \draw[->, very thick, blue] (2.5, 1.25) -- ({2.5+1.0*cos(27)}, {1.25+1.0*sin(27)}) node[right] {\small $F$};
+\end{tikzpicture}
+\end{center}
+
+\ex[斜面平衡的临界]{
+    倾角 $\theta = 30^\circ$ 的斜面上放一物块，已知物块与斜面动摩擦因数 $\mu = 0.5$。问：
+    \begin{enumerate}
+        \item[(1)] 是否需要外力才能使物块静止？
+        \item[(2)] 若不需要，最小静摩擦因数 $\mu_s^{\min}$ 是多少？
+    \end{enumerate}
+}
+
+\sol{
+    \textbf{(1)} $\tan 30^\circ = \tfrac{1}{\sqrt 3} \approx 0.577$。动摩擦因数 $\mu = 0.5 < 0.577 = \tan \theta$，故 \textbf{需要外力}才能保持静止（否则物块下滑）。
+
+    \textbf{(2)} 若物块本身能自锁，只需 $\mu_s \ge \tan \theta = \tan 30^\circ = \dfrac{\sqrt 3}{3}$，即
+    \[
+    \mu_s^{\min} = \frac{\sqrt 3}{3} \approx 0.577.
+    \]
+}
+
+\rmkb{
+    \textbf{本章主旨}：\textbf{$\mu = \tan \theta$ 是无处不在的"临界线"}——它同时定义：
+    \begin{itemize}
+        \item 斜面物块的\textbf{自锁角}；
+        \item 沙堆的\textbf{休止倾角}；
+        \item 传送带共速后\textbf{能否维持共速}；
+        \item 冲上斜面能否\textbf{滑回来}（第 5 章）。
+    \end{itemize}
+
+    \textbf{做题直觉}：看到斜面题先算 $\mu$ 与 $\tan \theta$ 的关系，答案分支基本就选定了。
+}

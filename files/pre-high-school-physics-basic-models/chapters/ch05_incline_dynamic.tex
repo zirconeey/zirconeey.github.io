@@ -1,0 +1,156 @@
+% !TEX root = ../Main.tex
+\chapter{冲上斜面与往返问题}
+
+本章处理\textbf{物块以初速度冲上斜面}及后续问题：能否滑回、冲上/冲回速度的比值、多次往返的比。最后研究一类易错模型：\textbf{斜面 + 斜向外力}下 $N \ne mg \cos \theta$ 的情形。
+
+\section{冲上斜面的动力学}
+
+\state{以 $v_0$ 冲上倾角为 $\theta$ 的粗糙斜面}{
+    设物块以 $v_0$ 沿斜面向上运动，与斜面动摩擦因数 $\mu$。
+    \textbf{上行阶段}——物块相对斜面向上 $\Rightarrow$ 动摩擦力沿斜面向\textbf{下}：
+    \[
+    a_{\uparrow} = g(\sin \theta + \mu \cos \theta) \quad (\text{减速}).
+    \]
+    到达最高点时物块停止。设最远距离为 $L$：
+    \[
+    v_0^2 = 2 a_{\uparrow} L \implies L = \frac{v_0^2}{2 g (\sin \theta + \mu \cos \theta)}.
+    \]
+
+    \textbf{到顶后是否滑下}取决于\textbf{临界条件}：
+    \begin{itemize}
+        \item 若 $\mu \ge \tan \theta$：静摩擦\textbf{自锁}，物块停在最高点；
+        \item 若 $\mu < \tan \theta$：物块\textbf{下滑}——摩擦力改向沿斜面\textbf{向上}（因相对运动反向）：
+        \[
+        a_{\downarrow} = g(\sin \theta - \mu \cos \theta).
+        \]
+    \end{itemize}
+}
+
+\section{冲上 / 冲回速度比}
+
+\state{往返速度比的核心公式}{
+    设 $v_1$ 为冲上初速度、$v_2$ 为滑回至原点时的速度（要求 $\mu < \tan \theta$，即物块能滑回）。由上行、下行在\textbf{相同斜面距离} $L$ 上的能量方程：
+    \begin{align*}
+    \text{上行}:\quad & 0 - \tfrac{1}{2} m v_1^2 = - mg \sin \theta \cdot L - \mu m g \cos \theta \cdot L, \\
+    \text{下行}:\quad & \tfrac{1}{2} m v_2^2 - 0 = mg \sin \theta \cdot L - \mu m g \cos \theta \cdot L.
+    \end{align*}
+    两式相除即得：
+    \[
+    \boxed{\left(\frac{v_1}{v_2}\right)^2 = \frac{\sin \theta + \mu \cos \theta}{\sin \theta - \mu \cos \theta}.}
+    \]
+    \textbf{推论}：$v_1 > v_2$——物块滑回时速度总是\textbf{小于}冲上速度，差额来自\textbf{摩擦耗能 $2 \mu m g \cos \theta \cdot L$}。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=1]
+    \draw[thick] (0, 0) -- (5, 2.5);
+    \draw[thick] (0, 0) -- (5, 0);
+    \node at (0.4, 0.15) {\small $\theta$};
+    \draw (0.7, 0) arc (0:27:0.7);
+    \draw[thick, fill=gray!20] ({2.5+0.25*cos(27)-0.4*sin(27)}, {1.25+0.25*sin(27)+0.4*cos(27)}) -- ({2.5+0.25*cos(27)}, {1.25+0.25*sin(27)}) -- ({2.5-0.25*cos(27)}, {1.25-0.25*sin(27)}) -- ({2.5-0.25*cos(27)-0.4*sin(27)}, {1.25-0.25*sin(27)+0.4*cos(27)}) -- cycle;
+    \draw[->, very thick, blue] (2.5, 1.25) -- ({2.5+1.0*cos(27)}, {1.25+1.0*sin(27)}) node[right] {\small $v_1$};
+    \draw[->, very thick, red] (1.5, 0.75) -- ({1.5-0.8*cos(27)}, {0.75-0.8*sin(27)}) node[below left] {\small $v_2$};
+\end{tikzpicture}
+\end{center}
+
+\section{多次往返——比例不变}
+
+\state{重复往返：比例不变性}{
+    若物块从斜面底端以 $v_0$ 冲上、滑回原位置以 $v_1$，再以 $v_1$ 的某个方向\textbf{再次}冲上（比如顶住弹性撞击反射），下次滑回为 $v_2$，依此类推，形成序列 $v_0, v_1, v_2, \ldots$。由每个"往返循环"几何相同：
+    \[
+    \left(\frac{v_{n-1}}{v_n}\right)^2 = \frac{\sin \theta + \mu \cos \theta}{\sin \theta - \mu \cos \theta} \quad \text{（每次相同）}.
+    \]
+    即\textbf{每次往返后速度按固定比例衰减}。这是一个\textbf{等比数列}。
+
+    \textbf{实际情形举例}：小球被置于两斜面构成的\textbf{V 形槽}中，每次滚到对面上升再落回，往返速度比成定值，总路程为无穷级数 $\sum L_n$ 可和。
+}
+
+\section{斜面 + 斜向外力：$N \ne mg \cos \theta$ 的陷阱}
+
+\state{水平外力作用在斜面物块上}{
+    考虑物块在倾角 $\theta$ 的斜面上，被\textbf{水平力} $F$ 推向斜面（水平方向指向斜面内部）。取坐标：\textbf{$x$ 沿斜面向上、$y$ 沿斜面法向向外}。
+
+    分解 $F$（水平、指向斜面）：
+    \begin{itemize}
+        \item 沿斜面向上分量：$F \cos \theta$；
+        \item 垂直斜面（\textbf{压向}斜面）分量：$F \sin \theta$。
+    \end{itemize}
+
+    分解 $mg$（竖直向下）：沿斜面向下 $mg \sin \theta$、垂直压向斜面 $mg \cos \theta$。
+
+    \textbf{法向平衡}：
+    \[
+    \boxed{N = mg \cos \theta + F \sin \theta.}
+    \]
+    \textbf{注意——此时 $N \ne mg \cos \theta$！} 水平外力的法向分量\textbf{增大}了支持力。
+
+    \textbf{沿斜面（$x$）方向 Newton}（设向上为正）：
+    \[
+    m a = F \cos \theta - mg \sin \theta - \mu N.
+    \]
+    代入 $N$：
+    \[
+    m a = F \cos \theta - mg \sin \theta - \mu (mg \cos \theta + F \sin \theta).
+    \]
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=0.95]
+    \draw[thick] (0, 0) -- (5, 2.5);
+    \draw[thick] (0, 0) -- (5, 0);
+    \node at (0.4, 0.15) {\small $\theta$};
+    \draw (0.7, 0) arc (0:27:0.7);
+    \coordinate (C) at (3, 1.5);
+    \draw[thick, fill=gray!20] ({3+0.3*cos(27)-0.45*sin(27)}, {1.5+0.3*sin(27)+0.45*cos(27)}) -- ({3+0.3*cos(27)}, {1.5+0.3*sin(27)}) -- ({3-0.3*cos(27)}, {1.5-0.3*sin(27)}) -- ({3-0.3*cos(27)-0.45*sin(27)}, {1.5-0.3*sin(27)+0.45*cos(27)}) -- cycle;
+    \draw[->, very thick, blue] (1.8, 1.8) -- (C) node[midway, above left] {\small $F$};
+    \draw[->, thick] (C) -- ({3+1.5*cos(27)}, {1.5+1.5*sin(27)}) node[above right] {\small $x$};
+    \draw[->, thick] (C) -- ({3-1.0*sin(27)}, {1.5+1.0*cos(27)}) node[above left] {\small $y$};
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{$N \ne mg \cos \theta$ 的情形}（本章核心要点）：
+    \begin{itemize}
+        \item 一旦斜面上有\textbf{非沿斜面}的外力（如水平推力、竖直力等），都会通过\textbf{法向分量}改变 $N$；
+        \item 摩擦力 $f = \mu N$ 也随之改变；
+        \item \textbf{错用 $N = mg \cos \theta$}会导致错误的加速度、错误的临界条件、错误的往返比。
+    \end{itemize}
+
+    \textbf{解题套路}：
+    \begin{enumerate}
+        \item 建坐标——\textbf{沿斜面、垂直斜面}最自然；
+        \item 分解所有力（$mg$、$F$、$N$、$f$）到两轴；
+        \item 先用 $y$ 方向平衡\textbf{解 $N$}；
+        \item 再用 $x$ 方向 Newton 算 $a$。
+    \end{enumerate}
+
+    \textbf{从不跳过解 $N$ 的一步}——这是陷阱最多的地方。
+}
+
+\ex[斜面 + 水平力的综合题]{
+    倾角 $\theta = 37^\circ$ 的斜面上有物块，$\mu = 0.5$，施加水平力 $F$。求：
+    \begin{enumerate}
+        \item[(1)] 物块\textbf{恰好匀速上滑}时 $F$ 的值（用 $m, g, \theta$ 表示）；
+        \item[(2)] 取 $\sin 37^\circ = 0.6, \cos 37^\circ = 0.8$，算出 $F/mg$ 的数值。
+    \end{enumerate}
+}
+
+\sol{
+    \textbf{(1)} 匀速 $\Rightarrow a = 0$。由上述公式：
+    \[
+    F \cos \theta = mg \sin \theta + \mu (mg \cos \theta + F \sin \theta),
+    \]
+    整理
+    \[
+    F (\cos \theta - \mu \sin \theta) = mg (\sin \theta + \mu \cos \theta),
+    \]
+    \[
+    F = mg \cdot \frac{\sin \theta + \mu \cos \theta}{\cos \theta - \mu \sin \theta}.
+    \]
+
+    \textbf{(2)} 代入 $\sin 37^\circ = 0.6, \cos 37^\circ = 0.8, \mu = 0.5$：
+    \[
+    F = mg \cdot \frac{0.6 + 0.5 \cdot 0.8}{0.8 - 0.5 \cdot 0.6} = mg \cdot \frac{1.0}{0.5} = 2mg.
+    \]
+    故 $F = 2mg$。
+}

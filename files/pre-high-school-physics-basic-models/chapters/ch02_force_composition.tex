@@ -1,0 +1,98 @@
+% !TEX root = ../Main.tex
+\chapter{力的合成：三种特殊三角形}
+
+两个力 $\vec{F_1}, \vec{F_2}$ 的合力由\textbf{平行四边形法则}给出，大小由余弦定理：
+\[
+|\vec F_1 + \vec F_2|^2 = F_1^2 + F_2^2 + 2 F_1 F_2 \cos \alpha,
+\]
+其中 $\alpha$ 为两力的\textbf{夹角}。但\textbf{三种特殊夹角}（$60^\circ, 90^\circ, 120^\circ$）下，等大情况 $F_1 = F_2 = F$ 能得到\textbf{记忆级}的合力：
+
+\section{三种特殊合力}
+
+\state{等大两力的三种特殊夹角}{
+    设 $F_1 = F_2 = F$，两力夹角为 $\alpha$，则合力大小
+    \[
+    F_{\text{合}} = 2 F \cos \tfrac{\alpha}{2}.
+    \]
+    代入三种特殊值：
+    \begin{center}
+    \begin{tabular}{c|c|c}
+        \hline
+        夹角 $\alpha$ & 合力 & 合成三角形 \\
+        \hline
+        $60^\circ$ & $\sqrt 3 F$ & 等腰三角形，顶角 $120^\circ$ \\
+        $90^\circ$ & $\sqrt 2 F$ & 等腰直角三角形 \\
+        $120^\circ$ & $F$ & 等边三角形 \\
+        \hline
+    \end{tabular}
+    \end{center}
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=0.9]
+    % 60° case
+    \draw[->, very thick, blue] (0, 0) -- (1.5, 0) node[right] {\small $F_1$};
+    \draw[->, very thick, blue] (0, 0) -- ({1.5*cos(60)}, {1.5*sin(60)}) node[above left] {\small $F_2$};
+    \draw[->, very thick, red] (0, 0) -- ({1.5+1.5*cos(60)}, {1.5*sin(60)}) node[right] {\small $\sqrt 3 F$};
+    \draw[dashed] (1.5, 0) -- ({1.5+1.5*cos(60)}, {1.5*sin(60)});
+    \draw[dashed] ({1.5*cos(60)}, {1.5*sin(60)}) -- ({1.5+1.5*cos(60)}, {1.5*sin(60)});
+    \node at (1.2, -0.6) {\small $\alpha = 60^\circ$};
+    % 90° case
+    \begin{scope}[xshift=5cm]
+        \draw[->, very thick, blue] (0, 0) -- (1.5, 0) node[right] {\small $F_1$};
+        \draw[->, very thick, blue] (0, 0) -- (0, 1.5) node[above] {\small $F_2$};
+        \draw[->, very thick, red] (0, 0) -- (1.5, 1.5) node[above right] {\small $\sqrt 2 F$};
+        \draw[dashed] (1.5, 0) -- (1.5, 1.5);
+        \draw[dashed] (0, 1.5) -- (1.5, 1.5);
+        \node at (0.8, -0.6) {\small $\alpha = 90^\circ$};
+    \end{scope}
+    % 120° case
+    \begin{scope}[xshift=10cm]
+        \draw[->, very thick, blue] (0, 0) -- (1.5, 0) node[right] {\small $F_1$};
+        \draw[->, very thick, blue] (0, 0) -- ({1.5*cos(120)}, {1.5*sin(120)}) node[above left] {\small $F_2$};
+        \draw[->, very thick, red] (0, 0) -- ({1.5+1.5*cos(120)}, {1.5*sin(120)}) node[above right] {\small $F$};
+        \draw[dashed] (1.5, 0) -- ({1.5+1.5*cos(120)}, {1.5*sin(120)});
+        \draw[dashed] ({1.5*cos(120)}, {1.5*sin(120)}) -- ({1.5+1.5*cos(120)}, {1.5*sin(120)});
+        \node at (0.5, -0.6) {\small $\alpha = 120^\circ$};
+    \end{scope}
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{记忆要点}：
+    \begin{itemize}
+        \item \textbf{$60^\circ + 60^\circ = 120^\circ$}（两力夹角 $60^\circ$）——合力 $\sqrt 3 F$，合成三角形中顶角 $120^\circ$；
+        \item \textbf{$120^\circ + 120^\circ + 120^\circ$}（两力夹角 $120^\circ$）——三角形为等边，\textbf{合力 $= F$}；
+        \item \textbf{$45^\circ + 45^\circ = 90^\circ$}（两力夹角 $90^\circ$）——合力 $\sqrt 2 F$。
+    \end{itemize}
+    \textbf{考试经验}：看到 $60^\circ, 90^\circ, 120^\circ$ 等\textbf{明显的特殊角}时，别套余弦定理浪费时间——直接写合力值。
+}
+
+\section{一般的合成公式}
+
+\state{任意两力合成}{
+    对任意 $F_1, F_2$ 及夹角 $\alpha$：
+    \[
+    F_{\text{合}} = \sqrt{F_1^2 + F_2^2 + 2 F_1 F_2 \cos \alpha}.
+    \]
+    \textbf{特殊情形}：
+    \begin{itemize}
+        \item $\alpha = 0^\circ$：$F_{\text{合}} = F_1 + F_2$（同方向相加）；
+        \item $\alpha = 180^\circ$：$F_{\text{合}} = |F_1 - F_2|$（反方向相减）；
+        \item $\alpha = 90^\circ$：$F_{\text{合}} = \sqrt{F_1^2 + F_2^2}$（直角和）。
+    \end{itemize}
+
+    \textbf{范围}：任意 $\alpha$ 下，
+    \[
+    |F_1 - F_2| \le F_{\text{合}} \le F_1 + F_2.
+    \]
+}
+
+\ex[三力平衡的特殊角]{
+    三个共点力 $F_1 = F_2 = F_3 = F$，相互夹角均为 $120^\circ$。证明合力为零。
+}
+
+\sol{
+    取两力合成：$F_1 + F_2$（夹角 $120^\circ$，等大）的合力为 $F$，方向与 $F_3$ \textbf{反向}。故三力合力 $= F - F = 0$。
+    \textbf{这是"三力共点成 $120^\circ$ 等大 $\Rightarrow$ 平衡"的速记：等边三角形闭合 $\Rightarrow$ 零合力。}
+}

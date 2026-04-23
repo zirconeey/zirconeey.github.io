@@ -1,0 +1,89 @@
+% !TEX root = ../Main.tex
+\chapter{初速度为零的匀加速直线运动比例}
+
+\textbf{初速度为零、匀加速直线运动}是高一动力学最基本的模型——表面上是一条 $v$-$t$ 斜直线，实际上\textbf{藏着四个几乎所有题都会用到的比例关系}。它们不是"公式",而是\textbf{"$v$-$t$ 图像下三角形面积"的直接几何后果}——记住几何，就不用背比例。
+
+\section{$v$-$t$ 图像的两条核心关系}
+
+\state{匀加速运动的两个基本量}{
+    设物体从静止出发、以恒定加速度 $a$ 运动：
+    \begin{itemize}
+        \item[\textbf{(i)}] \textbf{速度}随时间线性增长：$v(t) = at$；
+        \item[\textbf{(ii)}] \textbf{位移}等于 $v$-$t$ 图像下的面积——三角形：
+        \[
+        s(t) = \tfrac{1}{2} a t^2.
+        \]
+    \end{itemize}
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=1]
+    \draw[->] (0, 0) -- (5.5, 0) node[right] {$t$};
+    \draw[->] (0, 0) -- (0, 3.5) node[above] {$v$};
+    \draw[thick, blue] (0, 0) -- (5, 3);
+    \draw[dashed] (1, 0) -- (1, 0.6);
+    \draw[dashed] (2, 0) -- (2, 1.2);
+    \draw[dashed] (3, 0) -- (3, 1.8);
+    \draw[dashed] (4, 0) -- (4, 2.4);
+    \draw[dashed] (5, 0) -- (5, 3);
+    \node at (1, -0.3) {\small $T$};
+    \node at (2, -0.3) {\small $2T$};
+    \node at (3, -0.3) {\small $3T$};
+    \node at (4, -0.3) {\small $4T$};
+    \node at (5, -0.3) {\small $nT$};
+\end{tikzpicture}
+\end{center}
+
+\section{四条比例关系}
+
+\state{比例 1：等时间点的速度比}{
+    $T, 2T, \ldots, nT$ 时刻末的速度比为
+    \[
+    v_1 : v_2 : \cdots : v_n = 1 : 2 : \cdots : n.
+    \]
+    \textbf{由来}：$v(kT) = a \cdot kT$，所以 $v_k \propto k$。
+}
+
+\state{比例 2：从起点起等时间内的累计位移比}{
+    在 $[0, T], [0, 2T], \ldots, [0, nT]$ 时间内的\textbf{累计位移}比为
+    \[
+    s_1 : s_2 : \cdots : s_n = 1 : 4 : 9 : \cdots : n^2.
+    \]
+    \textbf{由来}：$s(kT) = \tfrac{1}{2} a (kT)^2 \propto k^2$。
+}
+
+\state{比例 3：连续等时间内的位移比}{
+    第 $1$ 个 $T$、第 $2$ 个 $T$、\ldots、第 $n$ 个 $T$ 内的\textbf{分段位移}比为
+    \[
+    s_{\mathrm I} : s_{\mathrm{II}} : \cdots : s_n = 1 : 3 : 5 : \cdots : (2n - 1).
+    \]
+    \textbf{由来}：第 $k$ 个 $T$ 内的位移 $= s(kT) - s((k-1)T) = \tfrac{1}{2}a T^2 \cdot (2k-1)$。
+}
+
+\state{比例 4：通过等距离所用时间比}{
+    通过从起点起第 $1, 2, \ldots, n$ 段\textbf{等长}位移所用时间比为
+    \[
+    t_1 : t_2 : \cdots : t_n = 1 : (\sqrt 2 - 1) : (\sqrt 3 - \sqrt 2) : \cdots : (\sqrt n - \sqrt{n-1}).
+    \]
+    \textbf{由来}：由 $s = \tfrac{1}{2} a t^2$ 反推 $t = \sqrt{2s/a}$，即通过前 $k$ 段共 $k$ 个位移用时 $\propto \sqrt k$，分段取差得上式。
+}
+
+\rmkb{
+    \textbf{四条比例的记忆法}：
+    \begin{itemize}
+        \item 比例 1 $\sim$ 线性 $\propto k$；
+        \item 比例 2 $\sim$ 二次 $\propto k^2$；
+        \item 比例 3 $\sim$ \textbf{连续奇数}——$1, 3, 5, 7, \ldots$；
+        \item 比例 4 $\sim$ 与比例 2、3 对偶——"位移固定、时间变"。
+    \end{itemize}
+    \textbf{本质}：所有比例都源于 $v(t) = at$ 与 $s = \tfrac{1}{2} a t^2$ 两公式。题目实战只需\textbf{判断需要哪种划分（等时间 vs 等位移，累计 vs 分段）}。
+}
+
+\ex[比例 3 的典型应用]{
+    一物体从静止开始做匀加速直线运动，已知第 $3$ 秒内位移为 $5$ m。求第 $5$ 秒内位移。
+}
+
+\sol{
+    由比例 3：$s_{\mathrm I} : s_{\mathrm{II}} : s_{\mathrm{III}} : \cdots = 1 : 3 : 5 : 7 : 9 : \cdots$。
+    故 $s_{\mathrm V} : s_{\mathrm{III}} = 9 : 5$，$s_{\mathrm V} = 5 \cdot \dfrac{9}{5} = 9$ m。
+}

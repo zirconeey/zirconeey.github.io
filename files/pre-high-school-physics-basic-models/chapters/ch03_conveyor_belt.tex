@@ -1,0 +1,142 @@
+% !TEX root = ../Main.tex
+\chapter{传送带模型}
+
+\textbf{传送带模型}在高一动力学中占据独特地位——它\textbf{把动摩擦力的方向问题推到最前台}，强迫学生分清\textbf{物块相对传送带}的运动方向（而非相对地面）。掌握以下三个要点就掌握了全部传送带问题：
+\begin{enumerate}
+    \item[\textbf{(1)}] 摩擦力方向由\textbf{相对速度}方向决定：$\vec f_{\text{块对带}}$ 与\textbf{物块相对传送带}的运动方向\textbf{相反}；
+    \item[\textbf{(2)}] \textbf{共速检验}——当物块速度追上或等于传送带速度时，必须分析\textbf{能否维持共速}；若静摩擦不足以维持，进入\textbf{第二阶段}，摩擦力方向可能反转；
+    \item[\textbf{(3)}] 分段画 $v$-$t$ 图像——把整个过程按\textbf{速度关系}切成几段，每段是匀变速。
+\end{enumerate}
+
+\section{水平传送带}
+
+\state{物块由静止放于水平传送带上}{
+    设传送带以恒定速度 $v_0$ 向右运动。把物块 $m$ 从静止放上传送带（物块与带的动摩擦因数 $\mu$）。
+
+    \textbf{第一阶段}：物块相对传送带向\textbf{左}运动 $\Rightarrow$ 摩擦力向\textbf{右} $\Rightarrow$ 物块以 $a = \mu g$ 加速。
+
+    \textbf{共速检验}：物块加速到 $v_0$ 时，两者相对静止。水平方向无其他力，\textbf{静摩擦力 $= 0$} $\Rightarrow$ 两者共同向右匀速运动（"第二阶段"）。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=1]
+    \draw[thick] (-2.5, 0) -- (2.5, 0);
+    \draw[thick] (-3, 0) circle (0.3);
+    \draw[thick] (3, 0) circle (0.3);
+    \draw[thick, fill=gray!20] (-0.5, 0) rectangle (0.5, 0.8);
+    \draw[->, thick] (0.7, 0.4) -- (1.8, 0.4) node[right] {$v_0$};
+    \node at (0, -0.5) {\small 水平传送带};
+\end{tikzpicture}
+\end{center}
+
+\rmkb{
+    \textbf{共速检验}是传送带问题的\textbf{永恒要点}：
+    \begin{itemize}
+        \item 每一次物块速度等于传送带速度时，\textbf{都要重新判断}静摩擦能否维持；
+        \item 静摩擦\textbf{最大值} $= \mu_s N$，若所需静摩擦超过此值，就进入下一阶段的动摩擦。
+    \end{itemize}
+}
+
+\section{倾斜传送带}
+
+倾斜传送带的分析比水平复杂——\textbf{重力沿斜面分量}要与摩擦力共同考虑，而摩擦力方向仍然由\textbf{相对速度}决定。
+
+\state{倾斜传送带的典型情形}{
+    设斜面倾角 $\theta$，传送带与物块动摩擦因数 $\mu$。分情况：
+    \begin{enumerate}
+        \item[\textbf{(A)}] \textbf{传送带向下运动，物块从上端静止放上}——物块相对传送带向\textbf{上} $\Rightarrow$ 摩擦力沿斜面\textbf{向下}（沿传送带运动方向）$\Rightarrow$ 物块合力下滑，加速度
+        \[
+        a_1 = g (\sin \theta + \mu \cos \theta).
+        \]
+        共速后（物块与带同速向下）分两情况：
+        \begin{itemize}
+            \item 若 $\mu \ge \tan \theta$：静摩擦足以\textbf{抗衡}重力分量，\textbf{共速向下匀速}；
+            \item 若 $\mu < \tan \theta$：静摩擦不足，物块继续加速，但\textbf{相对运动反向}（物块快于带），摩擦力沿斜面\textbf{向上}，加速度
+            \[
+            a_2 = g (\sin \theta - \mu \cos \theta).
+            \]
+        \end{itemize}
+        \item[\textbf{(B)}] \textbf{传送带向上运动，物块从下端静止放上}——物块相对传送带向\textbf{下} $\Rightarrow$ 摩擦力沿斜面\textbf{向上}（带带动物块）$\Rightarrow$ 物块受重力分量向下、摩擦力向上，加速度
+        \[
+        a_1 = \mu g \cos \theta - g \sin \theta \quad (\text{若 } \mu > \tan \theta, \text{否则物块无法上行}).
+        \]
+        共速后分两情况：
+        \begin{itemize}
+            \item 若 $\mu \ge \tan \theta$：两者共同匀速向上；
+            \item 若 $\mu < \tan \theta$：物块\textbf{根本上不去}——一开始就会下滑。
+        \end{itemize}
+    \end{enumerate}
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=0.9]
+    \draw[thick] (0, 0) -- (5, 2.5);
+    \draw[thick] (-0.2, -0.1) circle (0.25);
+    \draw[thick] (5.2, 2.6) circle (0.25);
+    \draw[thick, fill=gray!20] ({3.5+0.3*cos(27)}, {1.75+0.3*sin(27)}) -- ({3.5-0.3*cos(27)-0.5*sin(27)}, {1.75-0.3*sin(27)+0.5*cos(27)}) -- ({3.5+0.7*cos(27)-0.5*sin(27)}, {1.75+0.7*sin(27)+0.5*cos(27)}) -- ({3.5+0.7*cos(27)}, {1.75+0.7*sin(27)}) -- cycle;
+    \draw[->, thick] (3, 1.4) -- (2, 0.9) node[left] {$v_0$};
+    \node at (0.3, 0.3) {\small $\theta$};
+    \draw (0.6, 0) arc (0:27:0.6);
+    \node at (2.5, -0.5) {\small (A) 传送带向下、物块静止放上};
+\end{tikzpicture}
+\end{center}
+
+\section{相向运动：传送带"送"物块}
+
+\state{物块以初速度冲向传送带}{
+    水平传送带以 $v_2$ 向右运动。物块以 $v_1$ 从传送带右端向\textbf{左}冲入，动摩擦因数 $\mu$，重力加速度 $g$。取\textbf{向左为正}。
+
+    \textbf{分析}：无论 $v_1, v_2$ 具体值，初始时物块向左（正）、传送带向右（负），物块相对传送带向\textbf{正方向}运动 $\Rightarrow$ 摩擦力沿\textbf{负方向}（向右）$\Rightarrow$ 物块向左减速。
+    \begin{enumerate}
+        \item[\textbf{(i)}] 物块减速到 $0$、再反向加速（向右，即负方向），直到速度 $= -v_2$（与传送带共速）；
+        \item[\textbf{(ii)}] \textbf{共速后}：水平方向仅有静摩擦；无其他外力 $\Rightarrow$ 静摩擦 $= 0$，两者共同向右匀速运动。
+    \end{enumerate}
+    \textbf{无论 $v_1$ 相对 $v_2$ 大小，定性 $v$-$t$ 图像总是}：先从 $+v_1$ 线性下降，过零，继续线性下降到 $-v_2$，然后\textbf{水平直线}（匀速）。
+}
+
+\begin{center}
+\begin{tikzpicture}[>=Stealth, scale=1]
+    \draw[thick] (-2.5, 0) -- (2.5, 0);
+    \draw[thick] (-3, 0) circle (0.3);
+    \draw[thick] (3, 0) circle (0.3);
+    \draw[thick, fill=gray!20] (1, 0) rectangle (2, 0.8);
+    \draw[->, thick] (0.9, 0.4) -- (-0.3, 0.4) node[left] {$v_1$};
+    \draw[->, thick] (-1.5, -0.5) -- (-0.3, -0.5) node[right] {$v_2$};
+    \node at (0, -1.1) {\small 物块向左进入、传送带向右运动};
+\end{tikzpicture}
+\end{center}
+
+\state{$v$-$t$ 图像（取向左为正）}{
+    在一张 $v$-$t$ 图上：
+    \begin{itemize}
+        \item 斜线段：$v = v_1 - \mu g \cdot t$，斜率为负、$-\mu g$；
+        \item 共速后：水平线 $v = -v_2$。
+    \end{itemize}
+    \textbf{两种情况}（$v_1 \le v_2$ 和 $v_1 > v_2$）的\textbf{定性图像相同}——只是斜线在 $v$ 轴上的起始位置和水平段的高度不同。
+}
+
+\ex[传送带提速后物块运动]{
+    水平传送带以 $v_0$ 向右运动，传送带上放一质量为 $m$ 的物块，物块与\textbf{左墙}由轻绳相连，绳拉力已达最大值（即恰处临界）。现将传送带速度\textbf{突然增大}，求 $1\,\mathrm{s}$ 后物块的速度大小。
+}
+
+\sol{
+    初始状态下绳拉力等于动摩擦力 $\mu m g$（绳水平拉物块向左、动摩擦力向右），物块\textbf{静止}于传送带上。
+
+    突然增大传送带速度 —— 相对速度方向\textbf{不变}（物块相对传送带仍然向左），故摩擦力方向\textbf{不变}。绳拉力仍为最大值 $\mu m g$，与摩擦力平衡，\textbf{合力为 $0$}。
+
+    所以物块\textbf{仍然静止} $\Rightarrow$ $1\,\mathrm{s}$ 后物块速度\textbf{仍然为 $0$}。
+
+    \textbf{易错提示}：学生常以为"传送带变快 $\Rightarrow$ 物块也要变快"——错！在\textbf{绳连}的情形，绳的存在限制了物块\textbf{不能}跟着传送带加速。
+}
+
+\rmkb{
+    \textbf{传送带问题通用解法}：
+    \begin{enumerate}
+        \item \textbf{判定相对速度方向} $\Rightarrow$ 摩擦力方向；
+        \item \textbf{列 Newton 方程}算本阶段加速度；
+        \item \textbf{共速检验}——速度相等时判断摩擦力能否维持共速；不能则\textbf{进入下一阶段}并重新判摩擦力方向；
+        \item \textbf{分段 $v$-$t$ 图像}可视化整个过程。
+    \end{enumerate}
+
+    \textbf{"倾斜传送带 + $\mu$ 与 $\tan \theta$ 比较"}几乎决定了所有斜面传送带题的结局——先算 $\mu$ 与 $\tan \theta$ 关系，整个分支走向就确定了。
+}
