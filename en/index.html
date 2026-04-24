@@ -1,0 +1,722 @@
+---
+permalink: /en/
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-L6TCM0XFJ9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-L6TCM0XFJ9');
+  </script>
+  <title>Rui Zhou | Penn State Economics</title>
+  <meta name="description" content="Rui Zhou is a PhD student in Economics at Penn State University. Research interests: Behavioral Economics.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='82' font-family='Georgia, serif' font-size='95' font-weight='bold' fill='%23c9a96e' text-anchor='middle'>Zr</text></svg>">
+  <style>
+     /* 精准补丁：导航栏三段式与汉堡图标 */
+    @media (max-width: 768px) {
+      .nav-inner { 
+        display: grid !important; 
+        grid-template-columns: 1fr auto 1fr !important; /* 三段分布 */
+        align-items: center; padding: 0.6rem 1.2rem;
+      }
+      .logo-box { justify-self: start; }
+      .nav-toggle { display: block !important; justify-self: center; } /* 汉堡包居中 */
+      .nav-right-box { justify-self: end; }
+
+      .nav-links { 
+        display: none; flex-direction: column; position: absolute; 
+        top: 100%; left: 0; right: 0; background: var(--nav-bg); 
+        padding: 1.5rem; gap: 1.2rem; text-align: center; border-bottom: 1px solid var(--border-color);
+      }
+      .nav-links.open { display: flex !important; }
+    }
+
+    /* 汉堡图标细节与变 X 动画 */
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px auto; transition: 0.3s; }
+    .nav-toggle.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    
+    :root {
+      --color-ink: #1a1a2e;
+      --color-text: #374151;
+      --color-muted: #6b7280;
+      --color-light: #9ca3af;
+      --color-border: #e5e7eb;
+      --color-bg: #fafaf9;
+      --color-bg-warm: #f5f4f0;
+      --color-accent: #1e3a5f;
+      --color-accent-light: #2d5a8e;
+      --color-highlight: #c9a96e;
+      --color-card: #ffffff;
+      --color-nav-bg: rgba(250,250,249,0.92);
+      --color-nav-bg-solid: rgba(250,250,249,0.98);
+      --color-shadow: rgba(0,0,0,0.06);
+      --color-card-shadow: rgba(0,0,0,0.04);
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Source Sans 3', -apple-system, sans-serif;
+      --max-width: 960px;
+      --section-gap: 2.25rem;
+    }
+
+    /* Dark mode — auto from system */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --color-ink: #e8e6e3;
+        --color-text: #b8b5b0;
+        --color-muted: #8a8680;
+        --color-light: #6b6762;
+        --color-border: #2e2c2a;
+        --color-bg: #1a1918;
+        --color-bg-warm: #222120;
+        --color-accent: #7aaddb;
+        --color-accent-light: #9dc4e8;
+        --color-highlight: #c9a96e;
+        --color-card: #232221;
+        --color-nav-bg: rgba(26,25,24,0.92);
+        --color-nav-bg-solid: rgba(26,25,24,0.98);
+        --color-shadow: rgba(0,0,0,0.25);
+        --color-card-shadow: rgba(0,0,0,0.15);
+      }
+    }
+
+    /* Dark mode — manual override */
+    :root[data-theme="dark"] {
+      --color-ink: #e8e6e3;
+      --color-text: #b8b5b0;
+      --color-muted: #8a8680;
+      --color-light: #6b6762;
+      --color-border: #2e2c2a;
+      --color-bg: #1a1918;
+      --color-bg-warm: #222120;
+      --color-accent: #7aaddb;
+      --color-accent-light: #9dc4e8;
+      --color-highlight: #c9a96e;
+      --color-card: #232221;
+      --color-nav-bg: rgba(26,25,24,0.92);
+      --color-nav-bg-solid: rgba(26,25,24,0.98);
+      --color-shadow: rgba(0,0,0,0.25);
+      --color-card-shadow: rgba(0,0,0,0.15);
+    }
+
+    /* Light mode — manual override */
+    :root[data-theme="light"] {
+      --color-ink: #1a1a2e;
+      --color-text: #374151;
+      --color-muted: #6b7280;
+      --color-light: #9ca3af;
+      --color-border: #e5e7eb;
+      --color-bg: #fafaf9;
+      --color-bg-warm: #f5f4f0;
+      --color-accent: #1e3a5f;
+      --color-accent-light: #2d5a8e;
+      --color-highlight: #c9a96e;
+      --color-card: #ffffff;
+      --color-nav-bg: rgba(250,250,249,0.92);
+      --color-nav-bg-solid: rgba(250,250,249,0.98);
+      --color-shadow: rgba(0,0,0,0.06);
+      --color-card-shadow: rgba(0,0,0,0.04);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 17px; }
+    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { color: var(--color-accent-light); }
+
+    /* Navigation */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--color-nav-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); transition: box-shadow 0.3s ease; }
+    nav.scrolled { box-shadow: 0 1px 8px var(--color-shadow); }
+    .nav-inner { max-width: var(--max-width); margin: 0 auto; padding: 0.85rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .nav-name { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--color-ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--color-muted); text-decoration: none; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--color-accent); transition: width 0.3s ease; }
+    .nav-links a:hover { color: var(--color-accent); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+    .nav-toggle span { display: block; width: 22px; height: 2px; background: var(--color-ink); margin: 5px 0; transition: 0.3s; }
+
+    /* Theme toggle */
+    .theme-toggle { background: none; border: 1px solid var(--color-border); cursor: pointer; padding: 0.35rem 0.5rem; border-radius: 4px; font-size: 0.9rem; line-height: 1; transition: border-color 0.2s; color: var(--color-muted); }
+    .theme-toggle:hover { border-color: var(--color-accent); }
+
+    /* Hero */
+    .hero { max-width: var(--max-width); margin: 0 auto; padding: 8rem 2rem 0; display: grid; grid-template-columns: 280px 1fr; gap: 3.5rem; align-items: start; }
+    .hero-photo-wrapper { position: relative; }
+    .hero-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: center 15%; border-radius: 6px; }
+    .hero-photo-wrapper::after { content: ''; position: absolute; top: 10px; left: 10px; right: -10px; bottom: -10px; border: 1.5px solid var(--color-highlight); border-radius: 6px; z-index: -1; opacity: 0.5; }
+    .hero-text { padding-top: 0.5rem; }
+    .hero-name { font-family: var(--font-display); font-size: 3rem; font-weight: 600; color: var(--color-ink); line-height: 1.15; margin-bottom: 0.15rem; }
+    .hero-name-cn { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-muted); font-weight: 400; margin-bottom: 0.3rem; }
+    .pronunciation { font-size: 0.82rem; color: var(--color-light); font-style: italic; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.4rem; }
+    .pronunciation .ipa { font-style: normal; background: var(--color-bg-warm); padding: 0.15rem 0.5rem; border-radius: 3px; font-family: var(--font-body); font-size: 0.8rem; }
+    .hero-affiliation { font-size: 1.05rem; color: var(--color-accent); font-weight: 500; margin-bottom: 0.2rem; }
+    .hero-title { font-size: 0.95rem; color: var(--color-muted); margin-bottom: 1.5rem; }
+    .hero-bio { font-size: 0.98rem; line-height: 1.8; color: var(--color-text); margin-bottom: 1rem; }
+    .hero-bio:last-of-type { margin-bottom: 1.8rem; }
+    .hero-bio strong { font-family: var(--font-display); font-style: italic; font-weight: 600; color: var(--color-ink); }
+    .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-links a { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 500; color: var(--color-accent); padding: 0.45rem 1rem; border: 1.5px solid var(--color-accent); border-radius: 4px; transition: all 0.25s ease; }
+    .hero-links a:hover { background: var(--color-accent); color: #fff; }
+    .hero-links a.primary { background: var(--color-accent); color: #fff; }
+    .hero-links a.primary:hover { background: var(--color-accent-light); border-color: var(--color-accent-light); }
+
+    /* Sections */
+    /* Sections */
+    section { 
+      max-width: var(--max-width); 
+      margin: 0 auto; 
+      padding: var(--section-gap) 2rem; 
+      scroll-margin-top: 2.5rem; 
+    }
+    .section-title { font-family: var(--font-display); font-size: 1.9rem; font-weight: 600; color: var(--color-ink); margin-bottom: 0.6rem; position: relative; display: inline-block; }
+    .section-title::after { content: ''; display: block; width: 40px; height: 2.5px; background: var(--color-highlight); margin-top: 0.4rem; border-radius: 2px; }
+    .section-subtitle { font-size: 0.9rem; color: var(--color-muted); margin-bottom: 2rem; }
+    .divider { max-width: var(--max-width); margin: 0 auto; padding: 0 2rem; }
+    .divider hr { border: none; height: 1px; background: var(--color-border); }
+
+    /* Research */
+    .research-interests { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .interest-tag { padding: 0.4rem 1.1rem; background: var(--color-bg-warm); border: 1px solid var(--color-border); border-radius: 20px; font-size: 0.88rem; color: var(--color-text); font-weight: 450; }
+    .subsection-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 600; color: var(--color-ink); margin-top: 2.5rem; margin-bottom: 1.5rem; }
+    .paper { margin-bottom: 2.2rem; padding-left: 1.2rem; border-left: 2.5px solid var(--color-border); transition: border-color 0.3s; }
+    .paper:hover { border-left-color: var(--color-highlight); }
+    .paper-title { font-family: var(--font-display); font-size: 1.12rem; font-weight: 600; color: var(--color-ink); margin-bottom: 0.4rem; line-height: 1.4; }
+    .paper-title a { color: var(--color-ink); border-bottom: 1px solid transparent; }
+    .paper-title a:hover { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+    .paper-authors { font-size: 0.88rem; font-style: italic; color: var(--color-muted); margin-bottom: 0.5rem; }
+    .paper-abstract details summary { cursor: pointer; font-size: 0.85rem; color: var(--color-accent); font-weight: 500; margin-bottom: 0.5rem; user-select: none; list-style: none; }
+    .paper-abstract details summary::-webkit-details-marker { display: none; }
+    .paper-abstract details summary::before { content: '▸ '; font-size: 0.75rem; }
+    .paper-abstract details[open] summary::before { content: '▾ '; }
+    .paper-abstract details p { font-size: 0.9rem; line-height: 1.75; color: var(--color-text); margin-top: 0.3rem; }
+    .paper-links { margin-top: 0.5rem; display: flex; gap: 0.8rem; }
+    .paper-links a { font-size: 0.82rem; font-weight: 500; color: var(--color-accent); padding: 0.2rem 0.6rem; border: 1px solid var(--color-border); border-radius: 3px; transition: all 0.2s; }
+    .paper-links a:hover { background: var(--color-bg-warm); border-color: var(--color-accent); }
+
+    /* Education */
+    .edu-item { display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; margin-bottom: 1.8rem; align-items: baseline; }
+    .edu-year { font-size: 0.85rem; font-weight: 500; color: var(--color-light); font-variant-numeric: tabular-nums; }
+    .edu-details h3 { font-family: var(--font-display); font-size: 1.15rem; font-weight: 600; color: var(--color-ink); margin-bottom: 0.15rem; }
+    .edu-details .school { font-size: 0.92rem; color: var(--color-accent); font-weight: 500; }
+    .edu-details .field { font-size: 0.88rem; color: var(--color-muted); margin-top: 0.1rem; }
+
+    /* Teaching */
+    .teaching-item { display: grid; grid-template-columns: 90px 1fr; gap: 1.5rem; margin-bottom: 1.2rem; align-items: baseline; }
+    .teaching-role { font-size: 0.78rem; font-weight: 600; color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.06em; }
+    .teaching-details { font-size: 0.95rem; color: var(--color-text); }
+    .teaching-details .course-code { font-weight: 600; color: var(--color-ink); }
+    .teaching-details .semester { font-size: 0.85rem; color: var(--color-light); margin-left: 0.5rem; }
+    .teaching-details .instructor { font-size: 0.85rem; color: var(--color-muted); display: block; margin-top: 0.15rem; }
+
+    /* Notes */
+    .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .note-card { padding: 1.5rem; border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-card); transition: border-color 0.3s, box-shadow 0.3s; }
+    .note-card:hover { border-color: var(--color-highlight); box-shadow: 0 2px 12px var(--color-card-shadow); }
+    .note-card h3 { font-family: var(--font-display); font-size: 1.08rem; font-weight: 600; color: var(--color-ink); margin-bottom: 0.4rem; }
+    .note-card h3 a { color: var(--color-ink); }
+    .note-card h3 a:hover { color: var(--color-accent); }
+    .note-card .note-meta { font-size: 0.82rem; color: var(--color-light); margin-bottom: 0.6rem; }
+    .note-chapters { list-style: none; }
+    .note-chapters li { font-size: 0.85rem; color: var(--color-text); padding: 0.2rem 0; }
+    .note-chapters li a { color: var(--color-text); border-bottom: 1px solid transparent; }
+    .note-chapters li a:hover { color: var(--color-accent); border-bottom-color: var(--color-accent); }
+    .note-toggle { background: none; border: none; cursor: pointer; font-size: 0.82rem; color: var(--color-accent); font-weight: 500; padding: 0.3rem 0; font-family: var(--font-body); }
+    .note-toggle:hover { color: var(--color-accent-light); }
+
+    /* Misc */
+    .misc-text { font-size: 0.95rem; color: var(--color-text); line-height: 1.8; margin-bottom: 0.8rem; }
+
+    /* Photo gallery */
+    .gallery-toggle { background: none; border: 1px solid var(--color-border); cursor: pointer; font-size: 0.85rem; color: var(--color-accent); font-weight: 500; padding: 0.4rem 1rem; border-radius: 4px; font-family: var(--font-body); transition: all 0.2s; margin-top: 0.5rem; display: inline-block; }
+    .gallery-toggle:hover { background: var(--color-bg-warm); border-color: var(--color-accent); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.8rem; margin-top: 1rem; }
+    .gallery-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 5px; transition: transform 0.3s, opacity 0.3s; cursor: pointer; }
+    .gallery-grid img:hover { transform: scale(1.02); opacity: 0.9; }
+    .gallery-caption { font-size: 0.78rem; color: var(--color-light); text-align: center; margin-top: 0.25rem; }
+
+    /* Lightbox */
+    .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.88); z-index: 1000; justify-content: center; align-items: center; cursor: pointer; }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 4px; cursor: default; box-shadow: 0 4px 40px rgba(0,0,0,0.5); }
+    .lightbox-caption { position: fixed; bottom: 2rem; left: 0; right: 0; text-align: center; color: #ccc; font-size: 0.9rem; }
+    .lightbox-close { position: fixed; top: 1.2rem; right: 1.5rem; color: #aaa; font-size: 2rem; cursor: pointer; background: none; border: none; transition: color 0.2s; z-index: 1001; }
+    .lightbox-close:hover { color: #fff; }
+
+    /* Footer */
+    footer { max-width: var(--max-width); margin: 0 auto; padding: 3rem 2rem 4rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    .footer-contact { font-size: 0.88rem; color: var(--color-muted); line-height: 1.8; }
+    .footer-contact a { color: var(--color-accent); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .footer-contact a:hover { border-bottom-color: var(--color-accent); }
+    .footer-copy { font-size: 0.78rem; color: var(--color-light); }
+
+    /* Animations */
+    .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* Dark mode image adjustment */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .hero-photo { filter: brightness(0.88); }
+    }
+    :root[data-theme="dark"] .hero-photo { filter: brightness(0.88); }
+
+    /* Smooth theme transition */
+    body, nav, .note-card { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      html { font-size: 16px; }
+      .hero { grid-template-columns: 1fr; gap: 2rem; padding-top: 6rem; text-align: center; }
+      .hero-photo-wrapper { max-width: 220px; margin: 0 auto; }
+      .hero-name { font-size: 2.4rem; }
+      .pronunciation { justify-content: center; }
+      .hero-links { justify-content: center; }
+      .edu-item, .teaching-item { grid-template-columns: 1fr; gap: 0.2rem; }
+      .notes-grid { grid-template-columns: 1fr; }
+      section { padding: 1.75rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--color-nav-bg-solid); backdrop-filter: blur(12px); padding: 1rem 2rem; gap: 1rem; border-bottom: 1px solid var(--color-border); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+    }
+    @media (max-width: 480px) {
+      .nav-inner { padding: 0.75rem 1.2rem; }
+      .hero { padding: 5.5rem 1.2rem 0; }
+      .hero-name { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo-box"><a href="#">Rui Zhou</a></div>
+
+    <button class="nav-toggle" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#notes">Notes</a></li>
+      <li><a href="#misc">Misc</a></li>
+    </ul>
+
+    <div class="nav-right-box">
+      <button class="theme-toggle" onclick="toggleTheme()" title="Switch mode">&#9683;</button>
+    </div>
+  </div>
+</nav>
+
+  <!-- ABOUT -->
+  <section class="hero" id="about">
+    <div class="hero-photo-wrapper fade-in">
+      <img src="/files/en/images/profile_web.jpeg" alt="Photo of Rui Zhou" class="hero-photo">
+    </div>
+    <div class="hero-text fade-in" style="transition-delay: 0.15s">
+      <h1 class="hero-name">Rui Zhou</h1>
+      <div class="hero-name-cn">周睿 <span style="font-size: 0.95rem; color: var(--color-light); font-weight: 400;">(Zhōu Ruì)</span> <button onclick="playNameCN()" style="background:none;border:none;cursor:pointer;font-size:1rem;color:var(--color-accent);padding:0.1rem 0.3rem;border-radius:3px;" title="Listen in Mandarin">&#128264;</button></div>
+      <div class="pronunciation">
+        Pronunciation: <span class="ipa">/ɹweɪ dʒoʊ/</span> — "Rway Joe"
+        <button onclick="playNameEN()" style="background:none;border:none;cursor:pointer;font-size:1rem;color:var(--color-accent);padding:0.1rem 0.3rem;border-radius:3px;" title="Listen in English approximation">&#128264;</button>
+      </div>
+      <div class="hero-affiliation">Penn State University</div>
+      <div class="hero-title">PhD Student, Department of Economics</div>
+      <p class="hero-bio">
+        I am a first-year PhD student in Economics at
+        <a href="https://econ.la.psu.edu/">Penn State University</a>.
+        I received my B.A. in Finance (Financial Economics) from Peking University.
+      </p>
+      <p class="hero-bio">
+        My research interests lie in <strong>Behavioral Economics</strong> and <strong>Microeconomic Theory</strong>.
+      </p>
+      <div class="hero-links">
+        <a href="mailto:ruizhou@psu.edu" class="primary">&#9993; Email</a>
+        <a href="/files/en/CV%20(Rui%20Zhou).pdf">CV</a>
+        <a href="https://github.com/ruizhou03">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- RESEARCH -->
+  <section id="research" class="fade-in">
+    <h2 class="section-title">Research</h2>
+
+    <h3 class="subsection-title">Working Papers</h3>
+
+    <div class="paper">
+      <div class="paper-title">Negative Framing and Payment Compliance for Public Services: Evidence from a Field Experiment</div>
+      <div class="paper-authors">with Peng Chang, Tianyi Che, and <a href="https://sites.google.com/site/juanjuanmeng/">Juanjuan Meng</a></div>
+      <div class="paper-abstract"><details>
+        <summary>Abstract</summary>
+        <p>In China, people typically live inside a community whose daily affairs are maintained by companies that collect property management fees to operate. However, their efforts are rarely appreciated, resulting in a low fee collection rate. Apart from economic factors, we aimed to determine how behavioral factors influence people's payment behaviors. Using decade-long panel data from thousands of households, we employed DiD and RD to study the impact of external shocks on fee payment behaviors. The results reveal that enhancing payment convenience and community identity can significantly improve payment behaviors. Mental accounting matters as well, suggesting that bundling miscellaneous fees together is sometimes more effective than listing them separately. Building on these findings, we conduct an RCT to test the effects of social comparison and information framing on payment rates.</p>
+      </details></div>
+      <div style="font-size: 0.82rem; color: var(--color-muted); margin-top: 0.4rem; font-style: italic;">Accepted for presentation at the 86th Academy of Management (AOM) Annual Meeting, 2026.</div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- EDUCATION -->
+  <section id="education" class="fade-in">
+    <h2 class="section-title">Education</h2>
+    <div style="margin-top: 2rem;">
+      <div class="edu-item">
+        <span class="edu-year">2025 –</span>
+        <div class="edu-details">
+          <h3>Ph.D. in Economics</h3>
+          <div class="school">Penn State University</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">2024</span>
+        <div class="edu-details">
+          <h3>Exchange Student</h3>
+          <div class="school">University of Michigan, Ann Arbor</div>
+        </div>
+      </div>
+      <div class="edu-item">
+        <span class="edu-year">2021 – 25</span>
+        <div class="edu-details">
+          <h3>B.A. in Finance, Financial Economics Track</h3>
+          <div class="school">Peking University</div>
+          <div class="field">Guanghua School of Management</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- TEACHING -->
+  <section id="teaching" class="fade-in">
+    <h2 class="section-title">Teaching</h2>
+    <div style="margin-top: 2rem;">
+      <div class="teaching-item">
+        <span class="teaching-role">TA</span>
+        <div class="teaching-details">
+          <span class="course-code">ECON 104</span> — Introductory Macroeconomics
+          <span class="semester">Penn State, Spring 2026</span>
+          <span class="instructor">Instructor: <a href="https://econ.la.psu.edu/people/drb39/">Dave Brown</a></span>
+        </div>
+      </div>
+      <div class="teaching-item">
+        <span class="teaching-role">TA</span>
+        <div class="teaching-details">
+          <span class="course-code">ECON 104</span> — Introductory Macroeconomics
+          <span class="semester">Penn State, Fall 2025</span>
+          <span class="instructor">Instructor: <a href="https://econ.la.psu.edu/people/pxk18/">Paul Kagundu</a></span>
+        </div>
+      </div>
+      <div class="teaching-item">
+        <span class="teaching-role">TA</span>
+        <div class="teaching-details">
+          <span class="course-code">Advanced Microeconomics Theory</span> (Graduate)
+          <span class="semester">Peking University, Fall 2024</span>
+          <span class="instructor">Instructor: <a href="https://sites.google.com/view/fanqi-site/home">Fanqi Shi</a></span>
+        </div>
+      </div>
+      <div class="teaching-item">
+        <span class="teaching-role">TA</span>
+        <div class="teaching-details">
+          <span class="course-code">Behavioral Economics</span>
+          <span class="semester">Peking University, Fall 2023</span>
+          <span class="instructor">Instructor: <a href="https://sites.google.com/site/juanjuanmeng/">Juanjuan Meng</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- LECTURE NOTES -->
+  <section id="notes" class="fade-in">
+    <h2 class="section-title">Lecture Notes</h2>
+    <p class="section-subtitle">Notes from courses I have taken. Feel free to use them — corrections and suggestions are welcome.</p>
+
+    <div class="notes-grid">
+      <div class="note-card">
+        <h3>Advanced Microeconomics Theory</h3>
+        <div class="note-meta">Penn State University · Spring 2026</div>
+        <div style="margin-bottom:0.5rem;"><a href="https://zirconeey.github.io/files/adv-micro-psu/Micro.pdf" style="font-size:0.85rem;font-weight:500;">&#8681; Download full notes (PDF)</a></div>
+        <ul class="note-chapters" id="chapters-micro-psu" style="display:none;">
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch1_introduction.pdf">Ch 1: Introduction</a></li>
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch2_game_representation.pdf">Ch 2: Game Representation</a></li>
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch3_nash_equilibrium.pdf">Ch 3: Nash Equilibrium</a></li>
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch4_spne.pdf">Ch 4: Subgame Perfect Nash Equilibrium</a></li>
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch5_bargaining.pdf">Ch 5: Bargaining</a></li>
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch6_auctions.pdf">Ch 6: Private Value Auctions</a></li>
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch7_mechanism_design.pdf">Ch 7: Mechanism Design</a></li>
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch8_vcg.pdf">Ch 8: VCG Mechanisms</a></li>
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch9_matching.pdf">Ch 9: Matching Theory</a></li>
+          <li><a href="https://zirconeey.github.io/files/adv-micro-psu/output/ch10_common_knowledge.pdf">Ch 10: Common Knowledge</a></li>
+        </ul>
+        <button class="note-toggle" onclick="toggleChapters('micro-psu',this)">Show chapters ▸</button>
+      </div>
+      
+      <div class="note-card">
+        <h3>Real Analysis</h3>
+        <div class="note-meta">University of Michigan · Spring 2024</div>
+        <ul class="note-chapters" id="chapters-ra" style="display:none;">
+          <li><a href="https://zirconeey.github.io/files/real-anal/real-anal-ch0-2024.pdf">Ch 0: Riemann Integration</a></li>
+          <li><a href="https://zirconeey.github.io/files/real-anal/real-anal-ch1-2024.pdf">Ch 1: Measure</a></li>
+          <li><a href="https://zirconeey.github.io/files/real-anal/real-anal-ch2-2024.pdf">Ch 2: Integration</a></li>
+          <li><a href="https://zirconeey.github.io/files/real-anal/real-anal-ch3-2024.pdf">Ch 3: Differentiation</a></li>
+          <li><a href="https://zirconeey.github.io/files/real-anal/real-anal-ch4-2024.pdf">Ch 4: Product of Measures</a></li>
+          <li><a href="https://zirconeey.github.io/files/real-anal/real-anal-ch5-2024.pdf">Ch 5: Lp Spaces</a></li>
+          <li><a href="https://zirconeey.github.io/files/real-anal/real-anal-ch6-2024.pdf">Ch 6: Banach Spaces</a></li>
+        </ul>
+        <button class="note-toggle" onclick="toggleChapters('ra',this)">Show chapters ▸</button>
+      </div>
+
+      <div class="note-card">
+        <h3>Advanced Microeconomics</h3>
+        <div class="note-meta">Peking University · Fall 2023</div>
+        <div style="margin-bottom:0.5rem;"><a href="https://zirconeey.github.io/files/adv-micro-pku/adv-micro-pku-2023.pdf" style="font-size:0.85rem;font-weight:500;">&#8681; Download full notes (PDF)</a></div>
+        <ul class="note-chapters" id="chapters-am" style="display:none;">
+          <li>Ch 1: Choice Theory</li>
+          <li>Ch 2: Consumer Theory</li>
+          <li>Ch 3: Production Theory</li>
+          <li>Ch 4: Comparative Statics</li>
+          <li>Ch 5: Uncertainty</li>
+          <li>Ch 6: General Equilibrium</li>
+        </ul>
+        <button class="note-toggle" onclick="toggleChapters('am',this)">Show chapters ▸</button>
+      </div>
+
+      <div class="note-card">
+        <h3>Advanced Econometrics</h3>
+        <div class="note-meta">Peking University · Fall 2023</div>
+        <div style="margin-bottom:0.5rem;"><a href="https://zirconeey.github.io/files/adv-metrics-pku/adv-metrics-pku-2023.pdf" style="font-size:0.85rem;font-weight:500;">&#8681; Download full notes (PDF)</a></div>
+        <ul class="note-chapters" id="chapters-ae" style="display:none;">
+          <li>Ch 1: Linear Regression Model</li>
+          <li>Ch 2: Properties of OLS</li>
+          <li>Ch 3: Hypothesis Testing</li>
+          <li>Ch 4: IV Estimation</li>
+          <li>Ch 5: GRM &amp; Heteroskedasticity</li>
+          <li>Ch 6: Panel Data</li>
+          <li>Ch 7: MLE</li>
+          <li>Ch 8: Time Series</li>
+        </ul>
+        <button class="note-toggle" onclick="toggleChapters('ae',this)">Show chapters ▸</button>
+      </div>
+
+      <div class="note-card">
+        <h3>Intermediate Econometrics</h3>
+        <div class="note-meta">Peking University · Spring 2023</div>
+        <div style="margin-bottom:0.5rem;"><a href="https://zirconeey.github.io/files/interm-metrics/interm-metrics-2023.pdf" style="font-size:0.85rem;font-weight:500;">&#8681; Download full notes (PDF)</a></div>
+        <ul class="note-chapters" id="chapters-ie" style="display:none;">
+          <li>Ch 1–4: Linear Regression Basics</li>
+          <li>Ch 5: MLR Further Issues</li>
+          <li>Ch 6: MLR with Dummies</li>
+          <li>Ch 7: Heteroskedasticity</li>
+          <li>Ch 8: Specification Issues</li>
+          <li>Ch 9: Panel Data</li>
+          <li>Ch 10: IV &amp; 2SLS</li>
+        </ul>
+        <button class="note-toggle" onclick="toggleChapters('ie',this)">Show chapters ▸</button>
+      </div>
+
+      <div class="note-card">
+        <h3>Public Economics</h3>
+        <div class="note-meta">Peking University · Spring 2023</div>
+        <div style="margin-bottom:0.5rem;"><a href="https://zirconeey.github.io/files/public-econ/public-econ-2023.pdf" style="font-size:0.85rem;font-weight:500;">&#8681; Download full notes (PDF)</a></div>
+        <ul class="note-chapters" id="chapters-pe" style="display:none;">
+          <li>Ch 1: Common Goods</li>
+          <li>Ch 2: Externality</li>
+          <li>Ch 3: Taxation</li>
+          <li>Ch 4: Social Insurance</li>
+          <li>Ch 5: Public Choice</li>
+          <li>Ch 6: Central &amp; Local Gov't</li>
+        </ul>
+        <button class="note-toggle" onclick="toggleChapters('pe',this)">Show chapters ▸</button>
+      </div>
+
+      <div class="note-card">
+        <h3>Monetary Economics</h3>
+        <div class="note-meta">Peking University · Spring 2023</div>
+        <div><a href="https://zirconeey.github.io/files/monetary-econ/monetary-econ-2023.pdf" style="font-size:0.85rem;font-weight:500;">&#8681; Download full notes (PDF)</a></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"><hr></div>
+
+  <!-- MISCELLANEOUS -->
+  <section id="misc" class="fade-in">
+    <h2 class="section-title">Miscellaneous</h2>
+    <p class="misc-text">
+      I was born and raised in China. Outside of economics, I enjoy
+      running, singing, and exploring new places.
+    </p>
+    <p class="misc-text">
+      My Chinese given name 睿 (ruì) means "wise" or "sagacious."
+      The closest English approximation is "Rway" — rhymes with "way."
+    </p>
+    <p class="misc-text">
+      I also maintain a <a href="https://zirconeey.github.io/">Chinese blog</a>
+      where I share course notes, study tips, and personal reflections.
+    </p>
+
+    <button class="gallery-toggle" onclick="toggleGallery(this)">&#128247; Photo gallery ▸</button>
+    <div class="gallery-grid" id="photo-gallery" style="display:none;">
+      <div>
+        <img src="/files/en/images/gallery/cherry_blossoms.jpeg" alt="Cherry blossoms in spring" loading="lazy" onclick="openLightbox(this)">
+        <div class="gallery-caption">Yuyuantan Park, Beijing</div>
+      </div>
+      <div>
+        <img src="/files/en/images/gallery/dome_tents.jpeg" alt="Dome tents at sunset in the desert" loading="lazy" onclick="openLightbox(this)">
+        <div class="gallery-caption">Ulanhadah Volcano, Inner Mongolia</div>
+      </div>
+      <div>
+        <img src="/files/en/images/gallery/grassland.jpeg" alt="Horses grazing on grassland" loading="lazy" onclick="openLightbox(this)">
+        <div class="gallery-caption">Xilingol Grassland, Inner Mongolia</div>
+      </div>
+      <div>
+        <img src="/files/en/images/gallery/graduation.jpeg" alt="Graduation day at Peking University" loading="lazy" style="object-position: center 35%;" onclick="openLightbox(this)">
+        <div class="gallery-caption">Graduation day, Peking University</div>
+      </div>
+      <div>
+        <img src="/files/en/images/gallery/singing.jpeg" alt="Singing at Penn State CSSA Gala" loading="lazy" onclick="openLightbox(this)">
+        <div class="gallery-caption">Penn State CSSA Mid-Autumn Gala</div>
+      </div>
+      <div>
+        <img src="/files/en/images/gallery/night_rose.jpeg" alt="Night street with bubbles" loading="lazy" style="object-position: center 30%;" onclick="openLightbox(this)">
+        <div class="gallery-caption">Tianjin</div>
+      </div>
+      <div>
+        <img src="/files/en/images/gallery/ship_sunset.jpeg" alt="Shipwreck at sunset" loading="lazy" onclick="openLightbox(this)">
+        <div class="gallery-caption">Weihai</div>
+      </div>
+      <div>
+        <img src="/files/en/images/gallery/xiamen.jpeg" alt="Xiamen Twin Towers" loading="lazy" onclick="openLightbox(this)">
+        <div class="gallery-caption">Xiamen</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <footer>
+    <div class="footer-contact">
+      <strong>Rui Zhou</strong> &middot; Department of Economics, Penn State University<br>
+      <a href="mailto:ruizhou@psu.edu">ruizhou@psu.edu</a> &middot;
+      303 Kern Building, University Park, PA 16802, US
+    </div>
+    <div class="footer-copy">&copy; 2026 Rui Zhou &middot; Last updated: April 24, 2026</div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    function toggleChapters(id, btn) {
+      const el = document.getElementById('chapters-' + id);
+      if (el.style.display === 'none') { el.style.display = 'block'; btn.textContent = 'Hide chapters ▾'; }
+      else { el.style.display = 'none'; btn.textContent = 'Show chapters ▸'; }
+    }
+    function toggleGallery(btn) {
+      const el = document.getElementById('photo-gallery');
+      if (el.style.display === 'none') { el.style.display = 'grid'; btn.innerHTML = '&#128247; Photo gallery ▾'; }
+      else { el.style.display = 'none'; btn.innerHTML = '&#128247; Photo gallery ▸'; }
+    }
+    function openLightbox(img) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightbox-img').src = img.src;
+      const caption = img.parentElement.querySelector('.gallery-caption');
+      document.getElementById('lightbox-caption').textContent = caption ? caption.textContent : '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(e) {
+      if (e.target.id === 'lightbox' || e.target.classList.contains('lightbox-close')) {
+        document.getElementById('lightbox').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow = ''; }
+    });
+    function playNameEN() {
+      const u = new SpeechSynthesisUtterance('Rway Joe');
+      u.rate = 0.85;
+      u.pitch = 1;
+      speechSynthesis.speak(u);
+    }
+    function playNameCN() {
+      new Audio('/files/en/Name%20Pronunciation.m4a').play();
+    }
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => { document.querySelector('.nav-links').classList.remove('open'); });
+    });
+
+    // Theme toggle: cycles system → dark → light → system
+    function toggleTheme() {
+      const root = document.documentElement;
+      const current = root.getAttribute('data-theme');
+      const btn = document.querySelector('.theme-toggle');
+      if (!current) {
+        // system → forced dark
+        root.setAttribute('data-theme', 'dark');
+        btn.innerHTML = '&#9790;'; // moon
+        btn.title = 'Switch to light mode';
+      } else if (current === 'dark') {
+        // forced dark → forced light
+        root.setAttribute('data-theme', 'light');
+        btn.innerHTML = '&#9728;'; // sun
+        btn.title = 'Switch to auto (system)';
+      } else {
+        // forced light → system
+        root.removeAttribute('data-theme');
+        btn.innerHTML = '&#9683;'; // half circle = auto
+        btn.title = 'Switch to dark mode';
+      }
+    }
+
+        // 菜单切换：控制导航栏打开/关闭，并配合 CSS 实现变 X 效果
+      function toggleMenu() {
+        const links = document.querySelector('.nav-links');
+        const toggle = document.querySelector('.nav-toggle');
+        links.classList.toggle('open');
+        toggle.classList.toggle('active');
+      }
+
+        // 优化：点击菜单项后自动收起菜单
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          document.querySelector('.nav-links').classList.remove('open');
+          document.querySelector('.nav-toggle').classList.remove('active');
+        });
+      });
+    // Set initial icon based on system preference
+    (function() {
+      const btn = document.querySelector('.theme-toggle');
+      btn.innerHTML = '&#9683;'; // half circle = auto (following system)
+      btn.title = 'Switch to dark mode';
+    })();
+  </script>
+</body>
+</html>
