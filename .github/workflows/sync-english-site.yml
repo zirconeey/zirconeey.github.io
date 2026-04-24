@@ -1,0 +1,53 @@
+name: Sync English site to ruizhou03 repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'en/**'
+      - 'files/en/**'
+      - '.github/workflows/sync-english-site.yml'
+  workflow_dispatch:  # allow manual trigger from the Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout zirconeey source
+        uses: actions/checkout@v4
+
+      - name: Checkout ruizhou03 target
+        uses: actions/checkout@v4
+        with:
+          repository: ruizhou03/ruizhou03.github.io
+          path: target
+          token: ${{ secrets.RUIZHOU03_PAT }}
+          fetch-depth: 1
+
+      - name: Strip Jekyll frontmatter from en/index.html
+        run: |
+          python3 - <<'PY'
+          import re, pathlib
+          src = pathlib.Path('en/index.html').read_text()
+          stripped = re.sub(r'\A---\n.*?\n---\n', '', src, count=1, flags=re.DOTALL)
+          pathlib.Path('target/index.html').write_text(stripped)
+          PY
+
+      - name: Mirror files/en assets
+        run: |
+          rm -rf target/files/en
+          mkdir -p target/files
+          cp -r files/en target/files/
+
+      - name: Commit & push if changed
+        working-directory: target
+        run: |
+          git config user.email "rzz5258@psu.edu"
+          git config user.name "zirconeey sync bot"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to sync."
+          else
+            git commit -m "sync from zirconeey@${GITHUB_SHA::7} at $(date -u +%FT%TZ)"
+            git push
+          fi
