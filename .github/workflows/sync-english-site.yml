@@ -1,5 +1,9 @@
 name: Sync English site to ruizhou03 repo
 
+# Mirrors en/index.html (frontmatter stripped) + files/en/** into
+# ruizhou03/ruizhou03.github.io so that https://ruizhou03.github.io serves
+# the English academic homepage without exposing the zirconeey URL.
+
 on:
   push:
     branches: [main]
