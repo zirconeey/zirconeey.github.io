@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# 在 commit 之前，把 staged 的 .md 文件里 ASCII 直引号 "..." 自动转换为
+# 中文弯引号 U+201C U+201D（配对）。
+# 跳过 YAML frontmatter、代码围栏、行内反引号代码、内嵌 HTML 标签行、英寸符号。
+#
+# 一次性激活（每台设备）：
+#   git config core.hooksPath .githooks
+
+set -e
+
+# 找到仓库根目录
+repo_root=$(git rev-parse --show-toplevel)
+cd "$repo_root"
+
+staged_md=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.md$' || true)
+
+if [ -z "$staged_md" ]; then
+  exit 0
+fi
+
+# 转换
+echo "$staged_md" | xargs python3 scripts/fix_quotes.py
+
+# 转换后重新 add（如果没有变化就是 no-op）
+echo "$staged_md" | xargs git add

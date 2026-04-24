@@ -92,7 +92,7 @@ Note: Revenue and Expense are a kind of temporary accounts which keep track of t
 
 1. Expense is the offset for Retained Earnings, while Revenue induces increment to Retained Earnings; therefore the rule for recording or recognizing expense and revenue seems natural and does not need extra capacity for remembering.
 2. When sales are made, revenue and expense are recorded separately and they reflect the net income altogether.
-3. Different sides are used to discern positive or negative effect. Consequently, "+" or "-" shouldn't be added in front of the numbers. On the table or statements, numbers wrapped in "()" are negative.
+3. Different sides are used to discern positive or negative effect. Consequently, “+” or “-” shouldn't be added in front of the numbers. On the table or statements, numbers wrapped in “()” are negative.
 
 #### 2.3.1 Comparison between FSET and T-accounts
 
@@ -115,7 +115,7 @@ Components of SCF (Statement of Cash Flow):
 - **Investing activities** — cash effects of purchasing and selling assets.
 - **Financing activities** — cash effects of transactions with the owners and creditors.
 
-Note: the cash earned from interest should be classified into "other income", instead of the operating part or even the revenue part, because it is not the main activity run by the company.
+Note: the cash earned from interest should be classified into “other income”, instead of the operating part or even the revenue part, because it is not the main activity run by the company.
 
 **Financial statement articulation**: the Statement of Cash Flow and the Income Statement will serve for the ultimate take-on of the balance sheet.
 
@@ -130,7 +130,7 @@ Examples (judgements needed):
 1. A manufacturer places a non-cancellable order for 1 million dollars in material.
    **No.** The order has not been fulfilled yet and no results are accumulated from past transactions through the statement. The non-cancellable nature is not the sufficient condition for defining such probable benefit as an asset, which is just the warrant of the contract.
 2. A firm spends 1 million dollars on salaries and material building a highly customized piece of equipment for its production line.
-   **Yes.** The equipment is owned by the company to make profit, and all expenses related to the acquirement of the equipment (necessary) are added to the value of such asset (such as salaries involved, transportation fee etc.). At the same time, the cash-based records lay the foundation for the subject or the conservative principle of accounting, which is a kind of "reasonable" precision. Moreover, regarding this as an asset is a kind of "capitalizing".
+   **Yes.** The equipment is owned by the company to make profit, and all expenses related to the acquirement of the equipment (necessary) are added to the value of such asset (such as salaries involved, transportation fee etc.). At the same time, the cash-based records lay the foundation for the subject or the conservative principle of accounting, which is a kind of “reasonable” precision. Moreover, regarding this as an asset is a kind of “capitalizing”.
 3. A firm spends 1 million dollars on salaries for staff working on R&D.
    **No.** Above all, staff are not owned by the company, so the investments on them should not be classified as assets, while those on stuff can be. Under the current accounting rules, R&D investment should go into expense, as an offset for income.
 
@@ -145,11 +145,11 @@ Examples (judgement needed):
 2. A firm establishes a revolving line of credit for 1 million dollars with its bank.
    **No.** It does not necessarily mean that the company will borrow that much money or that the company owes that amount. Under such a case, only when money is borrowed is liability recorded. Or according to the definition, the 1 million is not the present obligation.
 3. A firm gets sued for 2 million dollars by a former employee for wrongful termination.
-   **No.** The result of the suit is not decided yet so there is no such thing as "reasonable" estimation or precision of such event. No liability is recorded. By the way, all related law issues that are in progress should be disclosed in the notes followed up on the statement.
+   **No.** The result of the suit is not decided yet so there is no such thing as “reasonable” estimation or precision of such event. No liability is recorded. By the way, all related law issues that are in progress should be disclosed in the notes followed up on the statement.
 
 #### 2.6.3 Revenue
 
-**Definition**: Inflows or other enhancements of assets of an entity or settlements of its liabilities (or a combination of both) from delivering or producing goods, rendering services, or other activities that constitute the entity's ongoing major operations. Revenue should be recognized when "**earned and realized**". (Note that the receipt of cash is neither necessary nor sufficient to recognize revenue.)
+**Definition**: Inflows or other enhancements of assets of an entity or settlements of its liabilities (or a combination of both) from delivering or producing goods, rendering services, or other activities that constitute the entity's ongoing major operations. Revenue should be recognized when “**earned and realized**”. (Note that the receipt of cash is neither necessary nor sufficient to recognize revenue.)
 
 Examples (judgement needed):
 
@@ -158,11 +158,11 @@ Examples (judgement needed):
 2. A car company sells a car to a customer.
    **Yes.** It does fall into the territory of major operations of the company and the obligation is already fulfilled.
 3. A magazine publisher receives subscription fees before providing any services.
-   **No.** It does fall into the territory of major activities run by the company, but the obligation is not fulfilled yet, although the money has been received. It is recognized as "unearned revenue" and can be realized only when the service or good is provided, or so to say "earned".
+   **No.** It does fall into the territory of major activities run by the company, but the obligation is not fulfilled yet, although the money has been received. It is recognized as “unearned revenue” and can be realized only when the service or good is provided, or so to say “earned”.
 
 #### 2.6.4 Expense
 
-**Definition**: Outflows or other using up of assets or incurrences of liabilities (or a combination of both) from delivering or producing goods, rendering services, or other activities that constitute the entity's ongoing major or central operations. Recognized when "**incurred**".
+**Definition**: Outflows or other using up of assets or incurrences of liabilities (or a combination of both) from delivering or producing goods, rendering services, or other activities that constitute the entity's ongoing major or central operations. Recognized when “**incurred**”.
 
 **Matching principle**:
 
@@ -206,10 +206,10 @@ Timing of cash flows relative to recognition:
 1. Costs that benefit more than one accounting period are recorded as assets initially (e.g. unexpired insurance or prepaid insurance, consuming with the passage of time). On the balance sheet, the relative accounts reflect the cost of assets that benefit future periods; meanwhile on the income statement, the expense adjusted are costs of assets used this period to generate revenue.
 2. Revenues that benefit more than one accounting period are recorded as liabilities initially (e.g. unearned rent revenue or subscription revenue). The revenue is recognized as it is earned.
 3. Most of the time, the tax is not levied immediately, so the income tax expense and income tax payable are needed in the adjusting entries.
-4. The adjusting entry is to record the implicit "transactions" influencing the financial position of the company, instead of the explicit ones.
+4. The adjusting entry is to record the implicit “transactions” influencing the financial position of the company, instead of the explicit ones.
 5. The costs are matched with revenue in two ways:
    a. Direct association of costs with specific revenue transactions.
-   b. Systematic allocation of costs over the "useful life" of the expenditure.
+   b. Systematic allocation of costs over the “useful life” of the expenditure.
 
 **Materiality**: importance of items depending on their influences on financial statements. The costs of immaterial items are charged immediately to expense once incurred.
 
@@ -228,7 +228,7 @@ $$\text{Retained Earnings} = \text{Past Retained Earnings} + \text{Net Income} -
 **Notes:**
 
 1. Net income appears both in the income statement and the statement of retained earnings.
-2. The "net" number is the usual form of amounts on the balance sheet, and the corresponding number involved to deduct is omitted and shown on the footnote.
+2. The “net” number is the usual form of amounts on the balance sheet, and the corresponding number involved to deduct is omitted and shown on the footnote.
 
 The closing process gets the temporary accounts ready for the next period:
 
@@ -237,7 +237,7 @@ The closing process gets the temporary accounts ready for the next period:
 - Close Income Summary account to Retained Earnings.
 - Close Dividends to Retained Earnings.
 
-**Complements:** For companies that have developed their own online apps, it is more convenient for them to collect money and to earn extra fortune from the "deferred" revenue part. Therefore, the online platform makes the cash flow stronger and steadier, as well as creating possibilities for the company to collect extra unearned revenues, based on the benefit that it renders convenience to customers.
+**Complements:** For companies that have developed their own online apps, it is more convenient for them to collect money and to earn extra fortune from the “deferred” revenue part. Therefore, the online platform makes the cash flow stronger and steadier, as well as creating possibilities for the company to collect extra unearned revenues, based on the benefit that it renders convenience to customers.
 
 ---
 
@@ -328,7 +328,7 @@ $$\text{Days to collect Accounts Receivable} = \frac{365}{\text{Accounts Receiva
 - Work in process
 - Finished goods
 
-#### 5.1.3 "Cost" of Inventory Account
+#### 5.1.3 “Cost” of Inventory Account
 
 Necessary costs related to the acquiring of inventory are added into or regarded as part of the Inventory account and spread out in all, like PPE or some noncurrent assets.
 
@@ -395,14 +395,14 @@ $$\text{BB Inventory} + \text{Purchase} = \text{COGS} + \text{EB Inventory}$$
   - Cost: No entry is made to Inventory! (No cost record within the accounting period.)
 - When the customer pays the money back: Debit Cash, Credit Accounts Receivable.
 - When the merchandising company pays back: Debit Accounts Payable, Credit Cash.
-- When taking a physical inventory, consider two parts — "availability" and difference:
+- When taking a physical inventory, consider two parts — “availability” and difference:
   - **Availability**: Debit COGS; Credit Inventory (beginning of the year) and Purchases.
   - **Difference**: Debit Inventory (end of the year); Credit COGS.
 
 **Comprehension:**
 
-1. When taking a physical account at the end of the accounting period, use the equation "BB Inventory + Purchase = COGS + EB Inventory" to get the COGS, and then make the following two entries of availability and difference.
-2. COGS can be regarded as an account ready to offset the potential inventory cost. And the BB Inv. is thought of as "cost available", and then the EB Inv. is thought of as the remains of the cost that didn't incur in the year. Within the year, no entry is made to COGS and Inventory — all journal entries hit Purchase.
+1. When taking a physical account at the end of the accounting period, use the equation “BB Inventory + Purchase = COGS + EB Inventory” to get the COGS, and then make the following two entries of availability and difference.
+2. COGS can be regarded as an account ready to offset the potential inventory cost. And the BB Inv. is thought of as “cost available”, and then the EB Inv. is thought of as the remains of the cost that didn't incur in the year. Within the year, no entry is made to COGS and Inventory — all journal entries hit Purchase.
 
 #### 5.3.3 Selecting an Inventory System
 
@@ -456,7 +456,7 @@ Take the discount primarily, and if couldn't make it later, record it afterwards
 **Notes:**
 
 1. This method of recording takes the obligation of paying in full price as given, and if paid within the discount-available date, it is thought of as something better.
-2. The former has the function of "warning" and plays a more positive part in the management of the company and even the cash flow, because the 2% discount (usually) is tempting to be a good deal and financing activity.
+2. The former has the function of “warning” and plays a more positive part in the management of the company and even the cash flow, because the 2% discount (usually) is tempting to be a good deal and financing activity.
 
 ##### 5.4.2.3 Returns of Unsatisfactory Merchandise
 
@@ -510,7 +510,7 @@ LIFO is prohibited under IFRS, however allowed under US-GAAP. However, US requir
 
 $$\text{LIFO reserve} = \text{Inventory}_{\text{FIFO}} - \text{Inventory}_{\text{LIFO}}$$
 
-**Example:** LIFO is usually adopted by oil companies. However, it would be an extremely hard thing to transform their inventory cost method to another. Nevertheless, under LIFO, managers have the right to decide when to clear out the inventory bought earlier to make the revenue "higher".
+**Example:** LIFO is usually adopted by oil companies. However, it would be an extremely hard thing to transform their inventory cost method to another. Nevertheless, under LIFO, managers have the right to decide when to clear out the inventory bought earlier to make the revenue “higher”.
 
 ### 5.7 LCM and Other Write-Downs of Inventory
 
@@ -619,12 +619,12 @@ Under the straight-line method and the declining balance method, the ultimate re
 
 $$\text{Revised Depreciation Rates} = \frac{\text{Book value at date of change} - \text{Salvage value at date of change}}{\text{Remaining useful life at the date of change}}$$
 
-2. Accumulated Depreciation is not closed annually, and it can be recognized as a long-existing contra-asset account. The items of depreciable assets, if not labeled as "net", then the numbers are Gross ones without consideration of depreciation — namely, the reflection of the original cost.
+2. Accumulated Depreciation is not closed annually, and it can be recognized as a long-existing contra-asset account. The items of depreciable assets, if not labeled as “net”, then the numbers are Gross ones without consideration of depreciation — namely, the reflection of the original cost.
 3. Percent of PPE depreciated:
 
 $$\text{Percent of PPE depreciated} = \frac{\text{Accumulated depreciation}}{\text{Gross depreciable assets}}$$
 
-Most of the time, PPE is recorded at historical cost. Land is not depreciated and construction in progress is not depreciated until ready for service. Thus, they are not included in the "Gross Depreciable Assets".
+Most of the time, PPE is recorded at historical cost. Land is not depreciated and construction in progress is not depreciated until ready for service. Thus, they are not included in the “Gross Depreciable Assets”.
 
 4. **Impairment of Plant Assets**: If the cost of an asset cannot be recovered through future use or sale, the asset should be written down to its net realizable value.
 
@@ -632,7 +632,7 @@ Most of the time, PPE is recorded at historical cost. Land is not depreciated an
 
 The gain or loss should be obtained from the comparison of book value and cash inflow. Remember that the depreciation should be updated. The disposal of PPE, most of the time, is part of investing activities, instead of operating activities.
 
-Additionally, for trading in used assets for new ones: gain or loss goes into the account "Gain (or Loss) on Disposal of Asset", and tag the used and new assets to go into the entry.
+Additionally, for trading in used assets for new ones: gain or loss goes into the account “Gain (or Loss) on Disposal of Asset”, and tag the used and new assets to go into the entry.
 
 ### 6.3 Intangible Assets
 
@@ -652,7 +652,7 @@ Patents are exclusive rights granted by the federal government to sell or manufa
 
 **Notes:**
 
-1. Rules for patents, trademarks, trade names, and franchises work in the same way. So do natural resources, but the "depreciation" or "amortize" attributes to **depletion** (with accumulated depletion), while the substance holds the same.
+1. Rules for patents, trademarks, trade names, and franchises work in the same way. So do natural resources, but the “depreciation” or “amortize” attributes to **depletion** (with accumulated depletion), while the substance holds the same.
 2. If the patent is internally developed, then the cost of it cannot be regarded as assets because there is no standard and objective foundation for its cost; therefore it is attributed to expense and cannot be amortized.
 3. All expenditures classified as research and development should be charged to expense when incurred. So for tech companies, all of the R&D costs will really reduce the net income!
 4. If the cost is capitalized, then the income statement will look more decent. However, monopoly suits may be involved.
@@ -734,7 +734,7 @@ The discount should be amortized over the term of the bond to increase Interest 
 
 #### Valuation Approach: Historical Cost and Fair Value Option
 
-- **Historical Cost**: the effective interest rate at the time of bond issuance is used throughout the maturity. The book value still varies and gradually approaches the face value as the bond matures. ("adjusted historical cost")
+- **Historical Cost**: the effective interest rate at the time of bond issuance is used throughout the maturity. The book value still varies and gradually approaches the face value as the bond matures. (“adjusted historical cost”)
 - **Fair Value Option**: the value of the bond payable should reflect the most recent effective interest rate, rather than the effective interest rate at issuance.
 
 **Comprehension:**
@@ -785,7 +785,7 @@ a. **Paid-in Capital (Contributed Capital)**:
 $$\text{par value} + \text{additional value} + \text{additional paid-in capital}$$
 
 b. **Retained Earnings (Earned Capital)**: Net income over the life of the company less distributions (in the form of dividends and share repurchases) to shareholders.
-c. **Accumulated Other Comprehensive Income**: Cumulative gains and losses not included in Net Income (e.g. changes in fair value of "available-for-sale" securities due to fluctuation in prices).
+c. **Accumulated Other Comprehensive Income**: Cumulative gains and losses not included in Net Income (e.g. changes in fair value of “available-for-sale” securities due to fluctuation in prices).
 
 Note that dividends paid should not be part of net income, but should be part of retained earnings. So the company should balance between whether or not to distribute dividends, because on one hand, it is a signal that the company is doing well and has extra income over costs, or that the company cares about the welfare of its stockholders; on the other hand, the dividends paid would be an offset for the retained earnings, and that number shown on the balance sheet is an important indicator for outsiders. (Note again that whether or not there is any dividend payment would not have any impact on net income, but on retained earnings.)
 
@@ -830,7 +830,7 @@ e. Stock option plans are an important part of employee compensation for many co
 #### 8.4.2 Lock the Shares in Treasury Stocks
 
 a. **Repurchase stocks as treasury stocks**: Debit Treasury Stocks, Credit Cash.
-   Treasury is a contra-equity account which is recorded at cost. Treasury shares have no voting or dividend rights when repurchased. This method works differently than the former. Under this method, the treasury stock should be regarded as a reservoir of stocks, which is in a "ready for sell" state, so the repurchase of them should not have impact on the retained earnings.
+   Treasury is a contra-equity account which is recorded at cost. Treasury shares have no voting or dividend rights when repurchased. This method works differently than the former. Under this method, the treasury stock should be regarded as a reservoir of stocks, which is in a “ready for sell” state, so the repurchase of them should not have impact on the retained earnings.
 b. **Reissue Treasury Stocks**: Debit Cash, Credit Treasury Stocks. The difference goes to Additional Paid-in Capital.
 
 **Comprehension:** Treasury Stocks can be understood partly as the Common Stock priced at the repurchased point of time, and apart from it the rest of the recording principles stay the same as common stocks. (Contra accounts follow suit.)
@@ -925,14 +925,14 @@ The correction of an error identified as affecting net income in a prior period.
 
 ### 8.13 Stock-Based Compensation
 
-- **Stock Option** is an option (but not the obligation) to purchase a share of the company's stock at a specified price ("strike price") in the future. If and when the option is exercised, employee pays strike price to company and receives a share.
+- **Stock Option** is an option (but not the obligation) to purchase a share of the company's stock at a specified price (“strike price”) in the future. If and when the option is exercised, employee pays strike price to company and receives a share.
 - **Restricted Stock Units** are a promise to deliver shares to the employee at a future date (accounted for as options with $0 strike price).
 
 ### 8.14 Comprehensive Income
 
 Three ways that financial position can change: Issuance of new shares of stock, Net income or net loss, Payment of dividends.
 
-GAAP excludes some unrealized items from income, such as the change in market value of available-for-sale debt and equity investments. GAAP requires that unrealized items that are normally reported on the balance sheet be added back to compute "Comprehensive Income" (as an element of stockholders' equity).
+GAAP excludes some unrealized items from income, such as the change in market value of available-for-sale debt and equity investments. GAAP requires that unrealized items that are normally reported on the balance sheet be added back to compute “Comprehensive Income” (as an element of stockholders' equity).
 
 ### 8.15 Statement of Cash Flows — Structure
 
@@ -949,7 +949,7 @@ GAAP excludes some unrealized items from income, such as the change in market va
 
 **Notes:**
 
-a. Both methods result in the same amount of "Cash from Operations".
+a. Both methods result in the same amount of “Cash from Operations”.
 b. Under US-GAAP, companies usually use the Indirect Method anyway because it is required to report the reconciliation between NI and CFO.
 
 **Underlying Rules of Thumb**:
@@ -957,7 +957,7 @@ b. Under US-GAAP, companies usually use the Indirect Method anyway because it is
 a. Is this an operating-related cash transaction?
 b. Is it reflected in the income statement?
 
-If the answers to the two questions are all "No" or all "Yes", then no reconciliation is needed; otherwise, the reconciliation is needed to reflect the difference.
+If the answers to the two questions are all “No” or all “Yes”, then no reconciliation is needed; otherwise, the reconciliation is needed to reflect the difference.
 
 **Examples:**
 
@@ -972,7 +972,7 @@ b. Changes in cash are included in the delta of operating assets, because it is 
 $$\text{Changes in cash} = \text{CFO} + \text{CFF} + \text{CFI}$$
 
 c. Depreciation is the most typical non-cash item listed separately. There can be other non-cash items, such as stock-related compensation (companies are incurring these expenses when operating without the involvement of cash flow).
-d. The logic of indirect approach comes from the equation "Assets = Liabilities + Shareholders' equity", from which we take the "delta" and break the change of shareholders' equity into Net Income and other parts.
+d. The logic of indirect approach comes from the equation “Assets = Liabilities + Shareholders' equity”, from which we take the “delta” and break the change of shareholders' equity into Net Income and other parts.
 e. We can construct the Direct Cash Flow Statement from the Indirect Approach.
 
 **Exemplary Formulas:**
@@ -1002,7 +1002,7 @@ $$\text{Cash paid for Inventory} = \text{COGS} + \Delta\text{Inventory} - \Delta
 
 1. Interest expense is classified as an operating activity, but issue or repayment of debt is classified as a financing activity.
 2. Cash received from interest and dividends on firm's investment is treated as part of operating activity. However, purchases and sales of the underlying securities are classified as investing activities.
-3. Dividends represent distributions "out of retained earnings" and are treated as financing activities.
+3. Dividends represent distributions “out of retained earnings” and are treated as financing activities.
 
 **Noncash investing and financing activities**: Noncash activities (barter transaction) which are not directly involving cash, in investing or financing transactions, do not appear in the statement of cash flows. They must be listed separately. e.g. purchase a building with a 100% mortgage, convert debt to common equity.
 
@@ -1032,7 +1032,7 @@ $$\text{Working capital} = \text{Current assets} - \text{Current liabilities}$$
 | Earnings | Cash Flows |
 |---|---|
 | I/S explains changes in retained earnings | SCF explains change in cash and cash equivalent |
-| I/S is accrued-based, recognizing property rights | SCF is cash-based, emphasizing "actual possession" |
+| I/S is accrued-based, recognizing property rights | SCF is cash-based, emphasizing “actual possession” |
 | I/S requires estimations | SCF does not need estimation |
 | I/S is prone to manipulation | SCF is so to a much less degree |
 | Firms can survive a long string of negative earnings | Firms go bankrupt with a long string of negative cash flows (outflow). 〈资金链断裂〉 |
@@ -1044,7 +1044,7 @@ Every reported number has three components:
 
 1. Economic truth
 2. Managerial fudge
-3. Random bounce (measurement error or "noise")
+3. Random bounce (measurement error or “noise”)
 
 Earnings and cash flows play tradeoff between (1) and (2).
 
@@ -1074,7 +1074,7 @@ $$\text{Cash realization ratio} = \frac{\text{cash generated by operations}}{\te
 
 理解：经营活动的现金流在现金收付制下相当于「实际赚到的钱」，净利润在权责发生制下相当于「应该赚到的钱」，二者在数值上接近，认为企业的经营状况是良好的。粗略估计前者等于后者加折旧费用，因此一般预期净现比大于 1 是合理的。如果现金流是负的，一般是企业的商业模式、企业在链条中的地位决定的，比如高水平的应收账款，低水平的应付账款，高增加的存货水平。
 
-### 8.19 "Free" Cash Flow 自由现金流
+### 8.19 “Free” Cash Flow 自由现金流
 
 $$\text{Free Cash Flow} = \text{Operating Cash Flow} - \text{Capital Expenditures}\ (-\text{Interest Expense}) - \text{Cash Dividend}$$
 
@@ -1089,9 +1089,9 @@ $$\text{Free Cash Flow} = \text{Operating Cash Flow} - \text{Capital Expenditure
 **Inter-corporate Investments**: accounting method depends on the level of influence.
 
 - **Passive and Debt securities** (less than 20%):
-  - **Fair Value with unrealized holding gains recognized in Net income** → "Trading Securities" / "Fair Value Option"
-  - **Fair Value with unrealized holding gains recognized in OCI** → "Available-for-sale Securities"
-  - Based on Historical cost → "Held to Maturity"
+  - **Fair Value with unrealized holding gains recognized in Net income** → “Trading Securities” / “Fair Value Option”
+  - **Fair Value with unrealized holding gains recognized in OCI** → “Available-for-sale Securities”
+  - Based on Historical cost → “Held to Maturity”
 - **Significant Influence (Active)** (20%–50%): Fair Value Option or **Equity Method**.
 - **Effective Control** (Greater than 50%): Must **consolidate** (No Fair Value Option).
 
@@ -1117,10 +1117,10 @@ c. **On sale**: Debit Cash, Debit or Credit Unrealized Gain or Loss in AOCI corr
 
 1. The fluctuated ones only hit the balance sheet while only the realized ones can hit the income statement.
 2. AOCI is used to absorb the most updated price change and appears only on the balance sheet, instead of the income statement.
-3. When the deal is made eventually, the AOCI is kind of "closed" and the realized amount goes to the Gain (or Loss) on Sale (a revenue/expense account), which is the difference between the historical price and the selling price.
-4. This method gives the manager more control over the income statement. Because not all the fluctuations are reflected timely on the income statement, thus the manager can "shape" or beautify the income statement by holding the investment or throwing it out instantly.
+3. When the deal is made eventually, the AOCI is kind of “closed” and the realized amount goes to the Gain (or Loss) on Sale (a revenue/expense account), which is the difference between the historical price and the selling price.
+4. This method gives the manager more control over the income statement. Because not all the fluctuations are reflected timely on the income statement, thus the manager can “shape” or beautify the income statement by holding the investment or throwing it out instantly.
 5. Adjustment is needed for the purchase step while not for the revaluation step, under the indirect method. For the purchase of securities is an investing activity, while cash flow happens. And for the revaluation step, there is no involvement of cash, and it is an investing part.
-6. The AOCI and Unrealized Gain or Loss (in the trading security part above) is frequently updated, but are not updated perpetually. When selling securities, the AOCI and Unrealized gain or loss hold the "latest" number, and based on this, entries are made. There's no need to update them initially before making entries.
+6. The AOCI and Unrealized Gain or Loss (in the trading security part above) is frequently updated, but are not updated perpetually. When selling securities, the AOCI and Unrealized gain or loss hold the “latest” number, and based on this, entries are made. There's no need to update them initially before making entries.
 
 ### 9.3 Income Effect of Trading vs. AFS Securities
 
@@ -1148,7 +1148,7 @@ Attention: Interest and dividends on all passive investments go to the income on
 
 ### 9.7 Equity Method
 
-Equity method is used when one company ("investor") is assumed to exert significant influence over the affiliated company ("investee"), generally when the investor holds between 20%–50% of the outstanding shares of the affiliated company.
+Equity method is used when one company (“investor”) is assumed to exert significant influence over the affiliated company (“investee”), generally when the investor holds between 20%–50% of the outstanding shares of the affiliated company.
 
 **Impact on financial statements:**
 
@@ -1162,7 +1162,7 @@ $$\text{Net adjustment of Equity Method on the cash flow statement} = \text{equi
 **Comprehension:**
 
 1. When the investee distributes dividends, the process works like that the investor plays its important influence and gets the money invested back. So the investment should be credited.
-2. If the investee pays dividends instantly after we invest in, it should be thought of as a payback of investment (instead of the "real" dividends 〈清算性股利〉), which in fact are capital we just contributed. In such a case, we should debit Cash and credit Investments.
+2. If the investee pays dividends instantly after we invest in, it should be thought of as a payback of investment (instead of the “real” dividends 〈清算性股利〉), which in fact are capital we just contributed. In such a case, we should debit Cash and credit Investments.
 
 ### 9.8 Consolidation — Effective Control
 
@@ -1194,9 +1194,9 @@ $$\text{Net adjustment of Equity Method on the cash flow statement} = \text{equi
 
 ### 9.9 Goodwill
 
-Goodwill is the acquisition price of a business less the fair value of all separately identifiable net assets acquired. It reflects non-identifiable assets such as human capital, growth opportunities. It is non-transferable and cannot be bought as a separate asset. Goodwill is considered to have an indefinite life (not amortized but tested annually for impairment) which cannot be "written up".
+Goodwill is the acquisition price of a business less the fair value of all separately identifiable net assets acquired. It reflects non-identifiable assets such as human capital, growth opportunities. It is non-transferable and cannot be bought as a separate asset. Goodwill is considered to have an indefinite life (not amortized but tested annually for impairment) which cannot be “written up”.
 
-Goodwill plays a role of balancing the consolidated balance sheet. Moreover, it can be calculated in different ways: Goodwill is the overpayment of net assets. From the "overpayment", we can recognize it as the media to balance the balance sheet, which is the difference between total assets and total liabilities & SE, if any. From the "net assets" side, we can take the number from the definition to take total assets minus the total liabilities. We can also get the number from the total of shareholders' equity. Both of the two ways include the fair value changes.
+Goodwill plays a role of balancing the consolidated balance sheet. Moreover, it can be calculated in different ways: Goodwill is the overpayment of net assets. From the “overpayment”, we can recognize it as the media to balance the balance sheet, which is the difference between total assets and total liabilities & SE, if any. From the “net assets” side, we can take the number from the definition to take total assets minus the total liabilities. We can also get the number from the total of shareholders' equity. Both of the two ways include the fair value changes.
 
 Total GE shareowners' equity is the part actually owned by the parent, while the noncontrolling interests is the remains owned by the minority. Net earnings is the part belonging to the consolidated company while the net earnings attributable to the company is the part actually owned by the parent, whereas the difference in between is the net earnings attributable to noncontrolling interests.
 
@@ -1255,7 +1255,7 @@ These guidelines apply to all debt securities and to those share investments in 
 - **Non-trading securities** (shares only) should be recorded at fair value with changes reported as other comprehensive income in the comprehensive income statement.
 - **Held-for-collection** (debt only) should be recorded at amortized cost, if the bonds were purchased at premium or discount.
 
-**Trading securities**: "Trading" means "frequent buying and selling", and they are held by companies with the intention of selling them in a short period (generally less than a month). Therefore, they should be reported at fair value and changes are reported as part of net income.
+**Trading securities**: “Trading” means “frequent buying and selling”, and they are held by companies with the intention of selling them in a short period (generally less than a month). Therefore, they should be reported at fair value and changes are reported as part of net income.
 
 **Non-trading securities**: They can be classified as current or noncurrent assets depending on the intention of management. Procedure for determining fair value and the unrealized gain or loss for these securities is the same as for trading securities. Companies report securities at fair value, and report changes from cost as a component of equity.
 
@@ -1285,7 +1285,7 @@ In the income statement, companies report gains and losses in the non-operating 
 
 **Core**: transactions between the affiliated companies are identified as intercompany transactions and are eliminated in consolidation. The long-term investment in the child is a kind of purchasing back its own shares, which is treasury stock. In the consolidated financial statement: debit treasury stock, and credit cash.
 
-So, when consolidating the parent and child, the treasury is the offset account to equity, which is a kind of deducting shares equity in the child and at the same time, taking away the long-term investment. (The "investment" is to purchase "its" shares back, which is not investment at all.)
+So, when consolidating the parent and child, the treasury is the offset account to equity, which is a kind of deducting shares equity in the child and at the same time, taking away the long-term investment. (The “investment” is to purchase “its” shares back, which is not investment at all.)
 
 〈If there exists any long-term investment on the consolidated financial statement, it means that the company has invested for 20%–50% in other companies.〉
 
