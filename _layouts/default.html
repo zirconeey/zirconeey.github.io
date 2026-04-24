@@ -11,6 +11,18 @@
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='82' font-family='Georgia, serif' font-size='95' font-weight='bold' fill='%23c9a96e' text-anchor='middle'>Zr</text></svg>">
 
+  <script>
+    // 主题持久化：在 <body> 渲染前同步读取 localStorage，避免闪烁
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {}
+    })();
+  </script>
+
   <style>
     :root {
       --color-ink: #1a1a2e;
@@ -610,13 +622,22 @@
       }
     });
 
-    // 亮度切换逻辑
+    // 亮度切换逻辑（持久化到 localStorage，跨页面保持）
     function toggleTheme() {
       const root = document.documentElement;
       const current = root.getAttribute('data-theme');
-      if (!current) { root.setAttribute('data-theme', 'dark'); }
-      else if (current === 'dark') { root.setAttribute('data-theme', 'light'); }
-      else { root.removeAttribute('data-theme'); }
+      let next;
+      if (!current) { next = 'dark'; }
+      else if (current === 'dark') { next = 'light'; }
+      else { next = null; }  // 第三态：跟随系统
+
+      if (next) {
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      } else {
+        root.removeAttribute('data-theme');
+        try { localStorage.removeItem('theme'); } catch (e) {}
+      }
     }
 
     // 🚀 新增：手机端搜索栏变身逻辑
