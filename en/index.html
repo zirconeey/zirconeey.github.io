@@ -798,13 +798,26 @@ sitemap: false
         });
       }
 
-      function nextItemTarget() {
+      // Center an item under the marquee viewport (carousel-style focus).
+      // Returns a non-negative target scrollLeft.
+      function centerTargetFor(item) {
+        const raw = item.offsetLeft + item.offsetWidth / 2 - marquee.clientWidth / 2;
+        return Math.max(0, raw);
+      }
+
+      // Pick the item currently closest to the viewport center — used
+      // to recalibrate after a user drag/swipe so auto-cycle picks up
+      // from wherever the user left off.
+      function findCenteredIdx() {
         const items = track.querySelectorAll('.gallery-item');
-        const cur = marquee.scrollLeft;
-        for (const it of items) {
-          if (it.offsetLeft > cur + 2) return it.offsetLeft;
-        }
-        return halfWidth;
+        const viewCenter = marquee.scrollLeft + marquee.clientWidth / 2;
+        let best = 0, bestDist = Infinity;
+        items.forEach((it, i) => {
+          const c = it.offsetLeft + it.offsetWidth / 2;
+          const d = Math.abs(c - viewCenter);
+          if (d < bestDist) { bestDist = d; best = i; }
+        });
+        return best;
       }
 
       async function autoCycle() {
@@ -816,11 +829,26 @@ sitemap: false
           await sleep(150);
           attempts++;
         }
+
+        // Initial position: center the second item. Centering items[0]
+        // would require negative scrollLeft, so the first image acts
+        // as a visual lead-in on the left edge.
+        const initItems = track.querySelectorAll('.gallery-item');
+        if (initItems.length >= 2) {
+          isAutoScrolling = true;
+          marquee.scrollLeft = centerTargetFor(initItems[1]);
+          await sleep(0);
+          isAutoScrolling = false;
+        }
+
         while (true) {
           while (!shouldAutoScroll()) await sleep(120);
           await sleep(DWELL_MS);
           if (!shouldAutoScroll()) continue;
-          const target = nextItemTarget();
+          const items = track.querySelectorAll('.gallery-item');
+          const curIdx = findCenteredIdx();
+          const nextIdx = (curIdx + 1) % items.length;
+          const target = centerTargetFor(items[nextIdx]);
           await animateScrollTo(target, TRANSITION_MS);
           if (marquee.scrollLeft >= halfWidth) {
             isAutoScrolling = true;
