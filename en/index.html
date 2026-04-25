@@ -238,37 +238,56 @@ sitemap: false
     /* Misc */
     .misc-text { font-size: 0.95rem; color: var(--color-text); line-height: 1.8; margin-bottom: 0.8rem; }
 
-    /* Photo gallery — horizontal scroll strip */
-    .gallery-section { max-width: 100%; margin: 0 auto; padding: 2rem 0 3rem; }
-    .gallery-strip {
+    /* Photo gallery — auto-scrolling marquee */
+    .gallery-section { max-width: var(--max-width); margin: 0 auto; padding: 2.5rem 2rem 3rem; }
+    .gallery-lede {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--color-light);
+      letter-spacing: 0.18em;
+      margin-bottom: 1.6rem;
+      text-transform: uppercase;
+    }
+    .gallery-lede::before, .gallery-lede::after {
+      content: "·";
+      margin: 0 0.8em;
+      opacity: 0.55;
+    }
+    .gallery-marquee {
+      position: relative;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+    }
+    .gallery-track {
       display: flex;
       gap: 12px;
-      overflow-x: auto;
-      scroll-snap-type: x proximity;
-      padding: 0 2rem 1rem;
-      scrollbar-width: thin;
-      scrollbar-color: var(--color-light) transparent;
+      width: max-content;
+      animation: gallery-scroll 50s linear infinite;
     }
-    .gallery-strip::-webkit-scrollbar { height: 8px; }
-    .gallery-strip::-webkit-scrollbar-track { background: transparent; }
-    .gallery-strip::-webkit-scrollbar-thumb { background: var(--color-light); border-radius: 4px; opacity: 0.5; }
-    .gallery-strip .gallery-item {
+    .gallery-track:hover { animation-play-state: paused; }
+    @keyframes gallery-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .gallery-track .gallery-item {
       flex: 0 0 auto;
-      height: 280px;
+      height: 260px;
       border-radius: 6px;
       overflow: hidden;
       cursor: pointer;
-      scroll-snap-align: start;
       position: relative;
       background: var(--color-bg-warm);
     }
-    .gallery-strip img {
+    .gallery-track img {
       height: 100%;
       width: auto;
       display: block;
-      transition: transform 0.4s, opacity 0.3s;
+      transition: opacity 0.3s;
     }
-    .gallery-strip .gallery-item:hover img { transform: scale(1.03); opacity: 0.9; }
+    .gallery-track .gallery-item:hover img { opacity: 0.88; }
     .gallery-caption {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -276,16 +295,20 @@ sitemap: false
       color: #fff;
       text-align: center;
       padding: 0.8rem 0.5rem 0.4rem;
-      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+      background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
       opacity: 0;
       transition: opacity 0.3s;
     }
-    .gallery-strip .gallery-item:hover .gallery-caption { opacity: 1; }
+    .gallery-track .gallery-item:hover .gallery-caption { opacity: 1; }
 
     @media (max-width: 640px) {
-      .gallery-strip { padding: 0 1rem 1rem; }
-      .gallery-strip .gallery-item { height: 220px; }
+      .gallery-section { padding: 1.8rem 1rem 2.5rem; }
+      .gallery-track .gallery-item { height: 200px; }
       .gallery-caption { opacity: 1; font-size: 0.68rem; }
+      .gallery-track { animation-duration: 60s; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-track { animation: none; }
     }
 
     /* Lightbox */
@@ -621,38 +644,74 @@ sitemap: false
 
   <!-- PHOTO GALLERY -->
   <section id="gallery" class="gallery-section fade-in">
-    <div class="gallery-strip">
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="/files/en/images/gallery/cherry_blossoms.jpeg" alt="Cherry blossoms in spring" loading="lazy">
-        <div class="gallery-caption">Yuyuantan Park, Beijing</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="/files/en/images/gallery/dome_tents.jpeg" alt="Dome tents at sunset in the desert" loading="lazy">
-        <div class="gallery-caption">Ulanhadah Volcano, Inner Mongolia</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="/files/en/images/gallery/grassland.jpeg" alt="Horses grazing on grassland" loading="lazy">
-        <div class="gallery-caption">Xilingol Grassland, Inner Mongolia</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="/files/en/images/gallery/graduation.jpeg" alt="Graduation day at Peking University" loading="lazy">
-        <div class="gallery-caption">Graduation day, Peking University</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="/files/en/images/gallery/singing.jpeg" alt="Singing at Penn State CSSA Gala" loading="lazy">
-        <div class="gallery-caption">Penn State CSSA Mid-Autumn Gala</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="/files/en/images/gallery/night_rose.jpeg" alt="Night street with bubbles" loading="lazy">
-        <div class="gallery-caption">Tianjin</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="/files/en/images/gallery/ship_sunset.jpeg" alt="Shipwreck at sunset" loading="lazy">
-        <div class="gallery-caption">Weihai</div>
-      </div>
-      <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
-        <img src="/files/en/images/gallery/xiamen.jpeg" alt="Xiamen Twin Towers" loading="lazy">
-        <div class="gallery-caption">Xiamen</div>
+    <div class="gallery-lede">Life beyond economics</div>
+    <div class="gallery-marquee">
+      <div class="gallery-track">
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/cherry_blossoms.jpeg" alt="Cherry blossoms in spring" loading="lazy">
+          <div class="gallery-caption">Yuyuantan Park, Beijing</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/dome_tents.jpeg" alt="Dome tents at sunset in the desert" loading="lazy">
+          <div class="gallery-caption">Ulanhadah Volcano, Inner Mongolia</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/grassland.jpeg" alt="Horses grazing on grassland" loading="lazy">
+          <div class="gallery-caption">Xilingol Grassland, Inner Mongolia</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/graduation.jpeg" alt="Graduation day at Peking University" loading="lazy">
+          <div class="gallery-caption">Graduation day, Peking University</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/singing.jpeg" alt="Singing at Penn State CSSA Gala" loading="lazy">
+          <div class="gallery-caption">Penn State CSSA Mid-Autumn Gala</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/night_rose.jpeg" alt="Night street with bubbles" loading="lazy">
+          <div class="gallery-caption">Tianjin</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/ship_sunset.jpeg" alt="Shipwreck at sunset" loading="lazy">
+          <div class="gallery-caption">Weihai</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/xiamen.jpeg" alt="Xiamen Twin Towers" loading="lazy">
+          <div class="gallery-caption">Xiamen</div>
+        </div>
+        <!-- Duplicate set for seamless loop (aria-hidden so screen readers skip) -->
+        <div class="gallery-item" aria-hidden="true" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/cherry_blossoms.jpeg" alt="" loading="lazy">
+          <div class="gallery-caption">Yuyuantan Park, Beijing</div>
+        </div>
+        <div class="gallery-item" aria-hidden="true" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/dome_tents.jpeg" alt="" loading="lazy">
+          <div class="gallery-caption">Ulanhadah Volcano, Inner Mongolia</div>
+        </div>
+        <div class="gallery-item" aria-hidden="true" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/grassland.jpeg" alt="" loading="lazy">
+          <div class="gallery-caption">Xilingol Grassland, Inner Mongolia</div>
+        </div>
+        <div class="gallery-item" aria-hidden="true" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/graduation.jpeg" alt="" loading="lazy">
+          <div class="gallery-caption">Graduation day, Peking University</div>
+        </div>
+        <div class="gallery-item" aria-hidden="true" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/singing.jpeg" alt="" loading="lazy">
+          <div class="gallery-caption">Penn State CSSA Mid-Autumn Gala</div>
+        </div>
+        <div class="gallery-item" aria-hidden="true" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/night_rose.jpeg" alt="" loading="lazy">
+          <div class="gallery-caption">Tianjin</div>
+        </div>
+        <div class="gallery-item" aria-hidden="true" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/ship_sunset.jpeg" alt="" loading="lazy">
+          <div class="gallery-caption">Weihai</div>
+        </div>
+        <div class="gallery-item" aria-hidden="true" onclick="openLightbox(this.querySelector('img'))">
+          <img src="/files/en/images/gallery/xiamen.jpeg" alt="" loading="lazy">
+          <div class="gallery-caption">Xiamen</div>
+        </div>
       </div>
     </div>
   </section>
