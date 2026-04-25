@@ -238,17 +238,54 @@ sitemap: false
     /* Misc */
     .misc-text { font-size: 0.95rem; color: var(--color-text); line-height: 1.8; margin-bottom: 0.8rem; }
 
-    /* Photo gallery — masonry */
-    .gallery-section { max-width: 1280px; margin: 0 auto; padding: 2rem 2rem 3rem; }
-    .gallery-masonry { columns: 2; column-gap: 16px; }
-    .gallery-masonry .gallery-item { break-inside: avoid; margin-bottom: 16px; border-radius: 6px; overflow: hidden; cursor: pointer; background: var(--color-bg-warm); }
-    .gallery-masonry img { width: 100%; height: auto; display: block; transition: transform 0.4s, opacity 0.3s; }
-    .gallery-masonry .gallery-item:hover img { transform: scale(1.02); opacity: 0.92; }
-    .gallery-caption { font-size: 0.78rem; color: var(--color-light); text-align: center; padding: 0.4rem 0.5rem 0.6rem; }
+    /* Photo gallery — horizontal scroll strip */
+    .gallery-section { max-width: 100%; margin: 0 auto; padding: 2rem 0 3rem; }
+    .gallery-strip {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      padding: 0 2rem 1rem;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-light) transparent;
+    }
+    .gallery-strip::-webkit-scrollbar { height: 8px; }
+    .gallery-strip::-webkit-scrollbar-track { background: transparent; }
+    .gallery-strip::-webkit-scrollbar-thumb { background: var(--color-light); border-radius: 4px; opacity: 0.5; }
+    .gallery-strip .gallery-item {
+      flex: 0 0 auto;
+      height: 280px;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      scroll-snap-align: start;
+      position: relative;
+      background: var(--color-bg-warm);
+    }
+    .gallery-strip img {
+      height: 100%;
+      width: auto;
+      display: block;
+      transition: transform 0.4s, opacity 0.3s;
+    }
+    .gallery-strip .gallery-item:hover img { transform: scale(1.03); opacity: 0.9; }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      font-size: 0.72rem;
+      color: #fff;
+      text-align: center;
+      padding: 0.8rem 0.5rem 0.4rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-strip .gallery-item:hover .gallery-caption { opacity: 1; }
 
     @media (max-width: 640px) {
-      .gallery-masonry { columns: 1; }
-      .gallery-section { padding: 1.5rem 1rem 2.5rem; }
+      .gallery-strip { padding: 0 1rem 1rem; }
+      .gallery-strip .gallery-item { height: 220px; }
+      .gallery-caption { opacity: 1; font-size: 0.68rem; }
     }
 
     /* Lightbox */
@@ -584,7 +621,7 @@ sitemap: false
 
   <!-- PHOTO GALLERY -->
   <section id="gallery" class="gallery-section fade-in">
-    <div class="gallery-masonry">
+    <div class="gallery-strip">
       <div class="gallery-item" onclick="openLightbox(this.querySelector('img'))">
         <img src="/files/en/images/gallery/cherry_blossoms.jpeg" alt="Cherry blossoms in spring" loading="lazy">
         <div class="gallery-caption">Yuyuantan Park, Beijing</div>
