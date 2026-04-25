@@ -128,11 +128,41 @@ PAT 还在，但权限 scope 错了。确认 token 只给了 ruizhou03/ruizhou03
 | 路径 | 作用 |
 |---|---|
 | [`en/index.html`](en/index.html) | 英文主页源文件（Jekyll 处理），改这里 |
+| [`en/sitemap.xml`](en/sitemap.xml) | 同步后挂在 ruizhou03 根目录，给 Google 索引用 |
+| [`en/robots.txt`](en/robots.txt) | 同步后挂在 ruizhou03 根目录，告诉爬虫 sitemap 位置 |
 | [`files/en/`](files/en/) | 英文页引用的所有资产（CV、头像、PDF）|
 | [`.github/workflows/sync-english-site.yml`](.github/workflows/sync-english-site.yml) | 同步 Action 定义 |
 | ruizhou03 repo 的 `README.md` | 说明镜像状态、禁止手改 |
 | zirconeey 的 `index.html`（中文首页） | 包含指向英文站的 notice box |
 | zirconeey 的 `_layouts/default.html` | nav 包含 `← 英文主页` 链接（非笔记页才显示）|
+
+## SEO：让搜“Rui Zhou”能搜到本站
+
+站内已经做了的（`en/index.html` head + 两个 root 文件）：
+
+- `<link rel="canonical" href="https://ruizhou03.github.io/">` — 告诉 Google ruizhou03 是首选 URL，避免和 zirconeey/en/ 镜像分摊权重
+- Schema.org `Person` JSON-LD — 用 affiliation/alumniOf/sameAs 把“Rui Zhou”消歧到具体的 PSU 经济系学生
+- Open Graph + Twitter card — LinkedIn / 微信 / Slack 分享时能出预览图
+- `sitemap.xml` + `robots.txt` 同步到 ruizhou03 根目录，由 sync workflow 自动 hoist 上来
+
+需要你**手动**做的（站外 / 注册类，1 次性）：
+
+1. **Google Search Console**：<https://search.google.com/search-console> → Add property → 选 URL prefix → 填 `https://ruizhou03.github.io/` → 用 HTML tag 验证（把 meta tag 加到 [`en/index.html`](en/index.html) 的 `<head>` 里 push 一次，验证通过后可以删，但留着也没坏处）→ 在 Sitemaps 里提交 `https://ruizhou03.github.io/sitemap.xml`
+2. **加更多 `sameAs` 链接**：研究 profile 越多，“是哪一个 Rui Zhou”消歧越准。建议至少补：
+   - Google Scholar（去 <https://scholar.google.com> 注册一个）
+   - LinkedIn
+   - ORCID（<https://orcid.org>，ORCID 是学界最权威的 ID 系统，2 分钟注册）
+   - PSU 经济系 people page（如果有）
+   补完之后把 URL 填到 [`en/index.html`](en/index.html) JSON-LD 的 `sameAs` 数组里
+3. **反向链接（最关键、最慢）**：让以下页面 link 回 `https://ruizhou03.github.io/`：
+   - PSU 经济系个人 profile 页（联系系办挂上）
+   - 导师 / co-author 主页的“students”区
+   - LinkedIn / Scholar / ORCID 的 personal website 字段
+   - GitHub profile bio
+   - 任何会议、talk、workshop 的 speaker bio 链接
+   反向链接是排名最强的信号，但 Google 重新爬通常要 2–3 个月才看到效果
+
+每次更新内容后，记得手动改一下 [`en/sitemap.xml`](en/sitemap.xml) 的 `<lastmod>` 日期，提示 Google 重新爬。
 
 ## 延后 / 未做的事
 

@@ -43,6 +43,14 @@ jobs:
           mkdir -p target/files
           cp -r files/en target/files/
 
+      - name: Mirror sitemap.xml + robots.txt to ruizhou03 root
+        # These live under en/ in the source repo (so ruizhou03 has no
+        # hand-edited files), and get hoisted to / on the target repo
+        # because that's where Google looks for them.
+        run: |
+          cp en/sitemap.xml target/sitemap.xml
+          cp en/robots.txt target/robots.txt
+
       - name: Commit & push if changed
         working-directory: target
         run: |
