@@ -746,15 +746,16 @@ sitemap: false
       if (!marquee || !track) return;
 
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const SPEED_PX_PER_SEC = 140;
+      const DWELL_MS = 2900;        // pause on each image
+      const TRANSITION_MS = 450;    // sweep to next image (longer = gentler)
       const IDLE_RESUME_MS = 2000;
       const DRAG_THRESHOLD_PX = 5;
 
       let halfWidth = 0;
       let isHovering = false;
       let isDragging = false;
+      let isAutoScrolling = false;
       let lastInteractionAt = 0;
-      let lastFrameTs = null;
       let pendingClickSuppress = false;
 
       function recomputeHalf() {
@@ -777,23 +778,67 @@ sitemap: false
         return true;
       }
 
-      function tick(ts) {
-        if (lastFrameTs == null) lastFrameTs = ts;
-        const dt = ts - lastFrameTs;
-        lastFrameTs = ts;
-        if (shouldAutoScroll() && halfWidth > 0) {
-          marquee.scrollLeft += SPEED_PX_PER_SEC * dt / 1000;
-          wrapScroll();
-        }
-        requestAnimationFrame(tick);
+      const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+      function animateScrollTo(target, durationMs) {
+        return new Promise(resolve => {
+          const start = marquee.scrollLeft;
+          const delta = target - start;
+          const startTs = performance.now();
+          isAutoScrolling = true;
+          function step(ts) {
+            if (isDragging) { isAutoScrolling = false; resolve(); return; }
+            const t = Math.min(1, (ts - startTs) / durationMs);
+            const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+            marquee.scrollLeft = start + delta * eased;
+            if (t < 1) requestAnimationFrame(step);
+            else { isAutoScrolling = false; resolve(); }
+          }
+          requestAnimationFrame(step);
+        });
       }
-      requestAnimationFrame(tick);
+
+      function nextItemTarget() {
+        const items = track.querySelectorAll('.gallery-item');
+        const cur = marquee.scrollLeft;
+        for (const it of items) {
+          if (it.offsetLeft > cur + 2) return it.offsetLeft;
+        }
+        return halfWidth;
+      }
+
+      async function autoCycle() {
+        if (reduceMotion) return;
+        // wait until images have layout dimensions
+        let attempts = 0;
+        while (halfWidth <= 0 && attempts < 40) {
+          recomputeHalf();
+          await sleep(150);
+          attempts++;
+        }
+        while (true) {
+          while (!shouldAutoScroll()) await sleep(120);
+          await sleep(DWELL_MS);
+          if (!shouldAutoScroll()) continue;
+          const target = nextItemTarget();
+          await animateScrollTo(target, TRANSITION_MS);
+          if (marquee.scrollLeft >= halfWidth) {
+            isAutoScrolling = true;
+            marquee.scrollLeft -= halfWidth;
+            await sleep(0); // let scroll event fire while flag is set
+            isAutoScrolling = false;
+          }
+        }
+      }
+      autoCycle();
 
       function markInteraction() { lastInteractionAt = Date.now(); }
 
       // Native scroll (touch swipe, trackpad, scrollbar) — also wrap seamlessly.
+      // isAutoScrolling guards against auto-scroll firing this listener and
+      // marking itself as a user interaction.
       marquee.addEventListener('scroll', () => {
-        if (!isDragging) markInteraction();
+        if (!isDragging && !isAutoScrolling) markInteraction();
         wrapScroll();
       }, { passive: true });
 
