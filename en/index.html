@@ -257,20 +257,19 @@ sitemap: false
     }
     .gallery-marquee {
       position: relative;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      cursor: grab;
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
       mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
     }
+    .gallery-marquee::-webkit-scrollbar { display: none; }
+    .gallery-marquee.dragging { cursor: grabbing; }
     .gallery-track {
       display: flex;
       gap: 12px;
       width: max-content;
-      animation: gallery-scroll 50s linear infinite;
-    }
-    .gallery-track:hover { animation-play-state: paused; }
-    @keyframes gallery-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
     }
     .gallery-track .gallery-item {
       flex: 0 0 auto;
@@ -305,10 +304,6 @@ sitemap: false
       .gallery-section { padding: 1.8rem 1rem 2.5rem; }
       .gallery-track .gallery-item { height: 200px; }
       .gallery-caption { opacity: 1; font-size: 0.68rem; }
-      .gallery-track { animation-duration: 60s; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .gallery-track { animation: none; }
     }
 
     /* Lightbox */
@@ -744,6 +739,127 @@ sitemap: false
       if (el.style.display === 'none') { el.style.display = 'block'; btn.textContent = 'Hide chapters ▾'; }
       else { el.style.display = 'none'; btn.textContent = 'Show chapters ▸'; }
     }
+    // Gallery: auto-scrolling marquee that yields to user input and resumes after idle.
+    (function initGalleryMarquee() {
+      const marquee = document.querySelector('.gallery-marquee');
+      const track = marquee && marquee.querySelector('.gallery-track');
+      if (!marquee || !track) return;
+
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const SPEED_PX_PER_SEC = 58;
+      const IDLE_RESUME_MS = 2000;
+      const DRAG_THRESHOLD_PX = 5;
+
+      let halfWidth = 0;
+      let isHovering = false;
+      let isDragging = false;
+      let lastInteractionAt = 0;
+      let lastFrameTs = null;
+      let pendingClickSuppress = false;
+
+      function recomputeHalf() {
+        halfWidth = track.scrollWidth / 2;
+      }
+      recomputeHalf();
+      window.addEventListener('resize', recomputeHalf);
+      window.addEventListener('load', recomputeHalf);
+
+      function wrapScroll() {
+        if (halfWidth <= 0) return;
+        if (marquee.scrollLeft >= halfWidth) marquee.scrollLeft -= halfWidth;
+        else if (marquee.scrollLeft < 0) marquee.scrollLeft += halfWidth;
+      }
+
+      function shouldAutoScroll() {
+        if (reduceMotion) return false;
+        if (isHovering || isDragging) return false;
+        if (lastInteractionAt && Date.now() - lastInteractionAt < IDLE_RESUME_MS) return false;
+        return true;
+      }
+
+      function tick(ts) {
+        if (lastFrameTs == null) lastFrameTs = ts;
+        const dt = ts - lastFrameTs;
+        lastFrameTs = ts;
+        if (shouldAutoScroll() && halfWidth > 0) {
+          marquee.scrollLeft += SPEED_PX_PER_SEC * dt / 1000;
+          wrapScroll();
+        }
+        requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+
+      function markInteraction() { lastInteractionAt = Date.now(); }
+
+      // Native scroll (touch swipe, trackpad, scrollbar) — also wrap seamlessly.
+      marquee.addEventListener('scroll', () => {
+        if (!isDragging) markInteraction();
+        wrapScroll();
+      }, { passive: true });
+
+      marquee.addEventListener('wheel', markInteraction, { passive: true });
+
+      // Hover pause (desktop mouse only).
+      marquee.addEventListener('pointerenter', (e) => {
+        if (e.pointerType === 'mouse') isHovering = true;
+      });
+      marquee.addEventListener('pointerleave', (e) => {
+        if (e.pointerType === 'mouse') isHovering = false;
+      });
+
+      // Mouse drag-to-scroll (touch/pen handled natively by overflow scroll).
+      let dragStartX = 0;
+      let dragStartScroll = 0;
+      let dragMoved = 0;
+      marquee.addEventListener('pointerdown', (e) => {
+        if (e.pointerType !== 'mouse' || e.button !== 0) return;
+        isDragging = true;
+        dragMoved = 0;
+        dragStartX = e.clientX;
+        dragStartScroll = marquee.scrollLeft;
+        marquee.classList.add('dragging');
+        marquee.setPointerCapture(e.pointerId);
+        markInteraction();
+      });
+      marquee.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
+        const dx = e.clientX - dragStartX;
+        dragMoved = Math.max(dragMoved, Math.abs(dx));
+        marquee.scrollLeft = dragStartScroll - dx;
+        // wrap mid-drag so dragging past the seam stays seamless
+        wrapScroll();
+        if (Math.abs(dx) > 0) {
+          // adjust origin if we wrapped, so further movement stays continuous
+          if (marquee.scrollLeft < dragStartScroll - dx - 1 || marquee.scrollLeft > dragStartScroll - dx + 1) {
+            dragStartX = e.clientX;
+            dragStartScroll = marquee.scrollLeft;
+          }
+        }
+      });
+      function endDrag(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        marquee.classList.remove('dragging');
+        if (dragMoved > DRAG_THRESHOLD_PX) pendingClickSuppress = true;
+        markInteraction();
+      }
+      marquee.addEventListener('pointerup', endDrag);
+      marquee.addEventListener('pointercancel', endDrag);
+
+      // Suppress click that follows a real drag (so dragging doesn't open the lightbox).
+      marquee.addEventListener('click', (e) => {
+        if (pendingClickSuppress) {
+          e.stopPropagation();
+          e.preventDefault();
+          pendingClickSuppress = false;
+        }
+      }, true);
+
+      // Touch interactions also count as activity.
+      marquee.addEventListener('touchstart', markInteraction, { passive: true });
+      marquee.addEventListener('touchend', markInteraction, { passive: true });
+    })();
+
     function openLightbox(img) {
       const lb = document.getElementById('lightbox');
       document.getElementById('lightbox-img').src = img.src;
