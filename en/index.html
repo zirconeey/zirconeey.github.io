@@ -751,19 +751,33 @@ sitemap: false
       const IDLE_RESUME_MS = 2000;
       const DRAG_THRESHOLD_PX = 5;
 
-      let halfWidth = 0;
+      // Number of unique images. The track holds 2× this many items
+      // (originals + aria-hidden duplicates) so the loop is seamless.
+      const UNIQUE_COUNT = track.querySelectorAll('.gallery-item:not([aria-hidden="true"])').length;
+
+      let halfWidth = 0;            // visual loop period: items[UNIQUE_COUNT].offsetLeft
       let isHovering = false;
       let isDragging = false;
       let isAutoScrolling = false;
       let lastInteractionAt = 0;
       let pendingClickSuppress = false;
+      let currentIdx = 0;           // index of the item currently centered
 
+      // Use items[UNIQUE_COUNT].offsetLeft (the exact distance after which
+      // the duplicate set begins) instead of track.scrollWidth/2 — the
+      // latter is half a gap off and, worse, is wrong while images are
+      // still loading lazily, which made the wrap fire mid-cycle.
       function recomputeHalf() {
-        halfWidth = track.scrollWidth / 2;
+        const items = track.querySelectorAll('.gallery-item');
+        halfWidth = items.length > UNIQUE_COUNT ? items[UNIQUE_COUNT].offsetLeft : 0;
       }
       recomputeHalf();
       window.addEventListener('resize', recomputeHalf);
       window.addEventListener('load', recomputeHalf);
+      // Each lazy-loaded image grows the track — keep halfWidth fresh.
+      track.querySelectorAll('img').forEach(img => {
+        if (!img.complete) img.addEventListener('load', recomputeHalf);
+      });
 
       function wrapScroll() {
         if (halfWidth <= 0) return;
@@ -806,8 +820,7 @@ sitemap: false
       }
 
       // Pick the item currently closest to the viewport center — used
-      // to recalibrate after a user drag/swipe so auto-cycle picks up
-      // from wherever the user left off.
+      // to resync currentIdx after a user drag/swipe.
       function findCenteredIdx() {
         const items = track.querySelectorAll('.gallery-item');
         const viewCenter = marquee.scrollLeft + marquee.clientWidth / 2;
@@ -837,6 +850,7 @@ sitemap: false
         if (initItems.length >= 2) {
           isAutoScrolling = true;
           marquee.scrollLeft = centerTargetFor(initItems[1]);
+          currentIdx = 1;
           await sleep(0);
           isAutoScrolling = false;
         }
@@ -846,14 +860,24 @@ sitemap: false
           await sleep(DWELL_MS);
           if (!shouldAutoScroll()) continue;
           const items = track.querySelectorAll('.gallery-item');
-          const curIdx = findCenteredIdx();
-          const nextIdx = (curIdx + 1) % items.length;
+          const nextIdx = currentIdx + 1;
+          if (nextIdx >= items.length) continue; // safety; shouldn't happen
           const target = centerTargetFor(items[nextIdx]);
           await animateScrollTo(target, TRANSITION_MS);
-          if (marquee.scrollLeft >= halfWidth) {
+          currentIdx = nextIdx;
+          // Once we've animated past items[UNIQUE_COUNT] (which is the
+          // duplicate of items[0]) onto items[UNIQUE_COUNT+1] — i.e.,
+          // visually back to items[1] — silently subtract halfWidth so
+          // scrollLeft sits at the real items[1] position. We can't wrap
+          // earlier because items[0] itself can't be centered (its
+          // centerTargetFor would need negative scrollLeft, which the
+          // browser clamps).
+          recomputeHalf();
+          while (currentIdx > UNIQUE_COUNT && halfWidth > 0) {
             isAutoScrolling = true;
             marquee.scrollLeft -= halfWidth;
-            await sleep(0); // let scroll event fire while flag is set
+            currentIdx -= UNIQUE_COUNT;
+            await sleep(0);
             isAutoScrolling = false;
           }
         }
@@ -866,7 +890,10 @@ sitemap: false
       // isAutoScrolling guards against auto-scroll firing this listener and
       // marking itself as a user interaction.
       marquee.addEventListener('scroll', () => {
-        if (!isDragging && !isAutoScrolling) markInteraction();
+        if (!isDragging && !isAutoScrolling) {
+          markInteraction();
+          currentIdx = findCenteredIdx(); // resync after touch/wheel/scrollbar
+        }
         wrapScroll();
       }, { passive: true });
 
@@ -915,6 +942,8 @@ sitemap: false
         marquee.classList.remove('dragging');
         if (dragMoved > DRAG_THRESHOLD_PX) pendingClickSuppress = true;
         markInteraction();
+        // Resync auto-cycle to wherever the user left off.
+        currentIdx = findCenteredIdx();
       }
       marquee.addEventListener('pointerup', endDrag);
       marquee.addEventListener('pointercancel', endDrag);
