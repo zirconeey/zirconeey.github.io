@@ -92,7 +92,8 @@ permalink: /life/recipes/
 
   @media (max-width: 768px) {
     .recipes-wrap { padding: 1rem 0.5rem 2rem; }
-    .recipes-grid { grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 0.55rem; }
+    .recipes-grid { grid-template-columns: repeat(3, 1fr); gap: 0.55rem; }
+    .recipes-grid .recipe-card:nth-child(n+10) { display: none; }
     .recipe-card-body { padding: 0.4rem 0.5rem 0.5rem; }
     .recipe-card-title { font-size: 0.82rem; }
     .recipe-card-foot { font-size: 0.72rem; }
