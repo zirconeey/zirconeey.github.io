@@ -5,8 +5,7 @@ main_category: "随笔漫谈"
 sub_category: "生命故事"
 date: 2023-12-19
 permalink: "/essays/birthday-20"
-cover: "/files/images/yearly-stories/birthday-20.jpg"
-cover_position: "center 75%"
+age: 20
 ---
 
 [**“如果要对十九岁说些什么，那就是希望二十岁看到这句话时，能露出微笑吧。”**](/essays/birthday-19)
