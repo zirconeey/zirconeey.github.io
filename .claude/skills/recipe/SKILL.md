@@ -63,8 +63,18 @@ steps:
 
 tags: ["<2-4 个标签>"]
 published: true
+featured: false  # 可省略；置 true 让这道菜永远占据 /life/recipes/ 主页前排（在「最近 10 道」section 内置顶）
 ---
 ```
+
+## 置顶（`featured`）
+
+`/life/recipes/` 主页只显示 10 道菜：先按 date 倒序，但 `featured: true` 的菜会**钉在最前**（多个 featured 之间也按 date 倒序）。
+
+- 不需要置顶 → 字段不写或写 `featured: false`，效果一样
+- 想让这道菜不被新菜挤掉 → `featured: true`
+- featured 数 > 10 时，主页只显示最近 10 个 featured 的，其它在 `/life/recipes/all/` 找
+- 如果用户说“把这道菜置顶 / 钉到主页”，就给现有菜谱加这一行
 
 ## `---` 之下的正文（两段，按顺序）
 
