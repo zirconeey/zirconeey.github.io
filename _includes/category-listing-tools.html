@@ -157,6 +157,21 @@
       list.style.display = filteredItems.length === 0 ? 'none' : '';
 
       renderPagination(totalPages);
+      maybeLockHeight(visible.length);
+    }
+
+    // 锁定列表 min-height，让翻到最后一页（条目少于满页）时翻页按钮 Y 坐标不跳。
+    function maybeLockHeight(visibleCount) {
+      if (filteredItems.length <= pageSize) {
+        // 全部条目 ≤ 一页：不存在翻页，解锁让列表自然高度
+        list.style.minHeight = '';
+        return;
+      }
+      if (visibleCount === pageSize) {
+        // 当前正在渲染满页 → 实测高度，锁定为 minHeight
+        list.style.minHeight = list.offsetHeight + 'px';
+      }
+      // 部分页：沿用之前满页时锁定的值，不更新
     }
 
     function renderPagination(totalPages) {

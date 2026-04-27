@@ -334,6 +334,18 @@ permalink: /life/recipes/
     grid.style.display = isEmpty ? 'none' : '';
 
     renderPagination(totalPages);
+    maybeLockHeight(visibleSet.size, pageSize);
+  }
+
+  // 锁定网格 min-height，让翻到最后一页（卡片少于满页）时翻页按钮 Y 不跳。
+  function maybeLockHeight(visibleCount, pageSize) {
+    if (filteredCards.length <= pageSize) {
+      grid.style.minHeight = '';
+      return;
+    }
+    if (visibleCount === pageSize) {
+      grid.style.minHeight = grid.offsetHeight + 'px';
+    }
   }
 
   function computeVisiblePages(current, totalPages) {
