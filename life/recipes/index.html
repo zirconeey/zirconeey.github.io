@@ -34,19 +34,19 @@ permalink: /life/recipes/
 
   .recipes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.9rem;
   }
   .recipe-card {
     display: flex; flex-direction: column;
-    border: 1px solid var(--color-border); border-radius: 12px;
+    border: 1px solid var(--color-border); border-radius: 8px;
     overflow: hidden; background: var(--color-bg);
     text-decoration: none; color: inherit;
-    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
   }
   .recipe-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     border-color: var(--color-accent);
   }
   .recipe-card-cover {
@@ -55,20 +55,15 @@ permalink: /life/recipes/
     display: block;
   }
   .recipe-card-body {
-    padding: 0.9rem 1rem 1rem;
-    display: flex; flex-direction: column; gap: 0.4rem;
+    padding: 0.5rem 0.6rem 0.55rem;
+    display: flex; flex-direction: column; gap: 0.2rem;
   }
   .recipe-card-title {
-    font-size: 1.1rem; font-weight: 600;
+    font-size: 0.92rem; font-weight: 600;
     color: var(--color-ink); line-height: 1.3;
   }
-  .recipe-card-sub {
-    font-size: 0.85rem; color: var(--color-muted);
-  }
   .recipe-card-foot {
-    font-size: 0.85rem; color: var(--color-light);
-    display: flex; justify-content: space-between; align-items: center;
-    margin-top: 0.1rem;
+    font-size: 0.78rem; color: var(--color-light);
   }
   .recipes-empty {
     text-align: center; padding: 2rem 1rem;
@@ -97,9 +92,10 @@ permalink: /life/recipes/
 
   @media (max-width: 768px) {
     .recipes-wrap { padding: 1rem 0.5rem 2rem; }
-    .recipes-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
-    .recipe-card-body { padding: 0.7rem 0.8rem 0.8rem; }
-    .recipe-card-title { font-size: 1rem; }
+    .recipes-grid { grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 0.55rem; }
+    .recipe-card-body { padding: 0.4rem 0.5rem 0.5rem; }
+    .recipe-card-title { font-size: 0.82rem; }
+    .recipe-card-foot { font-size: 0.72rem; }
     .knowledge-list li a { font-size: 0.98rem; }
   }
 </style>
@@ -129,7 +125,6 @@ permalink: /life/recipes/
         {% for r in top_recipes limit: 10 %}
           {% if r.published == false %}{% continue %}{% endif %}
           {%- assign _t = r.total_time | default: 0 | plus: 0 -%}
-          {%- assign _d = r.difficulty | default: 0 | plus: 0 -%}
           <a class="recipe-card" href="{{ r.url | relative_url }}">
             {% if r.cover %}
               <img class="recipe-card-cover" src="{{ r.cover | relative_url }}" alt="{{ r.title }}" loading="lazy" />
@@ -138,18 +133,7 @@ permalink: /life/recipes/
             {% endif %}
             <div class="recipe-card-body">
               <div class="recipe-card-title">{{ r.title }}</div>
-              <div class="recipe-card-sub">
-                🍜
-                {%- if r.cuisine %} {{ r.cuisine }}{% endif -%}
-                {%- if r.cuisine and r.category %} · {% endif -%}
-                {%- if r.category %}{{ r.category }}{% endif -%}
-              </div>
-              <div class="recipe-card-foot">
-                {% if _t > 0 %}<span>⏱ {{ _t }} min</span>{% else %}<span></span>{% endif %}
-                {% if _d > 0 %}
-                  <span title="难度 {{ _d }} / 5">{% for i in (1.._d) %}★{% endfor %}</span>
-                {% endif %}
-              </div>
+              {% if _t > 0 %}<div class="recipe-card-foot">⏱ {{ _t }} min</div>{% endif %}
             </div>
           </a>
         {% endfor %}
