@@ -18,36 +18,14 @@ title: 科研妙招 | Rui Zhou
   {% assign sub_categories = category_posts | map: "sub_category" | compact | uniq %}
 
   {% for sub in sub_categories %}
-    <h2 style="font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--color-accent); font-family: var(--font-display);">
-      <span style="color: var(--color-muted); margin-right: 0.5rem;">📂</span>{{ sub }}
-    </h2>
-    <ul style="list-style: none; padding: 0;">
-      {% assign sub_posts = category_posts | where: "sub_category", sub %}
-      {% for post in sub_posts %}
-        {% if post.published != false %}
-        <li style="display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px dashed var(--color-border);">
-          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--color-text); font-weight: 500;">{{ post.title }}</a>
-          <span style="color: var(--color-light); font-size: 0.9rem; font-family: 'Cormorant Garamond', serif;">{{ post.date | date: "%Y-%m-%d" }}</span>
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+    {% assign sub_posts = category_posts | where: "sub_category", sub %}
+    {% include sub-category-section.html sub=sub posts=sub_posts %}
   {% endfor %}
 
   {% assign no_sub_posts = category_posts | where_exp: "item", "item.sub_category == nil" %}
   {% if no_sub_posts.size > 0 %}
-    <h2 style="font-size: 1.4rem; margin-top: 2.5rem; margin-bottom: 1rem; color: var(--color-accent); font-family: var(--font-display);">
-      <span style="color: var(--color-muted); margin-right: 0.5rem;">📂</span>其他
-    </h2>
-    <ul style="list-style: none; padding: 0;">
-      {% for post in no_sub_posts %}
-        {% if post.published != false %}
-        <li style="display: flex; justify-content: space-between; padding: 0.6rem 0; border-bottom: 1px dashed var(--color-border);">
-          <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: var(--color-text); font-weight: 500;">{{ post.title }}</a>
-          <span style="color: var(--color-light); font-size: 0.9rem; font-family: 'Cormorant Garamond', serif;">{{ post.date | date: "%Y-%m-%d" }}</span>
-        </li>
-        {% endif %}
-      {% endfor %}
-    </ul>
+    {% include sub-category-section.html sub="其他" posts=no_sub_posts %}
   {% endif %}
 </article>
+
+{% include category-listing-tools.html %}
