@@ -149,26 +149,6 @@ permalink: /life/recipes/
     font: inherit; text-align: center;
   }
 
-  .knowledge-list {
-    list-style: none; padding: 0; margin: 0;
-  }
-  .knowledge-list li {
-    padding: 0.85rem 0;
-    border-bottom: 1px dashed var(--color-border);
-  }
-  .knowledge-list li a {
-    color: var(--color-text); text-decoration: none;
-    font-size: 1.05rem; line-height: 1.5;
-    display: flex; justify-content: space-between; align-items: baseline;
-    gap: 1rem;
-  }
-  .knowledge-list li a:hover { color: var(--color-accent); }
-  .knowledge-list .k-title { flex: 1; }
-  .knowledge-list .k-date {
-    color: var(--color-light); font-size: 0.85rem;
-    font-family: 'Cormorant Garamond', serif; white-space: nowrap;
-  }
-
   @media (max-width: 768px) {
     .recipes-wrap { padding: 1rem 0.5rem 2rem; }
     .recipes-grid { grid-template-columns: repeat(3, 1fr); gap: 0.55rem; }
@@ -180,7 +160,6 @@ permalink: /life/recipes/
     .recipes-filter-bar select { font-size: 0.85rem; padding: 0.3rem 0.5rem; }
     .recipes-pagination { justify-content: center; }
     .pg-jump { display: none; }
-    .knowledge-list li a { font-size: 0.98rem; }
   }
 </style>
 
@@ -275,28 +254,17 @@ permalink: /life/recipes/
 
   {%- assign cooking_articles = site.notes | where_exp: "item", "item.extra_categories contains '菜谱'" | sort: "date" | reverse -%}
 
-  <section class="recipes-section">
-    <div class="section-head">
-      <h2>厨房小常识</h2>
-    </div>
-
-    {% if cooking_articles.size == 0 %}
+  {% if cooking_articles.size == 0 %}
+    <section class="recipes-section">
+      <div class="section-head"><h2>厨房小常识</h2></div>
       <div class="recipes-empty">厨房小常识系列即将开始更新，敬请期待。</div>
-    {% else %}
-      <ul class="knowledge-list">
-        {% for a in cooking_articles %}
-          {% if a.published == false %}{% continue %}{% endif %}
-          <li>
-            <a href="{{ a.url | relative_url }}">
-              <span class="k-title">{{ a.title }}</span>
-              <span class="k-date">{{ a.date | date: "%Y-%m-%d" }}</span>
-            </a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </section>
+    </section>
+  {% else %}
+    {% include sub-category-section.html sub="厨房小常识" posts=cooking_articles %}
+  {% endif %}
 </article>
+
+{% include category-listing-tools.html %}
 
 <script>
 (function() {
