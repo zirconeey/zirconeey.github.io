@@ -19,7 +19,11 @@ title: 随笔漫谈 | Rui Zhou
 
   {% for sub in sub_categories %}
     {% assign sub_posts = category_posts | where: "sub_category", sub %}
-    {% include sub-category-section.html sub=sub posts=sub_posts %}
+    {% if sub == "生命故事" %}
+      {% include yearly-story-section.html sub=sub posts=sub_posts %}
+    {% else %}
+      {% include sub-category-section.html sub=sub posts=sub_posts %}
+    {% endif %}
   {% endfor %}
 
   {% assign no_sub_posts = category_posts | where_exp: "item", "item.sub_category == nil" %}
