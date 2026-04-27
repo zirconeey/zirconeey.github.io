@@ -92,10 +92,10 @@ published: true
 | 分类 | 目录 | permalink | 额外字段 | 样板 |
 |---|---|---|---|---|
 | 随笔漫谈 | `_notes/essays/<slug>.md` | `/essays/<slug>` | `sub_category`（如 生命故事 / 阅读笔记）<br>`reactions: ["🎂", "🎉", "❤️"]`（3-6 个 emoji） | `_notes/essays/birthday-21.md` |
-| 生活攻略 | `_notes/life/<slug>.md` | `/notes/life/<slug>` | `extra_categories: [科研妙招]`（可选，跨分类聚合）<br>`sub_category`（可选） | `_notes/life/vpn-setup-ios.md` |
+| 生活攻略 | `_notes/life/<slug>.md` | `/life/<slug>` | `extra_categories: [科研妙招]`（可选，跨分类聚合）<br>`sub_category`（可选） | `_notes/life/vpn-setup-ios.md` |
 | 科研妙招 | `_notes/research/<topic>/<slug>.md` | `/research/<topic>/<slug>` | `sub_category`（如 R 教程 / LaTeX） | `_notes/research/r-tutorials/r-pca.md` |
 
-> **permalink 默认值**：`_config.yml` 给 `_notes/` collection 设了默认 `/notes/:path/`。如果某分类有专属 URL 前缀（如 essays 用 `/essays/`），就**手写 permalink 覆盖**；否则可以省略 permalink，走默认。看那个分类的 landing 页里 Liquid 用什么 URL 链接到文章，就跟它对齐。
+> **permalink 默认值**：`_config.yml` 给 `_notes/` collection 设了默认 `/notes/:path/`。但**生活攻略**有专属 URL 前缀 `/life/<slug>`（不带 notes/，因为分类名就是 life，notes/ 多余）——必须**手写 permalink 覆盖默认**。其它分类（essays 用 `/essays/`、research 用 `/research/<topic>/<slug>`）也都各自手写 permalink。看那个分类的 landing 页里 Liquid 用什么 URL 链接到文章，就跟它对齐。
 
 ---
 

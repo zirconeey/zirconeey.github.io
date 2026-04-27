@@ -6,7 +6,7 @@ main_category: "生活攻略"
 sub_category: "生活之问"
 extra_categories:
   - 菜谱
-permalink: "/notes/life/cooking-oils-guide"
+permalink: "/life/cooking-oils-guide"
 ---
 
 # 1. 问题

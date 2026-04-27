@@ -6,12 +6,12 @@ main_category: "生活攻略"
 sub_category: "生活之问"
 extra_categories:
   - 菜谱
-permalink: "/notes/life/cut-fish"
+permalink: "/life/cut-fish"
 ---
 
 # 1. 问题
 
-[上一篇](/notes/life/cut-meat-grain)讲了切牛肉为什么要逆纹切，并提到鱼是“另一门学问”。那么——鱼肉到底有没有“纹理”？切鱼有什么讲究？三文鱼刺身片那种漂亮的虎斑纹是哪来的？
+[上一篇](/life/cut-meat-grain)讲了切牛肉为什么要逆纹切，并提到鱼是“另一门学问”。那么——鱼肉到底有没有“纹理”？切鱼有什么讲究？三文鱼刺身片那种漂亮的虎斑纹是哪来的？
 
 # 2. 结论先行
 

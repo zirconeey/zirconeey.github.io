@@ -4,7 +4,7 @@ title: "视力表上的 5.0 / 1.0 / 4.8 / 20/20 都是什么意思？"
 date: 2026-04-27
 main_category: "生活攻略"
 sub_category: "生活之问"
-permalink: "/notes/life/eye-chart-numbers"
+permalink: "/life/eye-chart-numbers"
 ---
 
 # 1. 问题

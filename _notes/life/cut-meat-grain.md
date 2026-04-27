@@ -6,7 +6,7 @@ main_category: "生活攻略"
 sub_category: "生活之问"
 extra_categories:
   - 菜谱
-permalink: "/notes/life/cut-meat-grain"
+permalink: "/life/cut-meat-grain"
 ---
 
 # 1. 问题

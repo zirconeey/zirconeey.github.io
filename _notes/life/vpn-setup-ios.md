@@ -5,7 +5,7 @@ date: 2023-10-07
 main_category: "生活攻略"
 extra_categories:
   - 科研妙招
-permalink: "/notes/life/vpn-setup-ios"
+permalink: "/life/vpn-setup-ios"
 ---
 
 众所周知，苹果家的一系列产品名称里喜欢有“Air”，比如 AirPods、AirTag 等，不过今天要介绍的不是的产品，而是在 iOS 系统上配置 VPN（此处本应该翻译的）。

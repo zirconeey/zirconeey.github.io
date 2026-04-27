@@ -6,7 +6,7 @@ main_category: "生活攻略"
 sub_category: "生活之问"
 extra_categories:
   - 菜谱
-permalink: "/notes/life/beef-cuts-guide"
+permalink: "/life/beef-cuts-guide"
 ---
 
 # 1. 问题
@@ -40,7 +40,7 @@ permalink: "/notes/life/beef-cuts-guide"
 
 这就是为什么牛肉一只牛上能切出 30-50 美元/磅的菲力，也能切出 5 美元/磅的牛腱——价格差 6-10 倍**全在部位**。
 
-> 上一篇[切肉文](/notes/life/cut-meat-grain)讲过单根纤维粗细 50-100 μm。同一只牛，菲力的纤维偏 50-60，牛腱可以到 80-100，差 50%。再加上结缔组织数量差好几倍——成品口感差就大了。
+> 上一篇[切肉文](/life/cut-meat-grain)讲过单根纤维粗细 50-100 μm。同一只牛，菲力的纤维偏 50-60，牛腱可以到 80-100，差 50%。再加上结缔组织数量差好几倍——成品口感差就大了。
 
 ## 3.2 牛的部位地图
 
@@ -229,7 +229,7 @@ permalink: "/notes/life/beef-cuts-guide"
 - **板腱（flat iron）**：嫩 + 风味好
 - **flank / skirt**：长纤维，逆纹切后弹牙——爆炒、carne asada
 
-> 切法很关键，参见[切肉文](/notes/life/cut-meat-grain)。**爆炒牛肉必须严格逆纹切**，否则再好的部位都嚼不动。
+> 切法很关键，参见[切肉文](/life/cut-meat-grain)。**爆炒牛肉必须严格逆纹切**，否则再好的部位都嚼不动。
 
 ### 烤（roast，1-3 hr）
 
