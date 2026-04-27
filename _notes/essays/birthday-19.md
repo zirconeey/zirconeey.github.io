@@ -6,6 +6,8 @@ sub_category: "生命故事"
 date: "2022-12-19"
 author: "Zircon"
 permalink: "/essays/birthday-19"
+cover: "/files/images/yearly-stories/birthday-19.jpg"
+cover_position: "center 55%"
 reactions: ["🎂", "🎉", "🥳", "❤️", "🫶", "✨"]
 published: true
 ---
