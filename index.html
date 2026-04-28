@@ -63,6 +63,40 @@ title: 锆铌 | Rui Zhou
     margin-bottom: 0.4rem;
   }
 
+  .announcement-banner {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.85rem 1.4rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-light) 100%);
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 0.96rem;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(30, 58, 95, 0.18);
+  }
+  .announcement-banner:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(30, 58, 95, 0.28);
+    text-decoration: none;
+    color: #fff;
+  }
+  .announcement-banner .ann-icon { font-size: 1.1rem; }
+  .announcement-banner .ann-text { flex: 1; }
+  .announcement-banner .ann-arrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    opacity: 0.9;
+    transition: transform 0.2s;
+  }
+  .announcement-banner:hover .ann-arrow { transform: translateX(3px); }
+
+  @media (max-width: 768px) {
+    .announcement-banner { font-size: 0.88rem; padding: 0.7rem 1rem; gap: 0.5rem; }
+  }
 </style>
 
 {% assign valid_notes = site.notes | where_exp: "item", "item.date != nil" %}
@@ -80,6 +114,12 @@ title: 锆铌 | Rui Zhou
 {% assign essay_count = essay_count | plus: essay_extra %}
 {% assign hot_posts = all_content | where: "hot", true %}
 {% assign featured = hot_posts | first %}
+
+<a href="{{ '/essays/welcome-home' | relative_url }}" class="announcement-banner">
+  <span class="ann-icon">📢</span>
+  <span class="ann-text">公众号是河流，网站是图书馆——所有文章都在这了</span>
+  <span class="ann-arrow">→</span>
+</a>
 
 <section class="bio-section" style="margin-bottom: 3rem;">
   <h1>关于这里</h1>
