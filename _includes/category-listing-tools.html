@@ -119,7 +119,7 @@
     var list = section.querySelector('.paginated-list');
     if (!list) return;
     var items = Array.prototype.slice.call(list.querySelectorAll('.paginated-item'));
-    var pageSize = parseInt(list.dataset.pageSize, 10) || 8;
+    var pageSize = parseInt(list.dataset.pageSize, 10) || 5;
     var searchInput = section.querySelector('.search-input');
     var searchToggle = section.querySelector('.search-toggle');
     var searchWrap = section.querySelector('.search-wrap');
@@ -132,7 +132,7 @@
     var searchTimer;
 
     function applyFilter() {
-      var q = (searchInput.value || '').trim().toLowerCase();
+      var q = searchInput ? (searchInput.value || '').trim().toLowerCase() : '';
       filteredItems = q ? items.filter(function(i) {
         return (i.dataset.title || '').indexOf(q) !== -1;
       }) : items.slice();
