@@ -1,0 +1,227 @@
+% !TEX root = ../Micro.tex
+\chapter{Perfect Bayesian Equilibrium}
+
+\section{From SPE to PBE}
+
+Subgame-perfect equilibrium (Chapter 4) refines Nash equilibrium by demanding sequentially rational play in every \emph{subgame}. The definition is powerful in extensive-form games of \textbf{perfect information}, where every singleton history initiates a subgame and SPE is verified by backward induction at each node. It is also adequate for extensive-form games of \emph{imperfect} information whose information sets have a tree-like structure that respects subgame boundaries (e.g., simultaneous-move stages embedded in a larger sequential game).
+
+It loses bite as soon as informational nontrivialities cut across the would-be subgames. Consider a game in which player 1 moves first, player 2 then chooses without observing player 1's move, and the resulting branches are linked by a single information set spanning multiple post-move-1 nodes. The candidate ``subgame'' rooted at any single post-move-1 node is not a subgame in the formal sense, because it severs an information set. Backward induction has nowhere to start. SPE then either coincides with NE (when there is only one trivially-defined subgame, namely the whole game) or rules out very little.
+
+The remedy is to add \emph{beliefs} to the equilibrium concept. At every information set the relevant player should hold a probability distribution over the nodes inside that information set, evaluate continuation play under that distribution, and respond optimally. The resulting solution concept is \textbf{perfect Bayesian equilibrium (PBE)}: an extension of SPE to extensive-form games \emph{without} well-behaved subgame structure.
+
+\rmkb[Beliefs as ``Why Is This Player Doing This?'']{
+  All of the equilibrium concepts up to this chapter---NE, SPE, even sequential rationality in finite games of perfect information---make no formal use of beliefs. They speak only of strategies and best replies. But in extensive-form games, asking \emph{why} a player chooses a particular action is often more illuminating than verifying that the action is a best reply: ``because she thinks the state of the world is X with probability $p$.'' PBE makes that intuitive ``thinks'' a primitive of the equilibrium. Strategies tell you what each player does; beliefs tell you what each player conjectures about the unobserved nodes of the tree. The first novelty of PBE is to put both objects at the same level of formality.
+}
+
+\rmkb[Why Beliefs Are the Right Object to Add]{
+  In an SPE, the absence of off-path play is what makes ``backward induction at every subgame'' coherent: the subgame partition cleanly separates ``what happens here'' from ``what happens elsewhere.'' When information sets cross those boundaries, evaluating ``what happens here'' from the inside requires knowing \emph{which node inside the information set is in fact the current one}---and the only thing capable of summarizing that knowledge is a probability distribution over the nodes. PBE is what you get when you treat that distribution as a primitive of the equilibrium and impose two requirements: (i) actions are best replies given the beliefs, (ii) the beliefs are consistent with the strategies via Bayes' rule wherever Bayes' rule applies.
+}
+
+\section{Definition: Strategies and Beliefs}
+
+A PBE is a pair $(\beta, \mu)$ in which $\beta = (\beta_i)_i$ is a profile of behavioral strategies and $\mu = (\mu_i)_i$ is a profile of belief systems, one per player.
+
+\defn{Belief System}{
+  Fix a player $i$ and an information set $I_i$ of player $i$. A \textbf{belief} of player $i$ at $I_i$ is a probability distribution $\mu_i(I_i) \in \Delta(I_i)$ over the decision nodes in $I_i$. A \textbf{belief system} for player $i$ is the collection $\mu_i = \{\mu_i(I_i)\}_{I_i \in \mathcal{I}_i}$ of such distributions, one for every information set of player $i$.
+}
+
+\defn{Perfect Bayesian Equilibrium}{
+  A pair $(\beta, \mu)$ is a \textbf{perfect Bayesian equilibrium} if
+  \begin{enumerate}
+    \item \emph{Sequential rationality.} For every player $i$ and every information set $I_i$ of player $i$, the prescription $\beta_i(I_i)$ is an optimal response to $\beta_{-i}$ and $i$'s belief $\mu_i(I_i)$:
+      \[
+        \beta_i(I_i) \in \argmax_{a \in A_i(I_i)} \mathbb{E}_{\mu_i(I_i)}\bigl[U_i(a, \beta_{-i}) \,\big|\, \cdot \bigr].
+      \]
+    \item \emph{Bayesian consistency.} Given $\beta$, the belief $\mu_i(I_i)$ is derived from Bayes' rule whenever Bayes' rule applies---that is, whenever the strategy profile reaches $I_i$ with positive probability.
+  \end{enumerate}
+}
+
+The first condition is sequential rationality at every information set; it is what replaces ``optimality on every subgame'' from the SPE definition. The second condition is the new piece: it prevents free choice of beliefs at on-path information sets but---deliberately---leaves beliefs at zero-probability information sets unrestricted by Bayes' rule alone. This loophole is what generates the multiplicity of PBE one observes in signaling games (Section 12.3) and motivates further refinements (intuitive criterion, divinity, sequential equilibrium).
+
+\rmkb[``Whenever Possible''---the Source of Multiplicity]{
+  The phrase \emph{whenever possible} in (2) is doing real work. Bayes' rule pins down the posterior $P(\text{node} \mid I_i)$ only when the prior probability of reaching $I_i$ under $\beta$ is positive. At an information set that the strategy profile reaches with probability zero (a so-called \emph{off-path} information set), Bayes' rule is silent---$0/0$---and the equilibrium concept allows \emph{any} belief there. Equilibria are then often distinguished only by what beliefs are postulated off the equilibrium path, and these off-path beliefs are exactly what determines whether a candidate deviation is profitable. The discipline of refinements like the intuitive criterion is essentially a proposal for how to tame this freedom.
+}
+
+\subsection*{A worked tree}
+
+Consider the extensive-form fragment below. Nature first selects one of two states with equal probability (the initial $\bigl[\tfrac{1}{2}\bigr]$ labels). Player $2$'s information set spans both post-Nature nodes, so $2$ does not directly observe the state; the labels $\bigl[\tfrac{2}{3}\bigr]$ and $\bigl[\tfrac{1}{3}\bigr]$ are $2$'s belief at that information set. After $2$ moves, on one branch a payoff is reached; on the other, player $3$ moves at an information set spanned by two nodes with belief $\bigl[\tfrac{1}{4}\bigr], \bigl[\tfrac{3}{4}\bigr]$.
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0, font=\small,
+    solid node/.style={circle, draw, inner sep=1.2pt, fill=black},
+    info set/.style={draw, dashed, rounded corners=2pt, gray}]
+
+  % Nature
+  \node[solid node, label=above:{Nature}] (N) at (0, 4.2) {};
+
+  % Nature's two children, labeled with priors
+  \node[solid node] (N1) at (-2.6, 3) {};
+  \node[solid node] (N2) at (2.6, 3) {};
+  \draw (N) -- (N1) node[midway, above left] {$[\tfrac{1}{2}]$};
+  \draw (N) -- (N2) node[midway, above right] {$[\tfrac{1}{2}]$};
+
+  % Player 2's info set (spans both N1 and N2)
+  \node[left=2pt of N1] {$2$};
+  \node[right=2pt of N2] {$2$};
+  \node[above left=-2pt and 4pt of N1, font=\scriptsize] {$[\tfrac{2}{3}]$};
+  \node[above right=-2pt and 4pt of N2, font=\scriptsize] {$[\tfrac{1}{3}]$};
+  \draw[dashed, gray] (N1) -- (N2);
+
+  % Children of N1
+  \node[solid node] (A1) at (-3.6, 1.6) {};
+  \node[solid node] (A2) at (-1.6, 1.6) {};
+  \draw (N1) -- (A1) node[midway, left, font=\scriptsize] {$[1]$};
+  \draw (N1) -- (A2) node[midway, right, font=\scriptsize] {$[0]$};
+  \node[below=1pt of A1, font=\scriptsize] {$3$};
+  \node[below=1pt of A2, font=\scriptsize] {};
+
+  % Children of N2
+  \node[solid node] (B1) at (1.6, 1.6) {};
+  \node[solid node] (B2) at (3.6, 1.6) {};
+  \draw (N2) -- (B1) node[midway, left, font=\scriptsize] {$[1]$};
+  \draw (N2) -- (B2) node[midway, right, font=\scriptsize] {$[0]$};
+
+  % Player 3's info set under B2 (illustrative)
+  \node[solid node] (C1) at (2.7, 0.2) {};
+  \node[solid node] (C2) at (4.5, 0.2) {};
+  \draw (B2) -- (C1) node[midway, above left, font=\scriptsize] {$[\tfrac{1}{4}]$};
+  \draw (B2) -- (C2) node[midway, above right, font=\scriptsize] {$[\tfrac{3}{4}]$};
+  \draw[dashed, gray] (C1) -- (C2);
+  \node[left=1pt of C1, font=\scriptsize] {$3$};
+\end{tikzpicture}
+\end{center}
+
+The numbers in brackets along edges are conditional probabilities induced by $\beta$; the numbers in brackets next to the dashed information sets are the player's beliefs $\mu$. Bayesian consistency forces an arithmetic relationship between the two. For instance, $2$'s belief at the upper information set must satisfy
+\[
+  \mu_2(N_1) \;=\; \frac{\Pr[\text{Nature picks left}] \cdot 1}{\Pr[\text{Nature picks left}] \cdot 1 + \Pr[\text{Nature picks right}] \cdot 1} \;=\; \tfrac{1}{2}
+\]
+under the prior $\bigl(\tfrac{1}{2}, \tfrac{1}{2}\bigr)$. Any other belief there (such as $\bigl[\tfrac{2}{3}, \tfrac{1}{3}\bigr]$) would be inconsistent with the prior unless something earlier in $\beta$ \emph{biased} the path---and that something would itself need to be computed and reconciled with Bayes' rule. The board's specific numbers were illustrative of how to read the diagram, not a uniquely-solved equilibrium.
+
+\section{Spence Signaling}
+
+The leading workhorse of PBE is the \textbf{Spence (1973) signaling model} of education and labor markets. It crystallizes the idea that a costly action with no direct productive value can nevertheless be informative about hidden type, and---more cautiously---that the resulting equilibria come in continua, none of which is selected by PBE alone.
+
+\subsection{Setup}
+
+A worker has private \textbf{type} $\theta \in \{L, H\}$ with $0 < L < H$. The prior is
+\[
+  \Pr[\theta = H] = \pi, \qquad \Pr[\theta = L] = 1 - \pi, \qquad \pi \in (0, 1).
+\]
+The worker first chooses an \textbf{education level} $e \in [0, \infty)$. Two competitive firms then observe $e$ and simultaneously offer wages; Bertrand competition forces both wage offers up to the firm's expected productivity given $e$, so the realized wage is
+\[
+  w(e) \;=\; \mathbb{E}[\theta \mid e] \;=\; \mu(H \mid e) \cdot H + \bigl(1 - \mu(H \mid e)\bigr) \cdot L,
+\]
+where $\mu(H \mid e)$ is the firms' posterior that the worker is high-type after observing the signal. The worker's payoff is
+\[
+  u(\theta, e, w) \;=\; w \;-\; \frac{e}{\theta}.
+\]
+The cost of education is $e/\theta$: high types find education cheaper. Critically, education \emph{does not affect productivity}: $\theta$ enters firm payoffs directly, $e$ only through firm beliefs. Education is a pure signal.
+
+\rmkb[Why Not Just Say You're High-Type?]{
+  The setup carefully forbids the worker from declaring her type. If declarations were allowed and free, every worker---low or high---would announce ``I am high-type,'' the announcement would carry no information, and firms would ignore it: this is the standard \emph{cheap talk} non-result. The whole point of the model is that a verbal claim is unverifiable, so the worker must instead choose a costly action whose marginal cost depends on the unobserved type. The single-crossing structure $e/\theta$ guarantees that \emph{some} levels of $e$ are too painful for the low type to mimic but bearable for the high type, opening a channel through which type can be communicated.
+}
+
+\rmkb[Single-Crossing and Why It Matters]{
+  The cost function $e/\theta$ implements the \textbf{single-crossing property} (a.k.a.\ Spence-Mirrlees): for any two education levels $e' > e$ and any wage gap $\Delta w$ that makes the low type just willing to switch from $e$ to $e'$, the high type strictly prefers to switch. This monotone comparative statics in type is what makes signaling possible at all---without it, no signal could separate types in equilibrium.
+}
+
+\subsection{An Order Constraint in Every Equilibrium}
+
+Before classifying equilibria, we record a useful observation that holds at every PBE.
+
+\propp{Monotone Education in Type}{
+  In any PBE of the Spence signaling game, $e^H \ge e^L$.
+}{
+  Let $w^\theta = \mathbb{E}[\theta \mid e^\theta]$ be the equilibrium wage offered to a worker who chooses $e^\theta$. The two incentive-compatibility constraints are
+  \begin{align*}
+    \text{(IC$_H$)}\quad & w^H - \tfrac{e^H}{H} \;\ge\; w^L - \tfrac{e^L}{H}, \\
+    \text{(IC$_L$)}\quad & w^L - \tfrac{e^L}{L} \;\ge\; w^H - \tfrac{e^H}{L}.
+  \end{align*}
+  Adding the two inequalities, the wage terms cancel and one obtains
+  \[
+    \tfrac{e^L - e^H}{H} \;+\; \tfrac{e^H - e^L}{L} \;\ge\; 0
+    \quad\Longleftrightarrow\quad
+    (e^H - e^L)\bigl(\tfrac{1}{L} - \tfrac{1}{H}\bigr) \;\ge\; 0.
+  \]
+  Since $\tfrac{1}{L} - \tfrac{1}{H} > 0$, we conclude $e^H \ge e^L$. \qed
+}
+
+The proof is general: it nowhere uses the specific values of $w^H, w^L$ beyond the IC inequalities. It illustrates a recurring trick in the analysis of separating-type games---add the two ICs and watch the wage terms drop out, leaving an inequality among the actions and the type-sensitivity of cost.
+
+\subsection{Separating Equilibria}
+
+A \textbf{separating equilibrium} is one in which $e^H \neq e^L$, so that $\theta$ is fully revealed by the signal. The proposition forces $e^H > e^L$ in such equilibria.
+
+\smallskip
+Two structural features. First, $e^L = 0$ in any separating equilibrium: if the low type is identified by his signal, his wage is $L$ regardless of $e$, and any $e^L > 0$ is strictly dominated by $e = 0$. Second, the high type's signal $e^H = e^*$ must satisfy both ICs simultaneously; since separation forces $w^H = H, w^L = L$, the ICs become
+\begin{align*}
+  \text{(IC$_H$)}\quad & H - \tfrac{e^*}{H} \;\ge\; L - 0 \;=\; L,
+    \qquad &&\Leftrightarrow\qquad e^* \;\le\; H(H - L), \\
+  \text{(IC$_L$)}\quad & L - 0 \;\ge\; H - \tfrac{e^*}{L},
+    \qquad &&\Leftrightarrow\qquad e^* \;\ge\; L(H - L).
+\end{align*}
+Combining, $e^* \in [L(H-L),\ H(H-L)]$. The lower bound says the signal must be costly enough that the low type would not pay it for the wage gain $H - L$; the upper bound says it must not be \emph{so} costly that even the high type would prefer to mimic the low type.
+
+\propp{Separating PBE: A Continuum}{
+  For every $e^* \in \bigl[L(H-L),\ H(H-L)\bigr]$ there exists a PBE in which $e^H = e^*$, $e^L = 0$, with off-path beliefs supporting the equilibrium. Hence the Spence signaling game admits a \emph{continuum} of separating equilibria.
+}{
+  The strategy profile is $e^L = 0,\ e^H = e^*$. The belief system specifies, on-path, $\mu(H \mid 0) = 0$ and $\mu(H \mid e^*) = 1$, generating wages $L$ and $H$ respectively. Off-path beliefs can be chosen to discourage any deviation; the simplest choice is the \textbf{pessimistic} specification
+  \[
+    \mu(H \mid e) \;=\; \begin{cases} 1 & e = e^*, \\ 0 & e \neq e^*, \end{cases}
+  \]
+  i.e., any out-of-equilibrium signal is read as ``low type.''
+  \begin{itemize}
+    \item \emph{Low type's IC.} If $L$ stays at $0$, payoff is $L - 0 = L$. If $L$ deviates to any $e' \neq 0$ with $e' \neq e^*$, payoff is $L - e'/L < L$, strictly worse. The only deviation worth examining is $e' = e^*$ (which would give wage $H$); this is unprofitable iff $L \ge H - e^*/L$, i.e.\ $e^* \ge L(H-L)$.
+    \item \emph{High type's IC.} If $H$ stays at $e^*$, payoff is $H - e^*/H$. The best deviation under the pessimistic belief gives wage $L$, so the most profitable deviation is to $e' = 0$ (cheapest), with payoff $L$. No-deviation requires $H - e^*/H \ge L$, i.e.\ $e^* \le H(H-L)$.
+  \end{itemize}
+  Both ICs hold for $e^* \in [L(H-L),\ H(H-L)]$. Sequential rationality of the firms is automatic given Bertrand competition and the posited beliefs. \qed
+}
+
+\rmkb[Why a Continuum?]{
+  The interval $[L(H-L), H(H-L)]$ has positive length whenever $L < H$, so there is always more than one separating $e^*$. The reason is that the on-path beliefs $\mu(H \mid e^*) = 1, \mu(H \mid 0) = 0$ pin down only \emph{two} of the firm's posteriors; the remaining beliefs at every other education level are free, and the equilibrium concept lets us use that freedom to deter deviations. Different $e^*$'s require different off-path beliefs, but each is internally consistent.
+}
+
+\subsection{Pooling Equilibria}
+
+A \textbf{pooling equilibrium} is one in which $e^L = e^H = \bar e$ for some common signal $\bar e \ge 0$. Both types pay the same education cost (in dollars; their utility costs differ because of $1/\theta$), and observing $\bar e$ leaves the firm's posterior at the prior:
+\[
+  \mu(H \mid \bar e) \;=\; \pi, \qquad w(\bar e) \;=\; \pi H + (1 - \pi) L.
+\]
+Off-path, the firm is free to assign any belief; the standard pessimistic specification is $\mu(H \mid e) = 0$ for $e \neq \bar e$, giving an off-path wage of $L$.
+
+\smallskip
+The binding IC is the low type's: it must not pay him to deviate to $e = 0$, since $0 \neq \bar e$ is read as ``low type'' and gives wage $L$. The deviation is unprofitable iff
+\[
+  \pi H + (1 - \pi) L - \tfrac{\bar e}{L} \;\ge\; L - 0 \;=\; L,
+\]
+i.e.,
+\[
+  \pi (H - L) \;\ge\; \tfrac{\bar e}{L}
+  \qquad\Longleftrightarrow\qquad
+  \bar e \;\le\; \pi L (H - L).
+\]
+The high type's IC is automatically satisfied because $\bar e / H < \bar e / L$ and the gain $\pi(H - L)$ is positive.
+
+\propp{Pooling PBE: A Continuum}{
+  For every $\bar e \in (0,\ \pi L (H - L)]$ there exists a PBE in which both types choose $e = \bar e$, with on-path belief $\mu(H \mid \bar e) = \pi$ and off-path belief $\mu(H \mid e) = 0$ for $e \neq \bar e$. The case $\bar e = 0$ is also an equilibrium.
+}{
+  Sequential rationality of the firm is automatic under the posited beliefs. The low type's IC reduces to $\bar e \le \pi L (H - L)$, derived above; the high type's IC is implied by the low type's because $\bar e / H \le \bar e / L$. \qed
+}
+
+\rmkb[The Pessimistic Off-Path Belief Is Doing the Work]{
+  In both the separating and pooling constructions, the equilibrium is sustained by a particular choice of off-path beliefs. Under the pessimistic rule ``any unexpected signal is a low type,'' deviations are punished maximally, so the equilibrium is robust. Under more permissive off-path beliefs (e.g., ``any unexpected signal is a high type''), most of these equilibria collapse: a low type would mimic the high type's signal exactly, the firm would interpret it as high, and the equilibrium would unravel. The off-path belief is not pinned down by Bayes' rule, and it is exactly where the multiplicity lives.
+}
+
+\subsection{Partial Pooling and the Multiplicity Problem}
+
+Beyond pure separation and pure pooling, the model also admits \textbf{semi-separating} (partial-pooling) equilibria, in which one type randomizes across two signals. For example, $H$ randomizes between $e'$ and $e''$ while $L$ plays $e''$ for sure; firms then assign different posteriors to $e'$ (pure $H$) and $e''$ (mixture). Each such construction generates an additional family of PBE indexed by the mixing probability and the off-path beliefs.
+
+The cumulative picture, then, is uncomfortable: the Spence model has \emph{tons} of perfect Bayesian equilibria. Separating and pooling alone yield two continua; partial pooling adds further families. PBE, the natural extension of SPE to incomplete-information games, is too permissive to deliver sharp predictions in this canonical example.
+
+\rmkb[Why So Many Equilibria, and What to Do About It]{
+  The proliferation comes from two sources. First, off-path beliefs are unrestricted by Bayes' rule, so different choices generate different equilibria. Second, even on-path the IC constraints in the separating case define a closed interval, not a single point. The literature responds with \emph{refinements}: the intuitive criterion (Cho-Kreps 1987), divinity (Banks-Sobel 1987), undefeated equilibrium (Mailath-Okuno-Fudenberg-Postlewaite 1993), and others. Each restricts off-path beliefs by an additional logical principle (``a deviation that only one type would ever consider should be attributed to that type'') and selects subsets of the PBE set. In the Spence model, the intuitive criterion typically selects the \emph{Riley outcome}---the \emph{least-cost separating equilibrium}, $e^* = L(H-L)$. The lesson is general: PBE is the right concept for incomplete-information dynamics, but it usually needs a refinement to deliver predictive bite.
+}
+
+\rmkb[Costly Signals Beyond Education: The Peacock's Tail]{
+  An evolutionary biology analogue of the Spence model arose around the same time. A peacock's elaborate tail is metabolically expensive to grow and makes the bird more conspicuous to predators. It does not improve foraging or fighting ability. Why grow it? The Zahavi (1975) ``handicap principle'' answers: the tail is a costly, unfakeable signal of underlying genetic fitness. Only a peacock with a strong constitution can afford the energy expenditure and the predation risk; weak peacocks cannot mimic the display, so peahens that prefer big tails systematically end up with high-fitness mates. The structural parallel to Spence is exact: a productive but unobservable trait, a costly action whose marginal cost is decreasing in the trait, and a separating equilibrium in which the high type incurs the cost to communicate her type. Costly signaling is one of those rare unifying ideas that crossed independently into economics and biology in the 1970s and now turns up wherever an agent has private information she would like to credibly convey.
+}
