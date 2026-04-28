@@ -90,7 +90,43 @@ Fix a strategy profile $\sigma^*$ and assume no player has a profitable one-shot
 Fix a player $i$, a history $h^{t-1}$, and a deviation $\sigma_i'$ with $V(\sigma_i', \sigma_{-i}^*|_{h^{t-1}}) > V(\sigma_i^*|_{h^{t-1}}, \sigma_{-i}^*|_{h^{t-1}})$. We derive a contradiction.
 
 \smallskip
-\noindent\textbf{Step 1 (Truncation).} Since $S$ is finite, stage payoffs are bounded: set $\bar u = \max_s |u_i(s)|$. Let $\Delta = V(\sigma_i', \sigma_{-i}^*|_{h^{t-1}}) - V(\sigma_i^*|_{h^{t-1}}, \sigma_{-i}^*|_{h^{t-1}}) > 0$. Define the truncated strategy $\sigma_i^{(N)}$ to follow $\sigma_i'$ in the first $N$ periods $t, t+1, \ldots, t+N-1$ and to revert to $\sigma_i^*$ from period $t+N$ on.
+\noindent\textbf{Step 1 (Truncation).} Since $S$ is finite, stage payoffs are bounded: set $\bar u = \max_s |u_i(s)|$. Let $\Delta = V(\sigma_i', \sigma_{-i}^*|_{h^{t-1}}) - V(\sigma_i^*|_{h^{t-1}}, \sigma_{-i}^*|_{h^{t-1}}) > 0$. Define the truncated strategy $\sigma_i^{(N)}$ to follow $\sigma_i'$ in the first $N$ periods $t, t+1, \ldots, t+N-1$ and to revert to $\sigma_i^*$ from period $t+N$ on. Pictorially:
+
+\begin{center}
+\begin{tikzpicture}[scale=1.0, font=\small]
+  % Time axis
+  \draw[->, thick] (-0.4, 0) -- (10.6, 0) node[right] {time};
+  \foreach \x/\lab in {0/{$t-1$}, 1.6/{$t$}, 3.2/{$t+1$}, 4.8/{$\cdots$}, 6.4/{$t+N-1$}, 8/{$t+N$}, 9.6/{$\cdots$}} {
+    \draw (\x, -0.06) -- (\x, 0.06);
+    \node[below=2pt, font=\scriptsize] at (\x, 0) {\lab};
+  }
+
+  % sigma* band (top)
+  \draw[thick, blue!70!black, fill=blue!10] (-0.3, 1.4) rectangle (10.4, 1.9);
+  \node[blue!70!black, left=2pt] at (-0.3, 1.65) {$\sigma_i^*$:};
+  \node[blue!70!black, font=\scriptsize] at (5, 1.65) {follow $\sigma_i^*$ throughout};
+
+  % sigma_i' band: deviates forever from t
+  \draw[thick, red!70!black, fill=red!10] (-0.3, 0.6) rectangle (1.6, 1.1);
+  \draw[thick, red!70!black, fill=red!25] (1.6, 0.6) rectangle (10.4, 1.1);
+  \node[red!70!black, left=2pt] at (-0.3, 0.85) {$\sigma_i'$:};
+  \node[red!70!black, font=\scriptsize] at (0.65, 0.85) {$=\sigma_i^*$};
+  \node[red!70!black, font=\scriptsize] at (6, 0.85) {deviates from $t$ onward (potentially $\infty$ many periods)};
+
+  % sigma_i^(N) band: deviates only on [t, t+N-1]
+  \draw[thick, orange!85!black, fill=orange!10] (-0.3, -0.7) rectangle (1.6, -0.2);
+  \draw[thick, orange!85!black, fill=orange!30] (1.6, -0.7) rectangle (8, -0.2);
+  \draw[thick, orange!85!black, fill=orange!10] (8, -0.7) rectangle (10.4, -0.2);
+  \node[orange!85!black, left=2pt] at (-0.3, -0.45) {$\sigma_i^{(N)}$:};
+  \node[orange!85!black, font=\scriptsize] at (0.65, -0.45) {$=\sigma_i^*$};
+  \node[orange!85!black, font=\scriptsize] at (4.8, -0.45) {$=\sigma_i'$ (deviates)};
+  \node[orange!85!black, font=\scriptsize] at (9.2, -0.45) {$=\sigma_i^*$};
+
+  % bracket marking the truncation window
+  \draw[decorate, decoration={brace, amplitude=4pt}] (1.55, -0.95) -- (8.05, -0.95);
+  \node[font=\scriptsize, below=6pt] at (4.8, -1) {$N$ periods of deviation};
+\end{tikzpicture}
+\end{center}
 
 We claim $\sigma_i^{(N)}$ remains strictly profitable once $N$ is large enough. By construction, $\sigma_i^{(N)}$ and $\sigma_i'$ are identical for the first $N$ periods, so they induce the same action profile $s^\tau$ for $\tau = t, \ldots, t+N-1$. They can differ only from period $t+N$ onward, and the normalized payoff contribution from that tail---for \emph{any} strategy pair---is at most
 \[
@@ -176,6 +212,56 @@ Hence $\sigma^*$ is an SPE whenever $\delta \ge \tfrac{1}{3}$, with on-path payo
 \rmk{\textbf{Why can the opponent's strategy be ``fixed'' at grim trigger when computing the deviation payoff?} This is simply the definition of (subgame) Nash equilibrium, not a substantive claim about the opponent's rationality. Checking whether $\sigma^*$ is an SPE means asking: given that $\sigma^*_{-i}$ is the opponent's prescribed behavior, does any strategy do better for player $i$ than $\sigma_i^*$? The claim is not that the opponent \textit{will} stick to grim trigger; rather, that $i$'s best response to grim-trigger behavior is itself grim trigger. The \textit{credibility} of the punishment is a separate and crucial point: it must be a NE of the continuation game for the opponent to \textit{want} to carry it out. That is exactly what condition (ii) of SPE guarantees, and it is what part (b) of the proof above verifies---starting $D$ forever is a NE after a deviation, since $(D, D)$ is already the stage-game NE.}
 
 When players are sufficiently patient ($\delta \ge \tfrac{1}{3}$), the threat of permanent punishment is credible and severe enough to deter short-run deviations.
+}
+
+\subsection{Strategies as Automata}
+
+Strategies in $G^\delta(\infty)$ are infinite sequences of history-dependent maps. Writing them out period-by-period is unwieldy and obscures the recursive structure that makes them tractable. A more compact representation: encode the strategy as a finite-state automaton whose state summarizes everything about the past that the strategy actually conditions on.
+
+\defn{Automaton Representation of a Strategy Profile}{
+  An \textbf{automaton} is a 4-tuple $(Q, q_0, f, \tau)$ where
+  \begin{itemize}
+    \item $Q$ is a finite set of \textbf{states};
+    \item $q_0 \in Q$ is the \textbf{initial state};
+    \item $f: Q \to S$ is the \textbf{output function}, prescribing the action profile played in state $q$;
+    \item $\tau: Q \times S \to Q$ is the \textbf{transition function}, mapping (current state, realized action profile) to the next-period state.
+  \end{itemize}
+  An automaton induces a strategy profile $\sigma$: in period $t$, the state $q^t$ is computed from the initial state by iterated application of $\tau$, and the prescribed action profile is $f(q^t)$.
+}
+
+The state $q^t$ is a sufficient statistic for the past: two histories that map to the same state will be played identically going forward. Many natural strategies are finite-state, even though the full history space is infinite---this is the source of compactness.
+
+\ex[Grim Trigger as a 2-State Automaton]{
+  In the Prisoner's Dilemma of Section 11.1, the grim-trigger profile from the example is captured by:
+  \begin{center}
+  \begin{tikzpicture}[->, >=Stealth, node distance=3.2cm, on grid, auto, font=\small]
+    \node[state, initial, accepting] (q0) {$q_C$};
+    \node[state, right=of q0] (q1) {$q_D$};
+
+    \path
+      (q0) edge[loop above] node {$(C, C)$} (q0)
+      (q0) edge[bend left] node {everything else} (q1)
+      (q1) edge[loop above] node {any} (q1);
+
+    \node[below=4pt of q0, font=\scriptsize] {output: $(C, C)$};
+    \node[below=4pt of q1, font=\scriptsize] {output: $(D, D)$};
+  \end{tikzpicture}
+  \end{center}
+  $Q = \{q_C, q_D\}$, $q_0 = q_C$, output $f(q_C) = (C, C)$ and $f(q_D) = (D, D)$. The transition function holds in $q_C$ as long as the realized profile is $(C, C)$ and otherwise switches permanently to $q_D$. SPE verification reduces to a one-shot deviation check at each of the two states.
+}
+
+\ex[Tit-for-Tat as a 4-State Automaton]{
+  Tit-for-tat conditions on the previous-period action of each player. The relevant state is the action profile played \emph{last period}, so $Q = \{(C,C), (C,D), (D,C), (D,D)\}$ with transitions $\tau(q, s) = s$ (the current realized profile becomes the next state) and outputs:
+  \[
+    f(C, C) = (C, C), \quad f(C, D) = (D, C), \quad f(D, C) = (C, D), \quad f(D, D) = (D, D).
+  \]
+  Player $i$'s rule is: ``in state $(s_1, s_2)$, play what your opponent played last period.'' The state graph has every node connected to every other (each new realized profile becomes the next state), making it less compact visually than grim trigger but no less finite-state.
+}
+
+\rmkb[Why Automata Help]{
+  Three reasons. First, \emph{verification}: SPE under $\sigma^*$ is equivalent to ``no profitable one-shot deviation at every reachable state of the automaton,'' which is a check over $|Q|$ states rather than over the infinite history tree. This is exactly the structure used to analyze grim trigger and tit-for-tat in problem sets.
+  Second, \emph{intuition}: many subtle strategies---``one period of punishment then forgive,'' ``increase punishment severity each violation''---are easy to describe by drawing the state diagram and unwieldy to describe by writing out $\sigma_i^t(h^{t-1})$ in closed form.
+  Third, \emph{forward reference}: Section 11.4 (chain store paradox) implicitly partitions the entrants $1, \ldots, K$ into a ``reputation phase'' state and an ``endgame phase'' state, with the cutoff $k^*$ as the transition; the same automaton formalism applies, with the wrinkle that beliefs play the role of state.
 }
 
 \section{The Folk Theorem}
@@ -414,7 +500,16 @@ Because the horizon is finite and the game is one of perfect information across 
 }
 
 \rmkb[Finite-Horizon Prisoner's Dilemma]{
-  In the Prisoner's Dilemma of Section 11.1, $(D, D)$ is the unique stage NE. The proposition says that the only SPE of the $T$-period game, for any finite $T$, prescribes $(D, D)$ in every period---cooperation unravels. The contrast with the grim-trigger equilibrium of $G^\delta(\infty)$ is stark: patience sustains cooperation in the infinite-horizon game precisely because there is no last period from which to unravel. In a finite horizon, the last period pins down $(D, D)$, which pins down $(D, D)$ in the period before, and so on all the way back.
+  In the Prisoner's Dilemma of Section 11.1, reproduced here for convenience,
+  \begin{center}
+  \begin{tabular}{c|cc}
+    & $C$ & $D$ \\
+    \hline
+    $C$ & $2,\;2$ & $-1,\;3$ \\
+    $D$ & $3,\;-1$ & $0,\;0$
+  \end{tabular}
+  \end{center}
+  $(D, D)$ is the unique stage NE. The proposition says that the only SPE of the $T$-period game, for any finite $T$, prescribes $(D, D)$ in every period---cooperation unravels. The contrast with the grim-trigger equilibrium of $G^\delta(\infty)$ is stark: patience sustains cooperation in the infinite-horizon game precisely because there is no last period from which to unravel. In a finite horizon, the last period pins down $(D, D)$, which pins down $(D, D)$ in the period before, and so on all the way back.
 }
 
 \subsection{Multiple Stage-Game NE: Using Continuation NE as Rewards and Punishments}
