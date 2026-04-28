@@ -12,3 +12,6 @@ files/adv-micro-psu/theorems.tex
 wx_all.json
 wx_candidates.md
 batch_import_r.py
+
+# 本地存档（不发到公开仓库）
+files/_archive/
