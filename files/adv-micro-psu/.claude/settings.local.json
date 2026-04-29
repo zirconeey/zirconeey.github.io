@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(ln -s /Users/zhourui/texmacros/commands.tex /Users/zhourui/Desktop/zirconeey.github.io/files/adv-micro-psu/commands.tex)",
-      "Bash(ln -s /Users/zhourui/texmacros/theorems.tex /Users/zhourui/Desktop/zirconeey.github.io/files/adv-micro-psu/theorems.tex)"
-    ]
-  }
-}
