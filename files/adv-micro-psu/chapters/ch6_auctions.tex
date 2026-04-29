@@ -1,11 +1,15 @@
 % !TEX root = ../Micro.tex
 \chapter{Private Value Auctions}
 
-Under the private value setting, we have $n$ bidders and a single object. Each bidder draws a value $X_i\sim F$ independently. Only bidder $i$ knows their own value $X_i = x_i$, and the distribution $F$ is common knowledge. Each bidder submits a bid $b_i$ to the auctioneer, and the auctioneer determines the winner and the price to be paid based on the bids.
+\defn{Private-Value Auction Setting}{
+  A \textbf{private-value auction} consists of $n$ risk-neutral bidders competing for a single indivisible object. Each bidder $i$ independently draws a valuation $X_i \sim F$, where $F$ is a continuous cumulative distribution function on $[0, \bar x]$ that is common knowledge. The realization $x_i$ is bidder $i$'s \emph{private information}---no other bidder, nor the seller, observes it. Each bidder submits a bid $b_i \in \RR_{\ge 0}$, and the auctioneer determines the winner and the payment from the bid profile $(b_1, \ldots, b_n)$ according to the auction's rules.
+}
 
 \section{Second Price Sealed Bid Auction (SPA)}
 
-In a second price sealed bid auction, each bidder submits a bid without knowing the bids of others. The highest bidder wins the item, but pays the second-highest bid.
+\defn{Second-Price Sealed-Bid Auction}{
+  Each bidder simultaneously submits a sealed bid. The bidder with the highest bid wins the object and pays the \emph{second}-highest bid; ties are broken uniformly at random.
+}
 
 \clmp{}{
   It is a weakly dominant strategy for each bidder to bid their true value in a SPA, i.e., $b_i = x_i$.
@@ -77,6 +81,10 @@ The graph completes the proof.
 }
 
 \section{First Price Sealed Bid Auction (FPA)}
+
+\defn{First-Price Sealed-Bid Auction}{
+  Each bidder simultaneously submits a sealed bid. The highest bidder wins and pays \emph{her own} bid; ties are broken uniformly at random.
+}
 
 In a first price sealed bid auction, each bidder submits a bid without knowing the bids of others. The highest bidder wins the item and pays their own bid.
 
@@ -405,6 +413,10 @@ Thus, equating your realized profit to the conditional rent gives $x - \beta(x) 
 
 \section{Reserve Prices}
 
+\defn{Reserve Price}{
+  A \textbf{reserve price} $r \ge 0$ is a minimum acceptable bid: the auction sells the object only if at least one submitted bid satisfies $b_i \ge r$. If all bids fall below $r$, the seller retains the object and no payment is made.
+}
+
 \subsection{SPA with $n = 2$}
 
 In a SPA, the seller can set a reserve price $r$, meaning the item is only sold if the highest bid is no less than $r$. With the reserve price,  the payment is then the maximum between the payment determined by the auction rule (namely the second-highest bid) and the reserve price. A natural question arises: \textit{Is introducing a reserve price strictly profitable for the seller?}
@@ -625,7 +637,7 @@ This result is more general than just comparing the FPA and SPA. It actually app
   \end{itemize}
 }
 
-Having established the revenue equivalence of standard auctions, a natural question arises for a profit-maximizing seller: \textit{Are standard auctions the best we can do?} To answer this, we must step out of the rigid, predefined rules of specific auction formats (like FPA or SPA) and adopt the ``God's-eye view'' of a mechanism designer. Instead of asking ``what happens in an auction,'' we ask: ``over the space of \textit{all possible mechanisms}, which one maximizes the seller's expected revenue?'' This requires a more fundamental, generalized mathematical law that governs \textit{any} allocation rule, not just the efficient ones.
+Having established the revenue equivalence of standard auctions, a natural question arises for a profit-maximizing seller: \textit{Are standard auctions the best we can do?} To answer this, we must step out of the rigid, predefined rules of specific auction formats (like FPA or SPA) and adopt the ``God's-eye view'' of a mechanism designer. Instead of asking ``what happens in an auction,'' we ask: ``over the space of \textit{all possible mechanisms}, which one maximizes the seller's expected revenue?'' This requires a more fundamental, generalized mathematical law that governs \textit{any} allocation rule, not just the efficient ones. The general framework---which we develop in Chapter~7 via the Revelation Principle and virtual values---reveals that the optimal mechanism is itself a slightly modified auction with a carefully chosen reserve price, and that VCG (Chapter~8) is the corresponding object on the \emph{efficiency}-maximizing side rather than the revenue-maximizing one.
 
 \thm{General RET (Payoff Equivalence)}{
   Assume there are $n$ risk-neutral bidders with independent private values drawn from a strictly increasing cumulative distribution function $F$ on an interval $[0, \bar{x}]$. Consider any two incentive-compatible mechanisms. If both mechanisms satisfy the following two conditions:
