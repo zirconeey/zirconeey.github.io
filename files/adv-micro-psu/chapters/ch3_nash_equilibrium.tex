@@ -75,15 +75,15 @@ In this section we will focus on potential games, which are a broad class of gam
 }
 
 \ex[Congestion Game]{
-  Consider a road network where $n$ drivers choose routes. Let $s_i$ be the route chosen by driver $i$. The payoff to driver $i$ is:
+  Consider a road network where $n$ drivers choose routes. Let $s_i$ be the route chosen by driver $i$, $n_r(s)$ the number of drivers on route $r$ under profile $s$, and $c(r, k)$ the congestion cost incurred by each user of route $r$ when $k$ drivers use it. Driver $i$'s payoff is
   \[
-    u_i(s_i, s_{-i}) = -c(s_i, n_i)
+    u_i(s_i, s_{-i}) = -c\!\bigl(s_i,\ n_{s_i}(s)\bigr).
   \]
-  where $c(r, n_r)$ is the congestion cost on route $r$ when $n_r$ drivers use it. Define the potential function as:
+  Define the potential function
   \[
-    P(s) = -\sum_{r} \int_0^{n_r(s)} c(r, x) dx
+    P(s) \;=\; -\sum_{r}\,\sum_{k=1}^{n_r(s)} c(r, k).
   \]
-  This is indeed a potential function because the private incentive to switch routes equals the change in total cost (up to a sign).
+  When driver $i$ switches from route $r$ to route $r'$, the change in $P$ is exactly $c(r', n_{r'}(s) + 1) - c(r, n_{r}(s))$, which equals the change in driver $i$'s own payoff (up to sign). Hence $P$ is a potential function and the game admits a PSNE---the route assignment that minimizes total congestion cost.
 }
 
 \rmkb{
@@ -253,10 +253,13 @@ The next two lemmas establish that best response correspondences have monotonici
 \thmp{Existence of PSNE in Supermodular Games}{
   Every finite supermodular game has at least one pure strategy Nash equilibrium.
 }{
-  
-This is a direct result of Tarski's Fixed Point Theorem. 
+This is a direct result of Tarski's Fixed Point Theorem.
 
   \thm{Tarski's Fixed Point Theorem}{If $f: L \to L$ is a non-decreasing function on a complete lattice $L$, then $f$ has a fixed point.}
+
+  \rmk{
+    \emph{Why Tarski holds (sketch).} Let $L$ be a complete lattice with top $\top$ and bottom $\bot$. The set $A = \{x \in L : x \le f(x)\}$ contains $\bot$ (since $\bot \le f(\bot)$) and is therefore non-empty. Let $\bar x = \sup A$, which exists by completeness. Monotonicity gives $f(x) \le f(\bar x)$ for every $x \in A$, and combining with $x \le f(x)$ yields $x \le f(\bar x)$, so $f(\bar x)$ is an upper bound of $A$ and hence $\bar x \le f(\bar x)$. Applying $f$ once more and using monotonicity, $f(\bar x) \le f(f(\bar x))$, so $f(\bar x) \in A$ and $f(\bar x) \le \bar x$. Together: $f(\bar x) = \bar x$. The argument is constructive on finite lattices: iterate $f$ on $\bot$ until the sequence stabilizes.
+  }
 
   For each player $i$, define $b_i(s_{-i})$ as the largest maximizer of $u_i(\cdot, s_{-i})$. By the lemmas above, $b_i$ is non-decreasing in $s_{-i}$.
   
