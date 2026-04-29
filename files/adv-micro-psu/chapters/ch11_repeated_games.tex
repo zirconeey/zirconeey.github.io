@@ -480,7 +480,7 @@ The results of the previous two sections all took the horizon to be infinite. A 
 
 \subsection{Setup}
 
-Fix a stage game $G = (S_i, u_i)_{i=1}^n$ and a horizon $T \in \NN$. The \textbf{finitely repeated game} $G(T)$ consists of playing $G$ in each period $t = 1, 2, \ldots, T$. Histories, strategies, and subgames are defined exactly as in the infinite case but truncated at $T$. For most of what follows, discounting is inessential\footnote{
+Fix a stage game $G = (S_i, u_i)_{i=1}^n$ and a horizon $T \in \NN$. The \textbf{finitely repeated game} $G(T)$ consists of playing $G$ in each period $t = 1, 2, \ldots, T$. Histories, strategies, and subgames are defined exactly as in the infinite case but truncated at $T$. 1For most of what follows, discounting is inessential\footnote{
   Discounting played two roles in the infinite-horizon case: (i) ensuring the payoff sum converges, and (ii) driving the truncation step in the proof of the one-deviation principle, which collapsed an infinite deviation into a long-but-finite one. Both roles are vacuous in finite horizon---the sum is automatically finite, and there is nothing to truncate---so the SPE set is the same whether one uses arithmetic average, time-discounted average, or any monotone transformation of the two.
 }; we use the \textbf{arithmetic average} payoff
 \[
@@ -689,12 +689,12 @@ The third case formalizes ``once accommodated, forever revealed.'' The second ca
 
 The second update case is not a definition---it is forced by Bayes' rule given the normal store's mixing probability $\sigma$. We derive it explicitly. Suppose entrant $k^*$ is at an interior belief $\mu_{k^*}$ (so the normal store mixes); the mixing probability is
 \[
-  \Pr[F \mid \text{Normal}, \text{IN}] \;=\; \sigma_{k^*} \;=\; \frac{1 - b^{K-k^*}}{b^{K-k^*}} \cdot \frac{\mu_{k^*}}{1 - \mu_{k^*}}.
+  \Pr{F \mid \text{Normal}, \text{IN}} \;=\; \sigma_{k^*} \;=\; \frac{1 - b^{K-k^*}}{b^{K-k^*}} \cdot \frac{\mu_{k^*}}{1 - \mu_{k^*}}.
 \]
-The crazy store always fights, so $\Pr[F \mid \text{Crazy}] = 1$. By Bayes' rule, the posterior after observing $F$ is
+The crazy store always fights, so $\Pr{F \mid \text{Crazy}} = 1$. By Bayes' rule, the posterior after observing $F$ is
 \[
-  \mu_{k^* + 1} \;=\; \Pr[\text{Crazy} \mid F_{k^*}]
-  \;=\; \frac{\Pr[F \mid C]\,\Pr[C]}{\Pr[F \mid C]\,\Pr[C] + \Pr[F \mid N]\,\Pr[N]}
+  \mu_{k^* + 1} \;=\; \Pr{\text{Crazy} \mid F_{k^*}}
+  \;=\; \frac{\Pr{F \mid C}\,\Pr{C}}{\Pr{F \mid C}\,\Pr{C} + \Pr{F \mid N}\,\Pr{N}}
   \;=\; \frac{\mu_{k^*}}{\mu_{k^*} + \sigma_{k^*}\,(1 - \mu_{k^*})}.
 \]
 Substituting $\sigma_{k^*}$ and simplifying:
