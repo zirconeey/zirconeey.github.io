@@ -819,7 +819,7 @@ This notion can be equivalently defined by the domination of mixed strategies.
 \defn{Best Response}{
   A pure strategy $s_i$ is a best response to the belief $\mu_i$ if 
   \[
-  u_i(s_i\mu_i)\ge u_i(s_i',\mu_i),\quad \forall s_i'\in S_i,
+  u_i(s_i,\mu_i)\ge u_i(s_i',\mu_i),\quad \forall s_i'\in S_i,
   \]
   where $u_i(s_i,\mu_i)$ is defined by
   \[
@@ -854,13 +854,13 @@ Therefore, the two notions of inferior or suboptimal strategies are equivalent. 
   \]
   and there exists some belief $\mu_i^*\in \Delta(S_{-i})$ such that
   \[
-  u_i(s_i',\mu_i^*)>u_i(s_i,\mu^*).
+  u_i(s_i',\mu_i^*)>u_i(s_i,\mu_i^*).
   \]
 }
 
 \section{Iterated Elimination of Dominated Strategies}
 
-The previous theorem states that donimated strategy is a belief-free notion. This allows us to develop the concept of iterated elimination of dominated strategies (IESDS), which is a powerful tool to analyze games without having to worry about players' beliefs.
+The previous theorem states that dominated strategy is a belief-free notion. This allows us to develop the concept of iterated elimination of dominated strategies (IESDS), which is a powerful tool to analyze games without having to worry about players' beliefs.
 
 The strategies that survive the IESDS are called \textit{rationalizable strategies}, which are the strategies that can be rationalized by some beliefs about other players' strategies. Rationalizability is a weaker notion than Nash equilibrium, as it does not require mutual consistency of beliefs. However, it is still a useful concept to understand the strategic behavior of players in a game.
 
@@ -882,9 +882,9 @@ $D$ & $0,0$ & $2,1$
 \end{tabular}
 \end{center}
 \begin{itemize}
-  \item If Player 1 eliminates $U$ and $D$, then Player 2 can eliminate nothing, and the process ends. The survived strategies are $M$ for Player 1, and $L$ and $R$ for Player 2.
-  \item If Player 1 eliminates only $U$, then Player 2 can eliminate $L$, and the process ends. The survived strategies are $M$ and $D$ for Player 1, and $R$ for Player 2.
-  \item If Player 1 eliminates only $D$, then Player 2 can eliminate $R$, and the process ends. The survived strategies are $U$ and $M$ for Player 1, and $L$ for Player 2.
+  \item If Player 1 eliminates $U$ and $D$, then Player 2 can eliminate nothing, and the process ends. The surviving strategies are $M$ for Player 1, and $L$ and $R$ for Player 2.
+  \item If Player 1 eliminates only $U$, then Player 2 can eliminate $L$, and the process ends. The surviving strategies are $M$ and $D$ for Player 1, and $R$ for Player 2.
+  \item If Player 1 eliminates only $D$, then Player 2 can eliminate $R$, and the process ends. The surviving strategies are $U$ and $M$ for Player 1, and $L$ for Player 2.
 \end{itemize}
 From this example, we can clearly see the ``outcome'' of IEWDS depends on the order of elimination.
 }

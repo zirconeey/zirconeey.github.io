@@ -84,7 +84,7 @@ This principle is the cornerstone of mechanism design. It greatly simplifies the
   \]
   Applying integration by parts to the term $\int_r^x y g(y) \d y = x G(x) - r G(r) - \int_r^x G(y) \d y$, we can rewrite the payment equation as:
   \[
-  m(x) = r G(r) + \int_r^x t g(y) \d y - V(r).
+  m(x) = r G(r) + \int_r^x y g(y) \d y - V(r).
   \]
   Recall that the equilibrium utility for the marginal bidder is $V(r) = r G(r) - m(r)$. Substituting this definition into the equation above immediately yields the desired result:
   \[
@@ -316,7 +316,7 @@ subject to the physical constraints that $Q_i(x) \in [0,1]$, $\sum Q_i(x) \le 1$
   In short, the regularity condition ensures that the greedy, unconstrained pointwise maximization algorithm \textit{automatically} satisfies the global IC monotonicity constraint! (If regularity fails and $\phi_i$ decreases in some regions, higher types might be assigned lower probabilities, violating IC.)
 }
 
-This regularity condition eensures that pointwise maximization naturally satisfies the monotonicity constraint of $q_i$. 
+This regularity condition ensures that pointwise maximization naturally satisfies the monotonicity constraint of $q_i$.
 
 \prop{Optimal Allocation Rule and Reserve Prices}{
   Under the regularity assumption, we can solve the integral via \textit{pointwise maximization}. For any realized profile of valuations $x = (x_1, \dots, x_n)$, the seller should simply examine the virtual values and assign the object to the bidder with the highest virtual value, provided it is non-negative.
