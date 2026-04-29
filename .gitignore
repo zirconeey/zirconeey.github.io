@@ -15,3 +15,17 @@ batch_import_r.py
 
 # 本地存档（不发到公开仓库）
 files/_archive/
+
+# LaTeX intermediates
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.out
+*.toc
+*.xdv
+*.synctex(busy)
+files/*/blackboard/
+files/*/recordings/
+files/*/psets/*.synctex.gz
+texput.log
