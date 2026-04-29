@@ -3,10 +3,17 @@
 
 \section{Nash Bargaining Solution}
 
-Let $X$ be the set of possible outcomes. Let $U$ be the set of feasible expected utilities from $X$, which is assumed to be a compact and convex subset of $\RR^2$. Let $d\in U$ be the disagreement point, which is the outcome if the two parties fail to reach an agreement. We assume that $\exists u\in U$ such that $u \gg d$ (i.e., there is some outcome that is strictly better than the disagreement point for both parties).
-A bargaining solution is a function $F$ that maps $(U, d)$ to a point $F(U,d)\in U$.
+\defn{Bargaining Problem}{
+  A \textbf{(two-person) bargaining problem} is a pair $(U, d)$, where $U \subseteq \RR^2$ is the \emph{feasible utility set}---a compact, convex set of expected utility profiles attainable by the two parties---and $d \in U$ is the \emph{disagreement point}, the outcome that arises if no agreement is reached. We assume non-degeneracy: there exists some $u \in U$ with $u \gg d$ (i.e., $u_i > d_i$ for both $i$).
+}
 
-\state{Requirement: Scale Invariance}{
+\defn{Bargaining Solution}{
+  A \textbf{bargaining solution} is a function $F$ that assigns to every bargaining problem $(U, d)$ a point $F(U, d) \in U$ representing the agreed-upon utility profile.
+}
+
+We now ask: what are the natural axioms a bargaining solution should satisfy, and is there a unique one that does?
+
+\axm{Scale Invariance}{
   Consider the transformation $(U,d)\mapsto (\bar U,\bar d)$ such that
   \[
   \begin{aligned}
@@ -20,19 +27,19 @@ A bargaining solution is a function $F$ that maps $(U, d)$ to a point $F(U,d)\in
   \]
 }
 
-\state{Requirement: Efficiency}{
+\axm{Efficiency}{
   $\nexists u\in U$ such that $u \gg F(U,d)$.
 }
 
-\state{Requirement: Symmetry}{
-  If $U$ is symmetric (i.e., $(u_1,u_2)\in U\iff (u_2,u_1)\in U$) and $d_1 = d_2$, then 
+\axm{Symmetry}{
+  If $U$ is symmetric (i.e., $(u_1,u_2)\in U\iff (u_2,u_1)\in U$) and $d_1 = d_2$, then
   \[
   F_1(U,d) = F_2(U,d).
   \]
 }
 
-\state{Requirement: Independence of Irrelevant Alternatives (IIA)}{
-  Consider $(U,d)$ and $(\bar U,d)$ such that $U\subseteq \bar U$. If $F(\bar U,d) \in U$, then,
+\axm{Independence of Irrelevant Alternatives (IIA)}{
+  Consider $(U,d)$ and $(\bar U,d)$ such that $U\subseteq \bar U$. If $F(\bar U,d) \in U$, then
   \[
   F(\bar U,d) = F(U,d).
   \]
@@ -376,6 +383,32 @@ Consider the problem of dividing a dollar: Two players will propose a division o
     u_2(1-M_1)\ge u_2(1-v_2(M_2,2)) = \delta u_2(1-M_2).
     \]
   }
+}
+
+\ex[Rubinstein with Square-Root Utilities]{
+  Let $u_1(x) = u_2(x) = \sqrt{x}$ and $\delta = 0.9$. The Rubinstein system reads
+  \[
+    \sqrt{y^*} = \delta\sqrt{x^*}, \qquad \sqrt{1 - x^*} = \delta\sqrt{1 - y^*}.
+  \]
+  Squaring both equations,
+  \[
+    y^* = \delta^2 x^*, \qquad 1 - x^* = \delta^2 (1 - y^*).
+  \]
+  Substituting the first into the second:
+  \[
+    1 - x^* \;=\; \delta^2 (1 - \delta^2 x^*) \;=\; \delta^2 - \delta^4 x^*
+    \quad\Longrightarrow\quad x^* (1 - \delta^4) = 1 - \delta^2
+    \quad\Longrightarrow\quad x^* \;=\; \frac{1 - \delta^2}{1 - \delta^4} \;=\; \frac{1}{1 + \delta^2}.
+  \]
+  Plugging $\delta = 0.9$ gives
+  \[
+    x^* = \frac{1}{1 + 0.81} \;\approx\; 0.5525, \qquad y^* = \delta^2 x^* \;\approx\; 0.4475.
+  \]
+  Player 1 (who proposes first) keeps about $1 - x^* \approx 0.4475$ for herself and offers $x^* \approx 0.5525$ to Player 2; Player 2, when proposing, would offer Player 1 only $y^* \approx 0.4475$. Notice the \textbf{first-mover advantage}: as $\delta \to 1$, both $x^*$ and $y^*$ tend to $1/2$ and the advantage vanishes; for finite $\delta$, the proposer captures the strictly larger share.
+}
+
+\rmkb[The Symmetric-Discount, Symmetric-Utility Formula]{
+  The example generalizes: whenever both players share the same utility function $u$ and the same discount $\delta$, the Rubinstein system always reduces to a single algebraic equation in $x^*$, with $y^* = u^{-1}(\delta\, u(x^*))$. The asymmetric case, treated next, requires reducing to a common discount factor by reweighting one player's utility---the clever transformation in the next section.
 }
 
 \section{Unequal Discounting}
