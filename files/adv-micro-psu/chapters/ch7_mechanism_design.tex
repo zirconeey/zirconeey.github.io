@@ -414,10 +414,17 @@ This profound mathematical equivalence means we can analyze optimal auction mech
 \end{center}
 
 \rmkb[Information Rent is the Inframarginal Loss]{
-  Why does the inverse hazard rate $\frac{1-F(p)}{f(p)}$ appear in both mechanism design and standard monopoly pricing? 
-  
+  Why does the inverse hazard rate $\frac{1-F(p)}{f(p)}$ appear in both mechanism design and standard monopoly pricing?
+
   In intermediate microeconomics, to sell one additional unit (i.e., to induce a buyer with a slightly lower valuation to buy), the monopolist must lower the price. However, because price discrimination is impossible, the monopolist must lower the price not just for this marginal buyer, but for \textit{all inframarginal buyers} who would have been willing to pay a higher price. This loss in revenue on the inframarginal units drives a wedge between the price $p$ and the marginal revenue $MR$.
-  
-  In mechanism design, this exact same dynamic is what we call the \textbf{Information Rent}. To convince a high-type buyer to reveal their true valuation rather than mimicking a lower type, the mechanism designer must leave them some surplus. The "loss of revenue on inframarginal buyers" in the monopoly model is mathematically identical to the "information rent paid to higher types" to satisfy the Incentive Compatibility (IC) constraint!
+
+  In mechanism design, this exact same dynamic is what we call the \textbf{Information Rent}. To convince a high-type buyer to reveal their true valuation rather than mimicking a lower type, the mechanism designer must leave them some surplus. The ``loss of revenue on inframarginal buyers'' in the monopoly model is mathematically identical to the ``information rent paid to higher types'' to satisfy the Incentive Compatibility (IC) constraint!
 }
+
+\section*{Looking Ahead: From Revenue to Efficiency}
+\addcontentsline{toc}{section}{Looking Ahead: From Revenue to Efficiency}
+
+Chapter~7 has so far developed the apparatus for designing mechanisms that maximize the seller's expected \emph{revenue}: the Revelation Principle reduces the search to direct mechanisms, IC + IR pin down each bidder's interim utility up to a constant, and pointwise maximization of virtual values delivers the optimal allocation rule with reserve $r^* = \phi^{-1}(0)$. The construction is asymmetric---the seller exploits the bidders' private information for her own gain, paying out information rent only as much as IC strictly requires.
+
+A complementary question takes the social planner's perspective: how should the object be allocated to maximize \emph{efficiency} (total surplus), regardless of how the surplus is split between seller and buyers? The same Revelation Principle still applies, but the design objective changes. The next chapter introduces the \textbf{Vickrey-Clarke-Groves (VCG) mechanism}, which solves the efficient design problem and reveals a striking parallel to the optimal auction: while the optimal mechanism uses virtual values to extract revenue, VCG uses \emph{actual} values to maximize surplus, and each bidder is charged the externality her presence imposes on the others. The second-price auction of Chapter~6 is recovered as the special case of VCG with a single object.
 

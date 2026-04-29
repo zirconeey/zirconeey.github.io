@@ -57,7 +57,7 @@ subject to feasibility constraints.
   The difference between what others \textit{could have had} and what they \textit{actually have} is the harm (externality) $i$ causes. VCG forces player $i$ to internalize this exact harm by making them pay it out of pocket.
   \item \textbf{Connection to SPA:}\\
   The Second-Price Auction (SPA) is just a special case of VCG. If you win an SPA, your presence took the item away from the second-highest bidder. The value they lost is exactly the second-highest bid. Therefore, your externality on society is the second-highest bid, which is exactly what VCG/SPA makes you pay.
-  \ex[]{
+  \ex[VCG Reduces to SPA: Single Object, Three Bidders]{
     Suppose there are three bidders for a single object with true valuations $x = (5, 7, 4)$. Let's calculate the VCG payment for the winning bidder (Bidder 2, with value 7):
   \begin{itemize}
       \item If Bidder 2 is absent ($\alpha_2 = 0$), the object goes to Bidder 1 (value 5). The maximum surplus of the others is $W(\alpha_2, x_{-2}) = 5$.
@@ -121,6 +121,36 @@ subject to feasibility constraints.
 
 \cor{}{
   $(Q^*,M^*)$ is incentive compatible.
+}
+
+\ex[Multi-Unit VCG: Two Identical Items, Three Bidders]{
+  Two identical units of an object are auctioned to three bidders, each of whom wants at most one unit. Their (truthful) valuations are
+  \[
+    v_1 = 8,\qquad v_2 = 5,\qquad v_3 = 3.
+  \]
+  The efficient allocation $Q^*$ assigns one unit to each of the two highest-valued bidders (1 and 2); bidder 3 gets nothing. Total surplus is $W(x) = 8 + 5 = 13$.
+
+  To compute payments, calculate the maximum surplus achievable \emph{without} each bidder:
+  \[
+    W(\alpha_1, x_{-1}) = v_2 + v_3 = 8, \qquad
+    W(\alpha_2, x_{-2}) = v_1 + v_3 = 11, \qquad
+    W(\alpha_3, x_{-3}) = v_1 + v_2 = 13.
+  \]
+  Under the Clarke pivot rule, $M_i^* = W(\alpha_i, x_{-i}) - W_{-i}(x)$ where $W_{-i}(x)$ is the surplus the \emph{other} players actually obtain under $Q^*$:
+  \[
+    W_{-1}(x) = v_2 = 5, \quad
+    W_{-2}(x) = v_1 = 8, \quad
+    W_{-3}(x) = v_1 + v_2 = 13.
+  \]
+  Hence
+  \[
+    M_1^* = 8 - 5 = 3,\qquad
+    M_2^* = 11 - 8 = 3,\qquad
+    M_3^* = 13 - 13 = 0.
+  \]
+  Both winners pay $3$, the third-highest valuation. This recovers the classic \textbf{uniform-price (Vickrey) outcome}: in a $k$-unit auction, the $k$ winners each pay the $(k+1)$-th highest valuation.
+
+  Truth-telling check (bidder 1): reporting $\hat v_1 = 4 < v_2$ would lose the unit; net utility $0 < 8 - 3 = 5$. Reporting $\hat v_1 = 10 > v_1$ keeps the allocation unchanged; payment is still $W(\alpha_1, x_{-1}) - W_{-1}(x) = 3$ (depends only on others' reports), so net utility unchanged at $5$. No deviation strictly improves bidder 1's payoff, illustrating that VCG truth-telling extends from the single-object SPA case to multi-unit and combinatorial settings.
 }
 
 \section{VCG Maximizes Revenue Among Efficient Mechanisms}
