@@ -93,12 +93,36 @@ However, if we add one additional constraint: Player 1 can only fight for at mos
 \thmp{}{
   Every finite game in extensive form has at least one subgame perfect equilibrium.
 }{
-The proof is to find all subgames that do not have any proper subgames. In each such subgame, find a Nash equilibrium of the subgame, and replace each node by expected payoffs from any Nash equilibrium of the subgame. 
+The proof is to find all subgames that do not have any proper subgames. In each such subgame, find a Nash equilibrium of the subgame, and replace each node by expected payoffs from any Nash equilibrium of the subgame.
 }
 
 \rmkb[]{
-The notion of subgame perfect equilibrium is to generalize backward induction to games with imperfect information. 
+The notion of subgame perfect equilibrium is to generalize backward induction to games with imperfect information.
 }
+
+\subsection{The Backward Induction Algorithm}
+
+The proof of the existence theorem is constructive: it gives an explicit \emph{algorithm} for computing an SPE in any finite extensive-form game. The procedure---\textbf{backward induction}---is the workhorse of finite-horizon analysis.
+
+\state{Backward Induction Algorithm}{
+  Let $T$ be a finite extensive-form game.
+  \begin{enumerate}
+    \item \textbf{Identify minimal subgames.} A subgame is \emph{minimal} if it contains no proper subgame. Equivalently, every information set inside it is a singleton in which only one player moves before reaching a terminal node.
+    \item \textbf{Solve each minimal subgame.} Find a Nash equilibrium of the minimal subgame (in finite games this exists, by Nash's theorem applied to the subgame's normal form).
+    \item \textbf{Substitute continuation payoffs.} Replace every minimal subgame by a single terminal node carrying the equilibrium payoff vector. This yields a smaller extensive-form game $T'$ with one less ``layer.''
+    \item \textbf{Recurse.} Apply Steps 1--3 to $T'$. Terminate when only the root remains; the strategies recorded along the way constitute an SPE.
+  \end{enumerate}
+}
+
+\rmkb[Why Backward Induction Produces an SPE]{
+  By construction, the strategies prescribed in each minimal subgame are a Nash equilibrium of that subgame. After substitution, the next iteration treats those subgames as terminal nodes with fixed payoffs, so any Nash equilibrium of the reduced game $T'$ remains a Nash equilibrium when expanded back. Iterating, the prescribed strategies form a Nash equilibrium in every subgame---which is exactly the SPE condition. The argument is the game-theoretic analogue of \textbf{dynamic programming}: a globally optimal plan is built by stitching together locally optimal continuations.
+}
+
+\rmkb[Verification via the One-Deviation Property]{
+  A practical corollary: to check that a candidate strategy profile $\sigma^*$ is an SPE, it suffices to verify, at every history (or every information set in the perfect-information case), that no player can profitably deviate by changing her action at that single node and reverting to $\sigma^*$ thereafter. This is the \textbf{one-shot deviation principle}, a finite-horizon analogue of the result we will state and prove for infinitely repeated games in Section~11.1. The principle reduces SPE verification from a global check across all alternative strategies to a local, period-by-period inequality at each node---precisely what the entry-deterrence example above (with Player 1's 15-period capacity constraint) implicitly relied on.
+}
+
+The backward-induction algorithm settles existence and provides a constructive solution method, but it does \emph{not} guarantee uniqueness: if a minimal subgame has multiple Nash equilibria, choosing different ones leads to different SPEs. This multiplicity is what powers the finite-horizon Folk Theorem (Section~11.3.2): when a stage game has several payoff-distinct NE, the choice of which NE to play in late periods can be used as a reward or punishment to sustain non-NE play in early periods.
 
 \ex[Centipede Game]{
 
