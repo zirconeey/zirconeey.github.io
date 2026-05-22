@@ -1,6 +1,8 @@
 {%- comment -%}
-  锆石小助手 —— 站内检索式问答小助手（纯前端，零后端、零成本、零攻击面）。
-  数据来自构建期自动生成的 /assistant-index.json，由 default.html 全站挂载。
+  锆石小助手 —— 站内问答小助手，由 default.html 全站挂载。
+  混合方案：前端先在 /assistant-index.json（构建期自动生成）里检索出候选条目，
+  再连同问题发给后端 DeepSeek 端点，让它用自然语言回答并挑出该推荐的卡片。
+  后端不可用 / 超预算 / 离线时自动降级回纯前端检索，体验不中断。
   整段用 raw 包裹：里面的 JS 模板字符串/对象字面量不会被 Liquid 误解析。
 {%- endcomment -%}
 {% raw %}
@@ -148,6 +150,7 @@
 (function () {
   'use strict';
   var INDEX_URL = '/assistant-index.json';
+  var AI_URL = 'https://zircon-urge.fly.dev/api/assistant';
   var idx = null, idxLoading = null, greeted = false;
 
   var fab   = document.getElementById('za-fab');
@@ -215,7 +218,7 @@
     });
     scored.sort(function (a, b) { return b.s - a.s; });
     var top = scored.length ? scored[0].s : 0;
-    var keep = scored.filter(function (x) { return x.s >= Math.max(3, top * 0.28); }).slice(0, 5);
+    var keep = scored.filter(function (x) { return x.s >= Math.max(3, top * 0.28); }).slice(0, 8);
     return { hits: keep.map(function (x) { return x.it; }), matIntent: matIntent };
   }
 
@@ -315,7 +318,7 @@
 
   function pushCards(lead, hits) {
     var x = bubble('bot');
-    addText(x.b, lead);
+    if (lead) addText(x.b, lead);
     hits.forEach(function (it) { x.b.appendChild(makeCard(it)); });
     scrollDown();
   }
@@ -338,6 +341,49 @@
     scrollDown();
   }
 
+  // ---------- 后端 AI（DeepSeek）----------
+  // 把检索到的候选条目 + 问题发给后端；成功返回 {reply, picks}，
+  // 任何失败 / 降级 / 离线都返回 null，由调用方退回纯检索。
+  function askAI(q, hits) {
+    var ctx = hits.slice(0, 8).map(function (h) {
+      return { title: h.title, category: h.category, summary: h.summary, type: h.type };
+    });
+    var ctrl = (typeof AbortController !== 'undefined') ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 22000) : null;
+    return fetch(AI_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: q, context: ctx }),
+      signal: ctrl ? ctrl.signal : undefined
+    }).then(function (r) {
+      if (timer) clearTimeout(timer);
+      return r.ok ? r.json() : null;
+    }).then(function (d) {
+      if (!d || d.fallback || !d.reply) return null;
+      var picks = Array.isArray(d.picks)
+        ? d.picks.filter(function (n) { return typeof n === 'number' && n >= 0; })
+        : [];
+      return { reply: String(d.reply), picks: picks };
+    }).catch(function () {
+      if (timer) clearTimeout(timer);
+      return null;
+    });
+  }
+
+  // 纯检索渲染（AI 不可用时的降级路径，也是 DeepSeek 接入前的原始行为）
+  function renderLocal(r, q) {
+    if (!r.hits.length) {
+      pushBot('没找到和「' + q + '」直接相关的内容 🥲\n换个说法试试，或者点下面的标签逛逛：');
+      pushChips();
+      return;
+    }
+    var hasMat = r.hits.some(function (h) { return h.type === 'material'; });
+    var lead = (r.matIntent && hasMat)
+      ? '为你找到这些资料，点「下载文件」直接保存：'
+      : '为你找到这些内容，点卡片就能跳过去：';
+    pushCards(lead, r.hits.slice(0, 5));
+  }
+
   // ---------- 对话主流程 ----------
   var INTRO = '你好，我是锆石小助手 ✦\n' +
     '告诉我你想找什么，我帮你从站里翻出来：\n' +
@@ -345,9 +391,9 @@
     '📎 想下载的课程资料（比如「实分析讲义」「中级宏观往年题」）\n' +
     '直接打字问我就行。';
 
-  var ABOUT = '我是这个网站的站内小助手，只会在周睿写过的文章、课程资料和百宝箱小工具里帮你找东西——' +
-    '找到文章给你卡片、点开直接跳转，找到资料给你下载按钮、点一下就能存。\n' +
-    '我不连任何外部 AI，所以不会瞎编，找不到就是站里确实还没有。';
+  var ABOUT = '我是这个网站的站内小助手——你问我问题，我会在周睿写过的文章、课程资料和百宝箱小工具里帮你找：' +
+    '文章给你卡片、点开直接跳转，资料给你下载按钮、点一下就能存。\n' +
+    '我只依据站里真实写过的内容回答，不会瞎编，找不到就是站里暂时还没有。';
 
   function handle(raw) {
     var q = (raw || '').trim();
@@ -362,19 +408,20 @@
     var typing = showTyping();
     loadIndex().then(function () {
       var r = search(q);
-      setTimeout(function () {
-        body.removeChild(typing);
-        if (!r.hits.length) {
-          pushBot('没找到和「' + q + '」直接相关的内容 🥲\n换个说法试试，或者点下面的标签逛逛：');
-          pushChips();
-          return;
+      return askAI(q, r.hits).then(function (ai) {
+        if (typing.parentNode) body.removeChild(typing);
+        if (ai) {
+          // AI 路径：自然语言回答 + AI 挑出的卡片
+          pushBot(ai.reply);
+          var picks = ai.picks
+            .map(function (i) { return r.hits[i]; })
+            .filter(Boolean);
+          if (picks.length) pushCards('', picks);
+        } else {
+          // 降级路径：纯检索
+          renderLocal(r, q);
         }
-        var hasMat = r.hits.some(function (h) { return h.type === 'material'; });
-        var lead = (r.matIntent && hasMat)
-          ? '为你找到这些资料，点「下载文件」直接保存：'
-          : '为你找到这些内容，点卡片就能跳过去：';
-        pushCards(lead, r.hits);
-      }, 240);
+      });
     }).catch(function () {
       if (typing.parentNode) body.removeChild(typing);
       pushBot('索引一时没加载出来，可能是网络问题 🙏 可以先用页面顶部的搜索框找找。');
