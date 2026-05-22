@@ -1,0 +1,407 @@
+{%- comment -%}
+  锆石小助手 —— 站内检索式问答小助手（纯前端，零后端、零成本、零攻击面）。
+  数据来自构建期自动生成的 /assistant-index.json，由 default.html 全站挂载。
+  整段用 raw 包裹：里面的 JS 模板字符串/对象字面量不会被 Liquid 误解析。
+{%- endcomment -%}
+{% raw %}
+<style>
+  #za-fab {
+    position: fixed; left: 1.5rem; bottom: 2rem; z-index: 1080;
+    width: 56px; height: 56px; border-radius: 50%; border: none; cursor: pointer;
+    background: var(--color-highlight); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 20px rgba(30,58,95,0.28);
+    transition: transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s;
+  }
+  #za-fab:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 10px 26px rgba(30,58,95,0.34); }
+  #za-fab:active { transform: scale(.94); }
+  #za-fab svg { width: 26px; height: 26px; }
+  #za-fab.za-hidden { transform: scale(0); opacity: 0; pointer-events: none; }
+
+  #za-panel {
+    position: fixed; left: 1.5rem; bottom: 2rem; z-index: 1085;
+    width: 372px; max-width: calc(100vw - 3rem);
+    height: 552px; max-height: calc(100vh - 4rem);
+    background: var(--color-bg); border: 1px solid var(--color-border);
+    border-radius: 16px; box-shadow: 0 16px 48px rgba(20,30,50,0.28);
+    display: flex; flex-direction: column; overflow: hidden;
+    opacity: 0; transform: translateY(16px) scale(.98); pointer-events: none;
+    transition: opacity .22s ease, transform .22s cubic-bezier(.4,0,.2,1);
+  }
+  #za-panel.za-open { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+
+  .za-head {
+    background: var(--color-accent); color: #fff;
+    padding: .85rem 1rem; display: flex; align-items: center; gap: .5rem; flex: none;
+  }
+  .za-head h3 { font-size: 1rem; font-weight: 600; margin: 0; flex: 1; font-family: var(--font-display); }
+  .za-head .za-sub { font-size: .72rem; opacity: .8; font-weight: 400; }
+  .za-close {
+    background: transparent; border: none; color: #fff; cursor: pointer;
+    font-size: 1.3rem; line-height: 1; padding: 0 .2rem; opacity: .85;
+  }
+  .za-close:hover { opacity: 1; }
+
+  .za-body {
+    flex: 1; overflow-y: auto; padding: 1rem .9rem;
+    display: flex; flex-direction: column; gap: .75rem;
+    background: var(--color-bg-warm);
+  }
+  .za-msg { display: flex; }
+  .za-msg.user { justify-content: flex-end; }
+  .za-bubble {
+    max-width: 86%; padding: .6rem .8rem; border-radius: 14px;
+    font-size: .9rem; line-height: 1.65; word-break: break-word;
+  }
+  .za-msg.bot  .za-bubble { background: var(--color-bg); border: 1px solid var(--color-border); border-bottom-left-radius: 4px; color: var(--color-text); }
+  .za-msg.user .za-bubble { background: var(--color-accent); color: #fff; border-bottom-right-radius: 4px; }
+
+  .za-card {
+    display: block; text-decoration: none; margin-top: .5rem;
+    background: var(--color-bg); border: 1px solid var(--color-border);
+    border-radius: 12px; padding: .65rem .75rem; transition: border-color .15s, transform .15s;
+  }
+  a.za-card:hover { border-color: var(--color-highlight); transform: translateX(2px); }
+  .za-ctype { font-size: .68rem; color: var(--color-highlight); font-weight: 600; letter-spacing: .03em; }
+  .za-ctitle { font-size: .9rem; font-weight: 600; color: var(--color-ink); margin: .15rem 0; line-height: 1.4; }
+  .za-ccat { font-size: .72rem; color: var(--color-light); }
+  .za-csum { font-size: .78rem; color: var(--color-muted); margin-top: .3rem; line-height: 1.55; }
+  .za-cact { display: flex; gap: .5rem; margin-top: .55rem; flex-wrap: wrap; }
+  .za-btn-dl {
+    display: inline-flex; align-items: center; gap: .3rem; text-decoration: none;
+    background: var(--color-highlight); color: #fff; font-size: .78rem; font-weight: 600;
+    padding: .32rem .7rem; border-radius: 999px;
+  }
+  .za-btn-dl:hover { color: #fff; filter: brightness(1.06); }
+  .za-link {
+    display: inline-flex; align-items: center; text-decoration: none;
+    color: var(--color-accent); font-size: .78rem; font-weight: 600;
+    padding: .32rem .6rem; border-radius: 999px; border: 1px solid var(--color-border);
+  }
+  .za-link:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+  .za-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .55rem; }
+  .za-chip {
+    background: var(--color-bg); border: 1px solid var(--color-border); cursor: pointer;
+    color: var(--color-accent); font-size: .78rem; font-family: inherit;
+    padding: .32rem .65rem; border-radius: 999px; transition: border-color .15s;
+  }
+  .za-chip:hover { border-color: var(--color-highlight); }
+
+  .za-typing span {
+    display: inline-block; width: 6px; height: 6px; margin: 0 1px; border-radius: 50%;
+    background: var(--color-light); animation: za-blink 1.2s infinite both;
+  }
+  .za-typing span:nth-child(2) { animation-delay: .2s; }
+  .za-typing span:nth-child(3) { animation-delay: .4s; }
+  @keyframes za-blink { 0%,80%,100% { opacity: .25; } 40% { opacity: 1; } }
+
+  .za-foot {
+    flex: none; display: flex; gap: .5rem; padding: .7rem .8rem;
+    border-top: 1px solid var(--color-border); background: var(--color-bg);
+  }
+  .za-input {
+    flex: 1; border: 1px solid var(--color-border); border-radius: 999px;
+    padding: .5rem .9rem; font-size: .88rem; background: var(--color-bg-warm);
+    color: var(--color-text); outline: none; font-family: inherit;
+  }
+  .za-input:focus { border-color: var(--color-highlight); }
+  .za-send {
+    flex: none; width: 38px; height: 38px; border-radius: 50%; border: none; cursor: pointer;
+    background: var(--color-accent); color: #fff; display: flex; align-items: center; justify-content: center;
+  }
+  .za-send:hover { filter: brightness(1.1); }
+  .za-send svg { width: 18px; height: 18px; }
+
+  @media (max-width: 600px) {
+    #za-fab { left: 1rem; bottom: 1.5rem; }
+    #za-panel {
+      left: 0; right: 0; bottom: 0; width: 100%; max-width: 100%;
+      height: 82vh; max-height: 82vh; border-radius: 16px 16px 0 0;
+    }
+  }
+</style>
+
+<button id="za-fab" aria-label="打开站内小助手" title="问问锆石小助手">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.4 8.5 8.5 0 0 1-3.9-.9L3 21l1.9-5.6a8.38 8.38 0 0 1-.9-3.9 8.5 8.5 0 0 1 8.5-8.4 8.38 8.38 0 0 1 8.5 8.4z"/>
+  </svg>
+</button>
+
+<div id="za-panel" role="dialog" aria-label="站内小助手">
+  <div class="za-head">
+    <h3>锆石小助手 ✦ <span class="za-sub">站内检索</span></h3>
+    <button class="za-close" aria-label="关闭">×</button>
+  </div>
+  <div class="za-body" id="za-body"></div>
+  <div class="za-foot">
+    <input type="text" class="za-input" id="za-input" placeholder="想找什么？比如「实分析讲义」" autocomplete="off">
+    <button class="za-send" id="za-send" aria-label="发送">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var INDEX_URL = '/assistant-index.json';
+  var idx = null, idxLoading = null, greeted = false;
+
+  var fab   = document.getElementById('za-fab');
+  var panel = document.getElementById('za-panel');
+  var body  = document.getElementById('za-body');
+  var input = document.getElementById('za-input');
+  var send  = document.getElementById('za-send');
+  if (!fab || !panel) return;
+
+  // ---------- 索引加载 ----------
+  function loadIndex() {
+    if (idx) return Promise.resolve(idx);
+    if (idxLoading) return idxLoading;
+    idxLoading = fetch(INDEX_URL)
+      .then(function (r) { if (!r.ok) throw new Error('idx ' + r.status); return r.json(); })
+      .then(function (data) {
+        idx = data.map(function (it) {
+          return {
+            title: it.title || '', url: it.url || '', category: it.category || '',
+            type: it.type || 'article', download: it.download || '', summary: it.summary || '',
+            blob: ((it.title || '') + ' ' + (it.keywords || '') + ' ' + (it.summary || '')).toLowerCase(),
+            titleLow: (it.title || '').toLowerCase()
+          };
+        });
+        return idx;
+      });
+    return idxLoading;
+  }
+
+  // ---------- 检索 ----------
+  // 纯噪声词：命中也不计分，避免「什么」「资料」之类把无关项拉上来
+  var STOP = {'什么':1,'怎么':1,'怎样':1,'如何':1,'哪些':1,'哪个':1,'介绍':1,'想找':1,
+    '我想':1,'有没':1,'没有':1,'可以':1,'一下':1,'请问':1,'告诉':1,'关于':1,'这个':1,
+    '网站':1,'文章':1,'资料':1,'帮我':1,'谢谢':1,'一篇':1,'推荐':1,'看看':1,'是什':1};
+
+  function terms(q) {
+    q = (q || '').toLowerCase();
+    var out = [], seen = {};
+    function add(t) { if (t && t.length >= 2 && !seen[t]) { seen[t] = 1; out.push(t); } }
+    (q.match(/[a-z0-9]+/g) || []).forEach(add);
+    (q.match(/[一-鿿]+/g) || []).forEach(function (run) {
+      if (run.length >= 2 && run.length <= 6) add(run);
+      var i;
+      for (i = 0; i + 3 <= run.length; i++) add(run.slice(i, i + 3));
+      for (i = 0; i + 2 <= run.length; i++) add(run.slice(i, i + 2));
+    });
+    return out;
+  }
+
+  function search(q) {
+    var ts = terms(q);
+    var matIntent = /资料|下载|pdf|讲义|习题|作业|真题|试卷|往年题|课件|速查|cheat/i.test(q);
+    var scored = [];
+    idx.forEach(function (it) {
+      var s = 0, hit = 0;
+      ts.forEach(function (t) {
+        if (STOP[t]) return;
+        var w = t.length;
+        if (it.blob.indexOf(t) >= 0) { s += w; hit++; }
+        if (it.titleLow.indexOf(t) >= 0) s += w * 2;
+      });
+      if (!hit) return;
+      if (matIntent && it.type === 'material') s += 6;
+      scored.push({ it: it, s: s });
+    });
+    scored.sort(function (a, b) { return b.s - a.s; });
+    var top = scored.length ? scored[0].s : 0;
+    var keep = scored.filter(function (x) { return x.s >= Math.max(3, top * 0.28); }).slice(0, 5);
+    return { hits: keep.map(function (x) { return x.it; }), matIntent: matIntent };
+  }
+
+  // ---------- 渲染 ----------
+  function scrollDown() { body.scrollTop = body.scrollHeight; }
+
+  function bubble(role) {
+    var msg = document.createElement('div');
+    msg.className = 'za-msg ' + role;
+    var b = document.createElement('div');
+    b.className = 'za-bubble';
+    msg.appendChild(b);
+    body.appendChild(msg);
+    return { msg: msg, b: b };
+  }
+
+  function addText(el, text) {
+    String(text).split('\n').forEach(function (line, i) {
+      if (i) el.appendChild(document.createElement('br'));
+      el.appendChild(document.createTextNode(line));
+    });
+  }
+
+  function pushUser(text) {
+    var x = bubble('user');
+    addText(x.b, text);
+    scrollDown();
+  }
+
+  function pushBot(text) {
+    var x = bubble('bot');
+    addText(x.b, text);
+    scrollDown();
+    return x.b;
+  }
+
+  function showTyping() {
+    var x = bubble('bot');
+    var t = document.createElement('span');
+    t.className = 'za-typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    x.b.appendChild(t);
+    scrollDown();
+    return x.msg;
+  }
+
+  var TYPE_LABEL = { article: '📄 文章', material: '📎 资料', tool: '🧩 小工具' };
+
+  function makeCard(it) {
+    var isMat = it.type === 'material';
+    var card = document.createElement(isMat ? 'div' : 'a');
+    card.className = 'za-card' + (isMat ? ' material' : '');
+    if (!isMat) card.href = it.url;
+
+    var type = document.createElement('div');
+    type.className = 'za-ctype';
+    type.textContent = TYPE_LABEL[it.type] || '📄 文章';
+    card.appendChild(type);
+
+    var title = document.createElement('div');
+    title.className = 'za-ctitle';
+    title.textContent = it.title;
+    card.appendChild(title);
+
+    var cat = document.createElement('div');
+    cat.className = 'za-ccat';
+    cat.textContent = it.category;
+    card.appendChild(cat);
+
+    if (it.summary && it.summary.length >= 10) {
+      var sum = document.createElement('div');
+      sum.className = 'za-csum';
+      sum.textContent = it.summary;
+      card.appendChild(sum);
+    }
+
+    if (isMat) {
+      var act = document.createElement('div');
+      act.className = 'za-cact';
+      if (it.download) {
+        var dl = document.createElement('a');
+        dl.className = 'za-btn-dl';
+        dl.href = it.download;
+        dl.setAttribute('download', '');
+        dl.textContent = '⬇ 下载文件';
+        act.appendChild(dl);
+      }
+      var more = document.createElement('a');
+      more.className = 'za-link';
+      more.href = it.url;
+      more.textContent = '查看详情';
+      act.appendChild(more);
+      card.appendChild(act);
+    }
+    return card;
+  }
+
+  function pushCards(lead, hits) {
+    var x = bubble('bot');
+    addText(x.b, lead);
+    hits.forEach(function (it) { x.b.appendChild(makeCard(it)); });
+    scrollDown();
+  }
+
+  var CHIPS = ['报税攻略', '实分析讲义', 'VPN 是什么', '有什么小游戏', '推荐个菜谱'];
+
+  function pushChips() {
+    var x = bubble('bot');
+    addText(x.b, '不知道问什么？点一个试试：');
+    var wrap = document.createElement('div');
+    wrap.className = 'za-chips';
+    CHIPS.forEach(function (c) {
+      var chip = document.createElement('button');
+      chip.className = 'za-chip';
+      chip.textContent = c;
+      chip.addEventListener('click', function () { handle(c); });
+      wrap.appendChild(chip);
+    });
+    x.b.appendChild(wrap);
+    scrollDown();
+  }
+
+  // ---------- 对话主流程 ----------
+  var INTRO = '你好，我是锆石小助手 ✦\n' +
+    '告诉我你想找什么，我帮你从站里翻出来：\n' +
+    '📄 想读的文章（比如「VPN 原理」「报税怎么弄」）\n' +
+    '📎 想下载的课程资料（比如「实分析讲义」「中级宏观往年题」）\n' +
+    '直接打字问我就行。';
+
+  var ABOUT = '我是这个网站的站内小助手，只会在周睿写过的文章、课程资料和百宝箱小工具里帮你找东西——' +
+    '找到文章给你卡片、点开直接跳转，找到资料给你下载按钮、点一下就能存。\n' +
+    '我不连任何外部 AI，所以不会瞎编，找不到就是站里确实还没有。';
+
+  function handle(raw) {
+    var q = (raw || '').trim();
+    if (!q) return;
+    pushUser(q);
+    input.value = '';
+
+    if (/^(你好|您好|hi|hello|hey|嗨|哈喽|在吗)\b?/i.test(q)) { pushBot(INTRO); pushChips(); return; }
+    if (/你是谁|你是什么|你能(做什么|干什么)|怎么用你|你叫什么|你会什么|帮助/.test(q)) { pushBot(ABOUT); return; }
+    if (/^(谢谢|多谢|thx|thanks|感谢)/i.test(q)) { pushBot('不客气～还想找别的随时问我 🙂'); return; }
+
+    var typing = showTyping();
+    loadIndex().then(function () {
+      var r = search(q);
+      setTimeout(function () {
+        body.removeChild(typing);
+        if (!r.hits.length) {
+          pushBot('没找到和「' + q + '」直接相关的内容 🥲\n换个说法试试，或者点下面的标签逛逛：');
+          pushChips();
+          return;
+        }
+        var hasMat = r.hits.some(function (h) { return h.type === 'material'; });
+        var lead = (r.matIntent && hasMat)
+          ? '为你找到这些资料，点「下载文件」直接保存：'
+          : '为你找到这些内容，点卡片就能跳过去：';
+        pushCards(lead, r.hits);
+      }, 240);
+    }).catch(function () {
+      if (typing.parentNode) body.removeChild(typing);
+      pushBot('索引一时没加载出来，可能是网络问题 🙏 可以先用页面顶部的搜索框找找。');
+    });
+  }
+
+  // ---------- 开关 ----------
+  function openPanel() {
+    panel.classList.add('za-open');
+    fab.classList.add('za-hidden');
+    if (!greeted) { greeted = true; pushBot(INTRO); pushChips(); loadIndex().catch(function () {}); }
+    setTimeout(function () { input.focus(); }, 250);
+  }
+  function closePanel() {
+    panel.classList.remove('za-open');
+    fab.classList.remove('za-hidden');
+  }
+
+  fab.addEventListener('click', openPanel);
+  panel.querySelector('.za-close').addEventListener('click', closePanel);
+  send.addEventListener('click', function () { handle(input.value); });
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); handle(input.value); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && panel.classList.contains('za-open')) closePanel();
+  });
+})();
+</script>
+{% endraw %}

@@ -1,0 +1,88 @@
+---
+layout: null
+---
+{%- comment -%}
+  锆石小助手的检索索引。构建期自动生成，每次更新网站随之刷新。
+  字段：
+    type     — article（文章）/ material（可下载资料）/ tool（小工具）
+    download — 仅 material：可直接下载的文件地址（pdf_url 或 download_url）
+    summary  — 卡片上展示的一句话；优先 front-matter 的 summary，否则取正文首段
+    keywords — 检索用大字符串：标题 + keywords + tags + 课程别名 + 分类，再过同义词扩展
+  检索逻辑全在前端 _includes/assistant.html，本文件只负责喂数据。
+{%- endcomment -%}
+[
+  {% for item in site.notes %}
+
+    {%- assign cat_str = "" -%}
+    {%- if item.main_category -%}
+      {%- assign cat_str = item.main_category -%}
+    {%- elsif item.discipline -%}
+      {%- assign cat_str = "学习资料" -%}
+    {%- endif -%}
+    {%- if item.discipline -%}
+      {%- if cat_str != "" -%}{%- assign cat_str = cat_str | append: " · " -%}{%- endif -%}
+      {%- assign cat_str = cat_str | append: item.discipline -%}
+    {%- endif -%}
+    {%- if item.course -%}
+      {%- if cat_str != "" -%}{%- assign cat_str = cat_str | append: " · " -%}{%- endif -%}
+      {%- assign cat_str = cat_str | append: item.course -%}
+    {%- endif -%}
+    {%- if item.sub_category -%}
+      {%- if cat_str != "" -%}{%- assign cat_str = cat_str | append: " · " -%}{%- endif -%}
+      {%- assign cat_str = cat_str | append: item.sub_category -%}
+    {%- endif -%}
+    {%- if item.material_type -%}
+      {%- if cat_str != "" -%}{%- assign cat_str = cat_str | append: " · " -%}{%- endif -%}
+      {%- assign cat_str = cat_str | append: item.material_type -%}
+    {%- endif -%}
+    {%- if cat_str == "" -%}
+      {%- if item.categories.size > 0 -%}
+        {%- assign cat_str = item.categories | first -%}
+      {%- else -%}
+        {%- assign cat_str = "未分类" -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- assign kw = item.title -%}
+    {%- if item.keywords -%}{%- assign _k = item.keywords | join: ' ' -%}{%- assign kw = kw | append: ' ' | append: _k -%}{%- endif -%}
+    {%- if item.tags -%}{%- assign _t = item.tags | join: ' ' -%}{%- assign kw = kw | append: ' ' | append: _t -%}{%- endif -%}
+    {%- assign _al = site.data.course_aliases[item.course] -%}
+    {%- if _al -%}{%- assign kw = kw | append: ' ' | append: _al -%}{%- endif -%}
+    {%- assign kw = kw | append: ' ' | append: cat_str -%}
+    {%- capture kw -%}{% include search-expand.html text=kw %}{%- endcapture -%}
+
+    {%- assign _dl = item.download_url | default: item.pdf_url -%}
+    {%- if _dl -%}{%- assign _type = "material" -%}{%- else -%}{%- assign _type = "article" -%}{%- endif -%}
+
+    {%- assign _sum = item.summary -%}
+    {%- unless _sum -%}{%- assign _sum = item.excerpt | strip_html | strip_newlines -%}{%- endunless -%}
+    {%- assign _sum = _sum | strip | truncate: 96 -%}
+
+    {
+      "title"   : {{ item.title | jsonify }},
+      "url"     : "{{ site.baseurl }}{{ item.url }}",
+      "category": {{ cat_str | jsonify }},
+      "type"    : "{{ _type }}",
+      "download": "{% if _dl %}{{ site.baseurl }}{{ _dl }}{% endif %}",
+      "summary" : {{ _sum | jsonify }},
+      "keywords": {{ kw | jsonify }},
+      "date"    : "{{ item.date | date: '%Y-%m-%d' }}"
+    },
+  {% endfor %}
+
+  {%- assign live_tools = site.data.toolbox | where: "status", "live" -%}
+  {% for tool in live_tools %}
+    {%- assign tkw = tool.name | append: ' ' | append: tool.tagline | append: ' ' | append: tool.category -%}
+    {%- if tool.subcategory -%}{%- assign tkw = tkw | append: ' ' | append: tool.subcategory -%}{%- endif -%}
+    {
+      "title"   : {{ tool.name | jsonify }},
+      "url"     : "{{ site.baseurl }}{{ tool.url }}",
+      "category": {{ "百宝箱 · " | append: tool.category | jsonify }},
+      "type"    : "tool",
+      "download": "",
+      "summary" : {{ tool.tagline | jsonify }},
+      "keywords": {{ tkw | jsonify }},
+      "date"    : ""
+    }{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]
