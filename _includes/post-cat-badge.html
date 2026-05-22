@@ -1,8 +1,0 @@
-{%- comment -%}
-  文章前的分类小标签，统一逻辑：博客型用 main_category；
-  资料型没有 main_category 用途的分组，统一显示「学习资料」。
-  用法：{% include post-cat-badge.html post=post %}
-{%- endcomment -%}
-{%- assign _c = include.post.main_category -%}
-{%- if _c == nil and include.post.discipline -%}{%- assign _c = "学习资料" -%}{%- endif -%}
-{%- if _c -%}<span class="cat-badge">{{ _c }}</span>{%- endif -%}
