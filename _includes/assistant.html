@@ -401,7 +401,7 @@
     pushUser(q);
     input.value = '';
 
-    if (/^(你好|您好|hi|hello|hey|嗨|哈喽|在吗)\b?/i.test(q)) { pushBot(INTRO); pushChips(); return; }
+    if (/^(你好|您好|hi|hello|hey|嗨|哈喽|在吗)/i.test(q)) { pushBot(INTRO); pushChips(); return; }
     if (/你是谁|你是什么|你能(做什么|干什么)|怎么用你|你叫什么|你会什么|帮助/.test(q)) { pushBot(ABOUT); return; }
     if (/^(谢谢|多谢|thx|thanks|感谢)/i.test(q)) { pushBot('不客气～还想找别的随时问我 🙂'); return; }
 
